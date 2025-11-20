@@ -1,0 +1,7 @@
+{
+  "tasks": [
+    "prompts/new-products-prompt.md",
+    "prompts/whitelist-updates-prompt.md",
+    "prompts/insights-prompt.md"
+  ]
+}

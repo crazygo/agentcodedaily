@@ -1,21 +1,30 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { ClaudeAgent } from '../agent/ClaudeAgent';
-import {
-  getSystemPrompt,
-  getNewProductsPrompt,
-  getWhitelistUpdatesPrompt,
-  getInsightsPrompt,
-} from '../agent/prompts';
-import { ResearchResult, WhitelistConfig, ProductDiscovery, ProductUpdate, TechnicalInsight } from '../types';
+import { getSystemPrompt } from '../agent/prompts';
+import { ResearchResult, TasksConfig } from '../types';
 
 /**
- * Load whitelist configuration
+ * Load tasks configuration
  */
-function loadWhitelist(): WhitelistConfig {
-  const configPath = path.resolve(process.cwd(), 'config/whitelist.json');
+function loadTasksConfig(): TasksConfig {
+  const configPath = path.resolve(process.cwd(), 'config/tasks.json');
   const configData = fs.readFileSync(configPath, 'utf-8');
   return JSON.parse(configData);
+}
+
+/**
+ * Load prompt from file and replace placeholders
+ */
+function loadPrompt(promptFile: string): string {
+  const promptPath = path.resolve(process.cwd(), promptFile);
+  let prompt = fs.readFileSync(promptPath, 'utf-8');
+
+  // Replace current date placeholder
+  const date = new Date().toISOString().split('T')[0];
+  prompt = prompt.replace(/{INSERT_CURRENT_DATE}/g, date);
+
+  return prompt;
 }
 
 /**
@@ -75,62 +84,36 @@ function parseAgentResponse<T>(response: string, taskName: string = 'task'): T {
 export async function runResearchWorkflow(): Promise<ResearchResult> {
   console.log('\n🔬 Starting research workflow...\n');
 
-  const config = loadWhitelist();
+  const tasksConfig = loadTasksConfig();
   const agent = new ClaudeAgent();
   const systemPrompt = getSystemPrompt();
 
-  // Research new products
-  console.log('📦 Researching new products...');
-  const newProductsPrompt = getNewProductsPrompt(config);
-  const newProductsResponse = await agent.run(systemPrompt, newProductsPrompt);
-  let newProducts: ProductDiscovery[] = [];
+  const results: any[] = [];
 
-  try {
-    newProducts = parseAgentResponse<ProductDiscovery[]>(newProductsResponse, 'new products');
-    console.log(`   ✅ Found ${newProducts.length} new products\n`);
-  } catch (error) {
-    console.error('   ❌ Unexpected error parsing new products:', error);
-    console.log('   📄 Raw response (first 1000 chars):', newProductsResponse.slice(0, 1000));
-    console.log('   📏 Full response length:', newProductsResponse.length, 'characters\n');
-    newProducts = [];
-  }
+  // Execute each task
+  for (let i = 0; i < tasksConfig.tasks.length; i++) {
+    const promptFile = tasksConfig.tasks[i];
+    const taskName = `Task ${i + 1}`;
 
-  // Research whitelist updates
-  console.log('🔄 Checking whitelist product updates...');
-  const whitelistPrompt = getWhitelistUpdatesPrompt(config);
-  const whitelistResponse = await agent.run(systemPrompt, whitelistPrompt);
-  let whitelistUpdates: ProductUpdate[] = [];
+    console.log(`📋 ${taskName}: ${promptFile}`);
 
-  try {
-    whitelistUpdates = parseAgentResponse<ProductUpdate[]>(whitelistResponse, 'whitelist updates');
-    console.log(`   ✅ Found ${whitelistUpdates.length} updates\n`);
-  } catch (error) {
-    console.error('   ❌ Unexpected error parsing updates:', error);
-    console.log('   📄 Raw response (first 1000 chars):', whitelistResponse.slice(0, 1000));
-    console.log('   📏 Full response length:', whitelistResponse.length, 'characters\n');
-    whitelistUpdates = [];
-  }
+    try {
+      const prompt = loadPrompt(promptFile);
+      const response = await agent.run(systemPrompt, prompt);
+      const data = parseAgentResponse<any[]>(response, taskName);
 
-  // Research technical insights
-  console.log('💡 Gathering technical insights and opinions...');
-  const insightsPrompt = getInsightsPrompt(config);
-  const insightsResponse = await agent.run(systemPrompt, insightsPrompt);
-  let insights: TechnicalInsight[] = [];
-
-  try {
-    insights = parseAgentResponse<TechnicalInsight[]>(insightsResponse, 'insights');
-    console.log(`   ✅ Found ${insights.length} insights\n`);
-  } catch (error) {
-    console.error('   ❌ Unexpected error parsing insights:', error);
-    console.log('   📄 Raw response (first 1000 chars):', insightsResponse.slice(0, 1000));
-    console.log('   📏 Full response length:', insightsResponse.length, 'characters\n');
-    insights = [];
+      results.push(data);
+      console.log(`   ✅ Found ${data.length} items\n`);
+    } catch (error) {
+      console.error(`   ❌ Error executing ${taskName}:`, error);
+      results.push([]);
+    }
   }
 
   return {
-    newProducts,
-    whitelistUpdates,
-    insights,
+    newProducts: results[0] || [],
+    whitelistUpdates: results[1] || [],
+    insights: results[2] || [],
     generatedAt: new Date().toISOString(),
   };
 }

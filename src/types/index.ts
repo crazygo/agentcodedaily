@@ -1,38 +1,3 @@
-export interface Product {
-  name: string;
-  category: string;
-  url: string;
-  github?: string;
-  description: string;
-}
-
-export interface Leader {
-  name: string;
-  twitter?: string;
-  blog?: string;
-  youtube?: string;
-  topics: string[];
-}
-
-export interface WhitelistConfig {
-  products: Product[];
-  leaders: Leader[];
-  sources: {
-    productHunt: {
-      enabled: boolean;
-      tags: string[];
-    };
-    github: {
-      enabled: boolean;
-      topics: string[];
-    };
-    hackernews: {
-      enabled: boolean;
-      keywords: string[];
-    };
-  };
-}
-
 export interface ResearchResult {
   newProducts: ProductDiscovery[];
   whitelistUpdates: ProductUpdate[];
@@ -66,4 +31,8 @@ export interface TechnicalInsight {
   url?: string;
   topics: string[];
   type: 'technical' | 'opinion' | 'tutorial' | 'discussion';
+}
+
+export interface TasksConfig {
+  tasks: string[];
 }
