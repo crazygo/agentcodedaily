@@ -20,7 +20,7 @@ if git rev-parse --verify ph-pages >/dev/null 2>&1; then
     else
       echo "❌ Failed to merge changes from remote. This may be due to:"
       echo "   - Merge conflicts that need manual resolution"
-      echo "   Please resolve conflicts manually and re-run the workflow"
+      echo "   Please resolve merge conflicts manually and re-run the workflow"
       exit 1
     fi
   else
