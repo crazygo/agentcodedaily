@@ -45,6 +45,11 @@ jobs:
       - name: Build project
         run: yarn build
 
+      - name: Install Claude CLI
+        run: |
+          curl -fsSL https://claude.ai/install.sh | bash
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
       - name: Verify environment variables
         env:
           ANTHROPIC_API_KEY: ''
@@ -65,14 +70,14 @@ jobs:
             echo "ℹ️  ANTHROPIC_BASE_URL is not set (optional)"
           fi
 
-      - name: Execute auto-update
+      - name: Execute auto-update workflow
         env:
           ANTHROPIC_API_KEY: ''
           ANTHROPIC_AUTH_TOKEN: ${{ secrets.ANTHROPIC_AUTH_TOKEN }}
           ANTHROPIC_BASE_URL: ${{ secrets.ANTHROPIC_BASE_URL }}
         run: |
-          # Run the auto-update workflow using our project
-          yarn update
+          # Run the auto-update prompt workflow using Claude CLI
+          claude -p prompts/auto-update-prompt.md
 
       - name: Verify execution
         run: |

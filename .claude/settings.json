@@ -1,20 +1,20 @@
 {
   "model": "glm-4.6",
-  "hooks": [
-    {
-      "id": "hook-1762504620630",
-      "event": "UserPromptSubmit",
-      "command": "python3 ./scripts/repeat.py",
-      "timeout": 60,
-      "enabled": true
-    }
-  ],
+  "hooks": [],
   "hooksEnabled": true,
   "permissions": {
     "allow": [
-      "Edit(/Users/admin/ZCodeProject/package.json)",
-      "Bash(npm:*)",
-      "Read(/Users/admin/Codespaces/package.json)"
-    ]
-  }
+      "Bash(git status:*)",
+      "Bash(mkdir:*)",
+      "WebFetch",
+      "Bash(find:*)",
+      "Bash(cd:*)",
+      "Bash(git:*)",
+      "Bash(ls:*)",
+      "Edit"
+    ],
+    "deny": [],
+    "ask": []
+  },
+  "outputStyle": "coding-vibes"
 }
