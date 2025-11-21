@@ -11,6 +11,15 @@ git fetch origin
 if git rev-parse --verify ph-pages >/dev/null 2>&1; then
   git checkout ph-pages
   echo "✅ Switched to existing ph-pages branch"
+  
+  # Pull latest changes from remote ph-pages branch
+  echo "🔄 Pulling latest changes from origin/ph-pages..."
+  if git pull --rebase origin ph-pages; then
+    echo "✅ Successfully pulled latest changes"
+  else
+    echo "❌ Failed to pull changes (may need manual conflict resolution)"
+    exit 1
+  fi
 else
   git checkout -b ph-pages
   echo "✅ Created new ph-pages branch"
