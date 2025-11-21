@@ -38,18 +38,13 @@ jobs:
       - name: Build project
         run: yarn build
 
-      - name: Setup Claude CLI
-        run: |
-          # Install Claude CLI (adjust based on actual installation method)
-          npm install -g @anthropic-ai/claude-cli || echo "Claude CLI already installed"
-
-      - name: Execute auto-update via Claude
+      - name: Execute auto-update
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           ANTHROPIC_BASE_URL: ${{ secrets.ANTHROPIC_BASE_URL }}
         run: |
-          # Run Claude with the prompt file
-          claude -p prompts/auto-update-prompt.md
+          # Run the auto-update workflow using our project
+          yarn update
 
       - name: Verify execution
         run: |
