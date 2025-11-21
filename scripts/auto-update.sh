@@ -11,6 +11,22 @@ git fetch origin
 if git rev-parse --verify ph-pages >/dev/null 2>&1; then
   git checkout ph-pages
   echo "✅ Switched to existing ph-pages branch"
+  
+  # Pull latest changes from remote ph-pages branch if it exists
+  if git ls-remote --exit-code --heads origin ph-pages >/dev/null 2>&1; then
+    echo "🔄 Pulling latest changes from origin/ph-pages..."
+    if git pull --rebase origin ph-pages; then
+      echo "✅ Successfully pulled latest changes"
+    else
+      echo "❌ Failed to rebase changes from remote. This may be due to:"
+      echo "   - Merge conflicts that need manual resolution"
+      echo "   - Diverged history between local and remote branches"
+      echo "   Please resolve conflicts manually and re-run the workflow"
+      exit 1
+    fi
+  else
+    echo "ℹ️  Remote ph-pages branch not found, will create on push"
+  fi
 else
   git checkout -b ph-pages
   echo "✅ Created new ph-pages branch"
