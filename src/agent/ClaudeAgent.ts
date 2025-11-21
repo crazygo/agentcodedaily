@@ -39,6 +39,12 @@ export class ClaudeAgent {
       const apiKey = process.env.ANTHROPIC_API_KEY;
       const baseUrl = process.env.ANTHROPIC_BASE_URL;
 
+      // Debug: Log environment variable status (without exposing the key)
+      console.log('🔍 Environment check:');
+      console.log(`   ANTHROPIC_API_KEY: ${apiKey ? `✅ Set (length: ${apiKey.length})` : '❌ Not set'}`);
+      console.log(`   ANTHROPIC_BASE_URL: ${baseUrl ? `✅ Set (${baseUrl})` : 'ℹ️  Not set (optional)'}`);
+      console.log('');
+
       if (!apiKey) {
         throw new Error('ANTHROPIC_API_KEY environment variable is required');
       }
