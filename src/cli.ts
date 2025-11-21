@@ -82,12 +82,13 @@ async function main() {
         // Replace date placeholder
         promptContent = promptContent.replace(/{INSERT_CURRENT_DATE}/g, targetDate);
 
-        const fullPrompt = `${promptContent}\n\n## Input Markdown Data\n\n${combinedMarkdown}`;
+        // Add workspace directory context
+        const fullPrompt = `## Working Directory Context\n\nYour current working directory is: \`${workspaceDir}\`\n\nAll file operations should be relative to this directory.\n\n---\n\n${promptContent}\n\n## Input Markdown Data\n\n${combinedMarkdown}`;
 
         console.log('🤖 Processing with Claude Agent SDK...');
 
-        // Let Claude Agent SDK handle everything
-        const agent = new ClaudeAgent();
+        // Pass workspace directory to agent
+        const agent = new ClaudeAgent({ cwd: workspaceDir });
         const response = await agent.run('You are an expert web developer. Generate HTML based on the provided instructions.', fullPrompt);
 
         // Extract HTML from response (Claude Agent SDK should handle this properly)

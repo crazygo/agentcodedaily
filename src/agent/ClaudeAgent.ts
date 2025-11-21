@@ -6,6 +6,7 @@ dotenv.config();
 export interface AgentConfig {
   model?: string;
   maxTurns?: number;
+  cwd?: string;
 }
 
 export class ClaudeAgent {
@@ -15,6 +16,7 @@ export class ClaudeAgent {
     this.config = {
       model: config?.model || process.env.ANTHROPIC_MODEL || 'claude-3-5-sonnet-20241022',
       maxTurns: config?.maxTurns || 30,
+      cwd: config?.cwd,
     };
   }
 
@@ -55,6 +57,7 @@ export class ClaudeAgent {
           systemPrompt,
           maxTurns: this.config.maxTurns,
           permissionMode: 'bypassPermissions', // Skip permission prompts
+          cwd: this.config.cwd || process.cwd(), // Set working directory
           // Explicitly pass environment variables to SDK
           env: {
             ...process.env,

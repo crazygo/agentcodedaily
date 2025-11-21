@@ -15,8 +15,8 @@ export async function runUpdate(workspacePath?: string): Promise<void> {
   console.log(`📁 Workspace: ${workspace}\n`);
 
   try {
-    // Run the research workflow
-    const result = await runResearchWorkflow();
+    // Run the research workflow with workspace directory
+    const result = await runResearchWorkflow(workspace);
 
     // Save results to files
     const reportPath = path.join(workspace, 'report.md');

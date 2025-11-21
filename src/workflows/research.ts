@@ -35,10 +35,10 @@ function getTaskName(promptFile: string): string {
  * Main research workflow
  * Executes all configured tasks using Claude Agent SDK
  */
-export async function runResearchWorkflow(): Promise<ResearchResult> {
+export async function runResearchWorkflow(workspaceDir?: string): Promise<ResearchResult> {
   console.log('🔬 Starting research workflow...\n');
 
-  const agent = new ClaudeAgent();
+  const agent = new ClaudeAgent({ cwd: workspaceDir });
   const results: ResearchResult = {
     newProducts: [],
     whitelistUpdates: [],
@@ -59,7 +59,13 @@ export async function runResearchWorkflow(): Promise<ResearchResult> {
         continue;
       }
 
-      const prompt = fs.readFileSync(promptPath, 'utf-8');
+      let prompt = fs.readFileSync(promptPath, 'utf-8');
+      
+      // Add workspace directory context to prompt if available
+      if (workspaceDir) {
+        prompt = `## Working Directory Context\n\nYour current working directory is: \`${workspaceDir}\`\n\nAll file operations should be relative to this directory.\n\n---\n\n${prompt}`;
+      }
+      
       const systemPrompt = `You are an expert researcher specializing in agentic coding and AI development tools. ${taskName === 'html-report' ? 'Generate HTML webpage based on the provided instructions.' : 'Provide detailed, accurate information about the requested topic.'}`;
 
       console.log(`   🤖 Executing ${taskName}...`);
