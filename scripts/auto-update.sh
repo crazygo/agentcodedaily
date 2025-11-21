@@ -39,7 +39,8 @@ fi
 # Step 4: Commit and push changes
 echo ""
 echo "💾 Step 4: Committing changes..."
-git add .
+# Only add updates directory, force to bypass .gitignore
+git add -f updates/
 
 if ! git diff-index --quiet HEAD --; then
   TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M UTC")
