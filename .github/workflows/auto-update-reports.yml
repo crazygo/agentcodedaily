@@ -11,9 +11,9 @@ on:
 jobs:
   update-reports:
     runs-on: ubuntu-latest
-    # 如果使用了 GitHub Environment，请将下面的名称改为你创建的 environment 名称
-    # 如果没有使用 Environment，可以删除这一行，直接使用 repository secrets
     environment: production
+    permissions:
+      contents: write
     env:
       ANTHROPIC_API_KEY: ''
       ANTHROPIC_AUTH_TOKEN: ${{ secrets.ANTHROPIC_AUTH_TOKEN }}
@@ -23,8 +23,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Fetch full history for merge
+          fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
+          persist-credentials: true
 
       - name: Configure Git
         run: |
