@@ -62,7 +62,20 @@ You will receive research data in Markdown format containing:
 
 ## Output Format
 
-**IMPORTANT**: Generate the HTML content directly in your response, wrapped in a HTML code block like this:
+**IMPORTANT**: You MUST write the generated HTML to a file named `index.html` in the current working directory.
+
+Use the Write tool to create the file with this exact filename: `index.html`
+
+Requirements for the HTML:
+
+1. **Embedded CSS** in `<style>` tag
+2. **Semantic HTML structure** with proper headings
+3. **Responsive CSS Grid or Flexbox layout**
+4. **Interactive elements** (hover effects, clickable links)
+5. **Print-friendly styles** for archiving
+6. **Complete, valid HTML5 document** ready to be opened in a browser
+
+The file structure should be:
 
 ```html
 <!DOCTYPE html>
@@ -75,16 +88,6 @@ You will receive research data in Markdown format containing:
 </body>
 </html>
 ```
-
-Requirements for the HTML:
-
-1. **Embedded CSS** in `<style>` tag
-2. **Semantic HTML structure** with proper headings
-3. **Responsive CSS Grid or Flexbox layout**
-4. **Interactive elements** (hover effects, clickable links)
-5. **Print-friendly styles** for archiving
-
-**Do NOT use any tools or write to files**. Return the complete HTML code in your response wrapped in a code block.
 
 ## Technical Requirements
 
