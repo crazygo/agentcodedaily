@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentic Coding Research Report - 2025-11-22</title>
+    <style>
+        /* Hacker News-inspired CSS styling */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 13px;
+            line-height: 1.4;
+            background-color: #f6f6ef;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        header {
+            background-color: #ff6600;
+            padding: 8px 10px;
+            margin-bottom: 10px;
+        }
+
+        header h1 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            color: #000000;
+        }
+
+        header .date {
+            font-size: 11px;
+            color: #000000;
+            margin-top: 2px;
+        }
+
+        .three-column-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 968px) {
+            .three-column-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        section {
+            background-color: #ffffff;
+            border: 1px solid #d4d4d4;
+            padding: 12px;
+        }
+
+        h2 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 12px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #d4d4d4;
+        }
+
+        .item {
+            margin-bottom: 15px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .item-title {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .item-title a {
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .item-title a:hover {
+            text-decoration: underline;
+        }
+
+        .item-title a:visited {
+            color: #828282;
+        }
+
+        .item-description {
+            font-size: 12px;
+            color: #000000;
+            margin-bottom: 4px;
+            line-height: 1.4;
+        }
+
+        .item-meta {
+            font-size: 11px;
+            color: #828282;
+        }
+
+        .item-category {
+            display: inline-block;
+            background-color: #f0f0f0;
+            padding: 2px 6px;
+            font-size: 10px;
+            color: #828282;
+            border-radius: 3px;
+            margin-right: 8px;
+        }
+
+        .update-type {
+            display: inline-block;
+            padding: 2px 6px;
+            font-size: 10px;
+            font-weight: bold;
+            border-radius: 3px;
+            margin-right: 8px;
+        }
+
+        .update-type.release {
+            background-color: #e6f7e6;
+            color: #2d5a2d;
+        }
+
+        .update-type.feature {
+            background-color: #e6f3ff;
+            color: #2d5a8c;
+        }
+
+        .insight-title {
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 10px;
+            color: #828282;
+            font-size: 11px;
+            border-top: 1px solid #d4d4d4;
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: #828282;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media print {
+            body {
+                background-color: #ffffff;
+            }
+
+            .container {
+                max-width: none;
+            }
+
+            header {
+                background-color: #ffffff;
+                border-bottom: 2px solid #000000;
+            }
+
+            section {
+                border: 1px solid #000000;
+                break-inside: avoid;
+            }
+
+            .three-column-layout {
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Agentic Coding Research Report</h1>
+            <div class="date">November 22, 2025</div>
+        </header>
+
+        <main class="three-column-layout">
+            <!-- New Products Section -->
+            <section class="new-products">
+                <h2>New Products</h2>
+
+                <div class="item">
+                    <div class="item-title">
+                        <a href="https://github.com/google/adk-go" target="_blank" rel="noopener">Google ADK-Go</a>
+                    </div>
+                    <div class="item-description">
+                        Go toolkit for building AI agents with Google's Agent Development Kit, providing native Go support for creating autonomous coding agents and LLM-powered applications
+                    </div>
+                    <div class="item-meta">
+                        <span class="item-category">Framework</span>
+                        <span>GitHub Trending</span>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">
+                        <a href="https://github.com/HKUDS/LightRAG" target="_blank" rel="noopener">LightRAG</a>
+                    </div>
+                    <div class="item-description">
+                        Simple and efficient RAG (Retrieval-Augmented Generation) system for LLMs, designed to help AI coding agents better understand and retrieve relevant code context
+                    </div>
+                    <div class="item-meta">
+                        <span class="item-category">Library</span>
+                        <span>GitHub Trending</span>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">
+                        <a href="https://github.com/GibsonAI/Memori" target="_blank" rel="noopener">GibsonAI Memori</a>
+                    </div>
+                    <div class="item-description">
+                        Memory engine specifically designed for LLM agents, enabling persistent memory and context retention for autonomous coding agents across sessions
+                    </div>
+                    <div class="item-meta">
+                        <span class="item-category">Library</span>
+                        <span>GitHub Trending</span>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">
+                        <a href="https://github.com/sansan0/TrendRadar" target="_blank" rel="noopener">TrendRadar</a>
+                    </div>
+                    <div class="item-description">
+                        AI-powered news aggregation tool that leverages LLMs to curate and analyze developer-focused content, useful for staying updated on coding trends
+                    </div>
+                    <div class="item-meta">
+                        <span class="item-category">CLI Tool</span>
+                        <span>GitHub Trending</span>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">
+                        <a href="https://github.com/wealthfolio/wealthfolio" target="_blank" rel="noopener">Wealthfolio 2.0</a>
+                    </div>
+                    <div class="item-description">
+                        Open source investment tracker with new mobile and Docker support, demonstrating AI-enhanced development workflows and modern deployment practices
+                    </div>
+                    <div class="item-meta">
+                        <span class="item-category">Framework</span>
+                        <span>Hacker News</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Whitelist Updates Section -->
+            <section class="whitelist-updates">
+                <h2>Whitelist Updates</h2>
+
+                <div class="item">
+                    <div class="item-title">
+                        <a href="https://github.com/continuedev/continue/releases" target="_blank" rel="noopener">Continue - CLI Stable v1.5.14</a>
+                    </div>
+                    <div class="item-meta">
+                        <span class="update-type release">Release</span>
+                        <span>2025-11-19</span>
+                    </div>
+                    <div class="item-description">
+                        Released CLI Stable v1.5.14 with multiple beta releases being tested daily before promotion to stable.
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">
+                        <a href="https://github.com/continuedev/continue/releases" target="_blank" rel="noopener">Continue - Multiple CLI Beta Releases</a>
+                    </div>
+                    <div class="item-meta">
+                        <span class="update-type release">Release</span>
+                        <span>2025-11-22</span>
+                    </div>
+                    <div class="item-description">
+                        Multiple beta versions (v1.5.14-beta.20251119 through v1.5.14-beta.20251122) are being tested daily.
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">
+                        <a href="https://windsurf.com/blog" target="_blank" rel="noopener">Windsurf - GPT 5.1 Models Integration</a>
+                    </div>
+                    <div class="item-meta">
+                        <span class="update-type feature">Feature</span>
+                        <span>2025-11-13</span>
+                    </div>
+                    <div class="item-description">
+                        GPT 5.1, GPT 5.1-Codex, and GPT-5.1-Codex Mini are now available in Windsurf, delivering variable thinking and improved steerability for agentic coding.
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">
+                        <a href="https://cursor.com/changelog" target="_blank" rel="noopener">Cursor - Instant Grep Beta</a>
+                    </div>
+                    <div class="item-meta">
+                        <span class="update-type feature">Feature</span>
+                        <span>2025-11-21</span>
+                    </div>
+                    <div class="item-description">
+                        Instant grep is now in beta. All grep commands run by the agent are now instant.
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">
+                        <a href="https://github.com/paul-gauthier/aider/releases" target="_blank" rel="noopener">Aider - Version 0.86.0</a>
+                    </div>
+                    <div class="item-meta">
+                        <span class="update-type release">Release</span>
+                        <span>2025-08-09</span>
+                    </div>
+                    <div class="item-description">
+                        Latest version with 88% of code written by Aider, released on August 9th (though outside the 7-14 day window, still relatively recent).
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technical Insights Section -->
+            <section class="technical-insights">
+                <h2>Technical Insights</h2>
+
+                <div class="item">
+                    <div class="insight-title">Agent Development Kits Emerge</div>
+                    <div class="item-description">
+                        Google's ADK-Go represents the move toward language-specific AI agent frameworks, showing that major tech companies are investing in building specialized toolkits for different programming languages.
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="insight-title">Memory and Context Management Focus</div>
+                    <div class="item-description">
+                        Tools like GibsonAI Memori are addressing the persistent memory challenge for LLM agents, indicating that context retention across sessions remains a critical pain point in agentic coding systems.
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="insight-title">RAG Systems Evolution</div>
+                    <div class="item-description">
+                        LightRAG shows continued innovation in retrieval-augmented generation for code context, suggesting that better code understanding through enhanced RAG capabilities is a priority area.
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="insight-title">AI-Powered Developer Information Tools</div>
+                    <div class="item-description">
+                        TrendRadar demonstrates AI's application in developer information aggregation, showing that the ecosystem is expanding beyond just code generation to include developer workflow assistance.
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="insight-title">Rapid Update Cycles</div>
+                    <div class="item-description">
+                        Major AI coding tools like Continue, Windsurf, and Cursor are releasing updates with high frequency, indicating intense competition and rapid innovation in the space.
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="insight-title">Notable Absences</div>
+                    <div class="item-description">
+                        Several major platforms (Claude Code, GitHub Copilot, Devin) had no visible updates in the recent timeframe, which could indicate either longer development cycles or more conservative release strategies.
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Generated by Agent Code Daily | <a href="#">GitHub</a> | <a href="#">About</a></p>
+        </footer>
+    </div>
+</body>
+</html>

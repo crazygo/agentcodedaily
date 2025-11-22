@@ -1,0 +1,155 @@
+{
+  "newProducts": [
+    {
+      "title": "Google ADK-Go",
+      "description": "Open-source Go toolkit for building, evaluating, and deploying sophisticated AI agents with code-first development, modular multi-agent systems, and cloud deployment capabilities.",
+      "url": "https://github.com/google/adk-go",
+      "source": "GitHub",
+      "category": "Framework"
+    },
+    {
+      "title": "Claude Context",
+      "description": "MCP plugin that adds semantic code search to Claude Code, enabling entire codebase context using vector embeddings with ~40% token usage reduction.",
+      "url": "https://github.com/zilliztech/claude-context",
+      "source": "GitHub",
+      "category": "IDE Extension"
+    },
+    {
+      "title": "Bob the Fixer",
+      "description": "Open-source AI code-fixing tool that runs locally, helping developers identify and fix code issues automatically.",
+      "url": "https://bobthefixer.dev/",
+      "source": "Hacker News",
+      "category": "CLI Tool"
+    },
+    {
+      "title": "CCPM",
+      "description": "Project management system for Claude Code using GitHub Issues and Git worktrees, enabling parallel agent execution with full traceability from PRD to code.",
+      "url": "https://github.com/automazeio/ccpm",
+      "source": "GitHub",
+      "category": "Autonomous Agent"
+    },
+    {
+      "title": "Crystal",
+      "description": "Desktop app that runs multiple Codex and Claude Code AI sessions in parallel git worktrees for testing and comparing AI-assisted development approaches.",
+      "url": "https://github.com/stravu/crystal",
+      "source": "GitHub",
+      "category": "IDE"
+    },
+    {
+      "title": "LightRAG",
+      "description": "Simple and fast retrieval-augmented generation system supporting hybrid search, mix mode query processing, and multimodal data handling for EMNLP2025.",
+      "url": "https://github.com/HKUDS/LightRAG",
+      "source": "GitHub",
+      "category": "Library"
+    },
+    {
+      "title": "VERL",
+      "description": "Volcano Engine Reinforcement Learning for LLMs, a flexible RL training library that enables easy extension of diverse RL algorithms and seamless integration with existing LLM frameworks.",
+      "url": "https://github.com/volcengine/verl",
+      "source": "GitHub",
+      "category": "Framework"
+    },
+    {
+      "title": "TrendRadar",
+      "description": "AI-powered tool that monitors hot topics across 35 platforms and analyzes news trends with keyword filtering, multi-channel push notifications, and AI analysis through MCP protocol.",
+      "url": "https://github.com/sansan0/TrendRadar",
+      "source": "GitHub",
+      "category": "CLI Tool"
+    }
+  ],
+  "whitelistUpdates": [],
+  "insights": [
+    {
+      "title": "Agent design is still hard",
+      "description": "Mitsuhiko highlights that despite advances in LLM technology, designing effective AI agents remains challenging, indicating ongoing complexity in creating reliable agentic coding systems.",
+      "author": "Mitsuhiko",
+      "source": "Hacker News",
+      "url": "https://news.ycombinator.com",
+      "topics": [
+        "AI-agents",
+        "LLM-limitations",
+        "software-engineering"
+      ],
+      "type": "technical"
+    },
+    {
+      "title": "We should all be using dependency cooldowns",
+      "description": "Simon Willison highlights dependency cooldowns as 'empirically effective' security strategy for software development, providing a practical security approach for modern development workflows.",
+      "author": "Simon Willison",
+      "source": "Blog/Hacker News",
+      "url": "https://simonwillison.net",
+      "topics": [
+        "security",
+        "dependency-management",
+        "software-engineering"
+      ],
+      "type": "technical"
+    },
+    {
+      "title": "GPT-5.1-Codex-Max introduces compaction for long context tasks",
+      "description": "New AI model introduces 'compaction' technique for handling longer context windows in coding tasks, potentially improving the ability to work with larger codebases.",
+      "author": "AI Research Community",
+      "source": "Technical Reports",
+      "url": "https://simonwillison.net",
+      "topics": [
+        "LLM-advances",
+        "code-generation",
+        "context-windows"
+      ],
+      "type": "technical"
+    },
+    {
+      "title": "Gemini 3 Pro gains YouTube URL support",
+      "description": "Google's Gemini 3 Pro model now supports processing YouTube URLs directly, expanding the multimodal capabilities for AI coding assistants that need to understand video content.",
+      "author": "Google AI Team",
+      "source": "Product Updates",
+      "url": "https://simonwillison.net",
+      "topics": [
+        "multimodal-AI",
+        "Google-Gemini",
+        "AI-tools"
+      ],
+      "type": "technical"
+    },
+    {
+      "title": "TiDAR: Think in Diffusion, Talk in Autoregression",
+      "description": "New AI model approach published on arXiv that combines diffusion and autoregressive methods, potentially offering new paradigms for AI-assisted coding and reasoning.",
+      "author": "Research Community",
+      "source": "arXiv/Hacker News",
+      "url": "https://news.ycombinator.com",
+      "topics": [
+        "AI-research",
+        "machine-learning",
+        "neural-networks"
+      ],
+      "type": "technical"
+    },
+    {
+      "title": "Weight-sparse transformers have interpretable circuits",
+      "description": "OpenAI paper reveals new insights into transformer interpretability, showing that weight-sparse transformers contain interpretable circuits, which could lead to more transparent and debuggable AI coding tools.",
+      "author": "OpenAI Research",
+      "source": "OpenAI Paper/Hacker News",
+      "url": "https://news.ycombinator.com",
+      "topics": [
+        "transformers",
+        "AI-interpretability",
+        "neural-networks"
+      ],
+      "type": "technical"
+    },
+    {
+      "title": "Netflix establishes GenAI guidelines for content production",
+      "description": "Netflix creates comprehensive guidelines for generative AI use in content production, reflecting enterprise adoption patterns and governance frameworks that could influence AI coding tool development.",
+      "author": "Netflix Technology Team",
+      "source": "Industry Reports",
+      "url": "https://simonwillison.net",
+      "topics": [
+        "enterprise-AI",
+        "governance",
+        "GenAI-guidelines"
+      ],
+      "type": "technical"
+    }
+  ],
+  "generatedAt": "2025-11-22T18:10:12.451Z"
+}
