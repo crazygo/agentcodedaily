@@ -1,0 +1,83 @@
+{
+  "newProducts": [
+    {
+      "title": "ADK-Go",
+      "description": "Google's open-source Go toolkit for building, evaluating, and deploying sophisticated AI agents",
+      "url": "https://github.com/google/adk-go",
+      "source": "GitHub",
+      "category": "Framework"
+    },
+    {
+      "title": "LightRAG",
+      "description": "Simple and Fast Retrieval-Augmented Generation framework with 24K stars, useful for building AI-powered coding tools",
+      "url": "https://github.com/HKUDS/LightRAG",
+      "source": "GitHub",
+      "category": "Library"
+    },
+    {
+      "title": "Memori",
+      "description": "GibsonAI's open-source memory engine for LLMs and AI agents, enabling persistent memory for coding assistants",
+      "url": "https://github.com/gibsonAI/memori",
+      "source": "GitHub",
+      "category": "Library"
+    },
+    {
+      "title": "verl",
+      "description": "Volcano Engine Reinforcement Learning framework for LLMs with 16K stars,可用于训练代码生成模型",
+      "url": "https://github.com/volcengine/verl",
+      "source": "GitHub",
+      "category": "Framework"
+    },
+    {
+      "title": "Call Center AI",
+      "description": "Microsoft's AI agent phone call API that demonstrates autonomous AI capabilities applicable to coding agents",
+      "url": "https://github.com/microsoft/call-center-ai",
+      "source": "GitHub",
+      "category": "Autonomous Agent"
+    }
+  ],
+  "whitelistUpdates": [
+    {
+      "productName": "Cursor",
+      "title": "Version 2.1 Release",
+      "description": "Improved Plan Mode, AI Code Review in Editor, and Instant Grep features",
+      "updateType": "release",
+      "url": "https://cursor.com/",
+      "date": "2025-11-21"
+    },
+    {
+      "productName": "Cursor",
+      "title": "Series D Funding Announcement",
+      "description": "Raised $2.3B in Series D funding and passed $1B in annualized revenue",
+      "updateType": "announcement",
+      "url": "https://cursor.com/blog",
+      "date": "2025-11-13"
+    },
+    {
+      "productName": "Cursor",
+      "title": "Productivity Impact Study",
+      "description": "Research shows companies merge 39% more PRs after Cursor's agent became the default",
+      "updateType": "announcement",
+      "url": "https://cursor.com/blog",
+      "date": "2025-11-11"
+    },
+    {
+      "productName": "Cursor",
+      "title": "Semantic Search Integration",
+      "description": "Semantic search improves coding agent performance with 12.5% higher accuracy",
+      "updateType": "feature",
+      "url": "https://cursor.com/blog",
+      "date": "2025-11-06"
+    },
+    {
+      "productName": "Windsurf",
+      "title": "GPT 5.1 Models Available",
+      "description": "GPT 5.1, GPT 5.1-Codex, and GPT-5.1-Codex Mini are now available in Windsurf",
+      "updateType": "feature",
+      "url": "https://windsurf.com/blog",
+      "date": "2025-11-13"
+    }
+  ],
+  "insights": [],
+  "generatedAt": "2025-11-22T12:11:55.817Z"
+}
