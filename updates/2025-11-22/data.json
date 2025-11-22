@@ -1,0 +1,108 @@
+{
+  "newProducts": [
+    {
+      "title": "Cursor AI",
+      "description": "An AI-powered code editor with advanced code completion, refactoring capabilities, and natural language programming support. Features include multi-file editing, intelligent debugging, and seamless integration with popular development workflows.",
+      "url": "https://cursor.sh",
+      "source": "Product Hunt | GitHub",
+      "category": "IDE"
+    },
+    {
+      "title": "Aider",
+      "description": "AI pair programming tool that works in your terminal. Enables collaborative coding with AI models, supports multiple files, and integrates with git for version control. Features include automatic commit generation and code review assistance.",
+      "url": "https://github.com/paul-gauthier/aider",
+      "source": "GitHub",
+      "category": "CLI Tool"
+    },
+    {
+      "title": "Supermaven",
+      "description": "AI code completion tool with fast, context-aware suggestions. Claims to be faster than alternatives with better code understanding and supports multiple programming languages. Available as IDE extensions for VS Code, IntelliJ, and others.",
+      "url": "https://supermaven.com",
+      "source": "Product Hunt",
+      "category": "IDE Extension"
+    },
+    {
+      "title": "Continue",
+      "description": "Open-source AI code assistant that can be self-hosted or cloud-based. Integrates with popular IDEs and supports custom AI models. Features include code generation, explanation, and debugging assistance with enterprise options.",
+      "url": "https://github.com/continuedev/continue",
+      "source": "GitHub",
+      "category": "IDE Extension"
+    },
+    {
+      "title": "Codeium",
+      "description": "Free AI code completion and chat tool for developers. Offers intelligent code suggestions, refactoring help, and natural language code generation. Supports over 70 programming languages and integrates with major IDEs.",
+      "url": "https://codeium.com",
+      "source": "Product Hunt",
+      "category": "IDE Extension"
+    },
+    {
+      "title": "Refact.ai",
+      "description": "AI coding assistant with focus on code quality and team collaboration. Features include automated code reviews, documentation generation, and pair programming capabilities with multiple AI model support.",
+      "url": "https://refact.ai",
+      "source": "Product Hunt",
+      "category": "IDE Extension"
+    },
+    {
+      "title": "OpenCoder",
+      "description": "Open-source code language model designed for code generation and understanding. Can be fine-tuned for specific codebases and integrated into custom development workflows.",
+      "url": "https://github.com/OpenCoder-llm/OpenCoder",
+      "source": "GitHub",
+      "category": "Library"
+    },
+    {
+      "title": "Windsurf",
+      "description": "AI-powered development environment by Codeium that combines code completion with intelligent agent capabilities for multi-file editing and project-wide refactoring.",
+      "url": "https://codeium.com/windsurf",
+      "source": "Product Hunt",
+      "category": "IDE"
+    }
+  ],
+  "whitelistUpdates": [
+    {
+      "productName": "Continue",
+      "title": "CLI Stable Release v1.5.14",
+      "description": "Direct stable release from main branch. Version 1.5.14 built and published directly from the latest main branch.",
+      "updateType": "release",
+      "url": "https://github.com/continuedev/continue/releases/tag/v1.5.14",
+      "date": "2025-11-19"
+    },
+    {
+      "productName": "Continue",
+      "title": "Continue 1.0 Launch",
+      "description": "Major release announcement with press coverage on TechCrunch and AP News.",
+      "updateType": "announcement",
+      "url": "https://continue.dev",
+      "date": "2025-11-21"
+    }
+  ],
+  "insights": [
+    {
+      "title": "Example: New Advances in Self-Correcting AI Code Systems",
+      "description": "Recent breakthroughs in AI systems that can automatically identify and fix their own code errors, improving reliability and reducing debugging time by up to 60% in early tests.",
+      "author": "Thought Leader Name",
+      "source": "Blog | Twitter | HN | YouTube | Reddit | Paper",
+      "url": "https://example-url-to-content",
+      "topics": [
+        "AI-coding",
+        "self-healing",
+        "automation",
+        "debugging"
+      ],
+      "type": "technical"
+    },
+    {
+      "title": "Example: The Future of AI Pair Programming",
+      "description": "Discussion on how AI assistants are evolving from simple autocomplete to active pair programming partners that can suggest architectural patterns and catch logical errors.",
+      "author": "Another Expert",
+      "source": "YouTube",
+      "url": "https://example-youtube-url",
+      "topics": [
+        "pair-programming",
+        "AI-assistants",
+        "developer-tools"
+      ],
+      "type": "discussion"
+    }
+  ],
+  "generatedAt": "2025-11-22T00:32:56.150Z"
+}
