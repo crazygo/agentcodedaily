@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentic Coding Research Report - 2025-11-24</title>
+    <style>
+        /* Hacker News-inspired CSS styling */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #f6f6ef;
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 13px;
+            line-height: 1.4;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        header {
+            background-color: #ff6600;
+            padding: 2px 10px;
+            border-bottom: 1px solid #000000;
+        }
+
+        header h1 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            color: #000000;
+            display: inline-block;
+            padding: 2px 4px;
+        }
+
+        .header-info {
+            float: right;
+            font-size: 11px;
+            padding: 2px 4px;
+            color: #000000;
+        }
+
+        .main-nav {
+            background-color: #f6f6ef;
+            padding: 5px 10px;
+            border-bottom: 1px solid #d4d4d4;
+            font-size: 12px;
+        }
+
+        .main-nav a {
+            color: #000000;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+
+        .main-nav a:hover {
+            text-decoration: underline;
+        }
+
+        .three-column-layout {
+            display: grid;
+            grid-template-columns: 40% 35% 25%;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 968px) {
+            .three-column-layout {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        .section {
+            background-color: #ffffff;
+            border: 1px solid #d4d4d4;
+            padding: 10px;
+        }
+
+        .section-header {
+            background-color: #f6f6ef;
+            padding: 5px 10px;
+            margin: -10px -10px 10px -10px;
+            border-bottom: 1px solid #d4d4d4;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .item {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .item-title {
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+
+        .item-title a {
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .item-title a:visited {
+            color: #828282;
+        }
+
+        .item-title a:hover {
+            text-decoration: underline;
+        }
+
+        .item-description {
+            font-size: 12px;
+            color: #000000;
+            margin-bottom: 5px;
+            line-height: 1.3;
+        }
+
+        .item-meta {
+            font-size: 11px;
+            color: #828282;
+        }
+
+        .item-meta a {
+            color: #828282;
+            text-decoration: none;
+        }
+
+        .item-meta a:hover {
+            text-decoration: underline;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #f0f0f0;
+            color: #666666;
+            padding: 2px 5px;
+            margin: 2px 2px 2px 0;
+            font-size: 10px;
+            border-radius: 2px;
+        }
+
+        .source-indicator {
+            display: inline-block;
+            padding: 1px 4px;
+            font-size: 10px;
+            font-weight: bold;
+            border-radius: 2px;
+            text-transform: uppercase;
+        }
+
+        .source-blog {
+            background-color: #e8f5e8;
+            color: #2d5a2d;
+        }
+
+        .source-hn {
+            background-color: #fff5e6;
+            color: #b36b00;
+        }
+
+        .discussion-indicator {
+            color: #ff6600;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .tutorial-indicator {
+            color: #0066cc;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        footer {
+            margin-top: 30px;
+            padding: 20px 10px;
+            text-align: center;
+            color: #828282;
+            font-size: 11px;
+            border-top: 1px solid #d4d4d4;
+        }
+
+        footer a {
+            color: #828282;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media print {
+            body {
+                background-color: #ffffff;
+                font-size: 12px;
+            }
+
+            .section {
+                border: 1px solid #000000;
+                break-inside: avoid;
+            }
+
+            .item {
+                break-inside: avoid;
+            }
+
+            header, footer {
+                background-color: #ffffff;
+            }
+
+            a {
+                text-decoration: none;
+                color: #000000;
+            }
+
+            .item-title a:after {
+                content: " (" attr(href) ")";
+                font-size: 10px;
+                color: #666666;
+            }
+        }
+
+        /* Loading animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .section {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .highlight {
+            background-color: #fff6e6;
+            padding: 2px 4px;
+            border-radius: 2px;
+        }
+
+        .security-alert {
+            border-left: 3px solid #ff0000;
+            padding-left: 8px;
+            background-color: #fff0f0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Agentic Coding Research</h1>
+        <div class="header-info">2025-11-24</div>
+    </header>
+
+    <nav class="main-nav">
+        <a href="#new-products">AI & Code Generation</a>
+        <a href="#security">Security & Vulnerabilities</a>
+        <a href="#technical">Technical Deep Dives</a>
+        <a href="#tutorials">Tutorials & Workflows</a>
+    </nav>
+
+    <div class="container">
+        <div class="three-column-layout">
+            <!-- Left Column: New Products & AI Developments -->
+            <section class="section" id="new-products">
+                <div class="section-header">AI & Code Generation</div>
+
+                <div class="item">
+                    <div class="item-title">
+                        <a href="https://simonwillison.net" target="_blank">Nano Banana Pro Image Model Release</a>
+                        <span class="source-indicator source-blog">Blog</span>
+                    </div>
+                    <div class="item-description">
+                        Discussion of new compact image model capabilities and applications in AI workflows
+                    </div>
+                    <div class="item-meta">
+                        by Simon Willison •
+                        <span class="tag">image-models</span>
+                        <span class="tag">AI-workflows</span>
+                        <span class="tag">compact-models</span>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">
+                        <a href="https://simonwillison.net" target="_blank">GPT-5.1-Codex-Max Development</a>
+                        <span class="source-indicator source-blog">Blog</span>
+                    </div>
+                    <div class="item-description">
+                        Latest developments in code generation models and their impact on software development
+                    </div>
+                    <div class="item-meta">
+                        by Simon Willison •
+                        <span class="tag">code-generation</span>
+                        <span class="tag">GPT</span>
+                        <span class="tag">AI-coding</span>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">
+                        <a href="https://simonwillison.net" target="_blank">Agent Design Challenges in Production</a>
+                        <span class="source-indicator source-blog">Blog</span>
+                    </div>
+                    <div class="item-description">
+                        Practical challenges and solutions for deploying AI agents in real-world applications
+                    </div>
+                    <div class="item-meta">
+                        by Simon Willison •
+                        <span class="tag">AI-agents</span>
+                        <span class="tag">production</span>
+                        <span class="tag">design-patterns</span>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">
+                        <a href="https://simonwillison.net" target="_blank">Dependency Cooldowns and Package Management</a>
+                        <span class="source-indicator source-blog">Blog</span>
+                    </div>
+                    <div class="item-description">
+                        Strategies for managing dependencies in AI-powered development workflows
+                    </div>
+                    <div class="item-meta">
+                        by Simon Willison •
+                        <span class="tag">dependency-management</span>
+                        <span class="tag">package-management</span>
+                        <span class="tag">AI-workflows</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Middle Column: Security Updates & Critical Issues -->
+            <section class="section" id="security">
+                <div class="section-header">Security & Critical Updates</div>
+
+                <div class="item security-alert">
+                    <div class="item-title">
+                        <a href="https://news.ycombinator.com" target="_blank">⚠️ Shai-Hulud Supply Chain Attack</a>
+                        <span class="source-indicator source-hn">HN</span>
+                        <span class="discussion-indicator">CRITICAL</span>
+                    </div>
+                    <div class="item-description">
+                        Major security vulnerability affecting Postman, Zapier, PostHog through compromised NPM packages
+                    </div>
+                    <div class="item-meta">
+                        by Hacker News Community •
+                        <span class="tag">security</span>
+                        <span class="tag">supply-chain-attack</span>
+                        <span class="tag">NPM</span>
+                        <span class="tag">developer-tools</span>
+                    </div>
+                </div>
+
+                <div class="item security-alert">
+                    <div class="item-title">
+                        <a href="https://news.ycombinator.com" target="_blank">⚠️ Adversarial Unicode Attacks on LLMs</a>
+                        <span class="source-indicator source-hn">HN</span>
+                    </div>
+                    <div class="item-description">
+                        Techniques for disrupting LLM processing using invisible Unicode characters
+                    </div>
+                    <div class="item-meta">
+                        by Hacker News Community •
+                        <span class="tag">LLM-security</span>
+                        <span class="tag">adversarial-attacks</span>
+                        <span class="tag">Unicode</span>
+                    </div>
+                </div>
+
+                <div class="item security-alert">
+                    <div class="item-title">
+                        <a href="https://news.ycombinator.com" target="_blank">⚠️ SHA1-Hulud Vulnerability Analysis</a>
+                        <span class="source-indicator source-hn">HN</span>
+                    </div>
+                    <div class="item-description">
+                        Security analysis of SHA1 vulnerabilities affecting major development tools
+                    </div>
+                    <div class="item-meta">
+                        by Hacker News Community •
+                        <span class="tag">security</span>
+                        <span class="tag">SHA1</span>
+                        <span class="tag">cryptography</span>
+                        <span class="tag">developer-tools</span>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">
+                        <a href="https://news.ycombinator.com" target="_blank">Serverless Search Engine Implementation</a>
+                        <span class="source-indicator source-hn">HN</span>
+                    </div>
+                    <div class="item-description">
+                        New approach to implementing search functionality in Lambda functions for cost-effective search
+                    </div>
+                    <div class="item-meta">
+                        by Hacker News Community •
+                        <span class="tag">serverless</span>
+                        <span class="tag">search</span>
+                        <span class="tag">lambda</span>
+                        <span class="tag">cost-optimization</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Column: Technical Insights & Performance -->
+            <section class="section" id="technical">
+                <div class="section-header">Technical Deep Dives</div>
+
+                <div class="item">
+                    <div class="item-title">
+                        <a href="https://news.ycombinator.com" target="_blank">Rust Mutex Performance Deep Dive</a>
+                        <span class="source-indicator source-hn">HN</span>
+                    </div>
+                    <div class="item-description">
+                        Comparative analysis of Rust's std mutex vs parking_lot implementation
+                    </div>
+                    <div class="item-meta">
+                        by Hacker News Community •
+                        <span class="tag">Rust</span>
+                        <span class="tag">performance</span>
+                        <span class="tag">concurrency</span>
+                        <span class="tag">mutex</span>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">
+                        <a href="https://simonwillison.net" target="_blank">Substack Automation Workflow with AI</a>
+                        <span class="source-indicator source-blog">Blog</span>
+                        <span class="tutorial-indicator">TUTORIAL</span>
+                    </div>
+                    <div class="item-description">
+                        Case study on automating content creation and distribution using AI tools
+                    </div>
+                    <div class="item-meta">
+                        by Simon Willison •
+                        <span class="tag">automation</span>
+                        <span class="tag">AI-workflows</span>
+                        <span class="tag">content-creation</span>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="highlight">
+                        <strong>Key Insights:</strong>
+                        <ul style="margin-left: 15px; margin-top: 5px;">
+                            <li>Critical security vulnerabilities in development tools supply chain</li>
+                            <li>New AI model capabilities for compact image processing</li>
+                            <li>Performance optimizations in Rust concurrency patterns</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div style="font-size: 11px; color: #666666;">
+                        <strong>Research Methodology:</strong> Data collected from Hacker News discussions and technical blogs focusing on AI coding, security, and development tools. Sources prioritized for technical depth and community relevance.
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        <div>
+            <a href="#top">Back to top</a> •
+            <a href="https://github.com/agentcodedaily" target="_blank">GitHub</a> •
+            Generated with AI research tools
+        </div>
+        <div style="margin-top: 10px;">
+            Report compiled on 2025-11-24 • Last updated: Today
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add click-to-copy functionality for URLs
+        document.querySelectorAll('.item-title a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (e.ctrlKey || e.metaKey) {
+                    e.preventDefault();
+                    navigator.clipboard.writeText(this.href).then(() => {
+                        const originalText = this.textContent;
+                        this.textContent = '✓ Copied!';
+                        setTimeout(() => {
+                            this.textContent = originalText;
+                        }, 1000);
+                    });
+                }
+            });
+        });
+
+        // Highlight security alerts on page load
+        window.addEventListener('load', () => {
+            const securityAlerts = document.querySelectorAll('.security-alert');
+            if (securityAlerts.length > 0) {
+                securityAlerts.forEach((alert, index) => {
+                    setTimeout(() => {
+                        alert.style.backgroundColor = '#fff0f0';
+                        alert.style.transition = 'background-color 0.5s ease';
+                    }, index * 200);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

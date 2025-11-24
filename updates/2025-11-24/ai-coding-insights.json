@@ -1,0 +1,92 @@
+[
+  {
+    "title": "Nano Banana Pro Image Model Release",
+    "description": "Discussion of new compact image model capabilities and applications in AI workflows",
+    "author": "Simon Willison",
+    "source": "Blog",
+    "url": "https://simonwillison.net",
+    "topics": ["image-models", "AI-workflows", "compact-models"],
+    "type": "technical"
+  },
+  {
+    "title": "GPT-5.1-Codex-Max Development",
+    "description": "Latest developments in code generation models and their impact on software development",
+    "author": "Simon Willison",
+    "source": "Blog",
+    "url": "https://simonwillison.net",
+    "topics": ["code-generation", "GPT", "AI-coding"],
+    "type": "technical"
+  },
+  {
+    "title": "Agent Design Challenges in Production",
+    "description": "Practical challenges and solutions for deploying AI agents in real-world applications",
+    "author": "Simon Willison",
+    "source": "Blog",
+    "url": "https://simonwillison.net",
+    "topics": ["AI-agents", "production", "design-patterns"],
+    "type": "technical"
+  },
+  {
+    "title": "Dependency Cooldowns and Package Management",
+    "description": "Strategies for managing dependencies in AI-powered development workflows",
+    "author": "Simon Willison",
+    "source": "Blog",
+    "url": "https://simonwillison.net",
+    "topics": ["dependency-management", "package-management", "AI-workflows"],
+    "type": "technical"
+  },
+  {
+    "title": "Substack Automation Workflow with AI",
+    "description": "Case study on automating content creation and distribution using AI tools",
+    "author": "Simon Willison",
+    "source": "Blog",
+    "url": "https://simonwillison.net",
+    "topics": ["automation", "AI-workflows", "content-creation"],
+    "type": "tutorial"
+  },
+  {
+    "title": "Shai-Hulud Supply Chain Attack on Development Tools",
+    "description": "Major security vulnerability affecting Postman, Zapier, PostHog through compromised NPM packages",
+    "author": "Hacker News Community",
+    "source": "HN",
+    "url": "https://news.ycombinator.com",
+    "topics": ["security", "supply-chain-attack", "NPM", "developer-tools"],
+    "type": "discussion"
+  },
+  {
+    "title": "Serverless Search Engine Implementation",
+    "description": "New approach to implementing search functionality in Lambda functions for cost-effective search",
+    "author": "Hacker News Community",
+    "source": "HN",
+    "url": "https://news.ycombinator.com",
+    "topics": ["serverless", "search", "lambda", "cost-optimization"],
+    "type": "technical"
+  },
+  {
+    "title": "Adversarial Unicode Attacks on LLMs",
+    "description": "Techniques for disrupting LLM processing using invisible Unicode characters",
+    "author": "Hacker News Community",
+    "source": "HN",
+    "url": "https://news.ycombinator.com",
+    "topics": ["LLM-security", "adversarial-attacks", "Unicode"],
+    "type": "technical"
+  },
+  {
+    "title": "SHA1-Hulud Vulnerability Analysis",
+    "description": "Security analysis of SHA1 vulnerabilities affecting major development tools",
+    "author": "Hacker News Community",
+    "source": "HN",
+    "url": "https://news.ycombinator.com",
+    "topics": ["security", "SHA1", "cryptography", "developer-tools"],
+    "type": "technical"
+  },
+  {
+    "title": "Rust Mutex Performance Deep Dive",
+    "description": "Comparative analysis of Rust's std mutex vs parking_lot implementation",
+    "author": "Hacker News Community",
+    "source": "HN",
+    "url": "https://news.ycombinator.com",
+    "topics": ["Rust", "performance", "concurrency", "mutex"],
+    "type": "technical"
+  }
+]

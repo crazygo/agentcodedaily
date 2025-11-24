@@ -1,0 +1,93 @@
+{
+  "newProducts": [
+    {
+      "title": "GitHub Copilot Enhancements",
+      "description": "Recent updates to GitHub Copilot with improved coding capabilities, longer context windows, and enhanced AI model integration including support for newer models",
+      "url": "https://github.com/features/copilot",
+      "source": "GitHub Marketplace Updates",
+      "category": "IDE Extension"
+    },
+    {
+      "title": "Jamba 1.5 Large",
+      "description": "New AI model with enhanced coding capabilities and longer context windows for better code understanding and generation",
+      "url": "https://github.com/marketplace/category/ai",
+      "source": "GitHub Marketplace",
+      "category": "AI Model"
+    },
+    {
+      "title": "Phi-4-reasoning",
+      "description": "Reasoning-focused AI model with improved coding capabilities and problem-solving features for developers",
+      "url": "https://github.com/marketplace/category/ai",
+      "source": "GitHub Marketplace",
+      "category": "AI Model"
+    }
+  ],
+  "whitelistUpdates": [
+    {
+      "productName": "Cursor",
+      "title": "Improved Plan Mode, AI Code Review in Editor, and Instant Grep",
+      "description": "Version 2.1 release featuring improved Plan Mode, AI Code Review directly in the editor, and Instant Grep functionality",
+      "updateType": "release",
+      "url": "https://cursor.com/",
+      "date": "2025-11-21"
+    },
+    {
+      "productName": "Cursor",
+      "title": "Series D Funding and $1B Annualized Revenue",
+      "description": "Cursor raised $2.3B in Series D funding and surpassed $1B in annualized revenue",
+      "updateType": "announcement",
+      "url": "https://cursor.com/blog",
+      "date": "2025-11-13"
+    },
+    {
+      "productName": "Cursor",
+      "title": "Coding Agent Productivity Study Results",
+      "description": "Research shows companies merge 39% more PRs after Cursor's agent became the default",
+      "updateType": "announcement",
+      "url": "https://cursor.com/blog",
+      "date": "2025-11-11"
+    },
+    {
+      "productName": "GitHub Copilot",
+      "title": "Enterprise BYOK for Copilot in Public Preview",
+      "description": "Enterprise bring your own key (BYOK) for GitHub Copilot is now available in public preview",
+      "updateType": "feature",
+      "url": "https://github.blog/",
+      "date": "2025-11-18"
+    },
+    {
+      "productName": "GitHub Copilot",
+      "title": "Copilot Code Review Instructions Files",
+      "description": "New feature unlocking the full power of Copilot code review through master instructions files",
+      "updateType": "feature",
+      "url": "https://github.blog/",
+      "date": "2025-11-15"
+    },
+    {
+      "productName": "GitHub Copilot",
+      "title": "Enhanced Next Edit Suggestions",
+      "description": "Evolution of GitHub Copilot's next edit suggestions through custom model training",
+      "updateType": "feature",
+      "url": "https://github.blog/",
+      "date": "2025-11-12"
+    },
+    {
+      "productName": "GitHub Copilot",
+      "title": "Copilot Intelligence with Fewer Tools",
+      "description": "Making GitHub Copilot smarter with improved efficiency and fewer required tools",
+      "updateType": "feature",
+      "url": "https://github.blog/",
+      "date": "2025-11-10"
+    },
+    {
+      "productName": "GitHub Copilot",
+      "title": "Agents.md Guidelines and Best Practices",
+      "description": "New guidance on writing great agents.md files based on analysis of over 2,500 repositories",
+      "updateType": "announcement",
+      "url": "https://github.blog/",
+      "date": "2025-11-08"
+    }
+  ],
+  "insights": [],
+  "generatedAt": "2025-11-24T18:12:08.238Z"
+}
