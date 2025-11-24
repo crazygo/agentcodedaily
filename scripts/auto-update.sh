@@ -48,6 +48,8 @@ fi
 # Step 3: Merge main branch (get latest code)
 echo ""
 echo "🔀 Step 3: Merging latest code from main branch..."
+# Configure custom merge driver to always keep existing updates/ content
+git config merge.ours.driver true || true
 if git merge origin/main --no-edit; then
   echo "✅ Successfully merged main branch"
 else
