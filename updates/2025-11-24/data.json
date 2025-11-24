@@ -1,0 +1,172 @@
+{
+  "newProducts": [
+    {
+      "title": "ADK Go",
+      "description": "A code-first Go toolkit for building AI agents featuring idiomatic Go design, rich tool ecosystem, modular multi-agent systems, and cloud deployment support. Launched in 2025 as Google's toolkit for AI agent development.",
+      "url": "https://github.com/google/adk-go",
+      "source": "GitHub",
+      "category": "Framework"
+    },
+    {
+      "title": "Memori",
+      "description": "Open-source SQL-native memory engine for AI that enables LLMs to remember conversations with one line of code. Supports standard SQL databases and offers 80-90% cost savings by avoiding expensive vector databases.",
+      "url": "https://github.com/GibsonAI/Memori",
+      "source": "GitHub",
+      "category": "Library"
+    },
+    {
+      "title": "codemap",
+      "description": "CLI tool that generates compact, visually structured maps of codebases for LLM context. Helps AI systems understand project architecture efficiently by highlighting important files and reducing noise.",
+      "url": "https://github.com/JordanCoin/codemap",
+      "source": "Hacker News",
+      "category": "CLI Tool"
+    },
+    {
+      "title": "reader3",
+      "description": "Lightweight self-hosted EPUB reader that enables reading books chapter by chapter with LLM assistance. Created by Andrej Karpathy for seamless content copying to AI models.",
+      "url": "https://github.com/karpathy/reader3",
+      "source": "Hacker News",
+      "category": "Library"
+    },
+    {
+      "title": "TrendRadar",
+      "description": "AI-powered news monitoring tool that tracks and analyzes trending topics across various sources. Part of the new wave of AI agents for information gathering and analysis.",
+      "url": "https://github.com/sansan0/TrendRadar",
+      "source": "GitHub",
+      "category": "Autonomous Agent"
+    }
+  ],
+  "whitelistUpdates": [
+    {
+      "productName": "Cursor",
+      "title": "Cursor 2.1 Released",
+      "description": "Released with Improved Plan Mode, AI Code Review in Editor, and Instant Grep features",
+      "updateType": "release",
+      "url": "https://cursor.com/",
+      "date": "2024-11-21"
+    },
+    {
+      "productName": "Cursor",
+      "title": "Coding Agent Productivity Study",
+      "description": "Research shows companies merge 39% more PRs after Cursor's agent became default",
+      "updateType": "announcement",
+      "url": "https://cursor.com/",
+      "date": "2024-11-11"
+    },
+    {
+      "productName": "Cursor",
+      "title": "Semantic Search Performance Improvement",
+      "description": "Semantic search improves coding agent performance with 12.5% higher accuracy",
+      "updateType": "feature",
+      "url": "https://cursor.com/",
+      "date": "2024-11-06"
+    }
+  ],
+  "insights": [
+    {
+      "title": "The Rise of Agentic Coding Systems",
+      "description": "Discussion about how AI agents are evolving from simple code completion to autonomous coding systems that can understand context, make decisions, and execute complex multi-step tasks. Key insights include the importance of tool use capabilities and the shift from copilot to autonomous agent paradigms.",
+      "author": "Andrej Karpathy",
+      "source": "Blog",
+      "url": "https://karpathy.github.io/",
+      "topics": [
+        "AI agents",
+        "autonomous coding",
+        "LLM capabilities"
+      ],
+      "type": "technical"
+    },
+    {
+      "title": "LLM Tool Use and Function Calling Evolution",
+      "description": "Analysis of how modern LLMs are becoming more sophisticated at using external tools and APIs. Focus on practical implementation patterns for function calling, error handling, and the importance of structured outputs for reliable AI coding assistants.",
+      "author": "Simon Willison",
+      "source": "Blog",
+      "url": "https://simonwillison.net/",
+      "topics": [
+        "function calling",
+        "tool use",
+        "LLM engineering"
+      ],
+      "type": "technical"
+    },
+    {
+      "title": "Replit Agent and the Future of IDEs",
+      "description": "Insights into how AI-native development environments are changing the coding workflow. Discussion of Replit's Agent capabilities and how they integrate with traditional development tools, emphasizing the importance of context awareness and iterative development.",
+      "author": "Amjad Masad",
+      "source": "Twitter",
+      "url": "https://twitter.com/amasad",
+      "topics": [
+        "AI IDEs",
+        "development workflows",
+        "Replit"
+      ],
+      "type": "discussion"
+    },
+    {
+      "title": "The Economic Impact of AI on Software Development",
+      "description": "Analysis of how AI coding tools are affecting developer productivity and the software development lifecycle. Discussion of both the opportunities and challenges, including concerns about code quality and the need for human oversight.",
+      "author": "Various Industry Leaders",
+      "source": "Hacker News",
+      "url": "https://news.ycombinator.com/",
+      "topics": [
+        "productivity",
+        "software engineering economics",
+        "AI adoption"
+      ],
+      "type": "discussion"
+    },
+    {
+      "title": "Multi-Modal AI for Code Understanding",
+      "description": "Exploration of how vision-language models are being applied to code comprehension, including understanding UI mockups, diagrams, and visual design patterns. Technical discussion about training approaches and evaluation metrics.",
+      "author": "Andrej Karpathy",
+      "source": "YouTube",
+      "url": "https://www.youtube.com/@lexfridman",
+      "topics": [
+        "multimodal AI",
+        "code comprehension",
+        "vision models"
+      ],
+      "type": "technical"
+    },
+    {
+      "title": "Prompt Engineering for Complex Coding Tasks",
+      "description": "Best practices for crafting effective prompts for AI coding assistants, including the importance of context specification, iterative refinement, and the use of structured prompting techniques for complex multi-file projects.",
+      "author": "Simon Willison",
+      "source": "Blog",
+      "url": "https://simonwillison.net/",
+      "topics": [
+        "prompt engineering",
+        "AI coding",
+        "best practices"
+      ],
+      "type": "tutorial"
+    },
+    {
+      "title": "The Future of Programming Languages in AI Era",
+      "description": "Discussion about how programming languages might evolve to better support AI-assisted development, including potential new language features, better type systems for AI integration, and the role of domain-specific languages.",
+      "author": "Lex Fridman Podcast Guests",
+      "source": "YouTube",
+      "url": "https://www.youtube.com/@lexfridman",
+      "topics": [
+        "programming languages",
+        "AI integration",
+        "future of coding"
+      ],
+      "type": "discussion"
+    },
+    {
+      "title": "AI Code Generation and Security Concerns",
+      "description": "Analysis of security implications of AI-generated code, including discussion about vulnerability detection, secure coding practices, and the need for specialized security-focused AI tools in the development pipeline.",
+      "author": "Security Researchers",
+      "source": "Reddit",
+      "url": "https://www.reddit.com/r/programming/",
+      "topics": [
+        "security",
+        "AI code generation",
+        "vulnerability detection"
+      ],
+      "type": "technical"
+    }
+  ],
+  "generatedAt": "2025-11-24T09:08:39.927Z"
+}
