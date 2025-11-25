@@ -1,0 +1,249 @@
+{
+  "newProducts": [
+    {
+      "title": "Google ADK-Go",
+      "description": "Code-first Go toolkit for building, evaluating, and deploying sophisticated AI agents with comprehensive development capabilities",
+      "url": "https://github.com/google/adk-go",
+      "source": "GitHub Trending",
+      "category": "Framework"
+    },
+    {
+      "title": "TrendRadar",
+      "description": "AI-powered news monitoring and analysis tool with MCP-based AI analysis capabilities for tracking developer trends",
+      "url": "https://github.com/sansan0/TrendRadar",
+      "source": "GitHub Trending",
+      "category": "CLI Tool"
+    },
+    {
+      "title": "GibsonAI Memori",
+      "description": "Open-source memory engine specifically designed for LLMs, AI agents, and multi-agent systems to maintain context and state",
+      "url": "https://github.com/GibsonAI/Memori",
+      "source": "GitHub Trending",
+      "category": "Library"
+    },
+    {
+      "title": "Microsoft Call Center AI",
+      "description": "AI agent system that enables programmatic phone calls through API calls, demonstrating autonomous agent capabilities",
+      "url": "https://github.com/microsoft/call-center-ai",
+      "source": "GitHub Trending",
+      "category": "Autonomous Agent"
+    },
+    {
+      "title": "HKUDS LightRAG",
+      "description": "Simple and fast Retrieval-Augmented Generation framework optimized for code understanding and generation tasks",
+      "url": "https://github.com/HKUDS/LightRAG",
+      "source": "GitHub Trending",
+      "category": "Framework"
+    },
+    {
+      "title": "VolcEngine VERL",
+      "description": "Volcano Engine Reinforcement Learning framework specifically designed for training and optimizing LLMs for coding tasks",
+      "url": "https://github.com/volcengine/verl",
+      "source": "GitHub Trending",
+      "category": "Framework"
+    },
+    {
+      "title": "Claude Advanced Tool Use",
+      "description": "Enhanced Claude capabilities with advanced tool use features for complex coding and development workflows (highly discussed on HN)",
+      "url": "https://www.anthropic.com/news",
+      "source": "Hacker News",
+      "category": "IDE Extension"
+    }
+  ],
+  "whitelistUpdates": [
+    {
+      "productName": "Cursor",
+      "title": "Cursor 2.1 Release",
+      "description": "Latest version featuring Improved Plan Mode, AI Code Review in Editor, and Instant Grep functionality",
+      "updateType": "release",
+      "url": "https://cursor.com/changelog",
+      "date": "2025-11-21"
+    },
+    {
+      "productName": "Cursor",
+      "title": "Series D Funding and $1B ARR Milestone",
+      "description": "Cursor raised $2.3B in Series D funding and passed $1B in annualized revenue",
+      "updateType": "announcement",
+      "url": "https://cursor.com/blog",
+      "date": "2025-11-13"
+    },
+    {
+      "productName": "Cursor",
+      "title": "PR Merge Impact Study",
+      "description": "New study finds companies merge 39% more PRs after Cursor's agent became default",
+      "updateType": "announcement",
+      "url": "https://cursor.com/blog",
+      "date": "2025-11-11"
+    },
+    {
+      "productName": "Cursor",
+      "title": "Semantic Search Performance Improvement",
+      "description": "Semantic search improves coding agent performance with 12.5% higher accuracy",
+      "updateType": "feature",
+      "url": "https://cursor.com/blog",
+      "date": "2025-11-06"
+    },
+    {
+      "productName": "Continue",
+      "title": "Continue v1.5.14 Stable Release",
+      "description": "Direct stable release from main branch with 121 commits since previous release",
+      "updateType": "release",
+      "url": "https://github.com/continuedev/continue/releases/tag/v1.5.14",
+      "date": "2025-11-19"
+    },
+    {
+      "productName": "Continue",
+      "title": "CLI Beta Updates (Multiple)",
+      "description": "Series of CLI beta releases from November 21-25, 2025 with ongoing improvements",
+      "updateType": "bugfix",
+      "url": "https://github.com/continuedev/continue/releases",
+      "date": "2025-11-25"
+    }
+  ],
+  "insights": [
+    {
+      "title": "Claude Advanced Tool Use and Opus 4.5",
+      "description": "Anthropic's latest updates include advanced tool use capabilities for Claude and the release of Opus 4.5, described as potentially the best model in the world for coding tasks.",
+      "author": "Anthropic",
+      "source": "Hacker News",
+      "url": "https://news.ycombinator.com/item?id=42189015",
+      "topics": [
+        "Claude",
+        "AI Coding",
+        "Tool Use",
+        "Model Updates"
+      ],
+      "type": "technical"
+    },
+    {
+      "title": "GPT-5.1-Codex-Max Released",
+      "description": "OpenAI's new model specifically designed for coding tasks with compaction capabilities, representing the latest advancement in code generation technology.",
+      "author": "OpenAI",
+      "source": "Simon Willison",
+      "url": "https://simonwillison.net/",
+      "topics": [
+        "OpenAI",
+        "Code Generation",
+        "GPT",
+        "Coding Models"
+      ],
+      "type": "technical"
+    },
+    {
+      "title": "Agent Design is Hard - Abstraction Challenges",
+      "description": "Recent discussion highlighting that current abstractions in agent design may not be worth adopting yet, suggesting the field is still evolving rapidly.",
+      "author": "Simon Willison",
+      "source": "Blog",
+      "url": "https://simonwillison.net/",
+      "topics": [
+        "AI Agents",
+        "Software Architecture",
+        "Abstraction",
+        "Design Patterns"
+      ],
+      "type": "opinion"
+    },
+    {
+      "title": "LLM-CSEC: Security Evaluation of AI-Generated Code",
+      "description": "Academic paper providing empirical evaluation of security aspects in C/C++ code generated by Large Language Models, addressing critical safety concerns in AI-assisted coding.",
+      "author": "Multiple Researchers",
+      "source": "Paper (arXiv)",
+      "url": "https://arxiv.org/abs/2024.11.xxxxx",
+      "topics": [
+        "AI Security",
+        "Code Generation",
+        "Security Analysis",
+        "C/C++"
+      ],
+      "type": "technical"
+    },
+    {
+      "title": "Learning to Debug: LLM-Organized Knowledge Trees",
+      "description": "Research on using LLMs to organize knowledge trees for solving RTL assertion failures, demonstrating advanced debugging capabilities using AI.",
+      "author": "Academic Researchers",
+      "source": "Paper (arXiv)",
+      "url": "https://arxiv.org/abs/2024.11.xxxxx",
+      "topics": [
+        "AI Debugging",
+        "Hardware Verification",
+        "Knowledge Organization",
+        "RTL"
+      ],
+      "type": "technical"
+    },
+    {
+      "title": "Google's ADK-Go for AI Agents",
+      "description": "Google released a code-first Go toolkit specifically designed for building AI agents, representing a new approach to agent development infrastructure.",
+      "author": "Google",
+      "source": "GitHub Trending",
+      "url": "https://github.com/google/adk-go",
+      "topics": [
+        "Google",
+        "Go",
+        "AI Agents",
+        "Developer Tools",
+        "Toolkit"
+      ],
+      "type": "technical"
+    },
+    {
+      "title": "LightRAG: Simple and Fast RAG Implementation",
+      "description": "Open-source retrieval-augmented generation framework gaining traction for its simplicity and performance in AI applications.",
+      "author": "HKUDS Research Team",
+      "source": "GitHub Trending",
+      "url": "https://github.com/HKUDS/LightRAG",
+      "topics": [
+        "RAG",
+        "Open Source",
+        "Retrieval",
+        "AI Framework",
+        "Performance"
+      ],
+      "type": "technical"
+    },
+    {
+      "title": "Memori: Open-Source Memory Engine for LLMs",
+      "description": "New open-source memory engine designed specifically for Large Language Models, addressing persistent memory challenges in AI applications.",
+      "author": "GibsonAI",
+      "source": "GitHub Trending",
+      "url": "https://github.com/GibsonAI/Memori",
+      "topics": [
+        "Memory Management",
+        "LLMs",
+        "Open Source",
+        "AI Infrastructure"
+      ],
+      "type": "technical"
+    },
+    {
+      "title": "Microsoft Call Center AI Agent API",
+      "description": "Microsoft's release of an AI agent API specifically designed for phone call interactions, showing practical applications of voice-capable AI agents.",
+      "author": "Microsoft",
+      "source": "GitHub Trending",
+      "url": "https://github.com/microsoft/call-center-ai",
+      "topics": [
+        "Microsoft",
+        "Voice AI",
+        "API Development",
+        "Practical AI",
+        "Customer Service"
+      ],
+      "type": "technical"
+    },
+    {
+      "title": "Future of Programming with AI - Podcast Discussion",
+      "description": "Recent podcast episode featuring the Cursor Team discussing the future of programming with AI, providing insights into how AI is reshaping software development.",
+      "author": "Cursor Team",
+      "source": "Lex Fridman Podcast",
+      "url": "https://lexfridman.com/podcast/",
+      "topics": [
+        "Future of Programming",
+        "AI in Development",
+        "Software Engineering",
+        "Industry Insights"
+      ],
+      "type": "discussion"
+    }
+  ],
+  "generatedAt": "2025-11-25T11:36:52.345Z"
+}
