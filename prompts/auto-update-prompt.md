@@ -4,19 +4,19 @@
 - Repository: agentcodedaily
 - Working directory: current repository root
 - Main branch: `main` (development)
-- Publishing branch: `ph-pages` (for published reports)
+- Publishing branch: `gh-pages` (for published reports)
 
 ## Task Steps
 
 Execute the following steps in order:
 
-### Step 1: Switch to ph-pages Branch
+### Step 1: Switch to gh-pages Branch
 ```bash
 # Fetch latest changes
 git fetch origin
 
-# Switch to ph-pages branch, create if doesn't exist
-git checkout ph-pages || git checkout -b ph-pages
+# Switch to gh-pages branch, create if doesn't exist
+git checkout gh-pages || git checkout -b gh-pages
 ```
 
 ### Step 2: Merge main Branch (Auto-resolve Conflicts)
@@ -51,8 +51,8 @@ if ! git diff-index --quiet HEAD --; then
   # Commit with timestamp
   git commit -m "chore: Auto-update reports - $(date -u +"%Y-%m-%d %H:%M UTC")"
 
-  # Push to ph-pages branch
-  git push origin ph-pages
+  # Push to gh-pages branch
+  git push origin gh-pages
 else
   echo "No changes to commit"
 fi
@@ -61,9 +61,9 @@ fi
 ## Expected Results
 
 After execution:
-- `ph-pages` branch is synced with latest `main`
+- `gh-pages` branch is synced with latest `main`
 - New daily report is generated in `updates/YYYY-MM-DD/`
-- All changes are committed and pushed to `ph-pages`
+- All changes are committed and pushed to `gh-pages`
 
 ## Error Handling
 
