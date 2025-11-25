@@ -6,30 +6,71 @@ echo "🚀 Starting auto-update workflow..."
 TARGET_BRANCH=${TARGET_BRANCH:-gh-pages}
 SOURCE_BRANCH=${SOURCE_BRANCH:-main}
 
+# Safety check: Force ensure we're working with a git repository
+if ! git rev-parse --git-dir > /dev/null 2>&1; then
+  echo "❌ Error: Not in a git repository"
+  exit 1
+fi
+
+# Safety check: Verify we can access the remote
+if ! git remote get-url origin > /dev/null 2>&1; then
+  echo "❌ Error: No remote 'origin' found"
+  exit 1
+fi
+
+echo "ℹ️  Current directory: $(pwd)"
+echo "ℹ️  Target branch: ${TARGET_BRANCH}"
+echo "ℹ️  Source branch: ${SOURCE_BRANCH}"
+
 # Step 1: Switch to pages branch and sync with remote
 echo ""
 echo "📌 Step 1: Switching to ${TARGET_BRANCH} branch..."
-git fetch origin
+
+# Force switch to target branch - this is the critical safety step
+echo "🔄 Force switching to ${TARGET_BRANCH} branch..."
+
+# Fetch all remote branches first to ensure we have latest information
+git fetch --all --prune
 
 if git rev-parse --verify "${TARGET_BRANCH}" >/dev/null 2>&1; then
+  # Branch exists locally, switch to it
   git checkout "${TARGET_BRANCH}"
   echo "✅ Switched to existing ${TARGET_BRANCH} branch"
-
-  # Pull latest changes from remote target branch if it exists
+else
+  # Branch doesn't exist locally, create it from remote or as new
   if git ls-remote --exit-code --heads origin "${TARGET_BRANCH}" >/dev/null 2>&1; then
-    echo "🔄 Pulling latest changes from origin/${TARGET_BRANCH}..."
-    if git pull origin "${TARGET_BRANCH}"; then
-      echo "✅ Successfully pulled latest changes"
-    else
-      echo "❌ Failed to pull latest changes"
-      echo "ℹ️  Continuing with local version..."
-    fi
+    # Branch exists on remote, check it out
+    git checkout -b "${TARGET_BRANCH}" "origin/${TARGET_BRANCH}"
+    echo "✅ Created ${TARGET_BRANCH} branch from remote"
   else
-    echo "ℹ️  Remote ${TARGET_BRANCH} branch not found, will create on push"
+    # Branch doesn't exist anywhere, create new branch
+    git checkout -b "${TARGET_BRANCH}"
+    echo "✅ Created new ${TARGET_BRANCH} branch"
+  fi
+fi
+
+# CRITICAL: Verify we're on the correct branch
+CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+if [ "$CURRENT_BRANCH" != "${TARGET_BRANCH}" ]; then
+  echo "❌ CRITICAL ERROR: Failed to switch to ${TARGET_BRANCH} branch"
+  echo "❌ Current branch: $CURRENT_BRANCH"
+  echo "❌ Expected branch: ${TARGET_BRANCH}"
+  echo "❌ This script must run on the ${TARGET_BRANCH} branch to avoid data corruption"
+  exit 1
+fi
+
+echo "✅ Verified: Now running on ${TARGET_BRANCH} branch"
+
+# Pull latest changes from remote target branch if it exists
+if git ls-remote --exit-code --heads origin "${TARGET_BRANCH}" >/dev/null 2>&1; then
+  echo "🔄 Pulling latest changes from origin/${TARGET_BRANCH}..."
+  if git pull origin "${TARGET_BRANCH}"; then
+    echo "✅ Successfully pulled latest changes"
+  else
+    echo "⚠️  Failed to pull latest changes, continuing with local version..."
   fi
 else
-  git checkout -b "${TARGET_BRANCH}"
-  echo "✅ Created new ${TARGET_BRANCH} branch"
+  echo "ℹ️  Remote ${TARGET_BRANCH} branch not found, will create on push"
 fi
 
 # Step 2: Sync with main branch (get latest code while preserving updates/)
