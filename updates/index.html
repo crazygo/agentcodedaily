@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Agent Code Daily - Latest updates on agentic coding products, tools, and industry developments">
+    <meta name="description" content="Latest daily reports on agentic coding products, tools, and updates from the AI development landscape">
     <title>Agent Code Daily - Updates</title>
     <link rel="stylesheet" href="assets/base.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,18 +11,18 @@
 </head>
 <body>
     <nav class="breadcrumbs">
-        <a href="/">Home</a> > Updates
+        <a href="../">Home</a> > Updates
     </nav>
 
     <header>
         <h1>Agent Code Daily - Updates</h1>
-        <p class="subtitle">Daily reports on agentic coding products and industry developments</p>
-        <p class="current-date">Current Date: November 26, 2025</p>
+        <p class="subtitle">Daily insights on agentic coding products and AI development tools</p>
+        <p class="current-date">Generated on November 26, 2025</p>
     </header>
 
     <main>
         <section class="intro">
-            <p>Welcome to the Agent Code Daily updates archive. This page contains daily reports covering the latest developments in AI-powered coding tools, autonomous agents, and the broader agentic coding ecosystem.</p>
+            <p>Explore our daily analyses of AI coding tools, agent frameworks, and development updates. Each report contains insights on the latest developments in the agentic coding landscape.</p>
         </section>
 
         <section class="recent-updates">
@@ -32,6 +32,7 @@
                     <div class="header-date">Date</div>
                     <div class="header-summary">Summary</div>
                     <div class="header-files">Files</div>
+                    <div class="header-actions">Actions</div>
                 </div>
 
                 <div class="table-row">
@@ -43,6 +44,9 @@
                     </div>
                     <div class="files-cell">
                         <span class="file-count">3 files</span>
+                    </div>
+                    <div class="actions-cell">
+                        <a href="2025-11-26/" class="btn btn-primary">View Report</a>
                     </div>
                 </div>
 
@@ -56,6 +60,9 @@
                     <div class="files-cell">
                         <span class="file-count">3 files</span>
                     </div>
+                    <div class="actions-cell">
+                        <a href="2025-11-25/" class="btn btn-primary">View Report</a>
+                    </div>
                 </div>
 
                 <div class="table-row">
@@ -63,11 +70,13 @@
                         <a href="2025-11-24/" class="date-link">November 24, 2025</a>
                     </div>
                     <div class="summary-cell">
-                        Daily report on agentic coding products and updates
-                        <span class="highlight">AI Coding Insights Available</span>
+                        Daily report on agentic coding products and updates with AI coding insights
                     </div>
                     <div class="files-cell">
                         <span class="file-count">4 files</span>
+                    </div>
+                    <div class="actions-cell">
+                        <a href="2025-11-24/" class="btn btn-primary">View Report</a>
                     </div>
                 </div>
             </div>
@@ -103,14 +112,26 @@
                 </div>
             </div>
         </section>
+
+        <!-- NoScript Fallback Navigation -->
+        <noscript>
+            <div class="noscript-nav">
+                <h3>Navigation (JavaScript Disabled)</h3>
+                <ul>
+                    <li><a href="2025-11-26/">November 26, 2025</a> - Daily report (3 files)</li>
+                    <li><a href="2025-11-25/">November 25, 2025</a> - Daily report (3 files)</li>
+                    <li><a href="2025-11-24/">November 24, 2025</a> - Daily report with AI coding insights (4 files)</li>
+                </ul>
+            </div>
+        </noscript>
     </main>
 
     <footer>
         <div class="footer-content">
-            <p class="last-updated">Last updated: November 26, 2025 at 16:48:03 UTC</p>
+            <p class="last-updated">Last updated: <time datetime="2025-11-26T18:13:51.535Z">2025-11-26T18:13:51.535Z</time></p>
             <p class="copyright">© 2025 Agent Code Daily. Tracking the evolution of AI-powered development tools.</p>
             <div class="footer-links">
-                <a href="/">Home</a>
+                <a href="../">Home</a>
                 <a href="#recent-updates">Recent Updates</a>
                 <a href="#all-archives">Full Archive</a>
             </div>
@@ -197,7 +218,7 @@
 
         .table-header {
             display: grid;
-            grid-template-columns: 150px 1fr 100px;
+            grid-template-columns: 150px 1fr 100px 120px;
             background: var(--bg-light);
             font-weight: 600;
             padding: 1rem;
@@ -206,7 +227,7 @@
 
         .table-row {
             display: grid;
-            grid-template-columns: 150px 1fr 100px;
+            grid-template-columns: 150px 1fr 100px 120px;
             padding: 1rem;
             border-bottom: 1px solid var(--border-color);
             transition: background-color 0.2s ease;
@@ -273,6 +294,32 @@
             font-size: 0.85rem;
             font-weight: 500;
             color: var(--text-secondary);
+        }
+
+        .actions-cell {
+            display: flex;
+            align-items: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-1px);
         }
 
         .archives {
@@ -383,6 +430,38 @@
             color: var(--primary-color);
         }
 
+        .noscript-nav {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .noscript-nav h3 {
+            margin-top: 0;
+            color: #856404;
+        }
+
+        .noscript-nav ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .noscript-nav li {
+            margin-bottom: 0.5rem;
+        }
+
+        .noscript-nav a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .noscript-nav a:hover {
+            text-decoration: underline;
+        }
+
         /* Responsive design */
         @media (max-width: 768px) {
             .table-header,
@@ -393,7 +472,8 @@
 
             .header-date,
             .header-summary,
-            .header-files {
+            .header-files,
+            .header-actions {
                 display: none;
             }
 
@@ -404,6 +484,11 @@
 
             .files-cell::before {
                 content: "Files: ";
+                font-weight: 600;
+            }
+
+            .actions-cell::before {
+                content: "Actions: ";
                 font-weight: 600;
             }
 
