@@ -66,7 +66,7 @@ fi
 # Step 5: Commit and push changes
 echo "💾 Committing changes..."
 if [ -d "updates" ] && [ "$(ls -A updates 2>/dev/null)" ]; then
-  git add updates/
+  git add -f updates/
 
   if ! git diff --cached --quiet; then
     TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M UTC")
