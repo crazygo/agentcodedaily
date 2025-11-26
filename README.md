@@ -103,6 +103,10 @@ yarn clean
 
 ## Usage Examples
 
+Example index page (static): https://crazygo.github.io/agentcodedaily/updates/index.html
+
+Last updated: 2025-11-26T16:46:02.361Z
+
 **Daily automated report:**
 ```bash
 # Generates report in updates/2025-11-20/
