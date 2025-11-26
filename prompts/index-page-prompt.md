@@ -1,15 +1,23 @@
-# Updates Index Page Generation
+# Generate /updates/index.html (Static)
 
-You are tasked with generating a static HTML index page for the agentcodedaily updates section.
+Task: build a static HTML index page listing latest 7 daily report folders.
 
-## Context
+## Context (simple)
 
 - **Site root**: `/updates`
 - **Manifest file**: Located at `/updates/manifest.json`
 - **Shared assets templates**: Located at `/templates/updates-assets/`
   - CSS template: `/templates/updates-assets/base.css`
   - JavaScript template: `/templates/updates-assets/base.js`
-- **Target assets location**: `/updates/assets/` (you need to copy templates here)
+- **Assets setup (one block)**:
+  ```bash
+  mkdir -p updates/assets
+  [ -f updates/assets/base.css ] || cp templates/updates-assets/base.css updates/assets/base.css
+  [ -f updates/assets/base.js ] || cp templates/updates-assets/base.js updates/assets/base.js
+  # Verify
+  ls -l updates/assets
+  ```
+  Use relative links: `assets/base.css`, `assets/base.js` (never start with /).
 - **GitHub Pages base path**: `/agentcodedaily/` (repository name)
 - **Important Path Rule**:
   - When generating links or asset references inside `/updates/index.html`, use RELATIVE paths: `assets/base.css`, `assets/base.js`.
@@ -21,26 +29,10 @@ You are tasked with generating a static HTML index page for the agentcodedaily u
 
 ## Prerequisites
 
-Before generating the index page, you MUST:
-
-1. Create the assets directory if it doesn't exist:
-   ```bash
-   mkdir -p updates/assets
-   ```
-
-2. Copy the asset templates to the updates directory (only if missing):
-   ```bash
-   [ -f updates/assets/base.css ] || cp templates/updates-assets/base.css updates/assets/
-   [ -f updates/assets/base.js ] || cp templates/updates-assets/base.js updates/assets/
-   ls -l updates/assets/
-   ```
-
-These assets will be used by all update pages for consistent styling and navigation.
-
-3. After generating index.html, ensure links are relative (verify no leading slash with grep):
-   ```bash
-   grep -n "href=\"/" updates/index.html || echo "✅ No absolute root hrefs"
-   ```
+Single assets setup already shown above. After generating index.html verify no absolute paths:
+```bash
+grep -n "href=\"/" updates/index.html || echo "✅ No absolute root hrefs"
+```
 
 ## Manifest Structure
 
