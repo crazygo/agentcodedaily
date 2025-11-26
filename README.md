@@ -2,6 +2,12 @@
 
 A TypeScript-based product research daily report website focusing on the agentic coding area.
 
+## Live Demo
+
+Explore the generated reports index (latest 7 days): https://crazygo.github.io/agentcodedaily/updates/index.html
+
+Last updated: 2025-11-26T16:52:03.498Z
+
 ## Overview
 
 This project automatically discovers and tracks:
