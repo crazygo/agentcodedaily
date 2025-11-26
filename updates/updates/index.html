@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Code Daily - Updates</title>
+    <meta name="description" content="Latest daily reports on agentic coding products and updates">
+    <link rel="stylesheet" href="assets/base.css">
+</head>
+<body>
+    <header>
+        <div class="breadcrumbs">
+            <a href="../">Home</a> &gt; Updates
+        </div>
+        <h1>Agent Code Daily - Updates</h1>
+        <p class="subtitle">Daily reports on agentic coding products and updates</p>
+        <p>Current date: November 26, 2025</p>
+    </header>
+
+    <nav class="nav-bar">
+        <a href="../" class="nav-home">Home</a>
+        <a href="#" onclick="toggleTheme()">🌙 Theme</a>
+    </nav>
+
+    <main>
+        <h2>Latest Daily Reports</h2>
+        <p>Browse our latest daily reports covering agentic coding products, tools, and industry updates.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Summary</th>
+                    <th>Files</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <strong><a href="2025-11-26/">November 26, 2025</a></strong>
+                    </td>
+                    <td>
+                        Daily report on agentic coding products and updates
+                        <br><small>Latest insights and developments in AI coding tools</small>
+                    </td>
+                    <td>
+                        <span class="file-count">3 files</span>
+                    </td>
+                    <td>
+                        <a href="2025-11-26/">View Report</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong><a href="2025-11-25/">November 25, 2025</a></strong>
+                    </td>
+                    <td>
+                        Daily report on agentic coding products and updates
+                        <br><small>Comprehensive analysis of coding agent advancements</small>
+                    </td>
+                    <td>
+                        <span class="file-count">3 files</span>
+                    </td>
+                    <td>
+                        <a href="2025-11-25/">View Report</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong><a href="2025-11-24/">November 24, 2025</a></strong>
+                    </td>
+                    <td>
+                        Daily report on agentic coding products and updates
+                        <br><small>AI coding insights and product updates including specialized data</small>
+                    </td>
+                    <td>
+                        <span class="file-count">4 files</span>
+                    </td>
+                    <td>
+                        <a href="2025-11-24/">View Report</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div style="margin-top: 2rem; text-align: center;">
+            <p><em>Showing all available daily reports</em></p>
+        </div>
+    </main>
+
+    <footer>
+        <p>Last updated: 2025-11-26T17:56:07.741Z</p>
+        <p>&copy; 2025 Agent Code Daily. Tracking the evolution of AI-powered coding tools.</p>
+    </footer>
+
+    <script src="assets/base.js"></script>
+    <script>
+        // Additional page-specific functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add file count tooltips
+            const fileCounts = document.querySelectorAll('.file-count');
+            fileCounts.forEach(element => {
+                element.style.cursor = 'help';
+                element.title = 'Includes data.json, report.md, index.html' +
+                               (element.textContent === '4 files' ? ', ai-coding-insights.json' : '');
+            });
+
+            // Highlight today's date
+            const todayRow = document.querySelector('td a[href="2025-11-26/"]');
+            if (todayRow) {
+                todayRow.closest('tr').style.backgroundColor = 'var(--bg-light)';
+                todayRow.closest('tr').style.borderLeft = '4px solid var(--primary-color)';
+            }
+        });
+    </script>
+
+    <noscript>
+        <div style="background: #fef3c7; border: 1px solid #f59e0b; padding: 1rem; margin: 1rem 0; border-radius: 4px;">
+            <h3>Navigation (JavaScript disabled)</h3>
+            <p>Quick links to daily reports:</p>
+            <ul>
+                <li><a href="2025-11-26/">November 26, 2025</a></li>
+                <li><a href="2025-11-25/">November 25, 2025</a></li>
+                <li><a href="2025-11-24/">November 24, 2025</a></li>
+            </ul>
+        </div>
+    </noscript>
+</body>
+</html>

@@ -1,233 +1,184 @@
 {
   "newProducts": [
     {
-      "title": "Memori",
-      "description": "Open-source SQL-Native memory engine for LLMs and AI agents. Provides persistent, queryable memory with one line of code. Supports SQLite, PostgreSQL, MySQL databases with 80-90% cost savings over vector databases.",
-      "url": "https://github.com/GibsonAI/Memori",
-      "source": "GitHub",
-      "category": "Library"
+      "title": "TrendRadar",
+      "description": "AI-powered public opinion monitoring and analysis tool with multi-platform hotspot aggregation. Features real-time trend detection and sentiment analysis capabilities.",
+      "url": "https://github.com/sansan0/TrendRadar",
+      "source": "GitHub Trending",
+      "category": "Autonomous Agent"
     },
     {
-      "title": "Serena",
-      "description": "A powerful coding agent toolkit providing semantic retrieval and editing capabilities for AI development tools.",
-      "url": "https://github.com/oraios/serena",
-      "source": "GitHub",
+      "title": "Google ADK-Go",
+      "description": "Open-source Go toolkit for building AI agents. Provides developers with comprehensive tools and libraries for creating autonomous AI-powered applications.",
+      "url": "https://github.com/google/adk-go",
+      "source": "GitHub Trending",
+      "category": "Library/Framework"
+    },
+    {
+      "title": "LightRAG",
+      "description": "Fast Retrieval-Augmented Generation (RAG) model optimized for quick information retrieval and generation. Designed for efficient knowledge integration in AI applications.",
+      "url": "https://github.com/HKUDS/LightRAG",
+      "source": "GitHub Trending",
       "category": "Framework"
     },
     {
-      "title": "KiloCode",
-      "description": "Open-source VS Code AI agent with code generation, task automation, refactoring, MCP server integration, and multi-mode operation capabilities.",
-      "url": "https://github.com/Kilo-Org/kilocode",
-      "source": "GitHub",
-      "category": "IDE Extension"
-    },
-    {
-      "title": "CCPM",
-      "description": "Project management system for Claude Code using GitHub Issues and Git worktrees for parallel agent execution with context preservation and GitHub native integration.",
-      "url": "https://github.com/automazeio/ccpm",
-      "source": "GitHub",
-      "category": "Autonomous Agent"
-    },
-    {
-      "title": "AiderDesk",
-      "description": "Desktop application for the Aider AI assistant featuring multi-project management, Git worktrees support, and IDE integration.",
-      "url": "https://github.com/hotovo/aider-desk",
-      "source": "GitHub",
-      "category": "CLI Tool"
-    },
-    {
-      "title": "OpenAgents",
-      "description": "Open platform for language agents featuring Data Agent for analysis, Plugins Agent with 200+ tools, and Web Agent for browsing. Includes easy deployment and chat web UI.",
-      "url": "https://github.com/xlang-ai/OpenAgents",
-      "source": "GitHub",
-      "category": "Autonomous Agent"
-    },
-    {
-      "title": "llmfuse",
-      "description": "A self-compressing filesystem backed by an LLM, providing AI-powered file compression and retrieval capabilities.",
-      "url": "https://github.com/llmfuse/llmfuse",
-      "source": "Lobsters",
-      "category": "CLI Tool"
-    },
-    {
-      "title": "Knapsack",
-      "description": "Developer productivity platform that helps bridge the gap between design and engineering teams, recently raised $10M in funding.",
-      "url": "https://techcrunch.com/tag/developer-tools/",
-      "source": "News",
-      "category": "Autonomous Agent"
+      "title": "Memori",
+      "description": "Open-source LLM memory engine that provides persistent memory capabilities for large language models, enabling better context retention and state management.",
+      "url": "https://github.com/GibsonAI/Memori",
+      "source": "GitHub Trending",
+      "category": "Library"
     }
   ],
   "whitelistUpdates": [
     {
-      "productName": "GitHub Copilot",
-      "title": "Copilot agent sessions on GitHub Mobile for Android",
-      "description": "Copilot agent sessions from external apps are now available on GitHub Mobile for Android",
-      "updateType": "feature",
-      "url": "https://github.blog/changelog/",
-      "date": "2025-11-25"
-    },
-    {
-      "productName": "GitHub Copilot",
-      "title": "Claude Opus 4.5 Public Preview",
-      "description": "Claude Opus 4.5 is in public preview for GitHub Copilot",
-      "updateType": "feature",
-      "url": "https://github.blog/changelog/",
-      "date": "2025-11-24"
-    },
-    {
-      "productName": "Windsurf",
-      "title": "GPT 5.1 Models Available",
-      "description": "GPT 5.1, GPT 5.1-Codex, and GPT-5.1-Codex Mini are now available in Windsurf",
-      "updateType": "feature",
-      "url": "https://windsurf.com/blog",
-      "date": "2025-11-13"
-    },
-    {
-      "productName": "GitHub Copilot",
-      "title": "OpenAI GPT-5.1 Models Public Preview",
-      "description": "OpenAI's GPT-5.1 models in public preview for GitHub Copilot",
-      "updateType": "feature",
-      "url": "https://github.blog/changelog/",
-      "date": "2025-11-13"
-    },
-    {
       "productName": "Cursor",
-      "title": "Series D Funding Announcement",
-      "description": "Cursor raised Series D of $2.3B and has passed $1B in annualized revenue",
+      "title": "Series D Funding Round of $2.3B",
+      "description": "Cursor raised $2.3B in Series D funding and has surpassed $1B in annualized revenue, demonstrating significant growth and market adoption.",
       "updateType": "announcement",
       "url": "https://cursor.com/blog",
       "date": "2025-11-13"
     },
     {
+      "productName": "Cursor",
+      "title": "University of Chicago Research Study Results",
+      "description": "A new study from the University of Chicago finds that companies merge 39% more PRs after Cursor's agent became the default, showing significant productivity improvements.",
+      "updateType": "announcement",
+      "url": "https://cursor.com/blog",
+      "date": "2025-11-11"
+    },
+    {
+      "productName": "Cursor",
+      "title": "Semantic Search Performance Improvement",
+      "description": "Research shows that semantic search significantly improves coding agent performance with 12.5% higher accuracy, enhancing the quality of AI-generated code.",
+      "updateType": "feature",
+      "url": "https://cursor.com/blog",
+      "date": "2025-11-06"
+    },
+    {
       "productName": "Continue",
-      "title": "CLI Beta Release v1.5.14",
-      "description": "Latest CLI beta release with security improvements, command validation, and config secrets handling",
+      "title": "CLI Beta v1.5.14",
+      "description": "Latest CLI Beta release featuring security fixes, MCP enhancements, and CLI improvements for better developer experience.",
       "updateType": "release",
       "url": "https://github.com/continuedev/continue/releases",
       "date": "2025-11-26"
     },
     {
-      "productName": "Aider",
-      "title": "Version 0.86.0 Release",
-      "description": "Added support for all GPT-5 models and Grok-4 via xAI integration",
+      "productName": "Continue",
+      "title": "Continue Cloud Agents Productivity Study",
+      "description": "Blog post published detailing how Continue Cloud Agents increase developer productivity with new metrics and case studies.",
+      "updateType": "announcement",
+      "url": "https://blog.continue.dev",
+      "date": "2025-11-20"
+    },
+    {
+      "productName": "Continue",
+      "title": "Focused Task Decomposition Guide",
+      "description": "Published guide on 'Stop Asking AI to Build the Whole Feature: The Art of Focused Task Decomposition' helping developers work more effectively with AI coding assistants.",
+      "updateType": "announcement",
+      "url": "https://blog.continue.dev",
+      "date": "2025-11-10"
+    },
+    {
+      "productName": "Continue",
+      "title": "@continuedev/llm-info v1.6.0",
+      "description": "Package update featuring improved LLM information handling and integration enhancements for the Continue development platform.",
       "updateType": "release",
-      "url": "https://github.com/paul-gauthier/aider/releases",
-      "date": "2025-08-09"
+      "url": "https://github.com/continuedev/continue/releases",
+      "date": "2025-11-25"
     }
   ],
   "insights": [
     {
-      "title": "Google Antigravity Security Vulnerability",
-      "description": "Security vulnerability discovered allowing data exfiltration via prompt injection attacks",
-      "author": "Simon Willison",
+      "title": "GitHub recognized as Leader in Gartner Magic Quadrant for AI Code Assistants",
+      "description": "GitHub's AI coding tools have been recognized as a market leader in the AI code assistant space, highlighting the growing importance and maturity of AI-powered development tools.",
+      "author": "GitHub Blog",
       "source": "Blog",
-      "url": "https://simonwillison.net/",
+      "url": "https://github.blog/",
       "topics": [
-        "security",
-        "prompt-injection",
-        "LLM-safety",
-        "vulnerability"
+        "AI Code Assistants",
+        "GitHub Copilot",
+        "Gartner"
       ],
       "type": "technical"
     },
     {
-      "title": "Claude Opus 4.5 Release",
-      "description": "Released as 'best model in the world for coding, agents, and computer use' with enhanced capabilities",
-      "author": "Simon Willison",
+      "title": "Unlocking unstructured data with RAG",
+      "description": "Educational content on retrieval-augmented generation (RAG) techniques for capturing more insights from unstructured data, relevant for AI-powered coding applications.",
+      "author": "GitHub Blog",
       "source": "Blog",
-      "url": "https://simonwillison.net/",
+      "url": "https://github.blog/",
       "topics": [
-        "Claude",
-        "coding-models",
-        "AI-agents",
-        "model-release"
+        "RAG",
+        "Unstructured Data",
+        "AI Development"
+      ],
+      "type": "tutorial"
+    },
+    {
+      "title": "The creator of Python speaks - Developers still flock to Python",
+      "description": "Guido van Rossum discusses Python's readability, AI integration, and the future of programming, providing insights into how AI is shaping programming language evolution.",
+      "author": "GitHub Blog",
+      "source": "Blog",
+      "url": "https://github.blog/",
+      "topics": [
+        "Python",
+        "AI Programming",
+        "Programming Languages"
       ],
       "type": "technical"
     },
     {
-      "title": "LLVM Constant-Time Security Support",
-      "description": "LLVM adding constant-time support to protect cryptographic code from timing attacks",
-      "author": "Simon Willison",
+      "title": "Continuous batching from first principles",
+      "description": "Technical deep-dive into continuous batching techniques for LLMs, covering performance optimizations relevant for AI coding tools and applications.",
+      "author": "Hugging Face Blog",
       "source": "Blog",
-      "url": "https://simonwillison.net/",
+      "url": "https://huggingface.co/blog",
       "topics": [
-        "security",
-        "LLVM",
-        "cryptography",
-        "timing-attacks"
+        "LLM Optimization",
+        "Batching",
+        "Performance"
       ],
       "type": "technical"
     },
     {
-      "title": "Gemini 3 Pro Released",
-      "description": "Google's Gemini 3 Pro released with improved benchmarks and enhanced capabilities",
-      "author": "Simon Willison",
+      "title": "20x Faster TRL Fine-tuning with RapidFire AI",
+      "description": "Breakthrough in transformer fine-tuning performance that could accelerate development of specialized AI coding models and tools.",
+      "author": "Hugging Face Blog",
       "source": "Blog",
-      "url": "https://simonwillison.net/",
+      "url": "https://huggingface.co/blog",
       "topics": [
-        "Gemini",
-        "Google",
-        "LLM-models",
-        "benchmarks"
+        "Fine-tuning",
+        "Transformers",
+        "Performance"
       ],
       "type": "technical"
     },
     {
-      "title": "OpenAI GPT-5.1-Codex-Max for Agentic Coding",
-      "description": "New OpenAI model specifically designed for agentic coding tasks with context compaction capabilities",
-      "author": "Simon Willison",
+      "title": "Musk's xAI to build small solar farm adjacent to Colossus data center",
+      "description": "Infrastructure developments for AI model training facilities, highlighting the physical infrastructure needs behind AI coding and development tools.",
+      "author": "TechCrunch",
       "source": "Blog",
-      "url": "https://simonwillison.net/",
+      "url": "https://techcrunch.com/category/artificial-intelligence/",
       "topics": [
-        "OpenAI",
-        "GPT",
-        "coding-models",
-        "context-compaction"
+        "AI Infrastructure",
+        "xAI",
+        "Data Centers"
       ],
       "type": "technical"
     },
     {
-      "title": "AI Agent Design Challenges",
-      "description": "AI agent design highlighted as 'still hard' due to fundamental model differences and implementation challenges",
-      "author": "Simon Willison",
+      "title": "OpenASR Leaderboard: Trends and Insights",
+      "description": "Analysis of automatic speech recognition trends and benchmarks, relevant for voice-based AI coding interfaces and tools.",
+      "author": "Hugging Face Blog",
       "source": "Blog",
-      "url": "https://simonwillison.net/",
+      "url": "https://huggingface.co/blog",
       "topics": [
-        "AI-agents",
-        "agent-design",
-        "LLM-limitations",
-        "challenges"
-      ],
-      "type": "opinion"
-    },
-    {
-      "title": "Olmo 3 Open LLM Release",
-      "description": "Released as a fully open LLM with complete training data transparency, advancing open source AI",
-      "author": "Simon Willison",
-      "source": "Blog",
-      "url": "https://simonwillison.net/",
-      "topics": [
-        "open-source",
-        "Olmo",
-        "LLM-training",
-        "transparency"
-      ],
-      "type": "technical"
-    },
-    {
-      "title": "Google Nano Banana Pro for Image Generation",
-      "description": "Google's Gemini 3 Pro Image model noted as best-in-class for image generation capabilities",
-      "author": "Simon Willison",
-      "source": "Blog",
-      "url": "https://simonwillison.net/",
-      "topics": [
-        "image-generation",
-        "Google",
-        "multimodal",
-        "Gemini"
+        "ASR",
+        "Speech Recognition",
+        "AI Interfaces"
       ],
       "type": "technical"
     }
   ],
-  "generatedAt": "2025-11-26T16:41:25.527Z"
+  "generatedAt": "2025-11-26T17:50:58.236Z"
 }
