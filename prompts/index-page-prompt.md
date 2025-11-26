@@ -10,6 +10,12 @@ You are tasked with generating a static HTML index page for the agentcodedaily u
   - CSS template: `/templates/updates-assets/base.css`
   - JavaScript template: `/templates/updates-assets/base.js`
 - **Target assets location**: `/updates/assets/` (you need to copy templates here)
+- **GitHub Pages base path**: `/agentcodedaily/` (repository name)
+- **Important Path Rule**:
+  - When generating links or asset references inside `/updates/index.html`, use RELATIVE paths: `assets/base.css`, `assets/base.js`.
+  - When linking to a day folder from index: `2025-11-26/` (no leading slash).
+  - Inside daily pages, reference assets as `../assets/base.css` and `../assets/base.js`.
+  - Avoid absolute `/updates/...` paths (they break on GitHub Pages where the full URL is `/agentcodedaily/updates/...`).
 - **Current datetime**: {INSERT_CURRENT_DATETIME}
 - **Output file**: `/updates/index.html`
 
@@ -22,13 +28,19 @@ Before generating the index page, you MUST:
    mkdir -p updates/assets
    ```
 
-2. Copy the asset templates to the updates directory:
+2. Copy the asset templates to the updates directory (only if missing):
    ```bash
-   cp templates/updates-assets/base.css updates/assets/
-   cp templates/updates-assets/base.js updates/assets/
+   [ -f updates/assets/base.css ] || cp templates/updates-assets/base.css updates/assets/
+   [ -f updates/assets/base.js ] || cp templates/updates-assets/base.js updates/assets/
+   ls -l updates/assets/
    ```
 
 These assets will be used by all update pages for consistent styling and navigation.
+
+3. After generating index.html, ensure links are relative (verify no leading slash with grep):
+   ```bash
+   grep -n "href=\"/" updates/index.html || echo "✅ No absolute root hrefs"
+   ```
 
 ## Manifest Structure
 
@@ -53,8 +65,8 @@ The `days` array is sorted in ascending order (oldest first).
 Generate a complete, valid HTML5 document that:
 - Uses semantic HTML
 - Includes proper `<head>` with title, meta tags, and charset
-- Links to `/updates/assets/base.css` for styling
-- Links to `/updates/assets/base.js` for navigation enhancement
+- Copies asset templates (if not already) and links RELATIVELY: `assets/base.css` and `assets/base.js`
+- Provides a `<noscript>` fallback navigation (Home + latest 7 dates)
 - Has a clear, professional layout
 
 ### 2. Content Requirements
@@ -103,7 +115,7 @@ Use a clean table or list layout with:
 
 1. **Static generation**: This HTML must be fully static with no server-side rendering
 2. **Read manifest**: You MUST read the actual manifest.json file to get the real list of days
-3. **Relative paths**: All links should use relative paths from `/updates/`
+3. **Relative paths**: All links must be relative (no leading `/`). Example: `2025-11-26/`, `assets/base.css`, `../assets/base.js` in day pages.
 4. **No external dependencies**: Only use the provided base.css and base.js
 5. **Error handling**: If manifest.json is missing or malformed, display a friendly error message
 
