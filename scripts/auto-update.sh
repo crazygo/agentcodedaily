@@ -29,7 +29,7 @@ echo "🔀 Syncing with ${SOURCE_BRANCH} branch..."
 git config merge.ours.driver true
 echo "updates/ merge=ours" > .gitattributes
 
-if git pull origin "${SOURCE_BRANCH}" --no-edit; then
+if git pull --no-rebase origin "${SOURCE_BRANCH}" --no-edit; then
   echo "✅ Successfully synced with ${SOURCE_BRANCH}"
 else
   echo "🔄 Resolving conflicts..."
