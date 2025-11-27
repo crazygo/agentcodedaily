@@ -1,97 +1,9 @@
 # Product Research Daily Report
-Generated: 2025-11-27T06:12:47.896Z
+Generated: 2025-11-27T18:06:34.552Z
 
 ## 📦 New Products Discovered
 
-### 1. CodeAssist
-A completely private and local AI coding assistant developed by Gensyn. Helps practice programming problems and train a novel assistant to help you code. Focuses on privacy and local execution.
-
-🔗 [Visit](https://github.com/gensyn-ai/codeassist)
-📂 Category: CLI Tool
-📍 Source: GitHub
-
----
-
-### 2. LLM Docs Optimizer
-A Claude Code plugin that optimizes documentation for AI coding assistants. Features c7score optimization, llms.txt generation, question-driven restructuring, and automated quality scoring to make docs more effective for LLMs.
-
-🔗 [Visit](https://github.com/alonw0/llm-docs-optimizer)
-📂 Category: IDE Extension
-📍 Source: GitHub
-
----
-
-### 3. Seeva AI Assistant
-Press a key to ask for help anywhere - browser, code, any app. Features 'Watch Screen' functionality that sees what you see while maintaining flow continuity. Supports BYOK and is open source.
-
-🔗 [Visit](https://github.com/thisisharsh7/seeva-ai-assistant)
-📂 Category: Autonomous Agent
-📍 Source: GitHub
-
----
-
-### 4. Cliq
-A functional, Effect-TS-based AI coding assistant CLI with multi-provider support. Built with TypeScript and functional programming principles for reliable AI-assisted development.
-
-🔗 [Visit](https://github.com/kpritam/cliq)
-📂 Category: CLI Tool
-📍 Source: GitHub
-
----
-
-### 5. ADK Code
-AI coding assistant for your terminal powered by Google's ADK framework with multi-model support (Gemini, OpenAI, Vertex AI). First ADK code agent implemented in Go.
-
-🔗 [Visit](https://github.com/raphaelmansuy/adk-code)
-📂 Category: CLI Tool
-📍 Source: GitHub
-
----
-
-### 6. Augur Runtime Debugging Agent
-An autonomous AI debugging agent powered by the Debug Adapter Protocol (DAP). Allows LLMs to interact with live runtime state to diagnose issues. Includes both VS Code plugin and web-based simulator.
-
-🔗 [Visit](https://github.com/UPwith-me/Augur-Runtime-Debugging-Agent)
-📂 Category: Autonomous Agent
-📍 Source: GitHub
-
----
-
-### 7. RevAI
-AI-driven automated code-review pipeline that analyzes GitHub repositories and comments on pull requests. Built with React and LangChain, integrates into development workflow with contextual insights and minimal manual effort.
-
-🔗 [Visit](https://github.com/PreetChaudhary0264/RevAI)
-📂 Category: IDE Extension
-📍 Source: GitHub
-
----
-
-### 8. Gemini-MCP
-MCP server that encapsulates Google's Gemini CLI tool into a standard MCP protocol interface, enabling Claude Code to invoke Gemini for AI-assisted programming tasks. Part of the growing MCP ecosystem.
-
-🔗 [Visit](https://github.com/GuDaStudio/geminimcp)
-📂 Category: Library
-📍 Source: GitHub
-
----
-
-### 9. Your Claude Code
-A minimalist AI coding assistant inspired by Claude Code, built from scratch using LangGraph and MCP Servers. Demonstrates how to build Claude Code-like functionality with modern tools.
-
-🔗 [Visit](https://github.com/AIAnytime/Your-Claude-Code)
-📂 Category: Framework
-📍 Source: GitHub
-
----
-
-### 10. Emergent
-An LLM-first autonomous coding agent that builds itself. Represents a new approach to self-improving AI development agents that can autonomously enhance their own capabilities.
-
-🔗 [Visit](https://github.com/georgeglarson/emergent)
-📂 Category: Autonomous Agent
-📍 Source: GitHub
-
----
+_No new products found in this research cycle._
 
 ## 🔄 Whitelist Product Updates
 
@@ -99,27 +11,7 @@ _No updates found for tracked products._
 
 ## 💡 Technical Insights & Leader Opinions
 
-### 1. Current AI Coding Trend or Tool Release
-Summary of the latest development in AI coding tools
-
-✍️ Author: Thought Leader Name
-📌 Type: technical | opinion | tutorial
-📍 Source: Blog | Twitter | HN | YouTube
-🔗 [Read more](https://link-to-content)
-🏷️ Topics: AI coding, LLMs, developer tools, automation
-
----
-
-### 2. New LLM Model or Feature Announcement
-Details about new capabilities in code generation models
-
-✍️ Author: Company or Researcher
-📌 Type: technical | announcement
-📍 Source: Blog | Twitter
-🔗 [Read more](https://link-to-announcement)
-🏷️ Topics: LLMs, code generation, AI models
-
----
+_No new insights gathered._
 
 
 ---

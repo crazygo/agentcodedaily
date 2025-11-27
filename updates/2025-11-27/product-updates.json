@@ -1,0 +1,58 @@
+[
+  {
+    "productName": "Claude Code",
+    "title": "Enhanced Multi-Agent Capabilities",
+    "description": "Claude Code introduced new multi-agent collaboration features allowing developers to work with multiple AI agents simultaneously for complex coding tasks",
+    "updateType": "feature",
+    "url": "https://claude.ai/code",
+    "date": "2025-11-20"
+  },
+  {
+    "productName": "Cursor",
+    "title": "Advanced Autocomplete Model Update",
+    "description": "Cursor released an enhanced autocomplete model with improved context understanding and better performance on large codebases",
+    "updateType": "release",
+    "url": "https://cursor.sh",
+    "date": "2025-11-18"
+  },
+  {
+    "productName": "GitHub Copilot",
+    "title": "Copilot Chat Enterprise Rollout",
+    "description": "GitHub expanded Copilot Chat capabilities for enterprise users with enhanced security features and customizable AI models",
+    "updateType": "feature",
+    "url": "https://github.com/features/copilot",
+    "date": "2025-11-22"
+  },
+  {
+    "productName": "Windsurf",
+    "title": "Real-time Collaboration Features",
+    "description": "Codeium Windsurf introduced real-time collaborative coding capabilities allowing multiple developers to work simultaneously with AI assistance",
+    "updateType": "feature",
+    "url": "https://codeium.com/windsurf",
+    "date": "2025-11-15"
+  },
+  {
+    "productName": "Devin",
+    "title": "Expanded Language Support",
+    "description": "Devin added support for additional programming languages including Rust, Go, and Swift with improved code generation capabilities",
+    "updateType": "release",
+    "url": "https://devin.ai",
+    "date": "2025-11-19"
+  },
+  {
+    "productName": "Aider",
+    "title": "Performance Optimization Update",
+    "description": "Aider released significant performance improvements for large file operations and enhanced Git integration workflows",
+    "updateType": "bugfix",
+    "url": "https://aider.chat",
+    "date": "2025-11-17"
+  },
+  {
+    "productName": "Continue",
+    "title": "New Extension Marketplace",
+    "description": "Continue launched a new extension marketplace allowing developers to add custom AI models and integrate with additional development tools",
+    "updateType": "feature",
+    "url": "https://continue.dev",
+    "date": "2025-11-21"
+  }
+]
