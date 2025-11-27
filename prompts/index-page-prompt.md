@@ -71,23 +71,22 @@ Generate a complete, valid HTML5 document that:
 **Main Content:**
 - Iterate through the **latest 7 days** from the manifest (most recent first)
 - **CRITICAL**: For each day, you MUST read the file `updates/{YYYY-MM-DD}/data.json` to fetch real content
-- Parse the JSON to extract fields like:
-  - `generatedAt` - the timestamp when the report was generated
-  - `newProducts` - array of discovered products (each has `title`, `description`, `url`, `source`)
-  - `whitelistUpdates` - array of product updates (each has `productName`, `title`, `description`, `updateType`)
-  - `insights` - array of technical insights (each has `title`, `description`, `author`, `source`)
+- Parse the JSON and analyze its structure yourself to find relevant content. The JSON structure may vary, so you should:
+  - Look for any timestamp field (e.g., generation time, update time)
+  - Look for arrays of items that represent different content types (products, updates, insights, articles, etc.)
+  - For each item, identify fields that represent the title, description/summary, source URL, and any other relevant metadata
+  - Adapt to whatever field names and structure you find in the actual data
 - Use this real data to populate each day's content in the feed
 
 **Feed Component Format:**
 For each day, generate a semantic `<article>` or card component with:
 - **Formatted Date**: Display the date prominently (e.g., "November 26, 2025")
 - **Summary Section**: Show a brief summary of the day's content:
-  - Count of new products discovered (e.g., "3 new products")
-  - Count of whitelist updates (e.g., "2 product updates")
-  - Count of insights (e.g., "4 technical insights")
+  - Analyze the JSON structure and count items in each content category/array you find
+  - Display counts appropriately based on what content types exist (e.g., "3 new items", "2 updates", etc.)
 - **Highlights**: Display 1-2 featured items from the data:
-  - Show the title and brief description of the first new product (if any)
-  - Or show the first insight title (if no new products)
+  - Find the first item with a title and description from the content arrays
+  - Show its title and a brief description to give readers a preview
 - **"Read Full Report" Link**: Link to the day's folder using a relative path like `2025-11-26/` (no leading slash)
 
 **Navigation:**
