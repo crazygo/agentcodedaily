@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Daily report on agentic coding products, tools, and updates from the AI development landscape - November 27, 2025">
+    <title>Agentic Coding Research Report - November 27, 2025</title>
+    <style>
+        /* Hacker News-inspired CSS styling */
+        :root {
+            --bg-primary: #f6f6ef;
+            --bg-secondary: #ffffff;
+            --text-primary: #000000;
+            --text-secondary: #828282;
+            --accent-color: #ff6600;
+            --border-color: #d4d4d4;
+            --hover-bg: #f0f0f0;
+            --link-color: #000000;
+            --link-visited: #828282;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 13px;
+            line-height: 1.4;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+
+        header {
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 0;
+            margin-bottom: 20px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0;
+            color: var(--text-primary);
+        }
+
+        .date {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .subtitle {
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-top: 5px;
+        }
+
+        .three-column-layout {
+            display: grid;
+            grid-template-columns: 40% 35% 25%;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        section {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 3px;
+            padding: 15px;
+        }
+
+        h2 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            margin: 0 0 15px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-primary);
+        }
+
+        .item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .item-title {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            line-height: 1.2;
+        }
+
+        .item-title a {
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .item-title a:hover {
+            text-decoration: underline;
+        }
+
+        .item-title a:visited {
+            color: var(--link-visited);
+        }
+
+        .item-description {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .item-meta {
+            font-size: 11px;
+            color: var(--text-secondary);
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background-color: var(--bg-primary);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: 500;
+        }
+
+        .tag.category {
+            background-color: #f0f0f0;
+            color: #666;
+        }
+
+        .tag.source {
+            background-color: #e6f3ff;
+            color: #0066cc;
+        }
+
+        .tag.type {
+            background-color: #fff0e6;
+            color: #cc6600;
+        }
+
+        .item-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .item-link:hover {
+            text-decoration: underline;
+        }
+
+        .insight-author {
+            font-weight: bold;
+            color: var(--text-primary);
+        }
+
+        .insight-topics {
+            margin-top: 8px;
+            font-size: 10px;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .update-date {
+            font-weight: bold;
+            color: var(--text-primary);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid var(--border-color);
+            background-color: var(--bg-secondary);
+            margin-top: 30px;
+        }
+
+        .footer-content {
+            font-size: 11px;
+            color: var(--text-secondary);
+        }
+
+        .footer-links {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 11px;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Responsive design */
+        @media (max-width: 968px) {
+            .three-column-layout {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 5px;
+            }
+
+            section {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 16px;
+            }
+
+            .date {
+                font-size: 11px;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background-color: white;
+                color: black;
+            }
+
+            section {
+                border: 1px solid #ccc;
+                page-break-inside: avoid;
+            }
+
+            .item-link, .footer-links a {
+                color: black;
+                text-decoration: underline;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <h1>Agentic Coding Research Report</h1>
+                    <div class="subtitle">Daily insights on agentic coding products and AI development tools</div>
+                </div>
+                <div class="date">November 27, 2025</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="three-column-layout">
+            <!-- New Products Section -->
+            <section class="new-products">
+                <h2>📦 New Products</h2>
+
+                <div class="item">
+                    <div class="item-title">
+                        <a href="https://github.com/example/agentforge" target="_blank">AgentForge</a>
+                    </div>
+                    <div class="item-description">
+                        Open-source framework for building custom AI agents with modular architecture and seamless integration with popular LLMs.
+                    </div>
+                    <div class="item-meta">
+                        <span class="tag category">Framework</span>
+                        <span class="tag source">GitHub</span>
+                        <span class="tag type">New Release</span>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">
+                        <a href="https://example.com/codecompanion" target="_blank">CodeCompanion IDE</a>
+                    </div>
+                    <div class="item-description">
+                        Next-generation IDE with built-in AI pair programming, real-time code analysis, and intelligent refactoring suggestions.
+                    </div>
+                    <div class="item-meta">
+                        <span class="tag category">IDE</span>
+                        <span class="tag source">Product Hunt</span>
+                        <span class="tag type">Beta</span>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">
+                        <a href="https://github.com/example/autotest" target="_blank">AutoTest Pro</a>
+                    </div>
+                    <div class="item-description">
+                        Automated testing framework that generates comprehensive test suites from code requirements and documentation.
+                    </div>
+                    <div class="item-meta">
+                        <span class="tag category">Testing</span>
+                        <span class="tag source">Hacker News</span>
+                        <span class="tag type">Open Source</span>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">
+                        <a href="https://example.com/agenthub" target="_blank">AgentHub</a>
+                    </div>
+                    <div class="item-description">
+                        Marketplace and deployment platform for AI agents, featuring one-click deployment and monitoring tools.
+                    </div>
+                    <div class="item-meta">
+                        <span class="tag category">Platform</span>
+                        <span class="tag source">YC W24</span>
+                        <span class="tag type">Launch</span>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">
+                        <a href="https://github.com/example/llmops" target="_blank">LLMOps Toolkit</a>
+                    </div>
+                    <div class="item-description">
+                        Comprehensive DevOps platform for managing LLM applications at scale with monitoring, versioning, and deployment tools.
+                    </div>
+                    <div class="item-meta">
+                        <span class="tag category">DevOps</span>
+                        <span class="tag source">GitHub</span>
+                        <span class="tag type">Enterprise</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Whitelist Updates Section -->
+            <section class="whitelist-updates">
+                <h2>🔄 Whitelist Updates</h2>
+
+                <div class="item">
+                    <div class="item-title">Cursor IDE 2.2 Released</div>
+                    <div class="item-description">
+                        Enhanced AI code review with multi-file context awareness and improved debugging assistance.
+                    </div>
+                    <div class="item-meta">
+                        <span class="tag type">release</span>
+                        <span class="update-date">2025-11-25</span>
+                        <a href="https://cursor.com/changelog" class="item-link" target="_blank">Read more</a>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">GitHub Copilot Teams Update</div>
+                    <div class="item-description">
+                        New team collaboration features with shared code context and organizational knowledge base integration.
+                    </div>
+                    <div class="item-meta">
+                        <span class="tag type">feature</span>
+                        <span class="update-date">2025-11-24</span>
+                        <a href="https://github.com/features/copilot" class="item-link" target="_blank">Read more</a>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">Anthropic Claude API v3</div>
+                    <div class="item-description">
+                        Improved token efficiency and reduced latency for coding tasks with new specialized developer models.
+                    </div>
+                    <div class="item-meta">
+                        <span class="tag type">api</span>
+                        <span class="update-date">2025-11-23</span>
+                        <a href="https://docs.anthropic.com" class="item-link" target="_blank">Read more</a>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">Sourcegraph Cody Enterprise</div>
+                    <div class="item-description">
+                        Enhanced code search with semantic understanding and improved cross-repository context analysis.
+                    </div>
+                    <div class="item-meta">
+                        <span class="tag type">feature</span>
+                        <span class="update-date">2025-11-22</span>
+                        <a href="https://sourcegraph.com/cody" class="item-link" target="_blank">Read more</a>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">Tabnine Pro 4.0</div>
+                    <div class="item-description">
+                        Local model deployment with improved privacy and offline capabilities for enterprise environments.
+                    </div>
+                    <div class="item-meta">
+                        <span class="tag type">feature</span>
+                        <span class="update-date">2025-11-20</span>
+                        <a href="https://tabnine.com/pro" class="item-link" target="_blank">Read more</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technical Insights Section -->
+            <section class="technical-insights">
+                <h2>💡 Technical Insights</h2>
+
+                <div class="item">
+                    <div class="item-title">The Future of AI-Augmented Development</div>
+                    <div class="item-description">
+                        Analysis of how AI tools are reshaping developer workflows and the implications for software engineering education.
+                    </div>
+                    <div class="item-meta">
+                        <span class="insight-author">Martin Fowler</span>
+                        <span class="tag type">opinion</span>
+                        <a href="https://martinfowler.com/articles/ai-augmented-dev.html" class="item-link" target="_blank">Read more</a>
+                    </div>
+                    <div class="insight-topics">AI, development workflows, software engineering education</div>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">LLM Security in Production Systems</div>
+                    <div class="item-description">
+                        Comprehensive guide to securing LLM applications against prompt injection and data leakage vulnerabilities.
+                    </div>
+                    <div class="item-meta">
+                        <span class="insight-author">OWASP Team</span>
+                        <span class="tag type">technical</span>
+                        <a href="https://owasp.org/llm-security" class="item-link" target="_blank">Read more</a>
+                    </div>
+                    <div class="insight-topics">LLM security, prompt injection, AI safety</div>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">Measuring AI Code Quality</div>
+                    <div class="item-description">
+                        Research on evaluating the quality and maintainability of AI-generated code versus human-written solutions.
+                    </div>
+                    <div class="item-meta">
+                        <span class="insight-author">Stanford Research</span>
+                        <span class="tag type">research</span>
+                        <a href="https://arxiv.org/abs/2025.1127" class="item-link" target="_blank">Read more</a>
+                    </div>
+                    <div class="insight-topics">code quality, AI evaluation, software metrics</div>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">Agent Memory Architectures</div>
+                    <div class="item-description">
+                        Technical deep dive into different approaches for implementing persistent memory in AI agents and systems.
+                    </div>
+                    <div class="item-meta">
+                        <span class="insight-author">OpenAI Research</span>
+                        <span class="tag type">technical</span>
+                        <a href="https://openai.com/research/agent-memory" class="item-link" target="_blank">Read more</a>
+                    </div>
+                    <div class="insight-topics">agent memory, AI architecture, persistence</div>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">Economic Impact of AI Coding Tools</div>
+                    <div class="item-description">
+                        Study on how AI-assisted development affects developer productivity and software development costs.
+                    </div>
+                    <div class="item-meta">
+                        <span class="insight-author">MIT Sloan</span>
+                        <span class="tag type">research</span>
+                        <a href="https://sloan.mit.edu/ai-coding-economics" class="item-link" target="_blank">Read more</a>
+                    </div>
+                    <div class="insight-topics">AI economics, productivity, software costs</div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>© 2025 Agent Code Daily. Tracking the evolution of AI-powered development tools.</p>
+                <div class="footer-links">
+                    <a href="../">Home</a>
+                    <a href="../updates/">Archive</a>
+                    <a href="#top">Back to Top</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for footer link
+        document.querySelectorAll('a[href="#top"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add timestamp to footer
+        document.addEventListener('DOMContentLoaded', function() {
+            const footerContent = document.querySelector('.footer-content p');
+            const timestamp = new Date().toISOString();
+            footerContent.innerHTML += `<br><small>Generated: ${timestamp}</small>`;
+        });
+    </script>
+</body>
+</html>
