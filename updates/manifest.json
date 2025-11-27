@@ -28,6 +28,7 @@
     {
       "date": "2025-11-27",
       "files": [
+        "ai-coding-products-research.json",
         "ai-coding-updates.json",
         "ai_coding_insights.json",
         "data.json",
@@ -37,5 +38,5 @@
       ]
     }
   ],
-  "lastUpdated": "2025-11-27T04:26:17.469Z"
+  "lastUpdated": "2025-11-27T06:09:58.895Z"
 }

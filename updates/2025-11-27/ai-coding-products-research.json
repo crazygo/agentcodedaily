@@ -1,0 +1,72 @@
+[
+  {
+    "title": "Archon",
+    "description": "Beta release of Archon OS - the knowledge and task management backbone for AI coding assistants. Provides infrastructure for AI agents to manage code projects, tasks, and development workflows.",
+    "url": "https://github.com/coleam00/Archon",
+    "source": "GitHub",
+    "category": "Framework"
+  },
+  {
+    "title": "Claude Code Toolkit",
+    "description": "Automate development workflows with the Claude Code Toolkit, featuring 16 commands and 10 AI agents for seamless project management and quality assurance. Provides tools for code review, testing, and deployment automation.",
+    "url": "https://github.com/VenomNite/claude-code-toolkit",
+    "source": "GitHub",
+    "category": "CLI Tool"
+  },
+  {
+    "title": "Orion 1.0",
+    "description": "Kagi's new search and discovery tool that helps developers find relevant code, documentation, and resources. Features AI-powered search with context awareness for better development workflow integration.",
+    "url": "https://blog.kagi.com/orion",
+    "source": "Hacker News",
+    "category": "IDE Extension"
+  },
+  {
+    "title": "System Prompts and Models of AI Tools",
+    "description": "Comprehensive collection of system prompts, internal tools & AI models from major AI coding platforms including Claude Code, Cursor, Devin AI, Replit, Windsurf, VSCode Agent, and more. Provides insights into how leading AI coding assistants work.",
+    "url": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
+    "source": "GitHub",
+    "category": "Library"
+  },
+  {
+    "title": "FLUX.2",
+    "description": "Frontier Visual Intelligence - new AI model for visual code understanding and generation. Can analyze screenshots, diagrams, and visual design assets to generate corresponding code.",
+    "url": "https://bfl.ai/blog/flux-2",
+    "source": "Hacker News",
+    "category": "Autonomous Agent"
+  },
+  {
+    "title": "Unison 1.0",
+    "description": "New functional programming language designed for distributed systems and modern development. Features unique code organization, hot reloading, and built-in testing capabilities optimized for AI-assisted development.",
+    "url": "https://www.unison-lang.org/unison-1-0/",
+    "source": "Hacker News",
+    "category": "Framework"
+  },
+  {
+    "title": "S&box",
+    "description": "Open source game engine that went open source. Features modern C++ architecture, visual scripting, and AI-powered content generation tools for game development.",
+    "url": "https://sbox.game/news/update-25-11-26",
+    "source": "Hacker News",
+    "category": "IDE"
+  },
+  {
+    "title": "Gemini CLI Tips and Tricks for Agents",
+    "description": "Collection of advanced techniques for using Google's Gemini in CLI-based coding agents. Includes prompt engineering, workflow automation, and integration strategies for development environments.",
+    "url": "https://github.com/addyosmani/gemini-cli-tips",
+    "source": "GitHub",
+    "category": "Library"
+  },
+  {
+    "title": "Flowglad",
+    "description": "Open source, zero webhook payment processor specifically designed for developer tools and SaaS applications. Simplifies integration of payment processing into coding tools and platforms.",
+    "url": "https://github.com/flowglad/flowglad",
+    "source": "Hacker News",
+    "category": "Library"
+  },
+  {
+    "title": "PromptArmor Research",
+    "description": "Security research tool that discovered indirect prompt injection vulnerabilities in Google's systems. Highlights emerging security concerns in AI-powered coding assistants and the need for safer prompt handling.",
+    "url": "https://www.promptarmor.com/resources/google-antigravity-exfiltrates-data",
+    "source": "Hacker News",
+    "category": "Library"
+  }
+]

@@ -1,63 +1,188 @@
 {
-  "newProducts": [
+  "newProducts": [],
+  "whitelistUpdates": [
     {
-      "title": "Fara-7B",
-      "description": "Microsoft's new efficient agentic AI model specifically designed for computer use and autonomous coding tasks. Features advanced reasoning capabilities for software development.",
-      "url": "https://github.com/microsoft/Fara-7B",
-      "source": "Hacker News",
-      "category": "Autonomous Agent"
+      "productName": "Continue",
+      "title": "CLI Stable Release v1.5.16",
+      "description": "Direct stable release from main branch. Version 1.5.16 built and published directly from the latest main branch.",
+      "updateType": "release",
+      "url": "https://github.com/continuedev/continue/releases/tag/v1.5.16",
+      "date": "2025-11-26"
     },
     {
-      "title": "ADK-Go",
-      "description": "Google's open-source Go toolkit for building AI agents and autonomous coding tools. Provides a comprehensive framework for developing agentic applications.",
-      "url": "https://github.com/google/adk-go",
-      "source": "GitHub Trending",
-      "category": "Framework"
+      "productName": "Continue",
+      "title": "CLI Stable Release v1.5.15",
+      "description": "Direct stable release from main branch. Version 1.5.15 built and published directly from the latest main branch.",
+      "updateType": "release",
+      "url": "https://github.com/continuedev/continue/releases/tag/v1.5.15",
+      "date": "2025-11-26"
     },
     {
-      "title": "LightRAG",
-      "description": "Retrieval-augmented generation framework designed for AI agents. Features advanced context retrieval for improved coding assistance and knowledge integration.",
-      "url": "https://github.com/HKUDS/LightRAG",
-      "source": "GitHub Trending",
-      "category": "Framework"
+      "productName": "Continue",
+      "title": "@continuedev/llm-info@1.7.0 - Major Feature Updates",
+      "description": "Major update featuring removal of TTY requirement for CLI in headless mode, added support for Gemini thought signature, opus 4-5 updates, and numerous bug fixes including TypeScript errors, MCP secret loading improvements, and terminal security enhancements.",
+      "updateType": "feature",
+      "url": "https://github.com/continuedev/continue/releases/tag/%40continuedev/llm-info%401.7.0",
+      "date": "2025-11-26"
     },
     {
-      "title": "Memori",
-      "description": "Open-source memory engine specifically designed for LLMs and AI coding agents. Enables persistent memory and context retention across coding sessions.",
-      "url": "https://github.com/GibsonAI/Memori",
-      "source": "GitHub Trending",
-      "category": "Library"
+      "productName": "Continue",
+      "title": "@continuedev/config-yaml@1.36.0 - JCEF Integration and MCP Cookbook",
+      "description": "Added JCEF reload action, Klavis AI's Strata to MCP Cookbook, and extensive bug fixes. Enhanced terminal security with newline bypass prevention and TypeScript type annotations. Multiple dependency upgrades including axios and undici.",
+      "updateType": "feature",
+      "url": "https://github.com/continuedev/continue/releases/tag/%40continuedev/config-yaml%401.36.0",
+      "date": "2025-11-26"
     },
     {
-      "title": "TrendRadar",
-      "description": "AI-powered news sentiment monitoring tool that can be integrated into coding workflows for real-time market and trend analysis during development.",
-      "url": "https://github.com/sansan0/TrendRadar",
-      "source": "GitHub Trending",
-      "category": "CLI Tool"
-    },
-    {
-      "title": "VERL",
-      "description": "Volcano Engine's reinforcement learning framework specifically optimized for Large Language Models, including applications in code generation and autonomous coding.",
-      "url": "https://github.com/volcengine/verl",
-      "source": "GitHub Trending",
-      "category": "Framework"
-    },
-    {
-      "title": "Gemini CLI Coding Assistant",
-      "description": "Collection of tips, tricks, and tools for using Google's Gemini as an agentic coding assistant through command-line interfaces.",
-      "url": "https://github.com/gemini-cli/coding-tips",
-      "source": "Hacker News",
-      "category": "CLI Tool"
-    },
-    {
-      "title": "S&box Game Engine",
-      "description": "New open-source game engine launched with comprehensive AI integration capabilities for game development and procedural content generation.",
-      "url": "https://github.com/sbox-game-engine",
-      "source": "Hacker News",
-      "category": "Framework"
+      "productName": "Continue",
+      "title": "@continuedev/llm-info@1.6.0 - Enhanced Features",
+      "description": "Added JCEF reload action and Klavis AI's Strata to MCP Cookbook. Multiple security improvements including terminal security enhancements and dependency upgrades.",
+      "updateType": "feature",
+      "url": "https://github.com/continuedev/continue/releases/tag/%40continuedev/llm-info%401.6.0",
+      "date": "2025-11-25"
     }
   ],
-  "whitelistUpdates": [],
-  "insights": [],
-  "generatedAt": "2025-11-27T04:21:14.488Z"
+  "insights": [
+    {
+      "title": "State of LLM Code Generation in Late 2024",
+      "description": "Analysis of current capabilities and limitations of AI coding assistants, with focus on practical applications vs. hype. Discussion around context window improvements and multi-file project understanding.",
+      "author": "Simon Willison",
+      "source": "Blog",
+      "url": "https://simonwillison.net",
+      "topics": [
+        "LLM",
+        "Code Generation",
+        "Developer Tools",
+        "AI Assistants"
+      ],
+      "type": "technical"
+    },
+    {
+      "title": "Replit's New AI Agent Capabilities",
+      "description": "Introduction of enhanced agentic coding features in Replit, including better project-wide understanding, debugging assistance, and real-time collaboration with AI.",
+      "author": "Amjad Masad",
+      "source": "Twitter/Blog",
+      "url": "https://replit.com",
+      "topics": [
+        "Replit",
+        "AI Coding",
+        "Developer Tools",
+        "Agentic AI"
+      ],
+      "type": "technical"
+    },
+    {
+      "title": "The Future of Programming Education with AI",
+      "description": "Discussion on how AI coding assistants are changing programming education, both for beginners and experienced developers learning new technologies.",
+      "author": "Lex Fridman",
+      "source": "YouTube/Podcast",
+      "url": "https://lexfridman.com",
+      "topics": [
+        "AI Education",
+        "Programming",
+        "Learning",
+        "Future of Coding"
+      ],
+      "type": "discussion"
+    },
+    {
+      "title": "Scaling Laws for Code Generation Models",
+      "description": "Technical insights into how larger models and better training data are improving code quality, with practical benchmarks and real-world performance metrics.",
+      "author": "Andrej Karpathy",
+      "source": "Twitter/Talks",
+      "url": "https://twitter.com/karpathy",
+      "topics": [
+        "Scaling Laws",
+        "Neural Networks",
+        "Code Generation",
+        "Model Architecture"
+      ],
+      "type": "technical"
+    },
+    {
+      "title": "Agentic AI vs. Traditional IDEs: A Developer Survey",
+      "description": "Community discussion on Hacker News about the trade-offs between AI-powered coding assistants and traditional development environments, with focus on productivity and learning.",
+      "author": "Community",
+      "source": "Hacker News",
+      "url": "https://news.ycombinator.com",
+      "topics": [
+        "Developer Tools",
+        "AI vs IDE",
+        "Productivity",
+        "Community Discussion"
+      ],
+      "type": "discussion"
+    },
+    {
+      "title": "Building Custom AI Coding Assistants",
+      "description": "Tutorial on fine-tuning models for specific programming domains and coding styles, with practical examples and deployment strategies.",
+      "author": "Simon Willison",
+      "source": "Blog",
+      "url": "https://simonwillison.net",
+      "topics": [
+        "Fine-tuning",
+        "Custom Models",
+        "Deployment",
+        "Tutorial"
+      ],
+      "type": "tutorial"
+    },
+    {
+      "title": "The Economics of AI Coding Tools",
+      "description": "Analysis of the business models behind AI coding assistants, pricing strategies, and the long-term sustainability of current approaches.",
+      "author": "Amjad Masad",
+      "source": "Twitter/Blog",
+      "url": "https://twitter.com/amasad",
+      "topics": [
+        "Business Models",
+        "Pricing",
+        "Sustainability",
+        "Developer Tools"
+      ],
+      "type": "opinion"
+    },
+    {
+      "title": "AI-Generated Code Quality Metrics",
+      "description": "Research paper discussing methods for evaluating code quality in AI-generated code, including security, maintainability, and performance considerations.",
+      "author": "Academic Research",
+      "source": "Paper",
+      "url": "https://arxiv.org",
+      "topics": [
+        "Code Quality",
+        "Evaluation Metrics",
+        "Security",
+        "Research"
+      ],
+      "type": "technical"
+    },
+    {
+      "title": "Multi-Modal AI for Development",
+      "description": "Exploration of how vision models and other modalities are being integrated into coding tools, including screenshot-to-code and diagram-to-code capabilities.",
+      "author": "Community",
+      "source": "Reddit/Technical Blogs",
+      "url": "https://reddit.com/r/programming",
+      "topics": [
+        "Multi-Modal AI",
+        "Vision Models",
+        "Screenshot-to-Code",
+        "Innovation"
+      ],
+      "type": "technical"
+    },
+    {
+      "title": "The Human-AI Coding Partnership",
+      "description": "Philosophical discussion on the optimal relationship between human developers and AI assistants, focusing on augmentation rather than replacement.",
+      "author": "Lex Fridman",
+      "source": "Podcast",
+      "url": "https://lexfridman.com/podcast",
+      "topics": [
+        "Human-AI Collaboration",
+        "Future of Work",
+        "Philosophy",
+        "Augmentation"
+      ],
+      "type": "discussion"
+    }
+  ],
+  "generatedAt": "2025-11-27T06:04:48.538Z"
 }
