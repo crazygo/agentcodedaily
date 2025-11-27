@@ -7,15 +7,20 @@ export function formatAsMarkdown(result: ResearchResult): string {
   const date = new Date(result.generatedAt);
   const dateStr = date.toISOString().split('T')[0];
 
+  // Normalize arrays to prevent errors if null/undefined/non-array values are passed
+  const newProducts = Array.isArray(result.newProducts) ? result.newProducts : [];
+  const whitelistUpdates = Array.isArray(result.whitelistUpdates) ? result.whitelistUpdates : [];
+  const insights = Array.isArray(result.insights) ? result.insights : [];
+
   let md = `# Product Research Daily Report\n`;
   md += `Generated: ${result.generatedAt}\n\n`;
 
   // New Products Section
   md += `## 📦 New Products Discovered\n\n`;
-  if (result.newProducts.length === 0) {
+  if (newProducts.length === 0) {
     md += `_No new products found in this research cycle._\n\n`;
   } else {
-    result.newProducts.forEach((product, index) => {
+    newProducts.forEach((product, index) => {
       md += `### ${index + 1}. ${product.title}\n`;
       md += `${product.description}\n\n`;
       if (product.url) md += `🔗 [Visit](${product.url})\n`;
@@ -27,10 +32,10 @@ export function formatAsMarkdown(result: ResearchResult): string {
 
   // Whitelist Updates Section
   md += `## 🔄 Whitelist Product Updates\n\n`;
-  if (result.whitelistUpdates.length === 0) {
+  if (whitelistUpdates.length === 0) {
     md += `_No updates found for tracked products._\n\n`;
   } else {
-    result.whitelistUpdates.forEach((update, index) => {
+    whitelistUpdates.forEach((update, index) => {
       md += `### ${index + 1}. ${update.productName}: ${update.title}\n`;
       md += `${update.description}\n\n`;
       md += `🏷️ Type: ${update.updateType}\n`;
@@ -42,17 +47,17 @@ export function formatAsMarkdown(result: ResearchResult): string {
 
   // Technical Insights Section
   md += `## 💡 Technical Insights & Leader Opinions\n\n`;
-  if (result.insights.length === 0) {
+  if (insights.length === 0) {
     md += `_No new insights gathered._\n\n`;
   } else {
-    result.insights.forEach((insight, index) => {
+    insights.forEach((insight, index) => {
       md += `### ${index + 1}. ${insight.title}\n`;
       md += `${insight.description}\n\n`;
       if (insight.author) md += `✍️ Author: ${insight.author}\n`;
       md += `📌 Type: ${insight.type}\n`;
       md += `📍 Source: ${insight.source}\n`;
       if (insight.url) md += `🔗 [Read more](${insight.url})\n`;
-      if (insight.topics.length > 0) {
+      if (insight.topics && insight.topics.length > 0) {
         md += `🏷️ Topics: ${insight.topics.join(', ')}\n`;
       }
       md += `\n---\n\n`;
@@ -69,14 +74,19 @@ export function formatAsMarkdown(result: ResearchResult): string {
  * Format research results for console output
  */
 export function formatForConsole(result: ResearchResult): void {
+  // Normalize arrays to prevent errors if null/undefined/non-array values are passed
+  const newProducts = Array.isArray(result.newProducts) ? result.newProducts : [];
+  const whitelistUpdates = Array.isArray(result.whitelistUpdates) ? result.whitelistUpdates : [];
+  const insights = Array.isArray(result.insights) ? result.insights : [];
+
   console.log('\n═══════════════════════════════════════════════════');
   console.log('📦 NEW PRODUCTS DISCOVERED');
   console.log('═══════════════════════════════════════════════════\n');
 
-  if (result.newProducts.length === 0) {
+  if (newProducts.length === 0) {
     console.log('No new products found in this research cycle.\n');
   } else {
-    result.newProducts.forEach((product, index) => {
+    newProducts.forEach((product, index) => {
       console.log(`${index + 1}. ${product.title}`);
       console.log(`   ${product.description}`);
       if (product.category) console.log(`   📂 ${product.category}`);
@@ -89,10 +99,10 @@ export function formatForConsole(result: ResearchResult): void {
   console.log('🔄 WHITELIST PRODUCT UPDATES');
   console.log('═══════════════════════════════════════════════════\n');
 
-  if (result.whitelistUpdates.length === 0) {
+  if (whitelistUpdates.length === 0) {
     console.log('No updates found for tracked products.\n');
   } else {
-    result.whitelistUpdates.forEach((update, index) => {
+    whitelistUpdates.forEach((update, index) => {
       console.log(`${index + 1}. ${update.productName}: ${update.title}`);
       console.log(`   ${update.description}`);
       console.log(`   🏷️ Type: ${update.updateType}`);
@@ -106,16 +116,16 @@ export function formatForConsole(result: ResearchResult): void {
   console.log('💡 TECHNICAL INSIGHTS & LEADER OPINIONS');
   console.log('═══════════════════════════════════════════════════\n');
 
-  if (result.insights.length === 0) {
+  if (insights.length === 0) {
     console.log('No new insights gathered.\n');
   } else {
-    result.insights.forEach((insight, index) => {
+    insights.forEach((insight, index) => {
       console.log(`${index + 1}. ${insight.title}`);
       console.log(`   ${insight.description}`);
       if (insight.author) console.log(`   ✍️ ${insight.author}`);
       console.log(`   📌 ${insight.type} | ${insight.source}`);
       if (insight.url) console.log(`   🔗 ${insight.url}`);
-      if (insight.topics.length > 0) {
+      if (insight.topics && insight.topics.length > 0) {
         console.log(`   🏷️ ${insight.topics.join(', ')}`);
       }
       console.log();

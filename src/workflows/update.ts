@@ -19,6 +19,11 @@ export async function runUpdate(workspacePath?: string): Promise<void> {
     // Run the research workflow with workspace directory
     const result = await runResearchWorkflow(workspace);
 
+    // Normalize result arrays to ensure downstream consumers always see arrays
+    result.whitelistUpdates = Array.isArray(result.whitelistUpdates) ? result.whitelistUpdates : [];
+    result.newProducts = Array.isArray(result.newProducts) ? result.newProducts : [];
+    result.insights = Array.isArray(result.insights) ? result.insights : [];
+
     // Save results to files
     const reportPath = path.join(workspace, 'report.md');
     const jsonPath = path.join(workspace, 'data.json');
