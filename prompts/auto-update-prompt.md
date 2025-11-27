@@ -1,7 +1,7 @@
 # Auto Update Daily Reports Task
 
 ## Current Context
-- Repository: agentcodedaily
+- Repository: agentdaily
 - Working directory: current repository root
 - Main branch: `main` (development)
 - Publishing branch: `gh-pages` (for published reports)

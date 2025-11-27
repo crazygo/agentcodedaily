@@ -4,7 +4,7 @@ A TypeScript-based product research daily report website focusing on the agentic
 
 ## Live Demo
 
-Explore the generated reports index (latest 7 days): https://crazygo.github.io/agentcodedaily/updates/index.html
+Explore the generated reports index (latest 7 days): https://crazygo.github.io/agentdaily/updates/index.html
 
 Last updated: 2025-11-26T16:52:03.498Z
 
@@ -55,7 +55,7 @@ yarn start [date]
 ## Project Structure
 
 ```
-agentcodedaily/
+agentdaily/
 ├── src/
 │   ├── cli.ts              # CLI entry point with argument parsing
 │   ├── agent/
@@ -109,7 +109,7 @@ yarn clean
 
 ## Usage Examples
 
-Example index page (static): https://crazygo.github.io/agentcodedaily/updates/index.html
+Example index page (static): https://crazygo.github.io/agentdaily/updates/index.html
 
 Last updated: 2025-11-26T16:46:02.361Z
 

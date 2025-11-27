@@ -18,12 +18,12 @@ Task: build a static HTML index page listing latest 7 daily report folders.
   ls -l updates/assets
   ```
   Use relative links: `assets/base.css`, `assets/base.js` (never start with /).
-- **GitHub Pages base path**: `/agentcodedaily/` (repository name)
+- **GitHub Pages base path**: `/agentdaily/` (repository name)
 - **Important Path Rule**:
   - When generating links or asset references inside `/updates/index.html`, use RELATIVE paths: `assets/base.css`, `assets/base.js`.
   - When linking to a day folder from index: `2025-11-26/` (no leading slash).
   - Inside daily pages, reference assets as `../assets/base.css` and `../assets/base.js`.
-  - Avoid absolute `/updates/...` paths (they break on GitHub Pages where the full URL is `/agentcodedaily/updates/...`).
+  - Avoid absolute `/updates/...` paths (they break on GitHub Pages where the full URL is `/agentdaily/updates/...`).
 - **Current datetime**: {INSERT_CURRENT_DATETIME}
 - **Output file**: `/updates/index.html`
 

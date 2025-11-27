@@ -1,4 +1,4 @@
-// Navigation injection for agentcodedaily
+// Navigation injection for agentdaily
 (function() {
   'use strict';
   

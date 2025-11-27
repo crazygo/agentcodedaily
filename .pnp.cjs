@@ -11,7 +11,7 @@ const RAW_RUNTIME_STATE =
   ],\
   "dependencyTreeRoots": [\
     {\
-      "name": "agentcodedaily",\
+      "name": "agentdaily",\
       "reference": "workspace:."\
     }\
   ],\
@@ -19,7 +19,7 @@ const RAW_RUNTIME_STATE =
   "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
   "pnpZipBackend": "libzip",\
   "fallbackExclusionList": [\
-    ["agentcodedaily", ["workspace:."]]\
+    ["agentdaily", ["workspace:."]]\
   ],\
   "fallbackPool": [\
   ],\
@@ -28,11 +28,11 @@ const RAW_RUNTIME_STATE =
       [null, {\
         "packageLocation": "./",\
         "packageDependencies": [\
-          ["@anthropic-ai/claude-agent-sdk", "virtual:673706457e8227a64ab7c80c24f633cc32f18f65e23f2d74e45c6d5d95183aba5f5c525cd678ceb3cec7b783cb41f9d975b6078d3e36f5ded17dbd726b933762#npm:0.1.49"],\
+          ["@anthropic-ai/claude-agent-sdk", "virtual:a555c03e93bc47689587baea5c1cfa4d72a0393bb22c6cfbc5c32542f645a86662fcdba1af249b5718f6fcf5ad9b840813404ce0956d636388d8561ba0c00946#npm:0.1.49"],\
           ["@anthropic-ai/sdk", "npm:0.27.3"],\
           ["@types/node", "npm:20.19.25"],\
           ["@types/yargs", "npm:17.0.35"],\
-          ["agentcodedaily", "workspace:."],\
+          ["agentdaily", "workspace:."],\
           ["dotenv", "npm:16.6.1"],\
           ["tsx", "npm:4.20.6"],\
           ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"],\
@@ -44,16 +44,16 @@ const RAW_RUNTIME_STATE =
     ]],\
     ["@anthropic-ai/claude-agent-sdk", [\
       ["npm:0.1.49", {\
-        "packageLocation": "./.yarn/unplugged/@anthropic-ai-claude-agent-sdk-virtual-1a36ba2909/node_modules/@anthropic-ai/claude-agent-sdk/",\
+        "packageLocation": "./.yarn/unplugged/@anthropic-ai-claude-agent-sdk-virtual-76a6c6c0e7/node_modules/@anthropic-ai/claude-agent-sdk/",\
         "packageDependencies": [\
           ["@anthropic-ai/claude-agent-sdk", "npm:0.1.49"]\
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:673706457e8227a64ab7c80c24f633cc32f18f65e23f2d74e45c6d5d95183aba5f5c525cd678ceb3cec7b783cb41f9d975b6078d3e36f5ded17dbd726b933762#npm:0.1.49", {\
-        "packageLocation": "./.yarn/unplugged/@anthropic-ai-claude-agent-sdk-virtual-1a36ba2909/node_modules/@anthropic-ai/claude-agent-sdk/",\
+      ["virtual:a555c03e93bc47689587baea5c1cfa4d72a0393bb22c6cfbc5c32542f645a86662fcdba1af249b5718f6fcf5ad9b840813404ce0956d636388d8561ba0c00946#npm:0.1.49", {\
+        "packageLocation": "./.yarn/unplugged/@anthropic-ai-claude-agent-sdk-virtual-76a6c6c0e7/node_modules/@anthropic-ai/claude-agent-sdk/",\
         "packageDependencies": [\
-          ["@anthropic-ai/claude-agent-sdk", "virtual:673706457e8227a64ab7c80c24f633cc32f18f65e23f2d74e45c6d5d95183aba5f5c525cd678ceb3cec7b783cb41f9d975b6078d3e36f5ded17dbd726b933762#npm:0.1.49"],\
+          ["@anthropic-ai/claude-agent-sdk", "virtual:a555c03e93bc47689587baea5c1cfa4d72a0393bb22c6cfbc5c32542f645a86662fcdba1af249b5718f6fcf5ad9b840813404ce0956d636388d8561ba0c00946#npm:0.1.49"],\
           ["@img/sharp-darwin-arm64", "npm:0.33.5"],\
           ["@img/sharp-darwin-x64", "npm:0.33.5"],\
           ["@img/sharp-linux-arm", "npm:0.33.5"],\
@@ -585,15 +585,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
-    ["agentcodedaily", [\
+    ["agentdaily", [\
       ["workspace:.", {\
         "packageLocation": "./",\
         "packageDependencies": [\
-          ["@anthropic-ai/claude-agent-sdk", "virtual:673706457e8227a64ab7c80c24f633cc32f18f65e23f2d74e45c6d5d95183aba5f5c525cd678ceb3cec7b783cb41f9d975b6078d3e36f5ded17dbd726b933762#npm:0.1.49"],\
+          ["@anthropic-ai/claude-agent-sdk", "virtual:a555c03e93bc47689587baea5c1cfa4d72a0393bb22c6cfbc5c32542f645a86662fcdba1af249b5718f6fcf5ad9b840813404ce0956d636388d8561ba0c00946#npm:0.1.49"],\
           ["@anthropic-ai/sdk", "npm:0.27.3"],\
           ["@types/node", "npm:20.19.25"],\
           ["@types/yargs", "npm:17.0.35"],\
-          ["agentcodedaily", "workspace:."],\
+          ["agentdaily", "workspace:."],\
           ["dotenv", "npm:16.6.1"],\
           ["tsx", "npm:4.20.6"],\
           ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"],\
@@ -4867,28 +4867,40 @@ class FileHandle {
   sync() {
     throw new Error(`Method not implemented.`);
   }
-  async read(bufferOrOptions, offset, length, position) {
+  async read(bufferOrOptions, offsetOrOptions, length, position) {
     try {
       this[kRef](this.read);
       let buffer;
-      if (!Buffer.isBuffer(bufferOrOptions)) {
-        bufferOrOptions ??= {};
-        buffer = bufferOrOptions.buffer ?? Buffer.alloc(16384);
-        offset = bufferOrOptions.offset || 0;
-        length = bufferOrOptions.length ?? buffer.byteLength;
-        position = bufferOrOptions.position ?? null;
+      let offset;
+      if (!ArrayBuffer.isView(bufferOrOptions)) {
+        buffer = bufferOrOptions?.buffer ?? Buffer.alloc(16384);
+        offset = bufferOrOptions?.offset ?? 0;
+        length = bufferOrOptions?.length ?? buffer.byteLength - offset;
+        position = bufferOrOptions?.position ?? null;
+      } else if (typeof offsetOrOptions === `object` && offsetOrOptions !== null) {
+        buffer = bufferOrOptions;
+        offset = offsetOrOptions?.offset ?? 0;
+        length = offsetOrOptions?.length ?? buffer.byteLength - offset;
+        position = offsetOrOptions?.position ?? null;
       } else {
         buffer = bufferOrOptions;
+        offset = offsetOrOptions ?? 0;
+        length ??= 0;
       }
-      offset ??= 0;
-      length ??= 0;
       if (length === 0) {
         return {
           bytesRead: length,
           buffer
         };
       }
-      const bytesRead = await this[kBaseFs].readPromise(this.fd, buffer, offset, length, position);
+      const bytesRead = await this[kBaseFs].readPromise(
+        this.fd,
+        // FIXME: FakeFS should support ArrayBufferViews directly
+        Buffer.isBuffer(buffer) ? buffer : Buffer.from(buffer.buffer, buffer.byteOffset, buffer.byteLength),
+        offset,
+        length,
+        position
+      );
       return {
         bytesRead,
         buffer
@@ -7283,7 +7295,8 @@ class ZipFS extends BasePortableFakeFS {
         const entries = Array.from(directoryListing, (name) => {
           return Object.assign(this.statImpl(`lstat`, ppath.join(p, name)), {
             name,
-            path: PortablePath.dot
+            path: PortablePath.dot,
+            parentPath: PortablePath.dot
           });
         });
         for (const entry of entries) {
@@ -7294,7 +7307,8 @@ class ZipFS extends BasePortableFakeFS {
           for (const child of subListing) {
             entries.push(Object.assign(this.statImpl(`lstat`, ppath.join(p, subPath, child)), {
               name: child,
-              path: subPath
+              path: subPath,
+              parentPath: subPath
             }));
           }
         }
@@ -7315,7 +7329,8 @@ class ZipFS extends BasePortableFakeFS {
       return Array.from(directoryListing, (name) => {
         return Object.assign(this.statImpl(`lstat`, ppath.join(p, name)), {
           name,
-          path: void 0
+          path: void 0,
+          parentPath: void 0
         });
       });
     } else {
@@ -7790,6 +7805,7 @@ function applyPatch(pnpapi, opts) {
       const optionNames = new Set(Object.keys(options));
       optionNames.delete(`paths`);
       optionNames.delete(`plugnplay`);
+      optionNames.delete(`conditions`);
       if (optionNames.size > 0) {
         throw makeError(
           ErrorCode.UNSUPPORTED,
@@ -7818,11 +7834,15 @@ function applyPatch(pnpapi, opts) {
       const issuerApi = apiPath !== null ? opts.manager.getApiEntry(apiPath, true).instance : null;
       try {
         if (issuerApi !== null) {
-          resolution = issuerApi.resolveRequest(request, path !== null ? `${path}/` : null);
+          resolution = issuerApi.resolveRequest(request, path !== null ? `${path}/` : null, {
+            conditions: options?.conditions
+          });
         } else {
           if (path === null)
             throw new Error(`Assertion failed: Expected the path to be set`);
-          resolution = originalModuleResolveFilename.call(require$$0.Module, request, module || makeFakeParent(path), isMain);
+          resolution = originalModuleResolveFilename.call(require$$0.Module, request, module || makeFakeParent(path), isMain, {
+            conditions: options?.conditions
+          });
         }
       } catch (error) {
         firstError = firstError || error;
