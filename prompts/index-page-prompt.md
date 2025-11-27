@@ -69,18 +69,26 @@ Generate a complete, valid HTML5 document that:
 - Brief description of what this page contains
 
 **Main Content:**
-- Display the **latest 7 days** from the manifest (most recent first)
-- For each day, show:
-  - Date (formatted nicely, e.g., "November 26, 2025")
-  - Link to the day's page: `/updates/YYYY-MM-DD/`
-  - Brief description (you can use generic text like "Daily report on agentic coding products and updates")
-  - Available files count from manifest
+- Iterate through the **latest 7 days** from the manifest (most recent first)
+- **CRITICAL**: For each day, you MUST read the file `updates/{YYYY-MM-DD}/data.json` to fetch real content
+- Parse the JSON and analyze its structure yourself to find relevant content. The JSON structure may vary, so you should:
+  - Look for any timestamp field (e.g., generation time, update time)
+  - Look for arrays of items that represent different content types (products, updates, insights, articles, etc.)
+  - For each item, identify fields that represent the title, description/summary, source URL, and any other relevant metadata
+  - Adapt to whatever field names and structure you find in the actual data
+- Use this real data to populate each day's content in the feed
 
-**Table/List Format:**
-Use a clean table or list layout with:
-- Date column (prominent, clickable)
-- Summary/highlights column
-- Link to full report
+**Feed Component Format:**
+For each day, generate a semantic `<article>` or card component with:
+- **Formatted Date**: Display the date prominently (e.g., "November 26, 2025")
+- **Summary Section**: Show a brief summary of the day's content:
+  - Analyze the JSON structure and count items in each content category/array you find
+  - Derive meaningful labels from array keys (e.g., if you find an array named `newProducts`, display as "X products"; for `insights`, display as "X insights")
+- **Highlights**: Display 1-2 featured items from the data:
+  - Find the first item with a title and description from any content array
+  - If multiple arrays exist, prioritize arrays that seem most interesting to readers (products, insights, updates, etc.)
+  - Show its title and a brief description to give readers a preview
+- **"Read Full Report" Link**: Link to the day's folder using a relative path like `2025-11-26/` (no leading slash)
 
 **Navigation:**
 - If there are more than 7 days total in manifest, add "View All Archives" or similar link
@@ -107,9 +115,10 @@ Use a clean table or list layout with:
 
 1. **Static generation**: This HTML must be fully static with no server-side rendering
 2. **Read manifest**: You MUST read the actual manifest.json file to get the real list of days
-3. **Relative paths**: All links must be relative (no leading `/`). Example: `2025-11-26/`, `assets/base.css`, `../assets/base.js` in day pages.
-4. **No external dependencies**: Only use the provided base.css and base.js
-5. **Error handling**: If manifest.json is missing or malformed, display a friendly error message
+3. **Read data files**: For each day in the feed, you MUST read `updates/{YYYY-MM-DD}/data.json` to get real content (titles, summaries, counts) - do NOT use placeholder or generic text. If a data.json file is missing or cannot be parsed, skip that day or display a minimal card with just the date and a "Report unavailable" message
+4. **Relative paths**: All links must be relative (no leading `/`). Example: `2025-11-26/`, `assets/base.css`, `../assets/base.js` in day pages.
+5. **No external dependencies**: Only use the provided base.css and base.js
+6. **Error handling**: If manifest.json is missing or malformed, display a friendly error message. If a specific day's data.json is missing or corrupted, either skip that day in the feed or show a minimal placeholder card with just the date and a message like "Data unavailable for this day"
 
 ## Output
 
