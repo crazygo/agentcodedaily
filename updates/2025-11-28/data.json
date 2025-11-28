@@ -1,77 +1,120 @@
 {
-  "newProducts": [
+  "newProducts": [],
+  "whitelistUpdates": [],
+  "insights": [
     {
-      "title": "Google Antigravity",
-      "description": "Agent-first AI coding tool built for Gemini 3 Pro that delegates complex multi-tool software tasks to AI agents. Features browser control, terminal access, and autonomous planning capabilities across editor and terminal environments.",
-      "url": "https://developers.googleblog.com/en/build-with-google-antigravity-our-new-agentic-development-platform/",
-      "source": "News",
-      "category": "IDE"
+      "title": "Replit CEO Amjad Masad: The $3 Billion Gamble That Created a New Software Creator Economy",
+      "description": "Deep analysis of Replit's journey from 9 years of grinding to finding product-market fit with AI coding tools. The article explores how Replit Agent transformed their business, achieving $144M ARR and a $3B valuation. Key insights include the stratification of AI coding tools into distinct segments and the vision of democratizing software development for 1 billion developers worldwide.",
+      "author": "Amjad Masad / Digidai Analysis",
+      "source": "Blog",
+      "url": "https://digidai.github.io/2025/11/21/amjad-masad-replit-billion-software-creators-deep-analysis/",
+      "topics": [
+        "AI coding tools",
+        "Replit",
+        "Software democratization",
+        "Business models",
+        "Product-market fit"
+      ],
+      "type": "technical"
     },
     {
-      "title": "Qoder JetBrains Plugin",
-      "description": "JetBrains plugin that understands your backend's real complexity beyond just syntax. Provides AI-powered code completion and assistance specifically designed for complex codebases.",
-      "url": "https://www.producthunt.com/",
-      "source": "Product Hunt",
-      "category": "IDE Extension"
+      "title": "Best AI Tools for Coding in 2025: 6 Tools Worth Your Time",
+      "description": "Comprehensive review of the top AI coding tools currently available, highlighting Aider, Cursor, Zed, Claude Code, Windsurf, and GitHub Copilot as the leading solutions. The article provides real-world insights on which tools are actually delivering value versus hype, with specific recommendations for different development scenarios.",
+      "author": "Pragmatic Coders",
+      "source": "Blog",
+      "url": "https://www.pragmaticcoders.com/resources/ai-developer-tools",
+      "topics": [
+        "AI coding tools",
+        "Tool comparison",
+        "Developer productivity",
+        "2025 trends"
+      ],
+      "type": "technical"
     },
     {
-      "title": "Agenta",
-      "description": "Open-source prompt management and LLMOps platform for building reliable LLM applications. Features prompt engineering, evaluation, debugging, and monitoring tools in one platform.",
-      "url": "https://agenta.ai/",
-      "source": "Product Hunt",
-      "category": "Library"
+      "title": "Setting up a codebase for working with coding agents",
+      "description": "Simon Willison's practical guide on optimizing codebases for AI coding tools. Key recommendations include: focus on code quality with clear naming and structure, create AI-friendly documentation, write tasks as clear step-by-step instructions, and ensure the codebase is explorable with good README files and clear entry points.",
+      "author": "Simon Willison",
+      "source": "Blog",
+      "url": "https://simonwillison.net/2025/Oct/25/coding-agent-tips/",
+      "topics": [
+        "AI coding agents",
+        "Code quality",
+        "Documentation",
+        "Developer workflow"
+      ],
+      "type": "tutorial"
     },
     {
-      "title": "CodingFox",
-      "description": "Open-source AI-powered code review assistant that revolutionizes pull request workflows. Uses advanced language models to provide intelligent code analysis and review suggestions.",
-      "url": "https://github.com/furudo-erika/codingfox",
-      "source": "HN | GitHub",
-      "category": "Library"
+      "title": "Thoughts on the Impact of AI Coding Tools on Developer Code Quality",
+      "description": "Critical analysis from academia on how AI coding tools are actually affecting code quality in 2025. The research reveals nuanced findings - while AI tools can increase productivity, they may also lead to code quality issues if not used properly. The article emphasizes the need for new metrics and processes to measure real impact.",
+      "author": "Mira Mezini",
+      "source": "LinkedIn",
+      "url": "https://www.linkedin.com/pulse/thoughts-impact-ai-coding-tools-developer-code-quality-mira-mezini-c8ahe",
+      "topics": [
+        "Code quality",
+        "AI impact",
+        "Academic research",
+        "Productivity measurement"
+      ],
+      "type": "opinion"
     },
     {
-      "title": "Windsurf Editor",
-      "description": "AI-native IDE built on VS Code foundation with agent-powered features. First to emphasize 'Agentic' mode for collaborative AI development experience with Supercomplete feature for intuitive coding.",
-      "url": "https://windsurf.com/editor",
-      "source": "News",
-      "category": "IDE"
+      "title": "Unlocking Developer Productivity with Emerging AI Tools in 2025",
+      "description": "Exploration of how AI-powered development tools are transforming developer productivity by reducing cognitive load and accelerating feature development. The article discusses specific workflow improvements and measurable productivity gains from early adopters of AI coding assistants.",
+      "author": "Dev.to Community",
+      "source": "Blog",
+      "url": "https://dev.to/lofcz/unlocking-developer-productivity-with-emerging-ai-tools-in-2025-3lb3",
+      "topics": [
+        "Developer productivity",
+        "Cognitive load",
+        "AI workflows",
+        "Feature development"
+      ],
+      "type": "technical"
     },
     {
-      "title": "Zed AI",
-      "description": "High-performance code editor with integrated AI assistant capabilities. Supports GitHub Copilot and GPT-3/4 models for code generation, refactoring, and real-time editing. Built with Rust for optimal performance.",
-      "url": "https://zed.dev/ai",
-      "source": "News",
-      "category": "IDE"
+      "title": "Software 3.0 By Karpathy: The AI Vision Reshaping Development",
+      "description": "Analysis of Andrej Karpathy's continued advocacy for Software 3.0, where natural language becomes the primary programming interface. The article discusses how LLMs are evolving from simple code completion to full software creation partners, fundamentally changing what programming means.",
+      "author": "Next Big Future",
+      "source": "Blog",
+      "url": "https://www.nextbigfuture.com/2025/06/software-3-0-by-karpathy.html",
+      "topics": [
+        "Software 3.0",
+        "Natural language programming",
+        "LLM evolution",
+        "Future of coding"
+      ],
+      "type": "technical"
     },
     {
-      "title": "OpenHands",
-      "description": "Open-source AI coding assistant that acts as a full-capability software developer. Can perform any task a human developer can handle, from bug fixes to feature implementation.",
-      "url": "https://github.com/all-hands-ai/OpenHands",
-      "source": "GitHub",
-      "category": "Autonomous Agent"
+      "title": "AI Coding Assistant ROI: Real Productivity Data 2025",
+      "description": "Data-driven analysis showing AI coding assistants increase individual developer output by 20-40%, but company-level delivery gains require significant process changes. The research emphasizes that tools alone aren't enough - organizations need to adapt their development processes to capture the full value.",
+      "author": "Index.dev",
+      "source": "Blog",
+      "url": "https://www.index.dev/blog/ai-coding-assistants-roi-productivity",
+      "topics": [
+        "ROI",
+        "Productivity metrics",
+        "Process change",
+        "Organizational adoption"
+      ],
+      "type": "technical"
     },
     {
-      "title": "Devseek.ai",
-      "description": "AI-powered SaaS platform that completely automates the software development lifecycle (SDLC)—from ideation to deployment—without requiring human intervention.",
-      "url": "https://github.com/topics/ai-code-generation",
-      "source": "GitHub",
-      "category": "Autonomous Agent"
-    },
-    {
-      "title": "Claude Code 2.0",
-      "description": "Enhanced version of Anthropic's agentic coding tool featuring checkpoints for autonomous operation, native VS Code extension, and terminal UX updates. Powered by Claude Sonnet 4.5 for improved coding capabilities.",
-      "url": "https://www.anthropic.com/news/enabling-claude-code-to-work-more-autonomously",
-      "source": "News",
-      "category": "CLI Tool"
-    },
-    {
-      "title": "Turbotic Automation AI",
-      "description": "AI tool that turns ideas into automations in minutes through conversational interface. No coding required to create powerful automated workflows and integrations.",
-      "url": "https://www.producthunt.com/categories/ai-software",
-      "source": "Product Hunt",
-      "category": "Framework"
+      "title": "The AI Coding Trap",
+      "description": "Hacker News discussion highlighting that LLM coding agents can't learn from experience on our code, but developers can learn from using them. The conversation explores the security implications and the importance of maintaining human oversight in AI-assisted development.",
+      "author": "Hacker News Community",
+      "source": "Reddit/HN",
+      "url": "https://news.ycombinator.com/item?id=45405177",
+      "topics": [
+        "AI limitations",
+        "Security concerns",
+        "Human oversight",
+        "Learning processes"
+      ],
+      "type": "discussion"
     }
   ],
-  "whitelistUpdates": [],
-  "insights": [],
-  "generatedAt": "2025-11-28T16:20:04.598Z"
+  "generatedAt": "2025-11-28T18:10:57.412Z"
 }

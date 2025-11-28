@@ -3,57 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weekly Report - Agent Daily</title>
+    <title>Agent Daily - Weekly Insight Report</title>
     <link rel="stylesheet" href="assets/base.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        /* Medium-style Design System */
+        /* Medium Style Overrides */
         :root {
             --bg-color: #FFFFFF;
             --text-primary: #000000;
             --text-secondary: #292929;
             --text-muted: #6B6B6B;
             --border-color: #E6E6E6;
-            --hover-bg: #F7F7F7;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            --card-bg: #FFFFFF;
         }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.6;
             color: var(--text-secondary);
-            background: var(--bg-color);
-        }
-
-        .container {
+            background-color: var(--bg-color);
             max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         /* Global Site Header */
-        .site-header {
+        .global-header {
             text-align: center;
             margin-bottom: 60px;
             padding-bottom: 40px;
-            border-bottom: 1px solid var(--border-color);
         }
 
-        .site-logo {
-            font-family: 'Georgia', 'Cambria', 'Times New Roman', serif;
-            font-size: 48px;
-            font-weight: bold;
+        .site-title {
+            font-family: 'Merriweather', 'Georgia', 'Times New Roman', serif;
+            font-size: 3rem;
+            font-weight: 700;
             color: var(--text-primary);
-            margin-bottom: 8px;
-            letter-spacing: -1px;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
         }
 
-        .site-tagline {
-            font-size: 16px;
+        .tagline {
+            font-size: 1rem;
             color: var(--text-muted);
             margin-bottom: 24px;
             font-weight: 400;
@@ -63,15 +63,15 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            color: var(--text-primary);
+            color: var(--text-muted);
             text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: opacity 0.2s;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
         }
 
         .github-link:hover {
-            opacity: 0.7;
+            color: var(--text-primary);
+            text-decoration: none;
         }
 
         /* Two-Column Layout */
@@ -82,63 +82,71 @@
             align-items: start;
         }
 
-        /* Left Sidebar */
+        /* Sidebar */
         .sidebar {
             position: sticky;
             top: 40px;
         }
 
-        .timeline-item {
-            padding: 12px 0;
-            border-bottom: 1px solid var(--border-color);
-            font-size: 14px;
-            color: var(--text-muted);
-            cursor: pointer;
-            transition: color 0.2s;
+        .timeline-nav {
+            font-size: 0.9rem;
         }
 
-        .timeline-item:last-child {
-            border-bottom: none;
+        .current-period {
+            padding: 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: var(--card-bg);
         }
 
-        .timeline-item:hover {
+        .current-period.active {
+            border-color: var(--text-primary);
+        }
+
+        .period-label {
+            font-weight: 500;
             color: var(--text-primary);
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .timeline-item.active {
-            color: var(--text-primary);
-            font-weight: 600;
+        .period-dates {
+            color: var(--text-secondary);
+            font-weight: 400;
         }
 
         /* Main Content */
         .main-content {
-            min-width: 0;
+            flex: 1;
         }
 
-        .content-header {
+        /* Weekly Header */
+        .weekly-header {
             margin-bottom: 48px;
         }
 
-        .content-title {
-            font-family: 'Georgia', 'Cambria', 'Times New Roman', serif;
-            font-size: 42px;
-            font-weight: bold;
+        .weekly-title {
+            font-family: 'Merriweather', 'Georgia', 'Times New Roman', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
             color: var(--text-primary);
             margin-bottom: 12px;
-            letter-spacing: -1px;
+            line-height: 1.2;
         }
 
-        .content-subtitle {
-            font-size: 18px;
+        .weekly-subtitle {
+            font-size: 1.1rem;
             color: var(--text-muted);
             margin-bottom: 16px;
             font-weight: 400;
         }
 
-        .content-description {
-            font-size: 16px;
-            line-height: 1.7;
+        .weekly-description {
+            font-size: 1rem;
             color: var(--text-secondary);
+            line-height: 1.6;
         }
 
         /* Category Sections */
@@ -147,15 +155,16 @@
         }
 
         .category-title {
-            font-family: 'Georgia', 'Cambria', 'Times New Roman', serif;
-            font-size: 28px;
-            font-weight: bold;
+            font-family: 'Merriweather', 'Georgia', 'Times New Roman', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
             color: var(--text-primary);
             margin-bottom: 24px;
-            letter-spacing: -0.5px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
         }
 
-        /* Grid System for Cards */
+        /* Scroll Grid System */
         .scroll-grid {
             display: grid;
             grid-auto-flow: column;
@@ -163,6 +172,24 @@
             gap: 20px;
             overflow-x: auto;
             padding-bottom: 15px;
+        }
+
+        .scroll-grid::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .scroll-grid::-webkit-scrollbar-track {
+            background: var(--border-color);
+            border-radius: 3px;
+        }
+
+        .scroll-grid::-webkit-scrollbar-thumb {
+            background: var(--text-muted);
+            border-radius: 3px;
+        }
+
+        .scroll-grid::-webkit-scrollbar-thumb:hover {
+            background: var(--text-secondary);
         }
 
         .grid-rows-1 {
@@ -179,39 +206,46 @@
 
         /* Cards */
         .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
             width: 100%;
             height: 100%;
-            border: 1px solid var(--border-color);
-            padding: 20px;
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            background: var(--bg-color);
-            transition: border-color 0.2s, box-shadow 0.2s;
-            text-decoration: none;
-            color: inherit;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
 
         .card:hover {
             border-color: var(--text-muted);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
         .card-title {
-            font-family: 'Georgia', 'Cambria', 'Times New Roman', serif;
-            font-size: 18px;
-            font-weight: bold;
-            color: var(--text-primary);
             margin-bottom: 12px;
-            line-height: 1.4;
+            line-height: 1.3;
+        }
+
+        .card-title a {
+            font-family: 'Merriweather', 'Georgia', 'Times New Roman', serif;
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .card-title a:hover {
+            text-decoration: underline;
         }
 
         .card-description {
-            font-size: 14px;
-            line-height: 1.6;
+            font-size: 0.95rem;
             color: var(--text-secondary);
+            line-height: 1.5;
             margin-bottom: 16px;
+            flex-grow: 1;
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
@@ -219,12 +253,13 @@
         }
 
         .card-metadata {
-            font-size: 12px;
-            color: var(--text-muted);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: auto;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            padding-top: 12px;
         }
 
         .card-date {
@@ -232,11 +267,19 @@
         }
 
         .card-source {
-            opacity: 0.8;
+            text-transform: lowercase;
+        }
+
+        /* Loading and Error States */
+        .loading, .error, .no-data {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-muted);
+            font-size: 1.1rem;
         }
 
         /* Responsive Design */
-        @media (max-width: 768px) {
+        @media (max-width: 968px) {
             .main-layout {
                 grid-template-columns: 1fr;
                 gap: 40px;
@@ -244,51 +287,43 @@
 
             .sidebar {
                 position: static;
-                order: 2;
             }
 
-            .main-content {
-                order: 1;
+            .timeline-nav {
+                margin-bottom: 32px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 20px 16px;
             }
 
-            .site-logo {
-                font-size: 36px;
+            .site-title {
+                font-size: 2.25rem;
             }
 
-            .content-title {
-                font-size: 32px;
+            .weekly-title {
+                font-size: 2rem;
             }
 
             .scroll-grid {
                 grid-auto-columns: 280px;
+                gap: 16px;
             }
-        }
 
-        /* Scrollbar Styling */
-        .scroll-grid::-webkit-scrollbar {
-            height: 8px;
-        }
-
-        .scroll-grid::-webkit-scrollbar-track {
-            background: var(--bg-color);
-        }
-
-        .scroll-grid::-webkit-scrollbar-thumb {
-            background: var(--border-color);
-            border-radius: 4px;
-        }
-
-        .scroll-grid::-webkit-scrollbar-thumb:hover {
-            background: var(--text-muted);
+            .card {
+                padding: 16px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <!-- Global Site Header -->
-        <header class="site-header">
-            <h1 class="site-logo">Agent Daily</h1>
-            <p class="site-tagline">Build your own daily with AI</p>
+        <header class="global-header">
+            <h1 class="site-title">Agent Daily</h1>
+            <p class="tagline">Build your own daily with AI</p>
             <a href="https://github.com/crazygo/agentdaily" target="_blank" class="github-link">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
@@ -301,399 +336,347 @@
         <div class="main-layout">
             <!-- Left Sidebar -->
             <aside class="sidebar">
-                <div class="timeline-item active">
-                    Nov 24 - Nov 28
-                </div>
+                <nav class="timeline-nav">
+                    <div class="current-period active">
+                        <div class="period-label">Current Week</div>
+                        <div class="period-dates" id="current-dates">Loading...</div>
+                    </div>
+                </nav>
             </aside>
 
-            <!-- Main Content -->
+            <!-- Right Column Main Content -->
             <main class="main-content">
-                <div class="content-header">
-                    <h1 class="content-title">Weekly Report</h1>
-                    <h2 class="content-subtitle">Nov 24, 2025 – Nov 28, 2025</h2>
-                    <p class="content-description">
-                        A curated summary of the most important updates in AI from the last 7 days.
-                    </p>
+                <header class="weekly-header">
+                    <h2 class="weekly-title">Weekly Report</h2>
+                    <p class="weekly-subtitle" id="weekly-dates">Loading...</p>
+                    <p class="weekly-description">A curated summary of the most important updates in AI from the last 7 days.</p>
+                </header>
+
+                <div id="categories-container">
+                    <div class="loading">Loading weekly insights...</div>
                 </div>
-
-                <!-- New Products Section -->
-                <section class="category-section">
-                    <h2 class="category-title">New Products</h2>
-                    <div class="scroll-grid grid-rows-3">
-                        <a href="https://developers.googleblog.com/en/build-with-google-antigravity-our-new-agentic-development-platform/" class="card">
-                            <h3 class="card-title">Google Antigravity</h3>
-                            <p class="card-description">Agent-first AI coding tool built for Gemini 3 Pro that delegates complex multi-tool software tasks to AI agents. Features browser control, terminal access, and autonomous planning capabilities across editor and terminal environments.</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 28</span>
-                                <span class="card-source">News</span>
-                            </div>
-                        </a>
-
-                        <a href="https://www.producthunt.com/" class="card">
-                            <h3 class="card-title">Qoder JetBrains Plugin</h3>
-                            <p class="card-description">JetBrains plugin that understands your backend's real complexity beyond just syntax. Provides AI-powered code completion and assistance specifically designed for complex codebases.</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 28</span>
-                                <span class="card-source">Product Hunt</span>
-                            </div>
-                        </a>
-
-                        <a href="https://agenta.ai/" class="card">
-                            <h3 class="card-title">Agenta</h3>
-                            <p class="card-description">Open-source prompt management and LLMOps platform for building reliable LLM applications. Features prompt engineering, evaluation, debugging, and monitoring tools in one platform.</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 28</span>
-                                <span class="card-source">Product Hunt</span>
-                            </div>
-                        </a>
-
-                        <a href="https://github.com/furudo-erika/codingfox" class="card">
-                            <h3 class="card-title">CodingFox</h3>
-                            <p class="card-description">Open-source AI-powered code review assistant that revolutionizes pull request workflows. Uses advanced language models to provide intelligent code analysis and review suggestions.</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 28</span>
-                                <span class="card-source">HN | GitHub</span>
-                            </div>
-                        </a>
-
-                        <a href="https://windsurf.com/editor" class="card">
-                            <h3 class="card-title">Windsurf Editor</h3>
-                            <p class="card-description">AI-native IDE built on VS Code foundation with agent-powered features. First to emphasize 'Agentic' mode for collaborative AI development experience with Supercomplete feature for intuitive coding.</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 28</span>
-                                <span class="card-source">News</span>
-                            </div>
-                        </a>
-
-                        <a href="https://zed.dev/ai" class="card">
-                            <h3 class="card-title">Zed AI</h3>
-                            <p class="card-description">High-performance code editor with integrated AI assistant capabilities. Supports GitHub Copilot and GPT-3/4 models for code generation, refactoring, and real-time editing. Built with Rust for optimal performance.</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 28</span>
-                                <span class="card-source">News</span>
-                            </div>
-                        </a>
-
-                        <a href="https://github.com/all-hands-ai/OpenHands" class="card">
-                            <h3 class="card-title">OpenHands</h3>
-                            <p class="card-description">Open-source AI coding assistant that acts as a full-capability software developer. Can perform any task a human developer can handle, from bug fixes to feature implementation.</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 28</span>
-                                <span class="card-source">GitHub</span>
-                            </div>
-                        </a>
-
-                        <a href="https://github.com/topics/ai-code-generation" class="card">
-                            <h3 class="card-title">Devseek.ai</h3>
-                            <p class="card-description">AI-powered SaaS platform that completely automates the software development lifecycle (SDLC)—from ideation to deployment—without requiring human intervention.</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 28</span>
-                                <span class="card-source">GitHub</span>
-                            </div>
-                        </a>
-
-                        <a href="https://www.anthropic.com/news/enabling-claude-code-to-work-more-autonomously" class="card">
-                            <h3 class="card-title">Claude Code 2.0</h3>
-                            <p class="card-description">Enhanced version of Anthropic's agentic coding tool featuring checkpoints for autonomous operation, native VS Code extension, and terminal UX updates. Powered by Claude Sonnet 4.5 for improved coding capabilities.</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 28</span>
-                                <span class="card-source">News</span>
-                            </div>
-                        </a>
-
-                        <a href="https://codeium.com/windsurf" class="card">
-                            <h3 class="card-title">Windsurf by Codeium</h3>
-                            <p class="card-description">AI-powered code editor that combines traditional editing with AI assistance. Features include code completion, generation, and real-time collaboration with AI.</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 27</span>
-                                <span class="card-source">Product Hunt | News</span>
-                            </div>
-                        </a>
-
-                        <a href="https://github.com/All-Hands-AI/OpenHands" class="card">
-                            <h3 class="card-title">OpenHands (formerly OpenDevin)</h3>
-                            <p class="card-description">Open-source autonomous AI software engineer that can write code, fix bugs, and manage entire development workflows through natural language commands.</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 27</span>
-                                <span class="card-source">GitHub | News</span>
-                            </div>
-                        </a>
-
-                        <a href="https://cursor.sh" class="card">
-                            <h3 class="card-title">Cursor Pro</h3>
-                            <p class="card-description">AI-enhanced IDE with advanced features like autonomous coding sessions, project-level understanding, and multi-file editing capabilities.</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 27</span>
-                                <span class="card-source">News | Product Hunt</span>
-                            </div>
-                        </a>
-
-                        <a href="https://github.com/coleam00/Archon" class="card">
-                            <h3 class="card-title">Archon</h3>
-                            <p class="card-description">Beta release of Archon OS - the knowledge and task management backbone for AI coding assistants. Provides infrastructure for AI agents to manage code projects, tasks, and development workflows.</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 27</span>
-                                <span class="card-source">GitHub</span>
-                            </div>
-                        </a>
-
-                        <a href="https://github.com/HKUDS/LightRAG" class="card">
-                            <h3 class="card-title">LightRAG</h3>
-                            <p class="card-description">Simple and Fast Retrieval-Augmented Generation framework for building AI applications with enhanced context retrieval and generation capabilities.</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 26</span>
-                                <span class="card-source">GitHub</span>
-                            </div>
-                        </a>
-
-                        <a href="https://github.com/google/adk-go" class="card">
-                            <h3 class="card-title">Google ADK-Go</h3>
-                            <p class="card-description">Google's Go toolkit for building AI agents with flexibility and control, providing developers with tools to create autonomous coding agents in Go.</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 26</span>
-                                <span class="card-source">GitHub</span>
-                            </div>
-                        </a>
-
-                        <a href="https://github.com/GibsonAI/Memori" class="card">
-                            <h3 class="card-title">Memori</h3>
-                            <p class="card-description">Open-Source Memory Engine for LLMs & Multi-Agent Systems, enabling persistent memory and context management for AI coding assistants.</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 26</span>
-                                <span class="card-source">GitHub</span>
-                            </div>
-                        </a>
-                    </div>
-                </section>
-
-                <!-- New Features Section -->
-                <section class="category-section">
-                    <h2 class="category-title">New Features</h2>
-                    <div class="scroll-grid grid-rows-2">
-                        <a href="https://cursor.com/" class="card">
-                            <h3 class="card-title">Cursor Series D Funding and Version 2.1 Release</h3>
-                            <p class="card-description">Raised $2.3B in Series D funding, passed $1B revenue in November 2025. Released version 2.1 with improved Plan Mode and AI Code Review features.</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 26</span>
-                                <span class="card-source">Cursor</span>
-                            </div>
-                        </a>
-
-                        <a href="https://github.com/features/copilot" class="card">
-                            <h3 class="card-title">GitHub Copilot Enterprise Enhancements</h3>
-                            <p class="card-description">GitHub Copilot Enterprise now includes access to all models, including Claude Opus 4.1 and more, with new pricing at $39/user/month</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 26</span>
-                                <span class="card-source">GitHub Copilot</span>
-                            </div>
-                        </a>
-
-                        <a href="https://cursor.com/changelog" class="card">
-                            <h3 class="card-title">Cursor 2.1 Release</h3>
-                            <p class="card-description">Latest version featuring Improved Plan Mode, AI Code Review in Editor, and Instant Grep functionality</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 25</span>
-                                <span class="card-source">Cursor</span>
-                            </div>
-                        </a>
-
-                        <a href="https://github.com/continuedev/continue/releases/tag/v1.5.14" class="card">
-                            <h3 class="card-title">Continue v1.5.14 Stable Release</h3>
-                            <p class="card-description">Direct stable release from main branch with 121 commits since previous release</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 25</span>
-                                <span class="card-source">Continue</span>
-                            </div>
-                        </a>
-
-                        <a href="https://github.com/features/copilot" class="card">
-                            <h3 class="card-title">GitHub Copilot Enterprise BYOK Preview</h3>
-                            <p class="card-description">Enterprise bring your own key (BYOK) for GitHub Copilot is now available in public preview</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 24</span>
-                                <span class="card-source">GitHub Copilot</span>
-                            </div>
-                        </a>
-
-                        <a href="https://github.blog/" class="card">
-                            <h3 class="card-title">Copilot Code Review Instructions Files</h3>
-                            <p class="card-description">New feature unlocking the full power of Copilot code review through master instructions files</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 24</span>
-                                <span class="card-source">GitHub Copilot</span>
-                            </div>
-                        </a>
-                    </div>
-                </section>
-
-                <!-- New Technologies Section -->
-                <section class="category-section">
-                    <h2 class="category-title">New Technologies</h2>
-                    <div class="scroll-grid grid-rows-3">
-                        <a href="https://www.anthropic.com/news/claude-opus-4-5" class="card">
-                            <h3 class="card-title">Claude Opus 4.5: New State-of-the-Art Model</h3>
-                            <p class="card-description">Anthropic released Claude Opus 4.5, delivering state-of-the-art performance on software engineering benchmarks. Achieves SOTA results on SWE-bench Verified with 65% fewer token usage and better efficiency.</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 28</span>
-                                <span class="card-source">Anthropic</span>
-                            </div>
-                        </a>
-
-                        <a href="https://simonwillison.net/2025/Nov/2/how-i-use-every-claude-code-feature/" class="card">
-                            <h3 class="card-title">How I Use Every Claude Code Feature</h3>
-                            <p class="card-description">Simon Willison shares insights on Claude Code usage patterns and MCP (Model Context Protocol) evolution. Discusses how MCP should serve as a simple, secure gateway providing high-level tools for agents.</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 28</span>
-                                <span class="card-source">Blog</span>
-                            </div>
-                        </a>
-
-                        <a href="https://www.youtube.com/watch?v=LCEmiRjPEtQ" class="card">
-                            <h3 class="card-title">Software 3.0: Andrej Karpathy's Vision</h3>
-                            <p class="card-description">Karpathy's keynote outlines evolution from Software 1.0 (hand-written code) to Software 2.0 (neural networks) to Software 3.0 (natural language interfaces with LLMs). Calls for new approaches including heavy validation and iterative development.</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 28</span>
-                                <span class="card-source">YouTube/Talk</span>
-                            </div>
-                        </a>
-
-                        <a href="https://arxiv.org/html/2509.06216v2" class="card">
-                            <h3 class="card-title">State of Agentic Software Engineering: SE 3.0</h3>
-                            <p class="card-description">Academic paper introducing Agentic Software Engineering (SE 3.0) as a new era where intelligent agents handle complex multi-step tasks rather than simple code generation. Provides foundational pillars for autonomous AI agents.</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 28</span>
-                                <span class="card-source">Paper</span>
-                            </div>
-                        </a>
-
-                        <a href="https://arxiv.org/abs/2411.16462" class="card">
-                            <h3 class="card-title">Can Vibe Coding Beat Graduate CS Students?</h3>
-                            <p class="card-description">Research comparing LLM coding capabilities with human students on market-driven strategic planning tasks, providing empirical insights into AI vs human coding performance.</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 26</span>
-                                <span class="card-source">Research Paper</span>
-                            </div>
-                        </a>
-
-                        <a href="https://arxiv.org/abs/2411.15184" class="card">
-                            <h3 class="card-title">RPM-MCTS: Knowledge-Retrieval for Code Generation</h3>
-                            <p class="card-description">Introduces advanced techniques for code generation using knowledge retrieval and process reward models with Monte Carlo Tree Search, pushing boundaries in AI-assisted coding.</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 26</span>
-                                <span class="card-source">Research Paper</span>
-                            </div>
-                        </a>
-
-                        <a href="https://arxiv.org/abs/2411.14969" class="card">
-                            <h3 class="card-title">Fara-7B: Efficient Agentic Model for Computer Use</h3>
-                            <p class="card-description">Presents an efficient agentic AI model specifically designed for computer-based tasks, representing advances in practical AI agent deployment.</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 26</span>
-                                <span class="card-source">Research Paper</span>
-                            </div>
-                        </a>
-
-                        <a href="https://simonwillison.net/" class="card">
-                            <h3 class="card-title">Agent Design is Still Hard</h3>
-                            <p class="card-description">Notes that 'abstractions are not worth adopting yet' for AI agents, indicating that current agentic AI systems lack mature design patterns and architectural principles.</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 26</span>
-                                <span class="card-source">Blog</span>
-                            </div>
-                        </a>
-
-                        <a href="https://martinfowler.com/articles/learning-loop-llm.html" class="card">
-                            <h3 class="card-title">The Learning Loop and LLMs</h3>
-                            <p class="card-description">Explores how LLMs become 'illusory' if they shortcut essential learning in professional practice, raising concerns about AI tools potentially hindering developer skill development.</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 26</span>
-                                <span class="card-source">Blog</span>
-                            </div>
-                        </a>
-
-                        <a href="https://martinfowler.com/articles/agentic-ai-security.html" class="card">
-                            <h3 class="card-title">Agentic AI and Security</h3>
-                            <p class="card-description">Examines security risks in agentic AI systems through what Simon Willison named the 'Lethal Trifecta', highlighting critical security concerns in autonomous AI systems.</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 26</span>
-                                <span class="card-source">Blog</span>
-                            </div>
-                        </a>
-
-                        <a href="https://news.ycombinator.com/item?id=42189015" class="card">
-                            <h3 class="card-title">Claude Advanced Tool Use and Opus 4.5</h3>
-                            <p class="card-description">Anthropic's latest updates include advanced tool use capabilities for Claude and the release of Opus 4.5, described as potentially the best model in the world for coding tasks.</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 25</span>
-                                <span class="card-source">Hacker News</span>
-                            </div>
-                        </a>
-
-                        <a href="https://simonwillison.net/" class="card">
-                            <h3 class="card-title">GPT-5.1-Codex-Max Released</h3>
-                            <p class="card-description">OpenAI's new model specifically designed for coding tasks with compaction capabilities, representing the latest advancement in code generation technology.</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 25</span>
-                                <span class="card-source">Simon Willison</span>
-                            </div>
-                        </a>
-                    </div>
-                </section>
-
-                <!-- Others Section -->
-                <section class="category-section">
-                    <h2 class="category-title">Others</h2>
-                    <div class="scroll-grid grid-rows-2">
-                        <a href="https://www.youtube.com/watch?v=vagyIcmIGOQ" class="card">
-                            <h3 class="card-title">DHH and Lex Fridman: Future of Programming Discussion</h3>
-                            <p class="card-description">Deep discussion on the future of programming, AI's impact on software development, Ruby on Rails' place in modern development, and the balance between productivity and developer experience.</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 28</span>
-                                <span class="card-source">Podcast</span>
-                            </div>
-                        </a>
-
-                        <a href="https://time.com/collections/best-inventions-2025/7318249/warp-agentic-development-environment/" class="card">
-                            <h3 class="card-title">Warp Recognized as 2025 Best Invention</h3>
-                            <p class="card-description">TIME magazine recognizes Warp's Agentic Development Environment as one of 2025's best inventions. Showcases how agentic development environments are reshaping how people learn and create software.</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 28</span>
-                                <span class="card-source">TIME Magazine</span>
-                            </div>
-                        </a>
-
-                        <a href="https://entrepreneurloop.com/replit-founder-amjad-masad-post-coding-ai-era-startup-growth/" class="card">
-                            <h3 class="card-title">Replit CEO on Post-Coding AI Era</h3>
-                            <p class="card-description">Amjad Masad discusses how Replit is building for 1 billion developers in the AI era. Key insights include AI-powered coding platforms democratizing software development and the rise of 'vibe coding'.</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 28</span>
-                                <span class="card-source">Podcast/Interview</span>
-                            </div>
-                        </a>
-
-                        <a href="https://news.ycombinator.com/" class="card">
-                            <h3 class="card-title">OpenAI needs to raise at least $207B by 2030</h3>
-                            <p class="card-description">Discusses the massive capital requirements for AI development, with significant community engagement on Hacker News, indicating the scale of AI infrastructure investment needed.</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 26</span>
-                                <span class="card-source">HN</span>
-                            </div>
-                        </a>
-
-                        <a href="https://lexfridman.com/podcast/" class="card">
-                            <h3 class="card-title">Future of Programming with AI - Podcast Discussion</h3>
-                            <p class="card-description">Recent podcast episode featuring the Cursor Team discussing the future of programming with AI, providing insights into how AI is reshaping software development.</p>
-                            <div class="card-metadata">
-                                <span class="card-date">Nov 25</span>
-                                <span class="card-source">Lex Fridman Podcast</span>
-                            </div>
-                        </a>
-                    </div>
-                </section>
             </main>
         </div>
     </div>
 
     <script src="assets/base.js"></script>
+    <script>
+        // Weekly Report Generation Logic
+        class WeeklyReportGenerator {
+            constructor() {
+                this.categories = {
+                    'New Products': [],
+                    'New Features': [],
+                    'New Technologies': [],
+                    'Others': []
+                };
+                this.dates = [];
+                this.manifest = null;
+            }
+
+            async init() {
+                try {
+                    await this.loadManifest();
+                    await this.loadData();
+                    this.render();
+                } catch (error) {
+                    console.error('Error generating weekly report:', error);
+                    document.getElementById('categories-container').innerHTML =
+                        '<div class="error">Error loading weekly report. Please try again later.</div>';
+                }
+            }
+
+            async loadManifest() {
+                try {
+                    const response = await fetch('manifest.json');
+                    this.manifest = await response.json();
+                    this.determineDateRange();
+                } catch (error) {
+                    throw new Error('Failed to load manifest');
+                }
+            }
+
+            determineDateRange() {
+                if (!this.manifest || !this.manifest.days.length) {
+                    throw new Error('No data in manifest');
+                }
+
+                // Find the latest date
+                const sortedDates = [...this.manifest.days].sort((a, b) =>
+                    new Date(b.date) - new Date(a.date)
+                );
+
+                const latestDate = new Date(sortedDates[0].date);
+                const endDate = latestDate;
+                const startDate = new Date(endDate);
+                startDate.setDate(startDate.getDate() - 6); // 7 days total
+
+                // Filter for the 7-day window
+                this.dates = sortedDates.filter(item => {
+                    const itemDate = new Date(item.date);
+                    return itemDate >= startDate && itemDate <= endDate;
+                });
+
+                this.startDate = startDate;
+                this.endDate = endDate;
+            }
+
+            async loadData() {
+                const allItems = new Map(); // Use Map for deduplication
+
+                for (const dateItem of this.dates) {
+                    const datePath = dateItem.date;
+
+                    try {
+                        // Get all JSON files in the date folder
+                        const jsonFiles = await this.getJsonFiles(datePath);
+
+                        for (const filename of jsonFiles) {
+                            try {
+                                const response = await fetch(`${datePath}/${filename}`);
+                                const data = await response.json();
+
+                                // Process different JSON structures
+                                this.processDataFile(data, allItems, dateItem.date);
+                            } catch (fileError) {
+                                console.warn(`Failed to load ${filename}:`, fileError);
+                            }
+                        }
+                    } catch (folderError) {
+                        console.warn(`Failed to load data from ${datePath}:`, folderError);
+                    }
+                }
+
+                // Categorize all unique items
+                allItems.forEach(item => {
+                    const category = this.categorizeItem(item);
+                    this.categories[category].push(item);
+                });
+            }
+
+            async getJsonFiles(datePath) {
+                // Check manifest for available files
+                const dateManifest = this.manifest.days.find(d => d.date === datePath);
+                if (dateManifest && dateManifest.files) {
+                    return dateManifest.files.filter(file => file.endsWith('.json'));
+                }
+
+                // Fallback to common names
+                const commonNames = ['data.json', 'items.json', 'content.json', 'daily.json', 'news.json'];
+                const foundFiles = [];
+
+                for (const name of commonNames) {
+                    try {
+                        const response = await fetch(`${datePath}/${name}`);
+                        if (response.ok) {
+                            foundFiles.push(name);
+                        }
+                    } catch {
+                        // File doesn't exist, continue
+                    }
+                }
+
+                return foundFiles.length > 0 ? foundFiles : ['data.json'];
+            }
+
+            processDataFile(data, allItems, collectionDate) {
+                // Handle different JSON structures
+                let items = [];
+
+                if (data.newProducts && Array.isArray(data.newProducts)) {
+                    items.push(...data.newProducts);
+                }
+
+                if (data.whitelistUpdates && Array.isArray(data.whitelistUpdates)) {
+                    items.push(...data.whitelistUpdates);
+                }
+
+                if (data.insights && Array.isArray(data.insights)) {
+                    items.push(...data.insights);
+                }
+
+                if (data.items && Array.isArray(data.items)) {
+                    items.push(...data.items);
+                }
+
+                if (Array.isArray(data)) {
+                    items.push(...data);
+                }
+
+                // Add to allItems with deduplication
+                items.forEach(item => {
+                    const key = this.getUniqueKey(item);
+                    if (key) {
+                        allItems.set(key, {
+                            ...item,
+                            collectionDate: collectionDate
+                        });
+                    }
+                });
+            }
+
+            getUniqueKey(item) {
+                // Try to find a unique identifier
+                const url = item.url || item.href || item.link || item.source_url;
+                const title = item.title || item.name || item.headline;
+
+                if (url) return url;
+                if (title) return title.toLowerCase().trim();
+                return null;
+            }
+
+            categorizeItem(item) {
+                const title = (item.title || item.name || item.headline || '').toLowerCase();
+                const description = (item.description || item.summary || item.content || item.text || '').toLowerCase();
+                const content = `${title} ${description}`;
+
+                // New Products - complete new tools, apps, or agents
+                if (content.includes('launch') || content.includes('new app') || content.includes('new tool') ||
+                    content.includes('introducing') || content.includes('presents') || content.includes('announces') ||
+                    content.includes('startup') || content.includes('product launch') || content.includes('new platform') ||
+                    (content.includes('ai') && (content.includes('assistant') || content.includes('agent') || content.includes('chatbot'))) ||
+                    content.includes('open-source') && content.includes('tool') ||
+                    content.includes('product hunt')) {
+                    return 'New Products';
+                }
+
+                // New Features - updates to existing tools, improvements, v2.0 releases
+                if (content.includes('update') || content.includes('feature') || content.includes('improvement') ||
+                    content.includes('upgrade') || content.includes('enhancement') || content.includes('v2') ||
+                    content.includes('version 2') || content.includes('new feature') || content.includes('beta') ||
+                    content.includes('redesign') || content.includes('refresh') || content.includes('revamp') ||
+                    content.includes('whitelist') || content.includes('pro')) {
+                    return 'New Features';
+                }
+
+                // New Technologies - papers, underlying models, frameworks, research
+                if (content.includes('research') || content.includes('paper') || content.includes('model') ||
+                    content.includes('framework') || content.includes('algorithm') || content.includes('technology') ||
+                    content.includes('innovation') || content.includes('breakthrough') || content.includes('scientific') ||
+                    content.includes('study') || content.includes('findings') || content.includes('open source') ||
+                    content.includes('benchmark') || content.includes('evaluation') || content.includes('metrics')) {
+                    return 'New Technologies';
+                }
+
+                // Others - general news, industry commentary, miscellaneous
+                return 'Others';
+            }
+
+            formatDate(dateString) {
+                const date = new Date(dateString);
+                const options = { month: 'short', day: 'numeric', year: 'numeric' };
+                return date.toLocaleDateString('en-US', options);
+            }
+
+            formatDateRange() {
+                const options = { month: 'short', day: 'numeric' };
+                return `${this.startDate.toLocaleDateString('en-US', options)} – ${this.endDate.toLocaleDateString('en-US', options)}`;
+            }
+
+            render() {
+                // Update date displays
+                document.getElementById('current-dates').textContent = this.formatDateRange();
+                document.getElementById('weekly-dates').textContent =
+                    `${this.formatDate(this.startDate.toISOString())} – ${this.formatDate(this.endDate.toISOString())}`;
+
+                const container = document.getElementById('categories-container');
+                container.innerHTML = '';
+
+                // Render each category that has items
+                for (const [categoryName, items] of Object.entries(this.categories)) {
+                    if (items.length === 0) continue;
+
+                    const categorySection = this.createCategorySection(categoryName, items);
+                    container.appendChild(categorySection);
+                }
+
+                if (container.innerHTML === '') {
+                    container.innerHTML = '<div class="no-data">No items found for this week.</div>';
+                }
+            }
+
+            createCategorySection(categoryName, items) {
+                const section = document.createElement('section');
+                section.className = 'category-section';
+
+                const title = document.createElement('h2');
+                title.className = 'category-title';
+                title.textContent = categoryName;
+                section.appendChild(title);
+
+                const gridContainer = document.createElement('div');
+
+                // Determine grid class based on item count
+                const itemCount = items.length;
+                if (itemCount <= 3) {
+                    gridContainer.className = 'scroll-grid grid-rows-1';
+                } else if (itemCount <= 8) {
+                    gridContainer.className = 'scroll-grid grid-rows-2';
+                } else {
+                    gridContainer.className = 'scroll-grid grid-rows-3';
+                }
+
+                // Create cards
+                items.forEach(item => {
+                    const card = this.createCard(item);
+                    gridContainer.appendChild(card);
+                });
+
+                section.appendChild(gridContainer);
+                return section;
+            }
+
+            createCard(item) {
+                const card = document.createElement('div');
+                card.className = 'card';
+
+                const link = item.url || item.href || item.link || item.source_url || '#';
+
+                const title = item.title || item.name || item.headline || 'Untitled';
+                const description = item.description || item.summary || item.content || item.text || 'No description available.';
+
+                const collectionDate = new Date(item.collectionDate);
+                const dateStr = collectionDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+
+                // Extract domain from URL for source
+                let source = 'Unknown Source';
+                if (item.source && typeof item.source === 'string') {
+                    source = item.source;
+                } else {
+                    try {
+                        const url = new URL(link);
+                        source = url.hostname.replace('www.', '');
+                    } catch {
+                        source = 'Unknown Source';
+                    }
+                }
+
+                card.innerHTML = `
+                    <h3 class="card-title">
+                        <a href="${link}" target="_blank" rel="noopener noreferrer">${this.escapeHtml(title)}</a>
+                    </h3>
+                    <p class="card-description">${this.escapeHtml(description)}</p>
+                    <div class="card-metadata">
+                        <span class="card-date">${dateStr}</span>
+                        <span class="card-source">${this.escapeHtml(source)}</span>
+                    </div>
+                `;
+
+                return card;
+            }
+
+            escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+        }
+
+        // Initialize the report when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            const generator = new WeeklyReportGenerator();
+            generator.init();
+        });
+    </script>
 </body>
 </html>
