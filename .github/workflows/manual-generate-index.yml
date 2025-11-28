@@ -1,0 +1,59 @@
+name: Manual Generate Index
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_branch:
+        description: 'Branch to update (defaults to gh-pages)'
+        required: false
+        default: 'gh-pages'
+
+permissions:
+  contents: write
+
+jobs:
+  generate-index:
+    runs-on: ubuntu-latest
+    env:
+      ANTHROPIC_API_KEY: ''
+      ANTHROPIC_AUTH_TOKEN: ${{ secrets.ANTHROPIC_AUTH_TOKEN }}
+      ANTHROPIC_BASE_URL: ${{ secrets.ANTHROPIC_BASE_URL }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.target_branch || 'gh-pages' }}
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Regenerate updates index
+        run: |
+          echo "🔄 Running yarn index to rebuild updates/index.html"
+          yarn index
+
+      - name: Commit and push changes
+        run: |
+          if [ -z "$(git status --porcelain updates)" ]; then
+            echo "ℹ️  No changes under updates/ to commit"
+            exit 0
+          fi
+
+          git add -f updates
+          git commit -m "chore: manual index regenerate"
+          git push origin "${{ inputs.target_branch || 'gh-pages' }}"
