@@ -34,6 +34,7 @@ Generate a complete HTML5 document with a **Two-Column Layout** that matches the
 
 - **Global Container**: A max-width container centered on the screen.
 - **Top Header**: Minimalist. Centered Serif text "Agent Daily". Right-aligned GitHub icon link.
+  - Include a one-line tagline in the header: "Build your own daily with AI" with a clickable GitHub link to https://github.com/crazygo/agentdaily.
 - **Layout Grid**: Use CSS Grid or Flexbox to create two distinct columns:
   - **Left Sidebar (Navigation)**:
     - Width: Approx 200px - 250px.
