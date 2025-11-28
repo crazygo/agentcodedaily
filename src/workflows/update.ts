@@ -98,8 +98,8 @@ async function generateIndexPage(): Promise<void> {
   const currentDateTime = new Date().toISOString();
   promptContent = promptContent.replace(/{INSERT_CURRENT_DATETIME}/g, currentDateTime);
   
-  // Create agent with updates directory as working directory
-  const agent = new ClaudeAgent({ cwd: updatesDir });
+  // Create agent with repo root as working directory to avoid nesting updates/updates
+  const agent = new ClaudeAgent({ cwd: process.cwd() });
   
   const response = await agent.run(
     'You are an expert web developer. Generate the index.html file following the provided instructions.',

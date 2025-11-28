@@ -8,7 +8,7 @@ SOURCE_BRANCH=${SOURCE_BRANCH:-main}
 
 echo "ℹ️  Target: ${TARGET_BRANCH}, Source: ${SOURCE_BRANCH}"
 
-# Step 1: Switch to gh-pages branch
+# Step 1: Switch to gh-pages branch (work in repo root, never nest updates)
 echo "📌 Switching to ${TARGET_BRANCH} branch..."
 git fetch origin
 git checkout "${TARGET_BRANCH}" || git checkout -b "${TARGET_BRANCH}"
@@ -56,7 +56,7 @@ if ! yarn build; then
   exit 1
 fi
 
-# Step 4: Generate reports
+# Step 4: Generate reports (ensure we run in repo root)
 echo "📝 Generating daily reports..."
 if ! yarn update; then
   echo "❌ Failed to generate reports"

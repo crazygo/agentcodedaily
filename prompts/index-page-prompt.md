@@ -1,126 +1,130 @@
-# Generate /updates/index.html (Static - Agent Daily Style)
+# Generate /updates/index.html (Weekly Report - Medium Style)
 
-Task: build a static HTML index page that presents a **complete, high-signal overview for the latest 7 days directly on the index page**, styled exactly like the "Agent Daily" reference.
+Task: Build a static HTML index page that acts as a **Weekly Insight Report**. 
+The page must aggregate data from the **latest 7 days**, intelligently categorize it, and present it in a clean, "Medium-style" layout.
 
-Readers should get the full picture from the index page alone, without needing a separate "full report" page for these 7 days.
-
-## Context (simple)
-*(Keep this section exactly as you had it)*
+## Context
 - **Site root**: `/updates`
 - **Manifest file**: Located at `/updates/manifest.json`
-- **Shared assets templates**: Located at `/templates/updates-assets/`
-  - CSS template: `/templates/updates-assets/base.css`
-  - JavaScript template: `/templates/updates-assets/base.js`
-- **Assets setup (one block)**:
-  ```bash
-  mkdir -p updates/assets
-  [ -f updates/assets/base.css ] || cp templates/updates-assets/base.css updates/assets/base.css
-  [ -f updates/assets/base.js ] || cp templates/updates-assets/base.js updates/assets/base.js
-  ```
-  Use relative links: `assets/base.css`, `assets/base.js`.
-- **GitHub Pages base path**: `/agentdaily/`
-- **Path Rules**: relative links only.
-- **Current datetime**: {INSERT_CURRENT_DATETIME}
 - **Output file**: `/updates/index.html`
+- **Assets**: Use relative links `assets/base.css`, `assets/base.js`.
+- **Style Goal**: **Strict Medium Design**. Minimalist, Black & White typography. No brand colors (no blue, no purple). High readability.
+- **Language**: All generated content must be in **English**.
 
-## Prerequisites
-*(Keep this section as is)*
+## 1. Data Processing Logic (Crucial)
 
-## Manifest Structure
-*(Keep this section as is)*
+**Step 1: Determine Time Window**
+1. Identify the latest date folder in `/updates/` (e.g., `2025-11-26`).
+2. Define the **Current Group** as the 7-day range ending on that date (e.g., `2025-11-20` to `2025-11-26`).
+3. **Only process this single group.** Do not render older weeks.
 
-## Requirements
+**Step 2: Data Aggregation (File Agnostic)**
+1. Iterate through every date folder within the Current Group.
+2. Inside each folder, **scan ALL `.json` files** (do NOT look for `data.json` specifically; files may have random names).
+3. Extract all data items into a single pool.
+4. **Deduplication**: If the same URL or identical title appears in multiple days, keep only the latest version.
 
-### 1. Page Structure & Layout (Crucial)
-Generate a complete HTML5 document with a **Two-Column Layout** that matches the "Agent Daily" aesthetic:
+**Step 3: AI Categorization (Strict)**
+You must analyze the content of each item (Title + Description) and assign it to exactly **one** of the following 4 categories:
+1. **New Products** (Complete new tools, apps, or agents)
+2. **New Features** (Updates to existing tools, improvements, v2.0 releases)
+3. **New Technologies** (Papers, underlying models, frameworks, research)
+4. **Others** (General news, industry commentary, miscellaneous)
 
-- **Global Container**: A max-width container centered on the screen.
-- **Top Header**: Minimalist. Centered Serif text "Agent Daily". Right-aligned GitHub icon link.
-  - Include a one-line tagline in the header: "Build your own daily with AI" with a clickable GitHub link to https://github.com/crazygo/agentdaily.
-- **Layout Grid**: Use CSS Grid or Flexbox to create two distinct columns:
-  - **Left Sidebar (Navigation)**:
-    - Width: Approx 200px - 250px.
-    - Sticky position (sticks to top while scrolling).
-    - Content: A vertical chronological list of dates (e.g., "2025-11-26") linking to anchors in the main feed or sub-pages.
-    - Style: Clean, simple text links, no heavy background.
-  - **Right Column (Main Feed)**:
-    - The primary content area where the daily cards are rendered.
-    - Scrollable.
+*Note: Do not create other categories.*
 
-### 2. Content Rendering Logic
-Iterate through the **latest 7 days** from the manifest. For each day, read `updates/{YYYY-MM-DD}/data.json` and render a **Full Content Section** in the Right Column.
+## 2. Page Layout & Structure
 
-**Schema Discovery & Field Inference:**
-- Treat the JSON schema as **dynamic and unknown**. Do NOT assume a fixed structure.
-- Discover sections dynamically from any arrays of objects found in `data.json` (e.g., `products`, `updates`, `insights`, `highlights`, `notes`, `cases`, etc.).
-- Infer field purposes from common naming patterns:
-  - **Title-like fields**: `title`, `name`, `headline`, `label`, `id`
-  - **Description-like fields**: `summary`, `description`, `body`, `text`, `content`
-  - **Link-like fields**: `url`, `link`, `source`, `href`
-  - **Metadata fields**: `tags`, `category`, `model`, `source`, `date`, `author`
+**Global Container**: Centered, max-width 1200px.
 
-**For each Day's Block:**
+**1. Global Site Header (Crucial - Must be at the very top)**:
+   - Placement: Inside the container, *before* the Two-Column layout.
+   - **Content**:
+     - Main Logo: "Agent Daily" (Large, Centered, Serif Font, Bold).
+     - Tagline: "Build your own daily with AI" (Small, Sans-serif, Gray).
+     - Action: A `View on GitHub` icon/link pointing to repository.
+     - Code example: 
+     ```
+     <a href="https://github.com/crazygo/agentdaily" target="_blank" class="github-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+            </svg>
+            View on GitHub
+        </a>
+      ```
+   - **Style**: Minimalist, extra whitespace below it to separate from the content.
 
-1.  **Date Heading (Serif)**:
-    - Display the date (e.g., "2025-11-26") in a **Large, Bold, Serif Font**. This is the most important visual anchor.
-    - Follow with a short summary paragraph (if available in JSON) in gray Sans-Serif text.
+**2. Two-Column Layout (Main Body)**:
+   - Use CSS Grid/Flex to create the sidebar and main content area below the Global Site Header.
+   
+  1. **Left Sidebar (Navigation)**:
+    - Width: ~200px. Sticky.
+    - Content: A simple timeline list.
+    - Display the Date Range of the current group (e.g., "Nov 20 - Nov 26").
+    - (Visual) Simple gray text, distinct active state for the current range.
 
-2.  **Full Content Section**:
-    - For each array of objects discovered in `data.json`, render a section with all items.
-    - **Render each item as a Card** with:
-      - **Bold title line** (from title-like fields)
-      - **Short description paragraph** (from description-like fields, if available)
-      - **Small muted metadata line** (tags, source, model, etc., if present)
-      - **Inline link** to source URL if a link-like field exists
-    - **Grid Layout**: If multiple items exist, display them in a responsive grid (2-column on desktop).
-    - **Typography**: Item titles in **Bold Serif**, descriptions in Sans-Serif.
-    - **Tags**: If categories exist, show them as small, uppercase, light-gray badges.
+  2. **Right Column (Main Content)**:
+    - **Header**:
+      - Large Serif Title: "Weekly Report"
+      - Subtitle (Date Range): "Nov 20, 2025 – Nov 26, 2025"
+      - Description: "A curated summary of the most important updates in AI from the last 7 days."
     
-3.  **Unknown or Nested Structures**:
-    - For deeply nested or unexpected fields, either:
-      - Extract the most human-readable pieces into bullet points, OR
-      - Fall back to a `<pre>` block with pretty-printed JSON so no data is lost.
-    - Never discard data—always surface it in some readable form.
+    - **Category Sections (Loop N times)**:
+        - Iterate through the categories: [New Products, New Features, New Technologies, Others].
+        - If a category is empty, skip it.
+        - **Section Title**: H2, Serif font, Bold, Black.
+        - **Layout Logic (MANDATORY per Category)**:
+            - For EACH category independently, you MUST execute this logic:
+              - Count the number of items ($N$) in this category.
+              - STRICTLY apply the correct CSS class combination based on N:
+                - If $N \le 3$: Use class `grid-rows-1`
+                - If $4 \le N \le 8$: Use class `grid-rows-2`
+                - If $N \ge 9$: Use class `grid-rows-3`
+              - FORBIDDEN: Do NOT use generic classes like horizontal-scroll. You MUST use scroll-grid combined with a grid-rows-X class.
+              - Render cards inside. The CSS will handle the specific "1-4-7" column-major ordering.
 
-4.  **No "View Full Report" Links**:
-    - Do **NOT** add "View Full Report →", "Read More", or any other navigation-only links to a separate per-day page.
-    - Each day's block on the index page should contain **substantive, readable content** on its own.
-    - The index page IS the full report surface for these 7 days.
+## 3. Card Rendering Rules
 
-**Error Tolerance:**
-- If `data.json` is **missing or unparseable**: render a simple card with the date and a notice ("Data unavailable for this day").
-- If only **part of the structure** is unexpected: still render everything that can be understood. Never fail the entire page due to partial data issues.
-- Always prefer rendering something useful over showing nothing or a broken layout.
+For each item within a category, render a Card:
+- **Style**: Minimalist, white background, thin gray border (optional) or whitespace separation.
+- **Elements**:
+  1. **Title**: Bold, Serif font (Time New Roman / Merriweather).
+  2. **Description**: Sans-serif, dark gray (`#4a4a4a`). Limit to 3 lines.
+  3. **Metadata Row (Bottom)**:
+     - **Date**: The specific collection date (e.g., "Nov 24").
+     - **Source**: Domain name or source label.
+     - **Link**: Wrap the whole card or title in the source anchor tag.
 
-### 3. Style Guidelines (Agent Daily Theme)
-You must generate CSS (inline or extending base.css) to match the specific "Agent Daily" vibe:
+**Field Inference Strategy**:
+- Since JSON schemas vary, look for:
+  - Title: `title`, `name`, `headline`
+  - Body: `description`, `summary`, `content`, `text`
+  - Link: `url`, `href`, `link`, `source_url`
+  - Date: Derive from the folder name if not in JSON.
 
-- **Typography System (Strict)**:
-  - **Headings (Dates, Section Titles)**: MUST use a **Serif font-family** (e.g., `font-family: 'Merriweather', 'Times New Roman', serif;`).
-  - **Body Text**: MUST use a **Sans-Serif font-family** (e.g., `font-family: 'Inter', system-ui, sans-serif;`).
-- **Color Palette**:
- - Background: `#ffffff` (Pure White).
-  - Text: `#1a1a1a` (Dark Black) for headings, `#4a4a4a` (Dark Gray) for body.
-  - Accents: `#f3f4f6` (Light Gray) for tag backgrounds.
-- **Visual Details**:
-  - No shadows, no heavy borders. Use whitespace for separation.
-  - Links: Underlined or subtle blue.
+## 4. Design System (Medium Style)
 
-### 4. SEO & Technical
-- **Meta**: Title "Agent Daily - Updates", standard meta description.
-- **Responsiveness**: On mobile screens (<768px), hide the Left Sidebar or move it to a hamburger menu, and make the Right Column full width.
- - **Static Integrity**: Ensure all loops and data insertion happen at generation time. No client-side fetch.
-  - **No Emojis**: Do not insert emojis in any headings, labels, or body text.
+Generate/Update CSS to enforce:
+- **Color Palette**: 
+  - Background: `#FFFFFF`
+  - Text: `#000000` (Headings), `#292929` (Body).
+  - Borders/Lines: `#E6E6E6` (Very light gray).
+  - **NO ACCENT COLORS**. No blue links, no colored buttons. Links should be underlined or black.
+- **Typography**:
+  - Headings: **Serif** (`Georgia`, `Cambria`, `Times New Roman`, serif).
+  - Body: **Sans-Serif** (`Inter`, `-apple-system`, `BlinkMacSystemFont`, `Segoe UI`, sans-serif).
+- **Layout Utilities**:
+  - **Grid Container**:
+    - `.scroll-grid`: `display: grid; grid-auto-flow: column; grid-auto-columns: 320px; gap: 20px; overflow-x: auto; padding-bottom: 15px;`
+    - **Adaptive Rows**:
+      - `.grid-rows-1`: `grid-template-rows: auto;` (One row height)
+      - `.grid-rows-2`: `grid-template-rows: repeat(2, auto);` (Two rows height)
+      - `.grid-rows-3`: `grid-template-rows: repeat(3, auto);` (Three rows max)
+  - **Card Styling**:
+    - `.card`: `width: 100%; height: 100%; border: 1px solid #E6E6E6; padding: 16px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between;`
+    - Ensure cards stretch to fill their grid cell so rows look even.
 
-## Important Notes
-1. **Read data files**: You MUST read `updates/{YYYY-MM-DD}/data.json` to populate the "Full Content Section". This is the primary source of truth.
-2. **Schema Flexibility**: Do NOT assume a fixed JSON schema. Discover structure dynamically and adapt rendering accordingly.
-3. **Graceful Degradation**: If some fields are missing, malformed, or unexpected, still render everything that can be understood. Never fail the entire page.
-4. **No Navigation-Only Cards**: Never render a card that only shows a date and a single link. Each day's block must contain substantive content.
-5. **Relative Paths**: Links to external sources should be preserved. Internal asset links are `assets/base.css`.
-6. **Self-Contained**: The index page should provide complete information for the latest 7 days without requiring navigation to per-day pages.
-
-## Output
-Generate the complete HTML file content for `/updates/index.html`.
-
-This page must be **self-contained** and surface all important information for the latest 7 days directly on this page. Users should not need to navigate to separate per-day pages to see a "full report"—the index page IS the full report for these 7 days.
+## 5. Output Requirements
+- Output raw HTML.
+- Ensure the logic aggregates 7 days of data into ONE view.
+- Do NOT generate separate headers for each day in the Right Column. The hierarchy is: `Weekly Header` -> `Category` -> `Cards`.
