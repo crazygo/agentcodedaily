@@ -38,10 +38,10 @@ export async function runUpdate(workspacePath?: string): Promise<void> {
     console.log(`✅ JSON data written to: ${jsonPath}`);
 
     // Generate/update manifest.json
-    await updateManifest(workspace);
+    await updateManifest();
 
     // Generate index.html
-    await generateIndexPage(workspace);
+    await generateIndexPage();
 
     console.log(`\n✨ Update workflow completed successfully!`);
   } catch (error: any) {
@@ -53,7 +53,7 @@ export async function runUpdate(workspacePath?: string): Promise<void> {
 /**
  * Update manifest.json with all available days
  */
-async function updateManifest(currentWorkspace: string): Promise<void> {
+async function updateManifest(): Promise<void> {
   console.log('\n📋 Updating manifest.json...');
   
   const updatesDir = path.join(process.cwd(), 'updates');
@@ -85,7 +85,7 @@ async function updateManifest(currentWorkspace: string): Promise<void> {
 /**
  * Generate index.html using Claude Agent
  */
-async function generateIndexPage(currentWorkspace: string): Promise<void> {
+async function generateIndexPage(): Promise<void> {
   console.log('\n📄 Generating index.html...');
   
   const updatesDir = path.join(process.cwd(), 'updates');
@@ -107,4 +107,15 @@ async function generateIndexPage(currentWorkspace: string): Promise<void> {
   );
   
   console.log(`✅ Index page generated successfully`);
+}
+
+/**
+ * Public helper: refresh manifest + regenerate index.html
+ * Useful for re-running HTML generation without fetching new data
+ */
+export async function runGenerateIndex(): Promise<void> {
+  console.log('🧭 Starting index generation (manifest + index.html)...');
+  await updateManifest();
+  await generateIndexPage();
+  console.log('\n✨ Index generation completed!');
 }

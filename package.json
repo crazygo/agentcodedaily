@@ -9,6 +9,7 @@
   "scripts": {
     "update": "tsx src/cli.ts",
     "start": "tsx src/cli.ts start",
+    "index": "tsx src/cli.ts index",
     "build": "tsc",
     "dev": "tsc --watch",
     "clean": "rm -rf dist"

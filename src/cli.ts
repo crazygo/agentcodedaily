@@ -4,7 +4,7 @@ import yargs from 'yargs/yargs';
 import { hideBin } from 'yargs/helpers';
 import * as fs from 'fs/promises';
 import * as path from 'path';
-import { runUpdate } from './workflows/update';
+import { runUpdate, runGenerateIndex } from './workflows/update';
 import { runList } from './workflows/list';
 import { ClaudeAgent } from './agent/ClaudeAgent';
 import { getWorkspaceDir, getCurrentDateString } from './utils/workspace';
@@ -108,6 +108,14 @@ async function main() {
         console.log(`📊 File size: ${fileSizeKB} KB`);
       } catch (error) {
         console.error('❌ Error:', error);
+        process.exit(1);
+      }
+    })
+    .command('index', 'Regenerate updates/index.html from existing manifest and data files', (yargs) => yargs, async () => {
+      try {
+        await runGenerateIndex();
+      } catch (error) {
+        console.error('❌ Error:', (error as Error).message);
         process.exit(1);
       }
     })
