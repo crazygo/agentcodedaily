@@ -14,6 +14,7 @@ permissions:
 jobs:
   generate-index:
     runs-on: ubuntu-latest
+    environment: production
     env:
       ANTHROPIC_API_KEY: ''
       ANTHROPIC_AUTH_TOKEN: ${{ secrets.ANTHROPIC_AUTH_TOKEN }}
@@ -38,6 +39,15 @@ jobs:
 
       - name: Enable Corepack
         run: corepack enable
+
+      - name: Verify Anthropic token
+        run: |
+          if [ -z "$ANTHROPIC_AUTH_TOKEN" ]; then
+            echo "❌ ANTHROPIC_AUTH_TOKEN is not set. Please add it as an Actions secret (or environment secret for 'production')." >&2
+            exit 1
+          else
+            echo "✅ ANTHROPIC_AUTH_TOKEN is set (length: ${#ANTHROPIC_AUTH_TOKEN})."
+          fi
 
       - name: Install dependencies
         run: yarn install

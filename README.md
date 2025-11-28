@@ -4,9 +4,8 @@ A TypeScript-based product research daily report website focusing on the agentic
 
 ## Live Demo
 
-Explore the generated reports index (latest 7 days): https://crazygo.github.io/agentdaily/updates/index.html
+Explore the generated reports index (latest 7 days): https://youfocal.com/
 
-Last updated: 2025-11-26T16:52:03.498Z
 
 ## Overview
 
