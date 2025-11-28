@@ -1,6 +1,8 @@
 # Generate /updates/index.html (Static - Agent Daily Style)
 
-Task: build a static HTML index page listing latest 7 daily report folders, **styled exactly like the "Agent Daily" reference**.
+Task: build a static HTML index page that presents a **complete, high-signal overview for the latest 7 days directly on the index page**, styled exactly like the "Agent Daily" reference.
+
+Readers should get the full picture from the index page alone, without needing a separate "full report" page for these 7 days.
 
 ## Context (simple)
 *(Keep this section exactly as you had it)*
@@ -46,7 +48,16 @@ Generate a complete HTML5 document with a **Two-Column Layout** that matches the
     - Scrollable.
 
 ### 2. Content Rendering Logic
-Iterate through the **latest 7 days** from the manifest. For each day, read `updates/{YYYY-MM-DD}/data.json` and render a **Semantic Article Block** in the Right Column.
+Iterate through the **latest 7 days** from the manifest. For each day, read `updates/{YYYY-MM-DD}/data.json` and render a **Full Content Section** in the Right Column.
+
+**Schema Discovery & Field Inference:**
+- Treat the JSON schema as **dynamic and unknown**. Do NOT assume a fixed structure.
+- Discover sections dynamically from any arrays of objects found in `data.json` (e.g., `products`, `updates`, `insights`, `highlights`, `notes`, `cases`, etc.).
+- Infer field purposes from common naming patterns:
+  - **Title-like fields**: `title`, `name`, `headline`, `label`, `id`
+  - **Description-like fields**: `summary`, `description`, `body`, `text`, `content`
+  - **Link-like fields**: `url`, `link`, `source`, `href`
+  - **Metadata fields**: `tags`, `category`, `model`, `source`, `date`, `author`
 
 **For each Day's Block:**
 
@@ -54,16 +65,32 @@ Iterate through the **latest 7 days** from the manifest. For each day, read `upd
     - Display the date (e.g., "2025-11-26") in a **Large, Bold, Serif Font**. This is the most important visual anchor.
     - Follow with a short summary paragraph (if available in JSON) in gray Sans-Serif text.
 
-2.  **Content Preview Grid**:
-    - Analyze the JSON data. Look for arrays like `products`, `updates`, or `insights`.
-    - **Render a Preview Section**: Instead of just a "Read More" button, try to render a preview of the content *if possible* based on the JSON structure.
-    - **Style**: Use the "Card" style from the reference (no emojis in headings or labels).
-      - **Grid Layout**: If multiple items exist (like products), display them in a small 2-column grid.
-      - **Typography**: Item titles in **Bold Serif**, descriptions in Sans-Serif.
-      - **Tags**: If categories exist, show them as small, uppercase, light-gray badges.
+2.  **Full Content Section**:
+    - For each array of objects discovered in `data.json`, render a section with all items.
+    - **Render each item as a Card** with:
+      - **Bold title line** (from title-like fields)
+      - **Short description paragraph** (from description-like fields, if available)
+      - **Small muted metadata line** (tags, source, model, etc., if present)
+      - **Inline link** to source URL if a link-like field exists
+    - **Grid Layout**: If multiple items exist, display them in a responsive grid (2-column on desktop).
+    - **Typography**: Item titles in **Bold Serif**, descriptions in Sans-Serif.
+    - **Tags**: If categories exist, show them as small, uppercase, light-gray badges.
+    
+3.  **Unknown or Nested Structures**:
+    - For deeply nested or unexpected fields, either:
+      - Extract the most human-readable pieces into bullet points, OR
+      - Fall back to a `<pre>` block with pretty-printed JSON so no data is lost.
+    - Never discard data—always surface it in some readable form.
 
-3.  **Read Full Report Action**:
-    - At the bottom of the day's block, add a clear link: "View Full Report →" pointing to the relative path `2025-11-26/`.
+4.  **No "View Full Report" Links**:
+    - Do **NOT** add "View Full Report →", "Read More", or any other navigation-only links to a separate per-day page.
+    - Each day's block on the index page should contain **substantive, readable content** on its own.
+    - The index page IS the full report surface for these 7 days.
+
+**Error Tolerance:**
+- If `data.json` is **missing or unparseable**: render a simple card with the date and a notice ("Data unavailable for this day").
+- If only **part of the structure** is unexpected: still render everything that can be understood. Never fail the entire page due to partial data issues.
+- Always prefer rendering something useful over showing nothing or a broken layout.
 
 ### 3. Style Guidelines (Agent Daily Theme)
 You must generate CSS (inline or extending base.css) to match the specific "Agent Daily" vibe:
@@ -86,9 +113,14 @@ You must generate CSS (inline or extending base.css) to match the specific "Agen
   - **No Emojis**: Do not insert emojis in any headings, labels, or body text.
 
 ## Important Notes
-1. **Read data files**: You MUST read `updates/{YYYY-MM-DD}/data.json` to populate the "Content Preview Grid". Don't just list the date.
-2. **Relative Paths**: Links to days are `2025-11-26/`. Assets are `assets/base.css`.
-3. **Fallback**: If `data.json` structure is unexpected, fall back to a simple card showing the Date and a "View Report" link, but maintain the Serif/Sans-serif styling.
+1. **Read data files**: You MUST read `updates/{YYYY-MM-DD}/data.json` to populate the "Full Content Section". This is the primary source of truth.
+2. **Schema Flexibility**: Do NOT assume a fixed JSON schema. Discover structure dynamically and adapt rendering accordingly.
+3. **Graceful Degradation**: If some fields are missing, malformed, or unexpected, still render everything that can be understood. Never fail the entire page.
+4. **No Navigation-Only Cards**: Never render a card that only shows a date and a single link. Each day's block must contain substantive content.
+5. **Relative Paths**: Links to external sources should be preserved. Internal asset links are `assets/base.css`.
+6. **Self-Contained**: The index page should provide complete information for the latest 7 days without requiring navigation to per-day pages.
 
 ## Output
 Generate the complete HTML file content for `/updates/index.html`.
+
+This page must be **self-contained** and surface all important information for the latest 7 days directly on this page. Users should not need to navigate to separate per-day pages to see a "full report"—the index page IS the full report for these 7 days.
