@@ -4,302 +4,244 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agent Code Daily - Updates</title>
-    <meta name="description" content="Daily updates on AI coding tools, frameworks, insights, and product developments. Stay informed about the latest in AI-assisted development.">
+    <meta name="description" content="Daily reports on AI coding tools, products, and insights. Stay updated with the latest developments in AI-powered development tools and technologies.">
     <link rel="stylesheet" href="assets/base.css">
-    <style>
-        .feed-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        .day-card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
-            overflow: hidden;
-            transition: transform 0.2s ease;
-        }
-        .day-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-        }
-        .day-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1.5rem;
-        }
-        .day-date {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-        .day-summary {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-        }
-        .summary-item {
-            background: rgba(255,255,255,0.2);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
-        .day-content {
-            padding: 1.5rem;
-        }
-        .highlights {
-            margin-bottom: 1.5rem;
-        }
-        .highlight-item {
-            padding: 1rem;
-            border-left: 4px solid #667eea;
-            margin-bottom: 1rem;
-            background: #f8f9ff;
-            border-radius: 0 8px 8px 0;
-        }
-        .highlight-title {
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 0.5rem;
-        }
-        .highlight-description {
-            color: #666;
-            line-height: 1.5;
-        }
-        .read-more-btn {
-            display: inline-block;
-            background: #667eea;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: background 0.2s ease;
-        }
-        .read-more-btn:hover {
-            background: #5a67d8;
-        }
-        .no-data {
-            text-align: center;
-            padding: 3rem;
-            color: #666;
-        }
-        @media (max-width: 768px) {
-            .feed-container {
-                padding: 1rem;
-            }
-            .day-summary {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-        }
-    </style>
+    <link rel="canonical" href="https://agentdaily.github.io/agentdaily/updates/">
 </head>
 <body>
-    <header>
+    <header class="header">
         <div class="container">
-            <h1>Agent Code Daily - Updates</h1>
-            <p class="subtitle">Latest insights on AI coding tools, frameworks, and developer productivity</p>
-            <nav class="breadcrumbs">
-                <a href="https://github.com/agentdaily/agentdaily">Home</a> > Updates
+            <nav class="nav">
+                <div class="breadcrumb">
+                    <span><a href="../" style="color: inherit; text-decoration: none;">Home</a></span>
+                    <span class="separator"> > </span>
+                    <span class="current">Updates</span>
+                </div>
             </nav>
+            <div class="header-content">
+                <h1 class="title">Agent Code Daily</h1>
+                <p class="subtitle">Daily updates on AI coding tools, products, and insights</p>
+                <p class="date">November 28, 2025</p>
+            </div>
         </div>
     </header>
 
-    <main class="feed-container">
-        <div class="intro-section">
-            <p>Stay informed with daily updates on the latest AI coding tools, product releases, research insights, and industry developments. Our comprehensive reports cover everything from new frameworks to critical security considerations in AI-assisted development.</p>
-        </div>
+    <main class="main">
+        <div class="container">
+            <section class="intro">
+                <p>Welcome to Agent Code Daily, your comprehensive source for the latest developments in AI-powered coding tools and technologies. Each day we curate the most interesting new products, important updates from established tools, and valuable insights from the AI coding community.</p>
+            </section>
 
-        <noscript>
-            <div class="no-data">
-                <h2>Navigation</h2>
-                <p><a href="https://github.com/agentdaily/agentdaily">Home</a></p>
-                <ul>
-                    <li><a href="2025-11-27/">November 27, 2025</a></li>
-                    <li><a href="2025-11-26/">November 26, 2025</a></li>
-                    <li><a href="2025-11-25/">November 25, 2025</a></li>
-                    <li><a href="2025-11-24/">November 24, 2025</a></li>
-                </ul>
-            </div>
-        </noscript>
+            <section class="feed">
+                <h2 class="section-title">Latest Daily Reports</h2>
 
-        <div id="feed-content">
-            <!-- November 27, 2025 -->
-            <article class="day-card">
-                <div class="day-header">
-                    <div class="day-date">November 27, 2025</div>
-                    <div>AI coding tools showcase and developer insights</div>
-                </div>
-                <div class="day-content">
-                    <div class="highlights">
-                        <h3>Today's Highlights</h3>
-                        <div class="highlight-item">
-                            <div class="highlight-title">Windsurf by Codeium - AI-Powered Editor</div>
-                            <div class="highlight-description">AI-powered code editor that combines traditional editing with AI assistance. Features include code completion, generation, and real-time collaboration with AI.</div>
-                        </div>
-                        <div class="highlight-item">
-                            <div class="highlight-title">The Rise of AI Agents in Software Development</div>
-                            <div class="highlight-description">Discussions around autonomous AI agents that can complete entire coding tasks have intensified. Key themes include agent reliability, context management, and integration into existing workflows.</div>
-                        </div>
-                        <div class="highlight-item">
-                            <div class="highlight-title">OpenHands (formerly OpenDevin) Autonomous Agent</div>
-                            <div class="highlight-description">Open-source autonomous AI software engineer that can write code, fix bugs, and manage entire development workflows through natural language commands.</div>
-                        </div>
+                <!-- November 28, 2025 -->
+                <article class="day-card">
+                    <div class="day-header">
+                        <h3 class="day-date">November 28, 2025</h3>
+                        <time class="day-time" datetime="2025-11-28T00:33:03.482Z">Generated at 12:33 AM UTC</time>
                     </div>
+
                     <div class="day-summary">
-                        <span class="summary-item">10 new products</span>
-                        <span class="summary-item">0 updates</span>
-                        <span class="summary-item">8 insights</span>
+                        <span class="summary-item">10 new AI coding tools</span>
                     </div>
-                    <a href="2025-11-27/" class="read-more-btn">Read Full Report</a>
-                </div>
-            </article>
 
-            <!-- November 26, 2025 -->
-            <article class="day-card">
-                <div class="day-header">
-                    <div class="day-date">November 26, 2025</div>
-                    <div>Major framework releases and advanced AI research</div>
-                </div>
-                <div class="day-content">
                     <div class="highlights">
-                        <h3>Today's Highlights</h3>
-                        <div class="highlight-item">
-                            <div class="highlight-title">LightRAG - Simple Fast RAG Framework</div>
-                            <div class="highlight-description">Simple and Fast Retrieval-Augmented Generation framework for building AI applications with enhanced context retrieval and generation capabilities.</div>
-                        </div>
-                        <div class="highlight-item">
-                            <div class="highlight-title">Agent Design is Still Hard - Abstraction Challenges</div>
-                            <div class="highlight-description">Notes that 'abstractions are not worth adopting yet' for AI agents, indicating that current agentic AI systems lack mature design patterns and architectural principles.</div>
-                        </div>
-                        <div class="highlight-item">
-                            <div class="highlight-title">The Learning Loop and LLMs</div>
-                            <div class="highlight-description">Explores how LLMs become 'illusory' if they shortcut essential learning in professional practice, raising concerns about AI tools potentially hindering developer skill development.</div>
+                        <h4>Featured Tools</h4>
+                        <div class="highlight-list">
+                            <div class="highlight-item">
+                                <h5><a href="https://cursor.sh" target="_blank" rel="noopener">Cursor</a></h5>
+                                <p>AI-powered code editor with intelligent code completion, refactoring capabilities, and context-aware suggestions. Integrates with multiple LLMs for enhanced coding assistance.</p>
+                                <span class="category">IDE</span>
+                            </div>
+                            <div class="highlight-item">
+                                <h5><a href="https://github.com/deepseek-ai/DeepSeek-Coder" target="_blank" rel="noopener">DeepSeek Coder</a></h5>
+                                <p>Advanced open-source code generation LLM from DeepSeek with superior performance on coding benchmarks. Supports multiple programming languages and complex code completion.</p>
+                                <span class="category">Library</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="day-summary">
-                        <span class="summary-item">5 new products</span>
-                        <span class="summary-item">3 updates</span>
-                        <span class="summary-item">12 insights</span>
-                    </div>
-                    <a href="2025-11-26/" class="read-more-btn">Read Full Report</a>
-                </div>
-            </article>
 
-            <!-- November 25, 2025 -->
-            <article class="day-card">
-                <div class="day-header">
-                    <div class="day-date">November 25, 2025</div>
-                    <div>Claude Opus 4.5 release and major agent developments</div>
-                </div>
-                <div class="day-content">
+                    <div class="day-actions">
+                        <a href="2025-11-28/" class="btn primary">Read Full Report</a>
+                    </div>
+                </article>
+
+                <!-- November 27, 2025 -->
+                <article class="day-card">
+                    <div class="day-header">
+                        <h3 class="day-date">November 27, 2025</h3>
+                        <time class="day-time" datetime="2025-11-27T18:48:57.495Z">Generated at 6:48 PM UTC</time>
+                    </div>
+
+                    <div class="day-summary">
+                        <span class="summary-item">10 new AI coding tools</span>
+                        <span class="summary-item">8 key insights</span>
+                        <span class="summary-item">3 product updates</span>
+                    </div>
+
                     <div class="highlights">
-                        <h3>Today's Highlights</h3>
-                        <div class="highlight-item">
-                            <div class="highlight-title">Claude Advanced Tool Use & Opus 4.5</div>
-                            <div class="highlight-description">Anthropic's latest updates include advanced tool use capabilities for Claude and the release of Opus 4.5, described as potentially the best model in the world for coding tasks.</div>
+                        <h4>Featured Tools & Insights</h4>
+                        <div class="highlight-list">
+                            <div class="highlight-item">
+                                <h5><a href="https://codeium.com/windsurf" target="_blank" rel="noopener">Windsurf by Codeium</a></h5>
+                                <p>AI-powered code editor that combines traditional editing with AI assistance. Features include code completion, generation, and real-time collaboration with AI.</p>
+                                <span class="category">IDE</span>
+                            </div>
+                            <div class="highlight-item">
+                                <h5><a href="https://github.com/All-Hands-AI/OpenHands" target="_blank" rel="noopener">OpenHands (formerly OpenDevin)</a></h5>
+                                <p>Open-source autonomous AI software engineer that can write code, fix bugs, and manage entire development workflows through natural language commands.</p>
+                                <span class="category">Autonomous Agent</span>
+                            </div>
                         </div>
-                        <div class="highlight-item">
-                            <div class="highlight-title">Cursor Series D Funding - $2.3B Raise</div>
-                            <div class="highlight-description">Cursor raised $2.3B in Series D funding and passed $1B in annualized revenue, while releasing version 2.1 with improved Plan Mode and AI Code Review features.</div>
-                        </div>
-                        <div class="highlight-item">
-                            <div class="highlight-title">Google ADK-Go AI Agent Toolkit</div>
-                            <div class="highlight-description">Google's Go toolkit for building AI agents with flexibility and control, providing developers with tools to create autonomous coding agents in Go.</div>
-                        </div>
-                    </div>
-                    <div class="day-summary">
-                        <span class="summary-item">7 new products</span>
-                        <span class="summary-item">5 updates</span>
-                        <span class="summary-item">14 insights</span>
-                    </div>
-                    <a href="2025-11-25/" class="read-more-btn">Read Full Report</a>
-                </div>
-            </article>
 
-            <!-- November 24, 2025 -->
-            <article class="day-card">
-                <div class="day-header">
-                    <div class="day-date">November 24, 2025</div>
-                    <div>GitHub Copilot Enterprise enhancements and AI model releases</div>
-                </div>
-                <div class="day-content">
+                        <div class="insight-preview">
+                            <h5>Key Discussion: The Rise of AI Agents in Software Development</h5>
+                            <p>Discussions around autonomous AI agents that can complete entire coding tasks have intensified. Key themes include agent reliability, context management, and integration into existing workflows.</p>
+                        </div>
+                    </div>
+
+                    <div class="day-actions">
+                        <a href="2025-11-27/" class="btn primary">Read Full Report</a>
+                    </div>
+                </article>
+
+                <!-- November 26, 2025 -->
+                <article class="day-card">
+                    <div class="day-header">
+                        <h3 class="day-date">November 26, 2025</h3>
+                        <time class="day-time" datetime="2025-11-26T18:10:34.769Z">Generated at 6:10 PM UTC</time>
+                    </div>
+
+                    <div class="day-summary">
+                        <span class="summary-item">6 new AI coding tools</span>
+                        <span class="summary-item">3 whitelist updates</span>
+                        <span class="summary-item">13 insights</span>
+                    </div>
+
                     <div class="highlights">
-                        <h3>Today's Highlights</h3>
-                        <div class="highlight-item">
-                            <div class="highlight-title">GitHub Copilot Enterprise BYOK</div>
-                            <div class="highlight-description">Enterprise bring your own key (BYOK) for GitHub Copilot now available in public preview, with enhanced code review instructions and improved next edit suggestions.</div>
+                        <h4>Featured Tools & Updates</h4>
+                        <div class="highlight-list">
+                            <div class="highlight-item">
+                                <h5><a href="https://github.com/google/adk-go" target="_blank" rel="noopener">Google ADK-Go</a></h5>
+                                <p>Google's Go toolkit for building AI agents with flexibility and control, providing developers with tools to create autonomous coding agents in Go.</p>
+                                <span class="category">Library</span>
+                            </div>
+                            <div class="highlight-item">
+                                <h5><a href="https://github.com/HKUDS/LightRAG" target="_blank" rel="noopener">LightRAG</a></h5>
+                                <p>Simple and Fast Retrieval-Augmented Generation framework for building AI applications with enhanced context retrieval and generation capabilities.</p>
+                                <span class="category">Framework</span>
+                            </div>
                         </div>
-                        <div class="highlight-item">
-                            <div class="highlight-title">Jamba 1.5 Large & Phi-4-reasoning Models</div>
-                            <div class="highlight-description">New AI models with enhanced coding capabilities, longer context windows, and improved problem-solving features specifically designed for developers.</div>
-                        </div>
-                        <div class="highlight-item">
-                            <div class="highlight-title">Cursor Productivity Study Results</div>
-                            <div class="highlight-description">Research shows companies merge 39% more PRs after Cursor's agent became default, demonstrating measurable productivity gains from AI coding tools.</div>
-                        </div>
-                    </div>
-                    <div class="day-summary">
-                        <span class="summary-item">3 new products</span>
-                        <span class="summary-item">8 updates</span>
-                        <span class="summary-item">0 insights</span>
-                    </div>
-                    <a href="2025-11-24/" class="read-more-btn">Read Full Report</a>
-                </div>
-            </article>
-        </div>
 
-        <div class="archives-section" style="text-align: center; margin-top: 3rem;">
-            <p>Showing the latest 4 daily reports. <a href="archives/">View All Archives</a> for historical data.</p>
+                        <div class="update-preview">
+                            <h5>Major Update: Cursor Series D Funding</h5>
+                            <p>Cursor raised $2.3B in Series D funding and passed $1B revenue in November 2025. Released version 2.1 with improved Plan Mode and AI Code Review features.</p>
+                        </div>
+                    </div>
+
+                    <div class="day-actions">
+                        <a href="2025-11-26/" class="btn primary">Read Full Report</a>
+                    </div>
+                </article>
+
+                <!-- November 25, 2025 -->
+                <article class="day-card">
+                    <div class="day-header">
+                        <h3 class="day-date">November 25, 2025</h3>
+                        <time class="day-time" datetime="2025-11-25T11:36:52.345Z">Generated at 11:36 AM UTC</time>
+                    </div>
+
+                    <div class="day-summary">
+                        <span class="summary-item">6 new AI coding tools</span>
+                        <span class="summary-item">11 product updates</span>
+                        <span class="summary-item">9 insights</span>
+                    </div>
+
+                    <div class="highlights">
+                        <h4>Featured Tools</h4>
+                        <div class="highlight-list">
+                            <div class="highlight-item">
+                                <h5><a href="https://github.com/google/adk-go" target="_blank" rel="noopener">Google ADK-Go</a></h5>
+                                <p>Code-first Go toolkit for building, evaluating, and deploying sophisticated AI agents with comprehensive development capabilities.</p>
+                                <span class="category">Framework</span>
+                            </div>
+                            <div class="highlight-item">
+                                <h5><a href="https://github.com/GibsonAI/Memori" target="_blank" rel="noopener">GibsonAI Memori</a></h5>
+                                <p>Open-source memory engine specifically designed for LLMs, AI agents, and multi-agent systems to maintain context and state.</p>
+                                <span class="category">Library</span>
+                            </div>
+                        </div>
+
+                        <div class="insight-preview">
+                            <h5>Technical Insight: Claude Advanced Tool Use and Opus 4.5</h5>
+                            <p>Anthropic's latest updates include advanced tool use capabilities for Claude and the release of Opus 4.5, described as potentially the best model in the world for coding tasks.</p>
+                        </div>
+                    </div>
+
+                    <div class="day-actions">
+                        <a href="2025-11-25/" class="btn primary">Read Full Report</a>
+                    </div>
+                </article>
+
+                <!-- November 24, 2025 -->
+                <article class="day-card">
+                    <div class="day-header">
+                        <h3 class="day-date">November 24, 2025</h3>
+                        <time class="day-time" datetime="2025-11-24T18:12:08.238Z">Generated at 6:12 PM UTC</time>
+                    </div>
+
+                    <div class="day-summary">
+                        <span class="summary-item">3 new AI coding tools</span>
+                        <span class="summary-item">8 product updates</span>
+                    </div>
+
+                    <div class="highlights">
+                        <h4>Featured Updates</h4>
+                        <div class="highlight-list">
+                            <div class="highlight-item">
+                                <h5><a href="https://github.com/features/copilot" target="_blank" rel="noopener">GitHub Copilot Enhancements</a></h5>
+                                <p>Recent updates to GitHub Copilot with improved coding capabilities, longer context windows, and enhanced AI model integration including support for newer models.</p>
+                                <span class="category">IDE Extension</span>
+                            </div>
+                            <div class="highlight-item">
+                                <h5><a href="https://cursor.com/" target="_blank" rel="noopener">Cursor v2.1 Release</a></h5>
+                                <p>Version 2.1 release featuring improved Plan Mode, AI Code Review directly in the editor, and Instant Grep functionality.</p>
+                                <span class="category">IDE</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="day-actions">
+                        <a href="2025-11-24/" class="btn primary">Read Full Report</a>
+                    </div>
+                </article>
+            </section>
+
+            <noscript>
+                <section class="fallback-navigation">
+                    <h2 class="section-title">Browse Reports</h2>
+                    <ul class="date-list">
+                        <li><a href="2025-11-28/">November 28, 2025</a></li>
+                        <li><a href="2025-11-27/">November 27, 2025</a></li>
+                        <li><a href="2025-11-26/">November 26, 2025</a></li>
+                        <li><a href="2025-11-25/">November 25, 2025</a></li>
+                        <li><a href="2025-11-24/">November 24, 2025</a></li>
+                    </ul>
+                </section>
+            </noscript>
         </div>
     </main>
 
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Agent Code Daily. Tracking the evolution of AI in software development.</p>
-            <p class="generated-time">Last updated: 2025-11-27T18:52:08.367Z</p>
+            <div class="footer-content">
+                <p class="footer-text">Last updated: November 28, 2025 at 12:34 AM UTC</p>
+                <p class="footer-text">Agent Code Daily - Tracking the evolution of AI-powered development tools</p>
+            </div>
         </div>
     </footer>
 
     <script src="assets/base.js"></script>
-    <script>
-        // Dynamic content loading for better performance
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
-                    }
-                });
-            });
-
-            // Add animation to cards on scroll
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('.day-card').forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                observer.observe(card);
-            });
-        });
-    </script>
 </body>
 </html>

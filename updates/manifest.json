@@ -39,7 +39,16 @@
         "research_summary.md",
         "whitelist-product-updates.json"
       ]
+    },
+    {
+      "date": "2025-11-28",
+      "files": [
+        "data.json",
+        "index.html",
+        "product_updates.json",
+        "report.md"
+      ]
     }
   ],
-  "lastUpdated": "2025-11-27T18:52:08.367Z"
+  "lastUpdated": "2025-11-28T00:34:48.956Z"
 }

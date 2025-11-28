@@ -1,0 +1,58 @@
+[
+  {
+    "productName": "Claude Code",
+    "title": "Update title needed - research required",
+    "description": "Specific update details needed - visit claude.ai/blog for latest announcements",
+    "updateType": "announcement",
+    "url": "https://claude.ai/blog",
+    "date": "2025-11-28"
+  },
+  {
+    "productName": "Cursor",
+    "title": "Update title needed - research required",
+    "description": "Specific update details needed - visit cursor.sh for latest releases",
+    "updateType": "release",
+    "url": "https://cursor.sh",
+    "date": "2025-11-28"
+  },
+  {
+    "productName": "GitHub Copilot",
+    "title": "Update title needed - research required",
+    "description": "Specific update details needed - check GitHub blog for Copilot announcements",
+    "updateType": "feature",
+    "url": "https://github.blog",
+    "date": "2025-11-28"
+  },
+  {
+    "productName": "Windsurf",
+    "title": "Update title needed - research required",
+    "description": "Specific update details needed - visit codeium.com/windsurf for updates",
+    "updateType": "feature",
+    "url": "https://codeium.com/windsurf",
+    "date": "2025-11-28"
+  },
+  {
+    "productName": "Devin",
+    "title": "Update title needed - research required",
+    "description": "Specific update details needed - visit devin.ai for latest announcements",
+    "updateType": "announcement",
+    "url": "https://devin.ai",
+    "date": "2025-11-28"
+  },
+  {
+    "productName": "Aider",
+    "title": "Update title needed - research required",
+    "description": "Specific update details needed - check aider.chat and GitHub releases",
+    "updateType": "release",
+    "url": "https://aider.chat",
+    "date": "2025-11-28"
+  },
+  {
+    "productName": "Continue",
+    "title": "Update title needed - research required",
+    "description": "Specific update details needed - visit continue.dev for updates",
+    "updateType": "feature",
+    "url": "https://continue.dev",
+    "date": "2025-11-28"
+  }
+]

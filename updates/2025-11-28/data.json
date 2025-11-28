@@ -1,0 +1,77 @@
+{
+  "newProducts": [
+    {
+      "title": "Cursor",
+      "description": "AI-powered code editor with intelligent code completion, refactoring capabilities, and context-aware suggestions. Integrates with multiple LLMs for enhanced coding assistance.",
+      "url": "https://cursor.sh",
+      "source": "GitHub | Tech News",
+      "category": "IDE"
+    },
+    {
+      "title": "DeepSeek Coder",
+      "description": "Advanced open-source code generation LLM from DeepSeek with superior performance on coding benchmarks. Supports multiple programming languages and complex code completion.",
+      "url": "https://github.com/deepseek-ai/DeepSeek-Coder",
+      "source": "GitHub",
+      "category": "Library"
+    },
+    {
+      "title": "Aider",
+      "description": "AI pair programming tool that works directly in your terminal. Enables collaborative coding sessions with LLMs, supports git integration, and can work with multiple files simultaneously.",
+      "url": "https://github.com/paul-gauthier/aider",
+      "source": "GitHub",
+      "category": "CLI Tool"
+    },
+    {
+      "title": "Continue",
+      "description": "Open-source autopilot for VS Code that provides AI-powered code completion, chat, and debugging. Integrates with various LLM providers and offers customizable AI assistance.",
+      "url": "https://github.com/continuedev/continue",
+      "source": "GitHub",
+      "category": "IDE Extension"
+    },
+    {
+      "title": "Claude Code",
+      "description": "AI-powered development environment from Anthropic that provides agentic coding capabilities, including autonomous code generation, debugging, and project management.",
+      "url": "https://claude.com/code",
+      "source": "News",
+      "category": "Autonomous Agent"
+    },
+    {
+      "title": "Supermaven",
+      "description": "AI coding assistant that provides extremely fast code completion and suggestions. Claims to be faster than traditional autocomplete with high-quality suggestions.",
+      "url": "https://supermaven.com",
+      "source": "Product Hunt | News",
+      "category": "IDE Extension"
+    },
+    {
+      "title": "Codeium",
+      "description": "Free AI-powered code completion tool that supports 70+ programming languages. Offers enterprise features and integrates with popular IDEs and editors.",
+      "url": "https://codeium.com",
+      "source": "News",
+      "category": "IDE Extension"
+    },
+    {
+      "title": "GitHub Copilot X",
+      "description": "Enhanced version of GitHub Copilot with voice-to-code capabilities, pull request description generation, and more autonomous coding features.",
+      "url": "https://github.com/features/copilot",
+      "source": "News | GitHub",
+      "category": "IDE Extension"
+    },
+    {
+      "title": "Replit Ghostwriter",
+      "description": "AI coding assistant integrated into Replit's development environment. Provides code completion, explanation, and transformation capabilities directly in the browser.",
+      "url": "https://replit.com/site/ghostwriter",
+      "source": "News",
+      "category": "IDE"
+    },
+    {
+      "title": "Tabnine Enterprise",
+      "description": "Advanced AI code completion tool with enterprise-grade features, including custom model training, code privacy, and team collaboration capabilities.",
+      "url": "https://www.tabnine.com",
+      "source": "News",
+      "category": "IDE Extension"
+    }
+  ],
+  "whitelistUpdates": [],
+  "insights": [],
+  "generatedAt": "2025-11-28T00:33:03.482Z"
+}
