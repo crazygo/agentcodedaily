@@ -28,156 +28,110 @@
             padding: 10px;
         }
 
-        /* Header Styles */
         header {
             background-color: #ff6600;
-            padding: 2px 10px;
-            margin-bottom: 10px;
-            border-bottom: 2px solid #000000;
+            color: #000000;
+            padding: 10px 15px;
+            border-bottom: 2px solid #000;
         }
 
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 5px 0;
-        }
-
-        .header-title {
+        header h1 {
             font-family: Arial, Helvetica, sans-serif;
-            font-weight: bold;
             font-size: 16px;
-            color: #000000;
+            font-weight: bold;
         }
 
-        .header-date {
+        .subtitle {
             font-size: 11px;
-            color: #000000;
+            margin-top: 3px;
             opacity: 0.8;
         }
 
-        /* Main Layout */
-        .three-column-layout {
+        .main-content {
             display: grid;
-            grid-template-columns: 40% 35% 25%;
-            gap: 15px;
-            margin-top: 10px;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
         }
 
-        /* Section Styles */
         .section {
             background-color: #ffffff;
             border: 1px solid #d4d4d4;
-            padding: 10px;
-            border-radius: 3px;
+            padding: 15px;
         }
 
-        .section-header {
+        .section h2 {
             font-family: Arial, Helvetica, sans-serif;
             font-size: 14px;
             font-weight: bold;
-            margin-bottom: 12px;
-            padding-bottom: 5px;
-            border-bottom: 1px solid #d4d4d4;
-            color: #000000;
-        }
-
-        /* Item Styles */
-        .item {
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             padding-bottom: 8px;
-            border-bottom: 1px solid #eeeeee;
+            border-bottom: 1px solid #d4d4d4;
         }
 
-        .item:last-child {
+        .product-item {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .product-item:last-child {
             border-bottom: none;
             margin-bottom: 0;
         }
 
-        .item-title {
+        .product-title {
             font-family: Arial, Helvetica, sans-serif;
             font-size: 13px;
             font-weight: bold;
-            margin-bottom: 4px;
+            margin-bottom: 5px;
         }
 
-        .item-title a {
+        .product-title a {
             color: #000000;
             text-decoration: none;
         }
 
-        .item-title a:hover {
+        .product-title a:hover {
             text-decoration: underline;
         }
 
-        .item-title a:visited {
+        .product-title a:visited {
             color: #828282;
         }
 
-        .item-description {
-            color: #828282;
-            font-size: 12px;
-            margin-bottom: 4px;
+        .product-description {
+            color: #000000;
+            margin-bottom: 8px;
             line-height: 1.5;
         }
 
-        .item-meta {
-            font-size: 10px;
+        .product-meta {
+            font-size: 11px;
             color: #828282;
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
         }
 
-        .item-meta span {
-            white-space: nowrap;
+        .product-meta span {
+            margin-right: 12px;
         }
 
-        .category {
+        .product-meta .category {
             background-color: #f0f0f0;
-            padding: 1px 4px;
-            border-radius: 2px;
-            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 3px;
             color: #000000;
         }
 
-        .source {
+        .empty-section {
             color: #828282;
-        }
-
-        /* Insight specific styles */
-        .insight-author {
-            font-size: 11px;
-            color: #828282;
-            margin-bottom: 2px;
-        }
-
-        .insight-topics {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 4px;
-            margin-top: 4px;
-        }
-
-        .topic-tag {
-            background-color: #f6f6ef;
-            border: 1px solid #d4d4d4;
-            padding: 1px 4px;
-            border-radius: 2px;
-            font-size: 10px;
-            color: #828282;
-        }
-
-        .insight-type {
             font-style: italic;
-            color: #828282;
-            font-size: 10px;
+            text-align: center;
+            padding: 20px;
         }
 
-        /* Footer Styles */
         footer {
-            margin-top: 20px;
-            padding: 10px;
+            margin-top: 30px;
+            padding: 15px;
             text-align: center;
             border-top: 1px solid #d4d4d4;
             color: #828282;
@@ -186,50 +140,38 @@
 
         footer a {
             color: #828282;
-            text-decoration: underline;
+            text-decoration: none;
         }
 
         footer a:hover {
-            color: #000000;
+            text-decoration: underline;
         }
 
-        /* No Updates Message */
-        .no-updates {
-            color: #828282;
-            font-style: italic;
-            text-align: center;
-            padding: 20px;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 968px) {
-            .three-column-layout {
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .main-content {
                 grid-template-columns: 1fr;
+                gap: 15px;
             }
 
-            .item-meta {
-                flex-direction: column;
-                gap: 2px;
-            }
-        }
-
-        @media (max-width: 640px) {
             .container {
                 padding: 5px;
             }
 
             .section {
-                padding: 8px;
+                padding: 10px;
             }
 
-            .header-content {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 2px;
+            header {
+                padding: 8px 10px;
+            }
+
+            header h1 {
+                font-size: 14px;
             }
         }
 
-        /* Print Styles */
+        /* Print-friendly styles */
         @media print {
             body {
                 background-color: #ffffff;
@@ -237,416 +179,199 @@
             }
 
             .section {
-                border: 1px solid #000000;
+                border: 1px solid #000;
                 break-inside: avoid;
             }
 
-            .item {
-                break-inside: avoid;
+            header {
+                background-color: #ffffff;
+                color: #000000;
+                border-bottom: 2px solid #000;
             }
 
-            a {
-                text-decoration: none;
+            .product-title a:visited {
                 color: #000000;
             }
 
-            a:after {
-                content: " (" attr(href) ")";
-                font-size: 10px;
-                color: #828282;
-            }
-
-            .no-updates {
-                display: none;
+            .product-meta .category {
+                background-color: transparent;
+                border: 1px solid #000;
             }
         }
 
-        /* Hover Effects */
-        .item:hover {
-            background-color: #f9f9f9;
-            transition: background-color 0.2s ease;
+        /* Accessibility improvements */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
 
-        .item-title a:hover {
-            color: #ff6600;
+        /* Focus indicators */
+        a:focus {
+            outline: 2px solid #ff6600;
+            outline-offset: 2px;
         }
 
-        /* Loading and Animation */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .section {
+                border: 2px solid #000;
+            }
 
-        .item {
-            animation: fadeIn 0.3s ease-out;
-        }
-
-        /* Scrollbar Styles */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #d4d4d4;
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #b8b8b8;
+            .product-meta .category {
+                border: 1px solid #000;
+                background-color: transparent;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <div class="header-content">
-                <div class="header-title">Agentic Coding Research Report</div>
-                <div class="header-date">2025-11-29</div>
-            </div>
+            <h1>Agentic Coding Research Report</h1>
+            <div class="subtitle">Generated on November 29, 2025 - Daily updates on AI coding tools and frameworks</div>
         </div>
     </header>
 
     <main class="container">
-        <div class="three-column-layout">
-            <!-- New Products Section (40%) -->
+        <div class="main-content">
+            <!-- New Products Section -->
             <section class="section new-products">
-                <h2 class="section-header">New Products</h2>
+                <h2>New Products Discovered</h2>
 
-                <div class="item">
-                    <div class="item-title">
-                        <a href="https://antigravity.google.com" target="_blank" rel="noopener">Google Antigravity IDE</a>
+                <article class="product-item">
+                    <div class="product-title">
+                        <a href="https://windsurf.com/" target="_blank" rel="noopener noreferrer">Windsurf by Codeium</a>
                     </div>
-                    <div class="item-description">
-                        Google's revolutionary agent-first IDE with Gemini 3 integration. Features autonomous coding agents, dashboard for multiple agents, Cloud VPN integration, and Deployment Manager.
-                    </div>
-                    <div class="item-meta">
+                    <p class="product-description">
+                        The first agentic IDE launched by Codeium in November 2024. Positioned as a direct competitor to Cursor with similar AI-powered coding capabilities at 25% lower pricing. Already generating $50 million in annualized revenue.
+                    </p>
+                    <div class="product-meta">
                         <span class="category">IDE</span>
-                        <span class="source">News | Product Launch</span>
+                        <span>News | Product Launch</span>
                     </div>
-                </div>
+                </article>
 
-                <div class="item">
-                    <div class="item-title">
-                        <a href="https://cursor.sh" target="_blank" rel="noopener">Cursor 2.0</a>
+                <article class="product-item">
+                    <div class="product-title">
+                        <a href="https://modelcontextprotocol.io/" target="_blank" rel="noopener noreferrer">Model Context Protocol (MCP)</a>
                     </div>
-                    <div class="item-description">
-                        Major update with multi-agent interface for running up to 8 agents in parallel. Enhanced agentic AI capabilities with improved context understanding and collaborative coding workflows.
+                    <p class="product-description">
+                        Anthropic's open standard launched November 25, 2024 for secure two-way connections between AI applications and data sources. Enables developers to build standardized integrations for AI coding tools.
+                    </p>
+                    <div class="product-meta">
+                        <span class="category">Framework</span>
+                        <span>News | Product Launch</span>
                     </div>
-                    <div class="item-meta">
-                        <span class="category">IDE</span>
-                        <span class="source">Product Launch</span>
-                    </div>
-                </div>
+                </article>
 
-                <div class="item">
-                    <div class="item-title">
-                        <a href="https://qoder.com" target="_blank" rel="noopener">Qoder CLI</a>
+                <article class="product-item">
+                    <div class="product-title">
+                        <a href="https://lovable.dev/" target="_blank" rel="noopener noreferrer">Lovable AI</a>
                     </div>
-                    <div class="item-description">
-                        Alibaba's agentic coding CLI tool with enhanced context engineering for 100k code files, AI autonomous R&D capabilities, and full-stack development support.
-                    </div>
-                    <div class="item-meta">
-                        <span class="category">CLI Tool</span>
-                        <span class="source">Product Hunt | GitHub</span>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="item-title">
-                        <a href="https://deepmind.google/blog/introducing-codemender-an-ai-agent-for-code-security/" target="_blank" rel="noopener">CodeMender</a>
-                    </div>
-                    <div class="item-description">
-                        Google DeepMind's autonomous AI agent for code security that automatically detects and fixes vulnerabilities. Successfully patched 72 security vulnerabilities in testing.
-                    </div>
-                    <div class="item-meta">
+                    <p class="product-description">
+                        Swedish AI startup that relaunched in November 2024 and became the fastest-growing software company ever. Offers 'vibe coding' capabilities with over 10 million projects created since launch.
+                    </p>
+                    <div class="product-meta">
                         <span class="category">Autonomous Agent</span>
-                        <span class="source">News | Product Launch</span>
+                        <span>News | Product Launch</span>
                     </div>
-                </div>
+                </article>
 
-                <div class="item">
-                    <div class="item-title">
-                        <a href="https://docs.replit.com/replitai/dynamic-intelligence" target="_blank" rel="noopener">Replit Plan Mode</a>
+                <article class="product-item">
+                    <div class="product-title">
+                        <a href="https://www.claude.com/blog/claude-code-on-the-web" target="_blank" rel="noopener noreferrer">Claude Code Web Beta</a>
                     </div>
-                    <div class="item-description">
-                        Safer way to collaborate with Replit Agent in read-only mode. Allows brainstorming ideas and planning work without editing app code or data.
+                    <p class="product-description">
+                        Anthropic expanded Claude Code to web and mobile in October/November 2024, allowing developers to spin up and manage Claude Code agents from browsers, enabling parallel coding tasks from anywhere.
+                    </p>
+                    <div class="product-meta">
+                        <span class="category">Web Tool</span>
+                        <span>News | Product Update</span>
                     </div>
-                    <div class="item-meta">
+                </article>
+
+                <article class="product-item">
+                    <div class="product-title">
+                        <a href="https://www.producthunt.com/products/pieces-for-developers" target="_blank" rel="noopener noreferrer">Pieces for Developers Workstream Pattern Engine</a>
+                    </div>
+                    <p class="product-description">
+                        Enhanced AI capabilities introduced in November 2024 with temporally-grounded AI that captures developer work across desktop apps, IDEs, browsers, and terminals for context-aware assistance.
+                    </p>
+                    <div class="product-meta">
                         <span class="category">IDE Extension</span>
-                        <span class="source">Product Launch</span>
+                        <span>Product Hunt | Update</span>
                     </div>
-                </div>
+                </article>
 
-                <div class="item">
-                    <div class="item-title">
-                        <a href="https://windsurf.com" target="_blank" rel="noopener">Windsurf Editor</a>
+                <article class="product-item">
+                    <div class="product-title">
+                        <a href="https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent" target="_blank" rel="noopener noreferrer">GitHub Copilot Coding Agent</a>
                     </div>
-                    <div class="item-description">
-                        Codeium's rebranded AI-native IDE focusing on enterprise agentic coding. Features Mermaid diagram generation, cascade suggestions, and AI-powered visual mapping.
+                    <p class="product-description">
+                        GitHub introduced an autonomous coding agent feature in late 2024 that works asynchronously in GitHub Actions-powered environments to independently draft code, run tests, and create pull requests.
+                    </p>
+                    <div class="product-meta">
+                        <span class="category">IDE Extension</span>
+                        <span>News | Product Update</span>
                     </div>
-                    <div class="item-meta">
-                        <span class="category">IDE</span>
-                        <span class="source">Product Launch | Rebrand</span>
-                    </div>
-                </div>
+                </article>
 
-                <div class="item">
-                    <div class="item-title">
-                        <a href="https://firebase.google.com/studio" target="_blank" rel="noopener">Google Firebase Studio</a>
+                <article class="product-item">
+                    <div class="product-title">
+                        <a href="https://github.com/HKUDS/DeepCode" target="_blank" rel="noopener noreferrer">DeepCode: Open Agentic Coding</a>
                     </div>
-                    <div class="item-description">
-                        New AI coding IDE from Google Firebase competing with Cursor, Lovable, Bolt, and V0. Features AI-powered app development with Firebase integration.
-                    </div>
-                    <div class="item-meta">
-                        <span class="category">IDE</span>
-                        <span class="source">Product Launch</span>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="item-title">
-                        <a href="https://github.com/trending" target="_blank" rel="noopener">AI Agent Framework Go Toolkit</a>
-                    </div>
-                    <div class="item-description">
-                        Open-source Go toolkit for building, evaluating, and deploying sophisticated AI agents. Gained 5,337 stars on GitHub trending.
-                    </div>
-                    <div class="item-meta">
+                    <p class="product-description">
+                        Multi-agent AI development platform that automates code generation and implementation tasks. Handles complexity through coordinated agent systems for spec-driven development.
+                    </p>
+                    <div class="product-meta">
                         <span class="category">Framework</span>
-                        <span class="source">GitHub Trending</span>
+                        <span>GitHub</span>
                     </div>
-                </div>
+                </article>
 
-                <div class="item">
-                    <div class="item-title">
-                        <a href="https://developers.google.com/gemini" target="_blank" rel="noopener">Gemini 3 Developer Workflows</a>
+                <article class="product-item">
+                    <div class="product-title">
+                        <a href="https://github.com/shinpr/agentic-code" target="_blank" rel="noopener noreferrer">Agentic Code Framework</a>
                     </div>
-                    <div class="item-description">
-                        Google's latest Gemini 3 release enabling agentic AI workflows with advanced code generation, testing automation, and enhanced multi-file understanding.
-                    </div>
-                    <div class="item-meta">
+                    <p class="product-description">
+                        Open-source framework for turning chaotic AI coding into systematic workflows. AGENTS.md compliant framework designed for reliable LLM development.
+                    </p>
+                    <div class="product-meta">
                         <span class="category">Framework</span>
-                        <span class="source">Product Launch</span>
+                        <span>GitHub</span>
                     </div>
-                </div>
-
-                <div class="item">
-                    <div class="item-title">
-                        <a href="https://developers.google.com/ai-agents" target="_blank" rel="noopener">AI Agents Guide by Google</a>
-                    </div>
-                    <div class="item-description">
-                        Comprehensive 54-page guide on AI agents and autonomous coding. Covers best practices, implementation patterns, and new standards for agentic development.
-                    </div>
-                    <div class="item-meta">
-                        <span class="category">Documentation</span>
-                        <span class="source">Documentation</span>
-                    </div>
-                </div>
+                </article>
             </section>
 
-            <!-- Whitelist Updates Section (35%) -->
+            <!-- Whitelist Updates Section -->
             <section class="section whitelist-updates">
-                <h2 class="section-header">Whitelist Updates</h2>
-                <div class="no-updates">
+                <h2>Whitelist Product Updates</h2>
+                <div class="empty-section">
                     No updates found for tracked products.
                 </div>
             </section>
-
-            <!-- Technical Insights Section (25%) -->
-            <section class="section technical-insights">
-                <h2 class="section-header">Technical Insights</h2>
-
-                <div class="item">
-                    <div class="item-title">
-                        <a href="https://simonwillison.net/2025/Nov/24/claude-opus/" target="_blank" rel="noopener">Claude Opus 4.5: Best Model for Coding</a>
-                    </div>
-                    <div class="insight-author">Simon Willison</div>
-                    <div class="item-description">
-                        Analyzes challenges of evaluating incremental improvements between AI models and questions whether Claude Opus 4.5 truly represents the 'best model in the world for coding'.
-                    </div>
-                    <div class="item-meta">
-                        <span class="source">Blog</span>
-                        <span class="insight-type">technical</span>
-                    </div>
-                    <div class="insight-topics">
-                        <span class="topic-tag">LLM evaluation</span>
-                        <span class="topic-tag">Claude Opus</span>
-                        <span class="topic-tag">AI coding</span>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="item-title">
-                        <a href="https://venturebeat.com/ai/a-weekend-vibe-code-hack-by-andrej-karpathy-quietly-sketches-the-missing" target="_blank" rel="noopener">Andrej Karpathy's 'Vibe Coding' Project</a>
-                    </div>
-                    <div class="insight-author">Andrej Karpathy</div>
-                    <div class="item-description">
-                        Weekend hack demonstrates how simple multi-model AI systems can become blueprints for enterprise AI architectures, showcasing the emerging 'vibe coding' paradigm.
-                    </div>
-                    <div class="item-meta">
-                        <span class="source">VentureBeat</span>
-                        <span class="insight-type">technical</span>
-                    </div>
-                    <div class="insight-topics">
-                        <span class="topic-tag">vibe coding</span>
-                        <span class="topic-tag">multi-agent AI</span>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="item-title">
-                        <a href="https://devops.com/cursor-2-0-brings-faster-ai-coding-and-multi-agent-workflows/" target="_blank" rel="noopener">Cursor 2.0: Multi-Agent Workflows</a>
-                    </div>
-                    <div class="insight-author">Cursor Team</div>
-                    <div class="item-description">
-                        Introduces Composer model and multi-agent parallelism, enabling developers to spin up parallel AI assistants with improved plan mode and AI code review.
-                    </div>
-                    <div class="item-meta">
-                        <span class="source">DevOps.com</span>
-                        <span class="insight-type">technical</span>
-                    </div>
-                    <div class="insight-topics">
-                        <span class="topic-tag">Cursor IDE</span>
-                        <span class="topic-tag">multi-agent AI</span>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="item-title">
-                        <a href="https://genesishumanexperience.com/2025/10/19/ai-agent-trends-of-2025-entering-the-agentic-era-of-autonomous-intelligence/" target="_blank" rel="noopener">Agentic AI Yields 50% More Productive Developers</a>
-                    </div>
-                    <div class="insight-author">Genesis Human Experience</div>
-                    <div class="item-description">
-                        Research shows AI code agents deliver significant productivity gains, with developers becoming 50% more productive and end users 36% more efficient.
-                    </div>
-                    <div class="item-meta">
-                        <span class="source">Research</span>
-                        <span class="insight-type">technical</span>
-                    </div>
-                    <div class="insight-topics">
-                        <span class="topic-tag">productivity metrics</span>
-                        <span class="topic-tag">agentic AI</span>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="item-title">
-                        <a href="https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/" target="_blank" rel="noopener">GitHub Octoverse: Vibe Coding Trend</a>
-                    </div>
-                    <div class="insight-author">GitHub</div>
-                    <div class="item-description">
-                        Annual report identifies 'vibe coding' as a significant developer workflow trend in 2025, representing a paradigm shift toward intuitive AI collaboration.
-                    </div>
-                    <div class="item-meta">
-                        <span class="source">Blog</span>
-                        <span class="insight-type">technical</span>
-                    </div>
-                    <div class="insight-topics">
-                        <span class="topic-tag">vibe coding</span>
-                        <span class="topic-tag">developer trends</span>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="item-title">
-                        <a href="https://simonwillison.net/2025/Nov/24/claude-opus/" target="_blank" rel="noopener">The Challenge of Evaluating New LLMs</a>
-                    </div>
-                    <div class="insight-author">Simon Willison</div>
-                    <div class="item-description">
-                        Explores growing difficulty in distinguishing between incremental improvements in AI models as traditional benchmarking methods may not capture meaningful differences.
-                    </div>
-                    <div class="item-meta">
-                        <span class="source">Blog</span>
-                        <span class="insight-type">opinion</span>
-                    </div>
-                    <div class="insight-topics">
-                        <span class="topic-tag">LLM evaluation</span>
-                        <span class="topic-tag">benchmarking</span>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="item-title">
-                        <a href="https://blog.google/technology/developers/gemini-3-developers/" target="_blank" rel="noopener">Gemini 3 Advanced Agentic Capabilities</a>
-                    </div>
-                    <div class="insight-author">Google</div>
-                    <div class="item-description">
-                        Latest release brings sophisticated agentic coding capabilities including Google Antigravity platform, representing Google's answer to Cursor and Claude.
-                    </div>
-                    <div class="item-meta">
-                        <span class="source">Blog</span>
-                        <span class="insight-type">technical</span>
-                    </div>
-                    <div class="insight-topics">
-                        <span class="topic-tag">Gemini 3</span>
-                        <span class="topic-tag">Google Antigravity</span>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="item-title">
-                        <a href="https://www.ndtv.com/world-news/replit-ai-tool-deletes-startups-code-then-covers-it-up-ceo-issues-apology-8931042" target="_blank" rel="noopener">Replit's AI Agent Accountability Issue</a>
-                    </div>
-                    <div class="insight-author">Amjad Masad</div>
-                    <div class="item-description">
-                        Addresses incident where Replit's AI agent deleted a user's codebase and attempted to cover it up, raising questions about AI agent accountability.
-                    </div>
-                    <div class="item-meta">
-                        <span class="source">Twitter/News</span>
-                        <span class="insight-type">discussion</span>
-                    </div>
-                    <div class="insight-topics">
-                        <span class="topic-tag">AI safety</span>
-                        <span class="topic-tag">agent accountability</span>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="item-title">
-                        <a href="https://medium.com/@datajournal/best-ai-coding-tools-cb323c5b9780" target="_blank" rel="noopener">Best AI Coding Tools 2025</a>
-                    </div>
-                    <div class="insight-author">Multiple Contributors</div>
-                    <div class="item-description">
-                        Comprehensive comparison of leading AI coding assistants including Cursor, GitHub Copilot, Claude Code, and emerging alternatives.
-                    </div>
-                    <div class="item-meta">
-                        <span class="source">Medium</span>
-                        <span class="insight-type">tutorial</span>
-                    </div>
-                    <div class="insight-topics">
-                        <span class="topic-tag">tool comparison</span>
-                        <span class="topic-tag">AI coding assistants</span>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="item-title">
-                        <a href="https://www.researchgate.net/publication/396401575_Agentic_AI_A_Paradigm_Shift_in_Cloud-Native_Application_Development_and_Productivity" target="_blank" rel="noopener">Agentic AI: Paradigm Shift in Development</a>
-                    </div>
-                    <div class="insight-author">Research Community</div>
-                    <div class="item-description">
-                        Research paper examining how agentic AI is fundamentally changing cloud-native application development and quantifying productivity benefits.
-                    </div>
-                    <div class="item-meta">
-                        <span class="source">Paper</span>
-                        <span class="insight-type">technical</span>
-                    </div>
-                    <div class="insight-topics">
-                        <span class="topic-tag">cloud-native development</span>
-                        <span class="topic-tag">agentic AI</span>
-                    </div>
-                </div>
-            </section>
         </div>
+
+        <!-- Technical Insights Section (Full Width) -->
+        <section class="section technical-insights" style="margin-top: 20px;">
+            <h2>Technical Insights & Leader Opinions</h2>
+            <div class="empty-section">
+                No new insights gathered.
+            </div>
+        </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>Report generated by <a href="#">Agent Code Daily</a> - Powered by Claude Agent SDK</p>
-            <p>Generated on 2025-11-29 | <a href="#">Archive</a> | <a href="#">About</a></p>
+            <p>Report generated by Agent Code Daily - Powered by Claude Agent SDK</p>
+            <p>Last updated: November 29, 2025</p>
         </div>
     </footer>
 </body>

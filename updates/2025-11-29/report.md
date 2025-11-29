@@ -1,77 +1,86 @@
 # Product Research Daily Report
-Generated: 2025-11-29T04:24:04.620Z
+Generated: 2025-11-29T04:34:30.036Z
 
 ## New Products Discovered
 
-### 1. Windsurf by Codeium
-The first agentic IDE launched by Codeium in November 2024. Positioned as a direct competitor to Cursor with similar AI-powered coding capabilities at 25% lower pricing. Already generating $50 million in annualized revenue.
+### 1. Google Antigravity
+Google's agent-first AI coding tool built specifically for Gemini 3, designed to function like junior developers with autonomous software development capabilities
 
-Visit: [link](https://windsurf.com/)
-Category: IDE
-Source: News | Product Launch
-
----
-
-### 2. Model Context Protocol (MCP)
-Anthropic's open standard launched November 25, 2024 for secure two-way connections between AI applications and data sources. Enables developers to build standardized integrations for AI coding tools.
-
-Visit: [link](https://modelcontextprotocol.io/)
-Category: Framework
-Source: News | Product Launch
-
----
-
-### 3. Lovable AI
-Swedish AI startup that relaunched in November 2024 and became the fastest-growing software company ever. Offers 'vibe coding' capabilities with over 10 million projects created since launch.
-
-Visit: [link](https://lovable.dev/)
+Visit: [link](https://blog.google/products/gemini/gemini-3/)
 Category: Autonomous Agent
-Source: News | Product Launch
+Source: News | Google
 
 ---
 
-### 4. Claude Code Web Beta
-Anthropic expanded Claude Code to web and mobile in October/November 2024, allowing developers to spin up and manage Claude Code agents from browsers, enabling parallel coding tasks from anywhere.
+### 2. Claude Opus 4.5
+Anthropic's latest model described as 'the best model in the world for coding, agents' with enhanced intelligence and efficiency for complex coding tasks
 
-Visit: [link](https://www.claude.com/blog/claude-code-on-the-web)
-Category: Web Tool
-Source: News | Product Update
-
----
-
-### 5. Pieces for Developers Workstream Pattern Engine
-Enhanced AI capabilities introduced in November 2024 with temporally-grounded AI that captures developer work across desktop apps, IDEs, browsers, and terminals for context-aware assistance.
-
-Visit: [link](https://www.producthunt.com/products/pieces-for-developers)
-Category: IDE Extension
-Source: Product Hunt | Update
+Visit: [link](https://www.anthropic.com/news/claude-opus-4-5)
+Category: Autonomous Agent
+Source: News | Anthropic
 
 ---
 
-### 6. GitHub Copilot Coding Agent
-GitHub introduced an autonomous coding agent feature in late 2024 that works asynchronously in GitHub Actions-powered environments to independently draft code, run tests, and create pull requests.
+### 3. ByteDance Volcano Engine
+China's most affordable AI coding agent launched at just $1.30/month, making advanced AI coding accessible to mass market developers
 
-Visit: [link](https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent)
-Category: IDE Extension
-Source: News | Product Update
-
----
-
-### 7. DeepCode: Open Agentic Coding
-Multi-agent AI development platform that automates code generation and implementation tasks. Handles complexity through coordinated agent systems for spec-driven development.
-
-Visit: [link](https://github.com/HKUDS/DeepCode)
-Category: Framework
-Source: GitHub
+Visit: [link](https://www.thestar.com.my/tech/tech-news/2025/11/13/bytedance-unveils-chinas-most-affordable-ai-coding-agent-at-just-us130-a-month)
+Category: Autonomous Agent
+Source: News
 
 ---
 
-### 8. Agentic Code Framework
-Open-source framework for turning chaotic AI coding into systematic workflows. AGENTS.md compliant framework designed for reliable LLM development.
+### 4. Claude Code Web Version
+Anthropic's deep-context AI coder expanded from command-line to web and mobile platforms, bringing advanced coding assistance to browsers
 
-Visit: [link](https://github.com/shinpr/agentic-code)
-Category: Framework
-Source: GitHub
+Visit: [link](https://ainativedev.io/news/anthropic-brings-claude-code-to-the-web-and-mobile)
+Category: IDE Extension | Web Tool
+Source: News | Product Hunt
+
+---
+
+### 5. cto.new
+World's first completely free AI coding agent that raised $5.7M in funding and already serves 6,000 developers with comprehensive coding assistance
+
+Visit: [link](https://aijourn.com/cto-new-raises-5-7m-to-launch-worlds-first-completely-free-ai-coding-agent/)
+Category: Autonomous Agent
+Source: News | GitHub
+
+---
+
+### 6. Cursor 2.0
+Revolutionary AI code editor with multi-agent architecture overhaul and fundamental improvements to AI-first code editing capabilities
+
+Visit: [link](https://www.artezio.com/pressroom/blog/revolutionizes-architecture-proprietary/)
+Category: IDE
+Source: Product Hunt | News
+
+---
+
+### 7. Google Gemini 3
+Google's latest AI model with significant coding capabilities, launched alongside Antigravity, serving 650 million monthly active users including 13 million developers
+
+Visit: [link](https://blog.google/products/gemini/gemini-3/)
+Category: Framework | Platform
+Source: News
+
+---
+
+### 8. Meta DevMate
+Meta's entry into AI coding assistance described as 'a fundamental shift in how software development happens' rather than just another coding assistant
+
+Visit: [link](https://talent500.com/blog/best-ai-tools-for-coding-2025/)
+Category: Autonomous Agent
+Source: News
+
+---
+
+### 9. Microsoft Copilot Studio 2025 Wave 2
+No-code platform allowing businesses to create custom AI agents for coding and development workflows with enhanced automation capabilities
+
+Visit: [link](https://medium.com/@riyas0089/10-ai-tools-launching-october-2025-that-will-completely-transform-your-life-1fd2732f3fd7)
+Category: Framework | Platform
+Source: News
 
 ---
 

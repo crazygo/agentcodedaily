@@ -1,63 +1,70 @@
 {
   "newProducts": [
     {
-      "title": "Windsurf by Codeium",
-      "description": "The first agentic IDE launched by Codeium in November 2024. Positioned as a direct competitor to Cursor with similar AI-powered coding capabilities at 25% lower pricing. Already generating $50 million in annualized revenue.",
-      "url": "https://windsurf.com/",
-      "source": "News | Product Launch",
-      "category": "IDE"
-    },
-    {
-      "title": "Model Context Protocol (MCP)",
-      "description": "Anthropic's open standard launched November 25, 2024 for secure two-way connections between AI applications and data sources. Enables developers to build standardized integrations for AI coding tools.",
-      "url": "https://modelcontextprotocol.io/",
-      "source": "News | Product Launch",
-      "category": "Framework"
-    },
-    {
-      "title": "Lovable AI",
-      "description": "Swedish AI startup that relaunched in November 2024 and became the fastest-growing software company ever. Offers 'vibe coding' capabilities with over 10 million projects created since launch.",
-      "url": "https://lovable.dev/",
-      "source": "News | Product Launch",
+      "title": "Google Antigravity",
+      "description": "Google's agent-first AI coding tool built specifically for Gemini 3, designed to function like junior developers with autonomous software development capabilities",
+      "url": "https://blog.google/products/gemini/gemini-3/",
+      "source": "News | Google",
       "category": "Autonomous Agent"
     },
     {
-      "title": "Claude Code Web Beta",
-      "description": "Anthropic expanded Claude Code to web and mobile in October/November 2024, allowing developers to spin up and manage Claude Code agents from browsers, enabling parallel coding tasks from anywhere.",
-      "url": "https://www.claude.com/blog/claude-code-on-the-web",
-      "source": "News | Product Update",
-      "category": "Web Tool"
+      "title": "Claude Opus 4.5",
+      "description": "Anthropic's latest model described as 'the best model in the world for coding, agents' with enhanced intelligence and efficiency for complex coding tasks",
+      "url": "https://www.anthropic.com/news/claude-opus-4-5",
+      "source": "News | Anthropic",
+      "category": "Autonomous Agent"
     },
     {
-      "title": "Pieces for Developers Workstream Pattern Engine",
-      "description": "Enhanced AI capabilities introduced in November 2024 with temporally-grounded AI that captures developer work across desktop apps, IDEs, browsers, and terminals for context-aware assistance.",
-      "url": "https://www.producthunt.com/products/pieces-for-developers",
-      "source": "Product Hunt | Update",
-      "category": "IDE Extension"
+      "title": "ByteDance Volcano Engine",
+      "description": "China's most affordable AI coding agent launched at just $1.30/month, making advanced AI coding accessible to mass market developers",
+      "url": "https://www.thestar.com.my/tech/tech-news/2025/11/13/bytedance-unveils-chinas-most-affordable-ai-coding-agent-at-just-us130-a-month",
+      "source": "News",
+      "category": "Autonomous Agent"
     },
     {
-      "title": "GitHub Copilot Coding Agent",
-      "description": "GitHub introduced an autonomous coding agent feature in late 2024 that works asynchronously in GitHub Actions-powered environments to independently draft code, run tests, and create pull requests.",
-      "url": "https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent",
-      "source": "News | Product Update",
-      "category": "IDE Extension"
+      "title": "Claude Code Web Version",
+      "description": "Anthropic's deep-context AI coder expanded from command-line to web and mobile platforms, bringing advanced coding assistance to browsers",
+      "url": "https://ainativedev.io/news/anthropic-brings-claude-code-to-the-web-and-mobile",
+      "source": "News | Product Hunt",
+      "category": "IDE Extension | Web Tool"
     },
     {
-      "title": "DeepCode: Open Agentic Coding",
-      "description": "Multi-agent AI development platform that automates code generation and implementation tasks. Handles complexity through coordinated agent systems for spec-driven development.",
-      "url": "https://github.com/HKUDS/DeepCode",
-      "source": "GitHub",
-      "category": "Framework"
+      "title": "cto.new",
+      "description": "World's first completely free AI coding agent that raised $5.7M in funding and already serves 6,000 developers with comprehensive coding assistance",
+      "url": "https://aijourn.com/cto-new-raises-5-7m-to-launch-worlds-first-completely-free-ai-coding-agent/",
+      "source": "News | GitHub",
+      "category": "Autonomous Agent"
     },
     {
-      "title": "Agentic Code Framework",
-      "description": "Open-source framework for turning chaotic AI coding into systematic workflows. AGENTS.md compliant framework designed for reliable LLM development.",
-      "url": "https://github.com/shinpr/agentic-code",
-      "source": "GitHub",
-      "category": "Framework"
+      "title": "Cursor 2.0",
+      "description": "Revolutionary AI code editor with multi-agent architecture overhaul and fundamental improvements to AI-first code editing capabilities",
+      "url": "https://www.artezio.com/pressroom/blog/revolutionizes-architecture-proprietary/",
+      "source": "Product Hunt | News",
+      "category": "IDE"
+    },
+    {
+      "title": "Google Gemini 3",
+      "description": "Google's latest AI model with significant coding capabilities, launched alongside Antigravity, serving 650 million monthly active users including 13 million developers",
+      "url": "https://blog.google/products/gemini/gemini-3/",
+      "source": "News",
+      "category": "Framework | Platform"
+    },
+    {
+      "title": "Meta DevMate",
+      "description": "Meta's entry into AI coding assistance described as 'a fundamental shift in how software development happens' rather than just another coding assistant",
+      "url": "https://talent500.com/blog/best-ai-tools-for-coding-2025/",
+      "source": "News",
+      "category": "Autonomous Agent"
+    },
+    {
+      "title": "Microsoft Copilot Studio 2025 Wave 2",
+      "description": "No-code platform allowing businesses to create custom AI agents for coding and development workflows with enhanced automation capabilities",
+      "url": "https://medium.com/@riyas0089/10-ai-tools-launching-october-2025-that-will-completely-transform-your-life-1fd2732f3fd7",
+      "source": "News",
+      "category": "Framework | Platform"
     }
   ],
   "whitelistUpdates": [],
   "insights": [],
-  "generatedAt": "2025-11-29T04:24:04.620Z"
+  "generatedAt": "2025-11-29T04:34:30.036Z"
 }
