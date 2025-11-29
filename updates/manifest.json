@@ -49,7 +49,14 @@
         "report.md",
         "technical-insights.json"
       ]
+    },
+    {
+      "date": "2025-11-29",
+      "files": [
+        "data.json",
+        "report.md"
+      ]
     }
   ],
-  "lastUpdated": "2025-11-28T18:16:34.853Z"
+  "lastUpdated": "2025-11-29T00:35:42.032Z"
 }
