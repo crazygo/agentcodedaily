@@ -67,6 +67,8 @@ you MUST first externalize this plan as an explicit TODO list **before** doing a
 
 Follow these rules:
 
+0. Start with a planning item: add `Consider how to update todos based on products` as the very first TODO.
+
 1. Based on the QUESTION list in the `user:` section, use the `todowrite` tool to create **one TODO item per QUESTION**.  
    - Each item should correspond to “Sources(QUESTION_i)” — i.e., collecting candidates for that QUESTION.
 
@@ -79,40 +81,92 @@ Follow these rules:
 4. Then, use the `todowrite` tool to add a TODO item for the **Sort** stage and final write-out:  
    - e.g. “Sort(filtered) and write result to result.yaml (or final-products.yaml)”.
 
-A minimal example of the TODO list structure you are expected to build is:
+A minimal example of the TODO list structure you are expected to build is (showing the alternating “record progress, rewrite todo, update new-product.json” steps):
 
 TODO List
-- [ ] Sources(QUESTION 1)
-- [ ] Sources(QUESTION 2)
-- [ ] Sources(QUESTION 3)
+- [ ] Consider how to update todos based on products
+- [ ] Sources(QUESTION[1])
+- [ ] Record progress, rewrite todo, update new-product.json
+- [ ] Sources(QUESTION[2])
+- [ ] Record progress, rewrite todo, update new-product.json
+- [ ] Sources(QUESTION[3])
+- [ ] Record progress, rewrite todo, update new-product.json
+...
 - [ ] Union(sources from 1 to 3)
-- [ ] Filter(union)
+- [ ] Record progress, rewrite todo, update new-product.json
+- [ ] Filter(Union[1])
+- [ ] Record progress, rewrite todo, update new-product.json
+- [ ] Filter(Union[2])
+- [ ] Record progress, rewrite todo, update new-product.json
+- [ ] Filter(Union[3])
+- [ ] Record progress, rewrite todo, update new-product.json
 - [ ] Sort(filtered)
-- [ ] Write result to result.yaml
+- [ ] Record progress, rewrite todo, update new-product.json
+- [ ] Write result to new-product.json
+- [ ] Record progress, rewrite todo, update new-product.json
 
 You may have more than 3 QUESTION-based source items (e.g. 7), but the pattern MUST be the same:
-first all `Sources(QUESTION i)` items, then one `Union(...)`, one `Filter(...)`, one `Sort(...)`,
+first all `Sources(QUESTION i)` items, then one `Union(...)`, one or more `Filter(...)` based on the number of unique products, one `Sort(...)`,
 and finally one “write result” item.
 
 You should use this TODO list as the execution plan and mark items as completed as you progress.
 
+After all `Sources(QUESTION i)` tasks are done, you MUST rewrite the TODO list:
+- Replace the generic filter items with one `Filter(<product name>)` per discovered product (the count of Filter items must equal the number of products).
+- Keep `Sort(filtered)` and the final write step after those filter items.
+
+Example refreshed TODO after finding 3 products:
+TODO List
+- [ ] Filter(Product Alpha)
+- [ ] Filter(Product Beta)
+- [ ] Filter(Product Gamma)
+- [ ] Sort(filtered)
+- [ ] Write result to result.yaml
+
+**Progress logging pattern (few-shot)**
+- After EVERY action item, add an explicit “Record progress, rewrite todo, update new-product.json” item (and mark it done once you rewrite and overwrite the file).
+- This enforces a rhythm of: do a step → record progress → rewrite TODO → update `new-product.json` → next step.
+- Sample pattern the model should mirror:
+  - [ ] Consider how to update todos based on products
+  - [ ] Sources(QUESTION 1)
+  - [ ] Record progress, rewrite todo, update new-product.json
+  - [ ] Sources(QUESTION 2)
+  - [ ] Record progress, rewrite todo, update new-product.json
+  - [ ] Sources(QUESTION 3)
+  - [ ] Record progress, rewrite todo, update new-product.json
+  - [ ] Union(all source results)
+  - [ ] Record progress, rewrite todo, update new-product.json
+  - [ ] Filter(Product 1)
+  - [ ] Record progress, rewrite todo, update new-product.json
+  - [ ] Filter(Product 2)
+  - [ ] Record progress, rewrite todo, update new-product.json
+  - [ ] Filter(Product 3)
+  - [ ] Record progress, rewrite todo, update new-product.json
+  - [ ] Sort(filtered)
+  - [ ] Record progress, rewrite todo, update new-product.json
+  - [ ] Write result to new-product.json
+  - [ ] Record progress, rewrite todo, update new-product.json
+
 **Final output format (what you actually return):**
 
-- Return a **YAML list** of products, sorted from most to least interesting.
+- Return a **JSON array** of products, sorted from most to least interesting.
 - Each entry MUST have the following fields:
 
-  ```yaml
-  - name: <product name>
-    url: <official homepage>
-    description: >
-      1–3 sentence summary of what this product does, focused on the developer / AI-coding use case.
-    release_date: YYYY-MM-DD
-    category: <short label, e.g. "AI IDE", "AI coding CLI", "code agent", "workflow agent">
-    sources:
-      - <where you discovered it, e.g. "Product Hunt", "Show HN", "Reddit", "X">
-    community_quotes:
-      - "<short quote from community describing what people like or notice>"
-      - "<up to 5 quotes total, can be paraphrased but must reflect real feedback>"
+  ```json
+  [
+    {
+      "name": "<product name>",
+      "url": "<official homepage>",
+      "description": "1–3 sentence summary of what this product does, focused on the developer / AI-coding use case.",
+      "release_date": "YYYY-MM-DD",
+      "category": "<short label, e.g. \"AI IDE\", \"AI coding CLI\", \"code agent\", \"workflow agent\">",
+      "sources": ["Product Hunt", "Show HN", "Reddit", "X"],
+      "community_quotes": [
+        "<short quote from community describing what people like or notice>",
+        "<up to 5 quotes total, can be paraphrased but must reflect real feedback>"
+      ]
+    }
+  ]
 ```
 
 * Only include products that:
@@ -121,10 +175,16 @@ You should use this TODO list as the execution plan and mark items as completed 
   * Clearly belong to the **AI coding / developer tools** space.
 
 * If you cannot find any products that satisfy the 14-day constraint,
-  return an empty YAML list: `[]`.
+  return an empty JSON array: `[]`.
 
 Be concise, factual, and avoid marketing fluff. Do **not** include your reasoning text
-in the final answer—only the YAML.
+in the final answer—only the JSON.
+
+**File output + incremental updates requirement**
+- Maintain a file named `new-product` in the current working directory.
+- After every step (including each “Record progress, rewrite todo”), write the current JSON array to `new-product` (overwrite). Early steps may be partial/rough; later steps should be refined.
+- The JSON must always be valid and reflect the best current view (start with `[]` if nothing yet).
+- After the final step, ensure `new-product` holds the final sorted array.
 
 user:
 Below is your QUESTION list. For each QUESTION, treat it as a separate “research lens”

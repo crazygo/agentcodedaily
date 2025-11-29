@@ -42,6 +42,14 @@ yarn update -- --list
 - Displays content (title, description) to stdout only
 - Useful for previewing what would be generated
 
+### 4. Quick Single Prompt Test
+```bash
+yarn task prompts/insights-prompt.md
+```
+- Runs just one prompt file and prints parsed JSON to stdout
+- Add `--workspace <path>` to provide a working directory context
+- Add `--raw` to view the full model response (useful for debugging prompt outputs)
+
 ### 4. Generate HTML Report
 ```bash
 yarn start [date]

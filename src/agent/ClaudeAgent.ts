@@ -15,7 +15,7 @@ export class ClaudeAgent {
   constructor(config?: Partial<AgentConfig>) {
     this.config = {
       model: config?.model || process.env.ANTHROPIC_MODEL || 'claude-3-5-sonnet-20241022',
-      maxTurns: config?.maxTurns || 30,
+      maxTurns: config?.maxTurns || 100,
       cwd: config?.cwd,
     };
   }
@@ -47,6 +47,10 @@ export class ClaudeAgent {
       console.log(`   ANTHROPIC_BASE_URL: ${baseUrl ? `✅ Set (${baseUrl})` : 'ℹ️  Not set (optional)'}`);
       console.log('');
 
+      const workingDir = this.config.cwd || process.cwd();
+      console.log(`📂 Agent working directory: ${workingDir}`);
+      console.log('');
+
       if (!authToken) {
         throw new Error('ANTHROPIC_AUTH_TOKEN environment variable is required');
       }
@@ -57,7 +61,7 @@ export class ClaudeAgent {
           systemPrompt,
           maxTurns: this.config.maxTurns,
           permissionMode: 'bypassPermissions', // Skip permission prompts
-          cwd: this.config.cwd || process.cwd(), // Set working directory
+          cwd: workingDir, // Set working directory
           // Explicitly pass environment variables to SDK
           env: {
             ...process.env,
@@ -66,13 +70,13 @@ export class ClaudeAgent {
             ...(baseUrl && { ANTHROPIC_BASE_URL: baseUrl }),
           },
           mcpServers: {
-            'web-search-prime': {
-              type: 'http',
-              url: 'https://open.bigmodel.cn/api/mcp/web_search_prime/mcp',
-              headers: {
-                'Authorization': `Bearer ${authToken}`,
-              },
-            },
+            // 'web-search-prime': {
+            //   type: 'http',
+            //   url: 'https://open.bigmodel.cn/api/mcp/web_search_prime/mcp',
+            //   headers: {
+            //     'Authorization': `Bearer ${authToken}`,
+            //   },
+            // },
           },
           // Disable WebSearch tool, keep all other tools enabled
           // disallowedTools: ['WebSearch'],
