@@ -141,18 +141,18 @@ async function main() {
         const workspaceDir = getWorkspaceDir(args.workspace as string | undefined);
         console.log(`📂 Using workspace: ${workspaceDir}`);
 
-        const { taskName, rawResponse, parsedData } = await runSingleTask(promptPath, workspaceDir);
+        const { taskName, rawResponse, logFilePath } = await runSingleTask(
+          promptPath,
+          workspaceDir
+        );
 
         console.log(`📋 Task: ${taskName}`);
 
-        if (args.raw || taskName === 'html-report') {
-          console.log('\n=== Raw Response ===\n');
-          console.log(rawResponse);
-        } else {
-          const data = parsedData ?? [];
-          console.log('\n=== Parsed Data ===\n');
-          console.log(JSON.stringify(data, null, 2));
-          console.log(`\n✅ Items: ${data.length}`);
+        console.log('\n=== Last Assistant Message (parsed if possible) ===\n');
+        console.log(rawResponse);
+
+        if (logFilePath) {
+          console.log(`\n📝 Full conversation log: ${logFilePath}`);
         }
       } catch (error) {
         console.error('❌ Error:', (error as Error).message);

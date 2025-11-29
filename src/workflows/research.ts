@@ -5,25 +5,6 @@ import { tasksConfig } from '../config/tasks';
 import { ResearchResult } from '../types/index';
 
 /**
- * Parse agent response
- */
-function parseAgentResponse<T>(response: string, taskName: string): T {
-  try {
-    // Try to parse as JSON first
-    const jsonMatch = response.match(/```json\n([\s\S]*?)\n```/);
-    if (jsonMatch) {
-      return JSON.parse(jsonMatch[1]);
-    }
-
-    // If no JSON block, try to parse the whole response
-    return JSON.parse(response);
-  } catch (error) {
-    console.warn(`Warning: Could not parse ${taskName} response as JSON:`, error);
-    return [] as T;
-  }
-}
-
-/**
  * Get task name from file path
  */
 function getTaskName(promptFile: string): string {
@@ -76,7 +57,7 @@ function buildUserPrompt(basePrompt: string, workspaceDir?: string): string {
 export interface SingleTaskResult {
   taskName: string;
   rawResponse: string;
-  parsedData?: any[];
+  logFilePath?: string;
 }
 
 /**
@@ -86,12 +67,17 @@ export interface SingleTaskResult {
 export async function runResearchWorkflow(workspaceDir?: string): Promise<ResearchResult> {
   console.log('🔬 Starting research workflow...\n');
 
+  const now = new Date();
+  const ts = now.toISOString().replace(/[:.]/g, '-'); // e.g., 2025-11-29T23-42-31-123Z
+  const tsPrefix = ts.split('T').join('-').replace(/Z$/, ''); // e.g., 2025-11-29-23-42-31-123
+
   const results: ResearchResult = {
     newProducts: [],
     whitelistUpdates: [],
     insights: [],
     generatedAt: new Date().toISOString()
   };
+  const runLogs: { taskName: string; logFilePath?: string; lastAssistantMessageLength: number }[] = [];
 
   // Process each task
   for (const promptFile of tasksConfig.tasks) {
@@ -101,29 +87,30 @@ export async function runResearchWorkflow(workspaceDir?: string): Promise<Resear
     try {
       console.log(`   🤖 Executing ${taskName}...`);
 
-      const { rawResponse, parsedData } = await runSingleTask(promptFile, workspaceDir);
+      const { rawResponse, logFilePath } = await runSingleTask(promptFile, workspaceDir, tsPrefix);
 
       if (taskName === 'html-report') {
         console.log(`   📄 ${rawResponse}\n`);
       } else {
-        const data = parsedData ?? [];
-
-        // Store results based on task type
-        if (taskName === 'new-products') {
-          results.newProducts = data;
-        } else if (taskName === 'whitelist-updates') {
-          results.whitelistUpdates = data;
-        } else if (taskName === 'insights') {
-          results.insights = data;
-        }
-
-        console.log(`   ✅ Found ${data.length} items\n`);
+        console.log(`   📝 Log for ${taskName}: ${logFilePath}`);
+        console.log(`   📄 Last assistant message length: ${rawResponse.length}\n`);
       }
+
+      runLogs.push({
+        taskName,
+        logFilePath,
+        lastAssistantMessageLength: rawResponse.length,
+      });
     } catch (error: any) {
       console.error(`   ❌ Error processing ${taskName}:`, error.message);
       throw error;
     }
   }
+
+  // Write run log summary so logs are discoverable even after console is gone
+  const summaryPath = path.join(workspaceDir || process.cwd(), `${tsPrefix}-run-logs.json`);
+  fs.writeFileSync(summaryPath, JSON.stringify(runLogs, null, 2), 'utf-8');
+  console.log(`🗂️  Run log summary written to: ${summaryPath}`);
 
   console.log('✨ Research workflow completed!\n');
   return results;
@@ -132,7 +119,11 @@ export async function runResearchWorkflow(workspaceDir?: string): Promise<Resear
 /**
  * Run a single task file with optional workspace context
  */
-export async function runSingleTask(promptFile: string, workspaceDir?: string): Promise<SingleTaskResult> {
+export async function runSingleTask(
+  promptFile: string,
+  workspaceDir?: string,
+  tsPrefix?: string
+): Promise<SingleTaskResult> {
   const taskName = getTaskName(promptFile);
   const promptPath = path.resolve(process.cwd(), promptFile);
 
@@ -148,13 +139,17 @@ export async function runSingleTask(promptFile: string, workspaceDir?: string): 
   const systemPrompt = promptySections?.systemPrompt || defaultSystemPrompt;
   const userPrompt = buildUserPrompt(promptySections?.userPrompt || promptContent, workspaceDir);
 
+  const prefix = tsPrefix || new Date().toISOString().replace(/[:.]/g, '-').split('T').join('-').replace(/Z$/, '');
+  const logBase = promptFile.replace(/[^a-zA-Z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'task';
+  const logFilePath = path.join(workspaceDir || process.cwd(), `${prefix}-${logBase}.log`);
+
   const agent = new ClaudeAgent({ cwd: workspaceDir });
-  const response = await agent.run(systemPrompt, userPrompt);
+  const response = await agent.run(systemPrompt, userPrompt, { logFilePath });
+  console.log(`📝 Task ${taskName} log written to: ${logFilePath}`);
 
   if (taskName === 'html-report') {
-    return { taskName, rawResponse: response };
+    return { taskName, rawResponse: response, logFilePath };
   }
 
-  const parsedData = parseAgentResponse<any[]>(response, taskName);
-  return { taskName, rawResponse: response, parsedData };
+  return { taskName, rawResponse: response, logFilePath };
 }
