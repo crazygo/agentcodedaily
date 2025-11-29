@@ -1,7 +1,7 @@
 # agentdaily — LLM Context File
 
 > AI-powered daily research aggregator for the agentic coding ecosystem.
-> Uses Claude Agent SDK to autonomously discover products, track updates, and compile insights.
+> Uses Claude Agent SDK to discover products, track updates, and compile insights via configured workflows.
 
 ## Project Overview
 
