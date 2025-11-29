@@ -1,6 +1,6 @@
 {
   "tasks": [
-    "prompts/new-products-prompt.md",
+    "prompts/task-new-product.prompty",
     "prompts/whitelist-updates-prompt.md",
     "prompts/insights-prompt.md",
     "prompts/html-report-prompt.md"
