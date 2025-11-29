@@ -1,4 +1,4 @@
-# Agent Code Daily
+# Code Agent Daily
 
 A TypeScript-based product research daily report website focusing on the agentic coding area.
 
