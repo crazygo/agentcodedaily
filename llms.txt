@@ -1,0 +1,302 @@
+# agentdaily — LLM Context File
+
+> AI-powered daily research aggregator for the agentic coding ecosystem.
+> Uses Claude Agent SDK to autonomously discover products, track updates, and compile insights.
+
+## Project Overview
+
+**Goal**: Automate daily research reports about agentic coding tools by orchestrating Claude Agent SDK workflows that search, aggregate, and format findings into markdown/HTML outputs.
+
+**Core Flow**: CLI → Workflow → Agent → Prompts → Output Files
+
+---
+
+## Source Files
+
+### src/cli.ts
+Entry point. Parses CLI args via yargs, routes to workflows.
+
+```typescript
+async function main(): Promise<void>
+```
+- Commands: `$0` (default update), `start [date]`, `index`
+- Options: `--workspace <path>`, `--list` (read-only mode)
+
+### src/agent/ClaudeAgent.ts
+Wrapper for `@anthropic-ai/claude-agent-sdk`.
+
+```typescript
+interface AgentConfig {
+  model?: string;        // Default: 'claude-3-5-sonnet-20241022'
+  maxTurns?: number;     // Default: 30
+  cwd?: string;          // Working directory
+}
+
+class ClaudeAgent {
+  constructor(config?: Partial<AgentConfig>)
+  async run(systemPrompt: string, userPrompt: string): Promise<string>
+}
+```
+- Configures MCP server for web search
+- Streams messages, logs execution summary (cost, duration, turns)
+
+### src/agent/prompts.ts
+System prompt generator for research context.
+
+```typescript
+function getSystemPrompt(): string
+```
+- Returns static prompt defining agent as agentic coding researcher
+
+### src/config/tasks.ts
+Loads task configuration from `config/tasks.json`.
+
+```typescript
+interface TasksConfig { tasks: string[] }
+
+function loadTasksConfig(): TasksConfig
+const tasksConfig: TasksConfig
+```
+- Tasks reference prompt file paths in `prompts/` directory
+
+### src/types/index.ts
+Core type definitions.
+
+```typescript
+interface ResearchResult {
+  newProducts: ProductDiscovery[];
+  whitelistUpdates: ProductUpdate[];
+  insights: TechnicalInsight[];
+  generatedAt: string;
+}
+
+interface ProductDiscovery {
+  title: string;
+  description: string;
+  url?: string;
+  source: string;
+  category?: string;
+  relevanceScore?: number;
+}
+
+interface ProductUpdate {
+  productName: string;
+  title: string;
+  description: string;
+  updateType: 'feature' | 'bugfix' | 'announcement' | 'release';
+  url?: string;
+  date?: string;
+}
+
+interface TechnicalInsight {
+  title: string;
+  description: string;
+  author?: string;
+  source: string;
+  url?: string;
+  topics: string[];
+  type: 'technical' | 'opinion' | 'tutorial' | 'discussion';
+}
+```
+
+### src/utils/workspace.ts
+Workspace directory management.
+
+```typescript
+function getWorkspaceDir(customPath?: string): string
+function getCurrentDateString(): string  // Returns YYYY-MM-DD
+```
+- Auto-creates `updates/{YYYY-MM-DD}/` if no custom path
+
+### src/utils/formatter.ts
+Output formatting utilities.
+
+```typescript
+function formatAsMarkdown(result: ResearchResult): string
+function formatForConsole(result: ResearchResult): void
+```
+- Handles null/undefined arrays gracefully
+- Generates structured markdown with sections
+
+### src/workflows/research.ts
+Core research orchestration.
+
+```typescript
+function parseAgentResponse<T>(response: string, taskName: string): T
+function getTaskName(promptFile: string): string
+async function runResearchWorkflow(workspaceDir?: string): Promise<ResearchResult>
+```
+- Iterates through configured tasks
+- Executes agent with each prompt
+- Aggregates results into ResearchResult
+
+### src/workflows/update.ts
+Main update workflow with file I/O.
+
+```typescript
+async function runUpdate(workspacePath?: string): Promise<void>
+async function updateManifest(): Promise<void>  // Internal
+async function generateIndexPage(): Promise<void>  // Internal
+async function runGenerateIndex(): Promise<void>  // Public helper
+```
+- Writes `report.md`, `data.json` to workspace
+- Updates `updates/manifest.json` with available dates
+- Generates `updates/index.html` via agent
+
+### src/workflows/list.ts
+Read-only preview workflow.
+
+```typescript
+async function runList(): Promise<void>
+```
+- Runs research, outputs to console only (no file writes)
+
+---
+
+## Configuration & Data Files
+
+### config/tasks.json
+```json
+{ "tasks": ["prompts/new-products-prompt.md", ...] }
+```
+Array of prompt file paths to execute sequentially.
+
+### prompts/*.md
+Prompt templates with `{INSERT_CURRENT_DATE}` placeholders.
+- `new-products-prompt.md` — Discover new tools (last 30 days)
+- `whitelist-updates-prompt.md` — Track curated product updates
+- `insights-prompt.md` — Gather thought leader opinions
+- `html-report-prompt.md` — Generate HTML from markdown
+- `index-page-prompt.md` — Build weekly index page
+- `auto-update-prompt.md` — CI/CD automation instructions
+
+### templates/updates-assets/
+Static assets for generated HTML pages.
+- `base.css` — Medium-style black/white design system
+- `base.js` — Navigation injection from manifest
+
+---
+
+## Architecture Map
+
+```
+                              ┌─────────────────────────────────────────┐
+                              │              CLI (cli.ts)               │
+                              │  Commands: update | start | index       │
+                              └──────────────────┬──────────────────────┘
+                                                 │
+                    ┌────────────────────────────┼────────────────────────────┐
+                    │                            │                            │
+                    ▼                            ▼                            ▼
+          ┌─────────────────┐         ┌─────────────────┐         ┌─────────────────┐
+          │   list.ts       │         │   update.ts     │         │ index (update)  │
+          │  (read-only)    │         │ (write files)   │         │  (regenerate)   │
+          └────────┬────────┘         └────────┬────────┘         └────────┬────────┘
+                   │                           │                           │
+                   └───────────────────────────┼───────────────────────────┘
+                                               │
+                                               ▼
+                                    ┌─────────────────────┐
+                                    │    research.ts      │
+                                    │ (task orchestrator) │
+                                    └──────────┬──────────┘
+                                               │
+                           ┌───────────────────┴───────────────────┐
+                           │                                       │
+                           ▼                                       ▼
+                 ┌─────────────────┐                    ┌─────────────────┐
+                 │  tasks.ts       │                    │  ClaudeAgent.ts │
+                 │ (load config)   │                    │  (SDK wrapper)  │
+                 └────────┬────────┘                    └────────┬────────┘
+                          │                                      │
+                          ▼                                      ▼
+                 ┌─────────────────┐                    ┌─────────────────┐
+                 │ config/tasks.json│                   │ Claude Agent SDK│
+                 └─────────────────┘                    │ + MCP Web Search│
+                                                        └─────────────────┘
+
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │                              OUTPUT FLOW                                     │
+  │                                                                              │
+  │   research.ts → ResearchResult → formatter.ts → Markdown/Console            │
+  │                                                                              │
+  │   update.ts   → updates/{date}/report.md                                    │
+  │              → updates/{date}/data.json                                     │
+  │              → updates/manifest.json                                        │
+  │              → updates/index.html                                           │
+  └─────────────────────────────────────────────────────────────────────────────┘
+
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │                            TYPE RELATIONSHIPS                               │
+  │                                                                              │
+  │   TasksConfig ─────► prompts/*.md paths                                     │
+  │        │                  │                                                  │
+  │        ▼                  ▼                                                  │
+  │   research.ts ────► ClaudeAgent.run() ────► JSON response                   │
+  │        │                                         │                          │
+  │        ▼                                         ▼                          │
+  │   ResearchResult ◄─────── parseAgentResponse<T>()                           │
+  │        │                                                                     │
+  │        ├──► ProductDiscovery[]                                              │
+  │        ├──► ProductUpdate[]                                                  │
+  │        └──► TechnicalInsight[]                                              │
+  └─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## Code Style Guide
+
+| Aspect | Convention |
+|--------|------------|
+| Language | TypeScript (strict mode) |
+| Target | ES2022, CommonJS modules |
+| Async | Async/await throughout, no callbacks |
+| Error Handling | Try/catch with console logging, throw to propagate |
+| Null Safety | Explicit null checks, default empty arrays |
+| Exports | Named exports, no default exports |
+| Naming | camelCase functions, PascalCase types/classes |
+| Comments | JSDoc for public functions only |
+| File Structure | One concept per file, group by domain |
+
+---
+
+## Data Formats
+
+### ResearchResult (data.json)
+```json
+{
+  "newProducts": [{ "title": "", "description": "", "url": "", "source": "", "category": "" }],
+  "whitelistUpdates": [{ "productName": "", "title": "", "description": "", "updateType": "", "url": "", "date": "" }],
+  "insights": [{ "title": "", "description": "", "author": "", "source": "", "url": "", "topics": [], "type": "" }],
+  "generatedAt": "ISO8601 timestamp"
+}
+```
+
+### manifest.json
+```json
+{
+  "days": [{ "date": "YYYY-MM-DD", "files": ["report.md", "data.json", "index.html"] }],
+  "lastUpdated": "ISO8601 timestamp"
+}
+```
+
+---
+
+## Observations
+
+1. **Single Agent Pattern**: All AI interactions flow through `ClaudeAgent.run()` — one wrapper, many prompts.
+
+2. **Config-Driven Tasks**: Tasks are declarative (JSON paths), not hardcoded. Adding research areas requires only a new prompt file.
+
+3. **Defensive Parsing**: `parseAgentResponse` and `formatAsMarkdown` both guard against malformed agent outputs.
+
+4. **Workspace Isolation**: Each run writes to dated directories, enabling historical browsing and preventing overwrites.
+
+5. **MCP Integration**: Web search via external MCP server (`web-search-prime`), abstracted from business logic.
+
+6. **CSS Grid Strategy**: Index page uses column-major grid with row-count classes (`grid-rows-1/2/3`) for adaptive layouts.
+
+7. **No Tests**: Test infrastructure absent; `test-agent.js` is a manual smoke test only.
+
+8. **CI/CD Ready**: `scripts/auto-update.sh` handles branch switching, merging, building, and deploying to gh-pages.
