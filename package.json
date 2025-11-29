@@ -10,6 +10,7 @@
     "update": "tsx src/cli.ts",
     "start": "tsx src/cli.ts start",
     "index": "tsx src/cli.ts index",
+    "task": "tsx src/cli.ts task",
     "build": "tsc",
     "dev": "tsc --watch",
     "clean": "rm -rf dist"

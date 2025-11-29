@@ -6,6 +6,7 @@ import * as fs from 'fs/promises';
 import * as path from 'path';
 import { runUpdate, runGenerateIndex } from './workflows/update';
 import { runList } from './workflows/list';
+import { runSingleTask } from './workflows/research';
 import { ClaudeAgent } from './agent/ClaudeAgent';
 import { getWorkspaceDir, getCurrentDateString } from './utils/workspace';
 
@@ -114,6 +115,45 @@ async function main() {
     .command('index', 'Regenerate updates/index.html from existing manifest and data files', (yargs) => yargs, async () => {
       try {
         await runGenerateIndex();
+      } catch (error) {
+        console.error('❌ Error:', (error as Error).message);
+        process.exit(1);
+      }
+    })
+    .command('task <prompt>', 'Run a single prompt quickly (for testing)', (yargs) => {
+      return yargs
+        .positional('prompt', {
+          type: 'string',
+          description: 'Path to prompt file (e.g., prompts/insights-prompt.md)',
+        })
+        .option('workspace', {
+          type: 'string',
+          description: 'Workspace directory for Claude Agent SDK',
+        })
+        .option('raw', {
+          type: 'boolean',
+          description: 'Print raw model response instead of parsed JSON',
+          default: false,
+        });
+    }, async (args) => {
+      try {
+        const promptPath = args.prompt as string;
+        const workspaceDir = getWorkspaceDir(args.workspace as string | undefined);
+        console.log(`📂 Using workspace: ${workspaceDir}`);
+
+        const { taskName, rawResponse, logFilePath } = await runSingleTask(
+          promptPath,
+          workspaceDir
+        );
+
+        console.log(`📋 Task: ${taskName}`);
+
+        console.log('\n=== Last Assistant Message (parsed if possible) ===\n');
+        console.log(rawResponse);
+
+        if (logFilePath) {
+          console.log(`\n📝 Full conversation log: ${logFilePath}`);
+        }
       } catch (error) {
         console.error('❌ Error:', (error as Error).message);
         process.exit(1);

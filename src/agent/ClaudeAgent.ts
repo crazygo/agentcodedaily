@@ -1,5 +1,7 @@
 import { query } from '@anthropic-ai/claude-agent-sdk';
 import dotenv from 'dotenv';
+import * as fs from 'fs';
+import * as path from 'path';
 
 dotenv.config();
 
@@ -15,7 +17,7 @@ export class ClaudeAgent {
   constructor(config?: Partial<AgentConfig>) {
     this.config = {
       model: config?.model || process.env.ANTHROPIC_MODEL || 'claude-3-5-sonnet-20241022',
-      maxTurns: config?.maxTurns || 30,
+      maxTurns: config?.maxTurns || 100,
       cwd: config?.cwd,
     };
   }
@@ -24,9 +26,9 @@ export class ClaudeAgent {
    * Run the agent with a prompt using the query() method
    * External MCP tools will be used if configured
    */
-  async run(systemPrompt: string, userPrompt: string): Promise<string> {
+  async run(systemPrompt: string, userPrompt: string, options?: { logFilePath?: string }): Promise<string> {
     try {
-      let finalResult = '';
+      let lastAssistantText = '';
       let messageCount = 0;
 
       console.log('🤖 Starting Claude Agent SDK query...');
@@ -47,8 +49,21 @@ export class ClaudeAgent {
       console.log(`   ANTHROPIC_BASE_URL: ${baseUrl ? `✅ Set (${baseUrl})` : 'ℹ️  Not set (optional)'}`);
       console.log('');
 
+      const workingDir = this.config.cwd || process.cwd();
+      console.log(`📂 Agent working directory: ${workingDir}`);
+      console.log('');
+
       if (!authToken) {
         throw new Error('ANTHROPIC_AUTH_TOKEN environment variable is required');
+      }
+
+      const logFilePath = options?.logFilePath;
+      if (logFilePath) {
+        fs.mkdirSync(path.dirname(logFilePath), { recursive: true });
+        fs.writeFileSync(logFilePath, '', 'utf-8');
+        console.log(`📝 Logging conversation to: ${logFilePath}`);
+        fs.appendFileSync(logFilePath, `[system]\n${systemPrompt}\n\n`, 'utf-8');
+        fs.appendFileSync(logFilePath, `[user]\n${userPrompt}\n\n`, 'utf-8');
       }
 
       for await (const message of query({
@@ -57,7 +72,7 @@ export class ClaudeAgent {
           systemPrompt,
           maxTurns: this.config.maxTurns,
           permissionMode: 'bypassPermissions', // Skip permission prompts
-          cwd: this.config.cwd || process.cwd(), // Set working directory
+          cwd: workingDir, // Set working directory
           // Explicitly pass environment variables to SDK
           env: {
             ...process.env,
@@ -66,13 +81,13 @@ export class ClaudeAgent {
             ...(baseUrl && { ANTHROPIC_BASE_URL: baseUrl }),
           },
           mcpServers: {
-            'web-search-prime': {
-              type: 'http',
-              url: 'https://open.bigmodel.cn/api/mcp/web_search_prime/mcp',
-              headers: {
-                'Authorization': `Bearer ${authToken}`,
-              },
-            },
+            // 'web-search-prime': {
+            //   type: 'http',
+            //   url: 'https://open.bigmodel.cn/api/mcp/web_search_prime/mcp',
+            //   headers: {
+            //     'Authorization': `Bearer ${authToken}`,
+            //   },
+            // },
           },
           // Disable WebSearch tool, keep all other tools enabled
           // disallowedTools: ['WebSearch'],
@@ -88,17 +103,46 @@ export class ClaudeAgent {
           const content = messageObj?.content;
 
           if (Array.isArray(content)) {
+            let assistantText = '';
             for (const block of content) {
               if (block.type === 'text') {
-                finalResult += block.text;
+                assistantText += block.text;
                 console.log(`    💭 Text: ${block.text}`);
               } else if (block.type === 'tool_use') {
                 console.log(`    🔧 Tool use: ${block.name}`, JSON.stringify(block.input, null, 2));
+                if (logFilePath) {
+                  fs.appendFileSync(
+                    logFilePath,
+                    `[assistant tool_use #${messageCount}] ${block.name}\n${JSON.stringify(block.input, null, 2)}\n\n`,
+                    'utf-8'
+                  );
+                }
+              }
+            }
+            if (assistantText) {
+              lastAssistantText = assistantText;
+              if (logFilePath) {
+                fs.appendFileSync(
+                  logFilePath,
+                  `[assistant message #${messageCount}]\n${assistantText}\n\n`,
+                  'utf-8'
+                );
               }
             }
           }
         } else if (message.type === 'user') {
           console.log(`    👤 User message`);
+          if (logFilePath) {
+            fs.appendFileSync(logFilePath, `[user message #${messageCount}]\n${JSON.stringify(message, null, 2)}\n\n`, 'utf-8');
+          }
+        } else if (message.type === 'tool_result' || message.type === 'tool') {
+          if (logFilePath) {
+            fs.appendFileSync(
+              logFilePath,
+              `[tool result #${messageCount}]\n${JSON.stringify(message, null, 2)}\n\n`,
+              'utf-8'
+            );
+          }
         } else if (message.type === 'result') {
           // Final result from the agent
           const resultMsg = message as any;
@@ -110,7 +154,7 @@ export class ClaudeAgent {
           console.log(`Duration: ${resultMsg.duration_ms}ms`);
           console.log(`Turns used: ${resultMsg.num_turns || 'N/A'}`);
           console.log(`Total cost: $${resultMsg.total_cost_usd?.toFixed(4) || 'N/A'}`);
-          console.log(`Final result length: ${finalResult.length} characters`);
+          console.log(`Final result length: ${lastAssistantText.length} characters`);
 
           if (message.subtype !== 'success') {
             console.log(`\n⚠️  Warning: Agent finished with ${message.subtype}`);
@@ -118,14 +162,14 @@ export class ClaudeAgent {
           }
 
           console.log(`${'='.repeat(60)}\n`);
-          return finalResult;
+          return lastAssistantText;
         } else {
           console.log(`    ℹ️  Other message type: ${message.type}`);
         }
       }
 
       console.log(`⚠️  Query loop ended without result message`);
-      return finalResult;
+      return lastAssistantText;
     } catch (error: any) {
       console.error('❌ Agent error:', error.message);
       console.error('Stack:', error.stack);

@@ -157,13 +157,13 @@ async function runList(): Promise<void>
 
 ### config/tasks.json
 ```json
-{ "tasks": ["prompts/new-products-prompt.md", ...] }
+{ "tasks": ["prompts/task-new-product.prompty", ...] }
 ```
 Array of prompt file paths to execute sequentially.
 
 ### prompts/*.md
 Prompt templates with `{INSERT_CURRENT_DATE}` placeholders.
-- `new-products-prompt.md` — Discover new tools (last 30 days)
+- `task-new-product.prompty` — Discover new tools (last 14 days) using prompty layout
 - `whitelist-updates-prompt.md` — Track curated product updates
 - `insights-prompt.md` — Gather thought leader opinions
 - `html-report-prompt.md` — Generate HTML from markdown
