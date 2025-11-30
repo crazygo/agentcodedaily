@@ -135,14 +135,6 @@ export class ClaudeAgent {
           if (logFilePath) {
             fs.appendFileSync(logFilePath, `[user message #${messageCount}]\n${JSON.stringify(message, null, 2)}\n\n`, 'utf-8');
           }
-        } else if (message.type === 'tool_result' || message.type === 'tool') {
-          if (logFilePath) {
-            fs.appendFileSync(
-              logFilePath,
-              `[tool result #${messageCount}]\n${JSON.stringify(message, null, 2)}\n\n`,
-              'utf-8'
-            );
-          }
         } else if (message.type === 'result') {
           // Final result from the agent
           const resultMsg = message as any;
