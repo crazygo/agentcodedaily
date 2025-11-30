@@ -1,65 +1,20 @@
 [
   {
-    "title": "Agentic Machine Learning Engineer Inspired by Karpathy",
-    "description": "A new GitHub project creates an 'agentic Machine Learning Engineer' that trains state-of-the-art ML models using Claude Code SDK and Google ADK. This project embodies Karpathy's recent emphasis on AI-native development approaches and his concept of Software 3.0.",
-    "author": "K-Dense-AI",
-    "source": "GitHub",
-    "url": "https://github.com/K-Dense-AI/karpathy",
-    "topics": ["agentic AI", "machine learning", "Claude Code SDK", "Google ADK", "Software 3.0"],
-    "type": "technical"
-  },
-  {
-    "title": "AI for Data Engineers - Simon Willison Podcast Discussion",
-    "description": "Simon Willison appeared on the Talking Postgres podcast discussing AI applications for data engineers. The conversation covered practical AI tools and workflows for data engineering tasks.",
+    "title": "Bluesky Thread Viewer - Simon Willison",
+    "description": "Simon Willison released a Bluesky Thread Viewer tool on November 28, 2025, demonstrating his continued work on practical AI tools and data processing utilities.",
     "author": "Simon Willison",
-    "source": "Blog/Podcast",
-    "url": "https://simonwillison.net/2025/Aug/11/ai-for-data-engineers/",
-    "topics": ["AI for data engineering", "PostgreSQL", "practical AI tools", "data workflows"],
-    "type": "discussion"
+    "source": "Blog",
+    "url": "https://simonwillison.net/2025/Nov/28/bluesky-thread-viewer/",
+    "topics": ["Bluesky", "thread viewer", "data tools", "social media"],
+    "type": "technical"
   },
   {
-    "title": "AI Agents in Data Journalism - Simon Willison",
-    "description": "Simon Willison discussed how AI-driven agents are being applied in data journalism, focusing on practical applications and the broader impact of AI in newsrooms and data analysis workflows.",
+    "title": "sqlite-utils 4.0a1 Backwards Compatibility Changes",
+    "description": "Simon Willison announced sqlite-utils 4.0a1 with minor backwards compatibility changes on November 24, 2025, continuing his work on data engineering tools.",
     "author": "Simon Willison",
-    "source": "Podcast",
-    "url": "https://www.heavybit.com/library/podcasts/data-renegades/ep-2-data-journalism-unleashed-with-simon-willison",
-    "topics": ["AI agents", "data journalism", "newsroom AI", "data analysis"],
-    "type": "discussion"
-  },
-  {
-    "title": "AI Coworkers: The Future of Development Teams",
-    "description": "Replit CEO Amjad Masad discusses AI agents and their advantages over traditional chatbots, exploring what it's like to work alongside AI coworkers and the future of software development teams.",
-    "author": "Amjad Masad",
-    "source": "SF Standard",
-    "url": "https://sfstandard.com/2025/10/12/replit-ceo-amjad-masad-ai-coworkers/",
-    "topics": ["AI coworkers", "coding agents", "future of work", "software development"],
-    "type": "discussion"
-  },
-  {
-    "title": "AI Agentic Programming: A Survey of Techniques",
-    "description": "A comprehensive academic survey examining LLM-based agents that autonomously perform software development tasks. The paper analyzes current techniques and methodologies in AI-driven programming.",
-    "author": "Research Paper",
-    "source": "arXiv",
-    "url": "https://arxiv.org/html/2508.11126v1",
-    "topics": ["agentic programming", "LLM-based agents", "software development", "academic research"],
-    "type": "technical"
-  },
-  {
-    "title": "Qwen3 Coder: Agentic LLM-Coder with 256k Context",
-    "description": "New high-performance open-source AI coding model featuring agentic workflows, 256k+ context window, and support for 100+ programming languages. Represents advancement in open-source coding AI.",
-    "author": "Labellerr",
-    "source": "Technical Blog",
-    "url": "https://www.labellerr.com/blog/qwen-3-coder/",
-    "topics": ["open-source AI", "coding models", "agentic workflows", "context window"],
-    "type": "technical"
-  },
-  {
-    "title": "Warp: The Agentic Development Environment",
-    "description": "A new development environment featuring multiple AI agents for coding and deployment, representing the shift towards agentic AI integrated development platforms.",
-    "author": "Warp Team",
-    "source": "Product Announcement",
-    "url": "https://www.warp.dev/",
-    "topics": ["agentic IDE", "AI development environment", "coding automation", "deployment agents"],
+    "source": "Blog",
+    "url": "https://simonwillison.net/2025/Nov/24/sqlite-utils-40a1/",
+    "topics": ["SQLite", "data engineering", "version updates", "backwards compatibility"],
     "type": "technical"
   }
 ]

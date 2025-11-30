@@ -66,6 +66,11 @@
         "2025-11-30-09-55-58-931-prompts-task-new-product-prompty.log",
         "2025-11-30-09-55-58-931-prompts-whitelist-updates-prompty.log",
         "2025-11-30-09-55-58-931-run-logs.json",
+        "2025-11-30-20-07-14-922-prompts-html-report-prompt-md.log",
+        "2025-11-30-20-07-14-922-prompts-insights-prompty.log",
+        "2025-11-30-20-07-14-922-prompts-task-new-product-prompty.log",
+        "2025-11-30-20-07-14-922-prompts-whitelist-updates-prompty.log",
+        "2025-11-30-20-07-14-922-run-logs.json",
         "data.json",
         "index.html",
         "insights.json",
@@ -75,5 +80,5 @@
       ]
     }
   ],
-  "lastUpdated": "2025-11-30T10:09:06.588Z"
+  "lastUpdated": "2025-11-30T20:19:50.676Z"
 }

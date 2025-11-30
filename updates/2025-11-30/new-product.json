@@ -11,5 +11,19 @@
       "New Chrome and Excel integrations expand developer capabilities",
       "Significant improvement over previous Claude models for coding tasks"
     ]
+  },
+  {
+    "name": "Google Antigravity",
+    "url": "https://antigravity.dev",
+    "description": "Google's agent-first AI IDE built on VSCode foundation, powered by Gemini 3. Shifts from manual coding to agentic development with autonomous coding agents.",
+    "release_date": "2025-11-18",
+    "category": "AI IDE",
+    "sources": ["Hacker News", "Product Hunt", "TechCrunch", "Medium"],
+    "community_quotes": [
+      "Agent-first IDE that's redefining software development",
+      "Most significant development tool since Git",
+      "Generated over 1,000 comments on Hacker News",
+      "Sparked debate about IDE forking practices"
+    ]
   }
 ]

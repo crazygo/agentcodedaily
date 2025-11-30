@@ -20,11 +20,41 @@
     ]
   },
   {
+    "productName": "GitHub Copilot",
+    "title": "Claude Opus 4.5 Public Preview",
+    "description": "Anthropic's latest Claude Opus 4.5 model now available in GitHub Copilot for Pro, Business, and Enterprise users, delivering high-quality code and powering heavy-duty agentic workflows.",
+    "updateType": "feature",
+    "url": "https://github.blog/changelog/2025-11-24-claude-opus-4-5-is-in-public-preview-for-github-copilot/",
+    "date": "2025-11-24",
+    "community_feedback": [
+      {
+        "quote": "Claude Opus 4.5 (Preview) available in Copilot",
+        "source": "Reddit",
+        "sentiment": "positive"
+      }
+    ]
+  },
+  {
+    "productName": "OpenAI Codex CLI",
+    "title": "GPT-5-Codex Models Released",
+    "description": "New GPT-5.1-Codex models including GPT-5.1-Codex-Max for long-horizon software engineering tasks and improved CLI with version 0.59.0.",
+    "updateType": "feature",
+    "url": "https://developers.openai.com/codex/changelog/",
+    "date": "2025-11-13",
+    "community_feedback": [
+      {
+        "quote": "Codex is rapidly degrading — please take this seriously",
+        "source": "Forum",
+        "sentiment": "negative"
+      }
+    ]
+  },
+  {
     "productName": "Cursor",
     "title": "Cursor 2.1 Release",
     "description": "Major update featuring improved Plan Mode with interactive AI clarifications, new in-editor AI code review, MCP support, instant grep functionality, and enhanced browser use capabilities.",
     "updateType": "release",
-    "url": "https://cursor.com/changelog",
+    "url": "https://cursor.com/changelog/2-1",
     "date": "2025-11-21",
     "community_feedback": [
       {
@@ -40,12 +70,30 @@
     ]
   },
   {
+    "productName": "Windsurf",
+    "title": "Version 1.12.142 Update",
+    "description": "Enhanced SWE-1.5 + Claude Sonnet 4.5 mode with improved Cascade tool performance, better terminal output visibility, and reduced internal errors.",
+    "updateType": "feature",
+    "url": "https://windsurf.com/changelog",
+    "date": "2025-11-03",
+    "community_feedback": []
+  },
+  {
     "productName": "Devin",
     "title": "2025 Performance Review Publication",
     "description": "Cognition AI published comprehensive performance review showcasing 18 months of AI agent development and improvements.",
     "updateType": "announcement",
     "url": "https://cognition.ai/blog/devin-annual-performance-review-2025",
     "date": "2025-11-14",
+    "community_feedback": []
+  },
+  {
+    "productName": "Continue",
+    "title": "Version 1.5.17 Release",
+    "description": "Latest release with enhanced file access beyond workspace, improved agent error handling, CLI stability fixes, and Next Edit powered by Mercury Coder for intelligent code edit suggestions.",
+    "updateType": "release",
+    "url": "https://github.com/continuedev/continue/releases",
+    "date": "2025-11-29",
     "community_feedback": []
   },
   {
