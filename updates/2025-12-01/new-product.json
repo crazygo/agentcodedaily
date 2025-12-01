@@ -1,0 +1,41 @@
+[
+  {
+    "name": "Google Antigravity",
+    "url": "https://developers.googleblog.com/en/build-with-google-antigravity-our-new-agentic-development-platform/",
+    "description": "AI-first integrated development environment launched alongside Gemini 3 Pro, designed as an agent-first IDE that enables developers to delegate complex coding tasks to autonomous AI agents.",
+    "release_date": "2025-11-18",
+    "category": "AI IDE",
+    "sources": ["Product Hunt", "Google Blog", "TechCrunch"],
+    "community_quotes": [
+      "Described as potentially 'the most significant development tool since Git'",
+      "Called a 'revolutionary AI-first IDE that's redefining how developers code'",
+      "Promises far fewer hallucinations than previous versions with improved Gemini 3 Pro reasoning capabilities"
+    ]
+  },
+  {
+    "name": "Google ADK Go",
+    "url": "https://www.marktechpost.com/2025/11/07/google-extends-its-agent-development-kit-adk-to-go-bringing-native-agentic-workflows-to-backend-teams/",
+    "description": "Google's Agent Development Kit extended to Go, bringing native agentic workflows to backend teams with open-source toolkit for building AI agents.",
+    "release_date": "2025-11-07",
+    "category": "Open-source AI coding framework",
+    "sources": ["Google Blog", "GitHub", "MarkTechPost"],
+    "community_quotes": [
+      "Bringing native agentic workflows to backend teams",
+      "Open-source toolkit for building AI agents",
+      "Supports local development to managed production deployment"
+    ]
+  },
+  {
+    "name": "CodeHinter",
+    "url": "https://dl.acm.org/doi/10.1145/3769994.3769997",
+    "description": "An intuitive debugging assistant that combines traditional debugging tools with LLM-based techniques for enhanced code analysis and error detection.",
+    "release_date": "2025-11-10",
+    "category": "AI debugging tool",
+    "sources": ["ACM Digital Library", "Academic research"],
+    "community_quotes": [
+      "Combines traditional debugging tools with LLM-based techniques",
+      "Intuitive debugging assistant for developers",
+      "Enhanced code analysis and error detection capabilities"
+    ]
+  }
+]

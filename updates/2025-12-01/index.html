@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentic Coding Research Report - 2025-12-01</title>
+    <style>
+        /* Hacker News-inspired CSS styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 13px;
+            line-height: 1.4;
+            background-color: #f6f6ef;
+            color: #000000;
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+
+        /* Header */
+        header {
+            background-color: #ff6600;
+            border-bottom: 1px solid #d4d4d4;
+            padding: 2px 0;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-content h1 {
+            font-size: 14px;
+            font-weight: bold;
+            color: white;
+            margin: 0;
+            padding: 2px 0;
+        }
+
+        .header-content .date {
+            font-size: 12px;
+            color: #fff;
+            opacity: 0.9;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #828282;
+            padding: 4px 0;
+            border-bottom: 1px solid #d4d4d4;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        nav li {
+            margin-right: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main layout */
+        .three-column-layout {
+            display: grid;
+            grid-template-columns: 40% 35% 25%;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .three-column-layout {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+        }
+
+        /* Sections */
+        .section {
+            background-color: white;
+            border: 1px solid #d4d4d4;
+            padding: 12px;
+        }
+
+        .section-header {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #000000;
+            border-bottom: 1px solid #d4d4d4;
+            padding-bottom: 4px;
+        }
+
+        /* Content items */
+        .item {
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .item-title {
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+
+        .item-title a {
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .item-title a:hover {
+            text-decoration: underline;
+        }
+
+        .item-title a:visited {
+            color: #828282;
+        }
+
+        .item-meta {
+            font-size: 11px;
+            color: #828282;
+            margin-bottom: 4px;
+        }
+
+        .item-description {
+            font-size: 12px;
+            line-height: 1.4;
+            color: #333333;
+            margin-bottom: 4px;
+        }
+
+        .item-tags {
+            margin-top: 4px;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #f0f0f0;
+            color: #666;
+            font-size: 10px;
+            padding: 1px 4px;
+            border-radius: 2px;
+            margin-right: 4px;
+            text-decoration: none;
+        }
+
+        .tag:hover {
+            background-color: #e0e0e0;
+            color: #000;
+        }
+
+        /* Quote styling */
+        .quote {
+            font-style: italic;
+            color: #666;
+            font-size: 11px;
+            margin-top: 4px;
+            padding-left: 10px;
+            border-left: 2px solid #d4d4d4;
+        }
+
+        /* Features list */
+        .features-list {
+            margin-top: 4px;
+            list-style-type: disc;
+            padding-left: 15px;
+        }
+
+        .features-list li {
+            font-size: 11px;
+            color: #444;
+            margin-bottom: 2px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #f6f6ef;
+            border-top: 1px solid #d4d4d4;
+            padding: 10px 0;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 11px;
+            color: #828282;
+        }
+
+        footer a {
+            color: #828282;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background-color: white;
+                font-size: 10pt;
+            }
+
+            .section {
+                border: 1px solid #ccc;
+                break-inside: avoid;
+            }
+
+            nav, footer {
+                display: none;
+            }
+
+            .three-column-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .three-column-layout {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .technical-insights {
+                grid-column: span 2;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>Agentic Coding Research Report</h1>
+                <span class="date">2025-12-01</span>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#new-products">New Products</a></li>
+                <li><a href="#whitelist-updates">Whitelist Updates</a></li>
+                <li><a href="#technical-insights">Technical Insights</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="three-column-layout">
+            <!-- New Products Section -->
+            <section class="new-products section" id="new-products">
+                <div class="section-header">New Products (3)</div>
+
+                <div class="item">
+                    <div class="item-title">
+                        <a href="https://developers.googleblog.com/en/build-with-google-antigravity-our-new-agentic-development-platform/" target="_blank">
+                            Google Antigravity
+                        </a>
+                    </div>
+                    <div class="item-meta">AI IDE • Released 2025-11-18</div>
+                    <div class="item-description">
+                        AI-first integrated development environment launched alongside Gemini 3 Pro, designed as an agent-first IDE that enables developers to delegate complex coding tasks to autonomous AI agents.
+                    </div>
+                    <div class="quote">
+                        "Described as potentially 'the most significant development tool since Git'"
+                    </div>
+                    <div class="item-tags">
+                        <span class="tag">Google</span>
+                        <span class="tag">AI IDE</span>
+                        <span class="tag">Gemini 3 Pro</span>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">
+                        <a href="https://www.marktechpost.com/2025/11/07/google-extends-its-agent-development-kit-adk-to-go-bringing-native-agentic-workflows-to-backend-teams/" target="_blank">
+                            Google ADK Go
+                        </a>
+                    </div>
+                    <div class="item-meta">Open-source AI coding framework • Released 2025-11-07</div>
+                    <div class="item-description">
+                        Google's Agent Development Kit extended to Go, bringing native agentic workflows to backend teams with open-source toolkit for building AI agents.
+                    </div>
+                    <div class="item-tags">
+                        <span class="tag">Google</span>
+                        <span class="tag">Open-source</span>
+                        <span class="tag">Go</span>
+                        <span class="tag">Backend</span>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">
+                        <a href="https://dl.acm.org/doi/10.1145/3769994.3769997" target="_blank">
+                            CodeHinter
+                        </a>
+                    </div>
+                    <div class="item-meta">AI debugging tool • Released 2025-11-10</div>
+                    <div class="item-description">
+                        An intuitive debugging assistant that combines traditional debugging tools with LLM-based techniques for enhanced code analysis and error detection.
+                    </div>
+                    <div class="item-tags">
+                        <span class="tag">Debugging</span>
+                        <span class="tag">Academic</span>
+                        <span class="tag">LLM</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Whitelist Updates Section -->
+            <section class="whitelist-updates section" id="whitelist-updates">
+                <div class="section-header">Whitelist Updates (8)</div>
+
+                <div class="item">
+                    <div class="item-title">
+                        <a href="https://claude.ai/blog/claude-code-2-0" target="_blank">
+                            Claude Code 2.0
+                        </a>
+                    </div>
+                    <div class="item-meta">Released 2025-11-24</div>
+                    <div class="item-description">
+                        Major update with VS Code extension (Beta), checkpointing system with timeline-based project recovery, enhanced terminal interface with real-time collaboration, and autonomous agent capabilities with plan mode.
+                    </div>
+                    <ul class="features-list">
+                        <li>VS Code extension (Beta)</li>
+                        <li>Web platform launch</li>
+                        <li>Private project isolation</li>
+                    </ul>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">
+                        <span>Cursor 1.4</span>
+                    </div>
+                    <div class="item-meta">Released 2025-12-01</div>
+                    <div class="item-description">
+                        Improved Agent tools with better context selection, queued messaging, separate models per Agent in different tabs, and GitHub support for Background Agents. Enterprise features include AI code tracking API and admin API for blocklists.
+                    </div>
+                    <ul class="features-list">
+                        <li>Better Agent tools</li>
+                        <li>Usage visibility</li>
+                        <li>2x faster startup</li>
+                    </ul>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">
+                        <span>GitHub Copilot 1.2</span>
+                    </div>
+                    <div class="item-meta">Released 2025-11-28</div>
+                    <div class="item-description">
+                        Multi-model support with Claude Sonnet 4.5 and Haiku 4.5, project-aware Copilot with enhanced contextual understanding, new planning features, and Copilot Code Review AI. Note: $0 Copilot premium request budgets removed starting Dec 2, 2025.
+                    </div>
+                    <ul class="features-list">
+                        <li>Claude models integration</li>
+                        <li>Project awareness</li>
+                        <li>Code review AI</li>
+                    </ul>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">
+                        <span>Windsurf 1.2.5</span>
+                    </div>
+                    <div class="item-meta">Released 2025-11-15</div>
+                    <div class="item-description">
+                        GPT-5.1 integration as default model with Priority Processing support, automatic planning mode, enhanced Cascade Tool for file search, and new Tab Autocomplete system with smarter suggestions.
+                    </div>
+                    <ul class="features-list">
+                        <li>GPT-5.1 default</li>
+                        <li>Priority Processing</li>
+                        <li>100+ bug fixes</li>
+                    </ul>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">
+                        <span>Devin 2.1</span>
+                    </div>
+                    <div class="item-meta">Released 2025-11-30</div>
+                    <div class="item-description">
+                        Unified Agent Selection system with enhanced UI testing capabilities, improved batch editing functionality, better prompt feedback mechanisms, and agent-native IDE experience refinements.
+                    </div>
+                    <ul class="features-list">
+                        <li>Unified Agent Selection</li>
+                        <li>Enhanced UI testing</li>
+                        <li>Better batch editing</li>
+                    </ul>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">
+                        <span>Aider 0.86.0</span>
+                    </div>
+                    <div class="item-meta">Released 2025-11-22</div>
+                    <div class="item-description">
+                        Support for all GPT-5 models and Grok-4, enhanced voice interaction capabilities, improved browser UI for code collaboration, and better Git repository integration.
+                    </div>
+                    <ul class="features-list">
+                        <li>GPT-5 & Grok-4 support</li>
+                        <li>Voice interaction</li>
+                        <li>Better Git integration</li>
+                    </ul>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">
+                        <span>Continue 1.3.21</span>
+                    </div>
+                    <div class="item-meta">Released 2025-11-21</div>
+                    <div class="item-description">
+                        Continue Cloud Agents for AI-powered code review at scale, task decomposition framework, Granite 4 models integration, and Next Edit feature powered by Mercury Coder from Inception Labs.
+                    </div>
+                    <ul class="features-list">
+                        <li>Cloud Agents</li>
+                        <li>Task decomposition</li>
+                        <li>Granite 4 integration</li>
+                    </ul>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">
+                        <span>Gemini CLI 0.18.2</span>
+                    </div>
+                    <div class="item-meta">Released 2025-11-25</div>
+                    <div class="item-description">
+                        Extensions system for custom Gemini CLI experiences, seamless scrollable UI with mouse support, MCP (Model Context Protocol) support, and VSCode integration capabilities.
+                    </div>
+                    <ul class="features-list">
+                        <li>Extensions system</li>
+                        <li>Mouse support</li>
+                        <li>MCP support</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Technical Insights Section -->
+            <section class="technical-insights section" id="technical-insights">
+                <div class="section-header">Technical Insights (3)</div>
+
+                <div class="item">
+                    <div class="item-title">
+                        <a href="https://news.ycombinator.com/item?id=46039274" target="_blank">
+                            AI has a deep understanding of how this code works
+                        </a>
+                    </div>
+                    <div class="item-meta">Hacker News Community • Discussion</div>
+                    <div class="item-description">
+                        Discussion about how everybody can generate code via LLMs and that writing code isn't what defines the dominant work of existing projects anymore. Focus shifted from code generation to code understanding and integration.
+                    </div>
+                    <div class="item-tags">
+                        <span class="tag">AI coding</span>
+                        <span class="tag">LLM code generation</span>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">
+                        <a href="https://news.ycombinator.com/item?id=44974183" target="_blank">
+                            I read AI coding negativity on Hacker News and Reddit
+                        </a>
+                    </div>
+                    <div class="item-meta">Hacker News Community • Discussion</div>
+                    <div class="item-description">
+                        Discussion about an LLM writing 80% of code now, with comparisons to 'a forgetful junior dev who writes very verbose code.' Explores the practical realities of AI-assisted coding workflows.
+                    </div>
+                    <div class="item-tags">
+                        <span class="tag">AI coding</span>
+                        <span class="tag">Code quality</span>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-title">
+                        <a href="https://simonwillison.net/2025/Nov/28/bluesky-thread-viewer/" target="_blank">
+                            Bluesky Thread Viewer JavaScript tool
+                        </a>
+                    </div>
+                    <div class="item-meta">Simon Willison • Technical</div>
+                    <div class="item-description">
+                        Simon Willison has been having fun hacking on a Bluesky Thread Viewer JavaScript tool with Claude Code recently, demonstrating practical AI-assisted development workflows.
+                    </div>
+                    <div class="item-tags">
+                        <span class="tag">Claude Code</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Agentic Coding Research Report • Generated with automated research tools</p>
+            <p>
+                <a href="#new-products">New Products</a> •
+                <a href="#whitelist-updates">Updates</a> •
+                <a href="#technical-insights">Insights</a> •
+                <a href="#about">About</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

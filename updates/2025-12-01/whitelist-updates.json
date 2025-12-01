@@ -1,0 +1,244 @@
+[
+  {
+    "product": "Claude Code",
+    "version": "2.0",
+    "release_date": "2025-11-24",
+    "features": [
+      "New VS Code extension (Beta)",
+      "Checkpointing system with timeline-based project recovery",
+      "Enhanced terminal interface with real-time collaboration",
+      "Web platform launch for browser-based development",
+      "Claude Code Runtime for deployment",
+      "Enhanced security features with private project isolation",
+      "Autonomous agent capabilities with plan mode"
+    ],
+    "news_mentions": [
+      {
+        "source": "Anthropic Blog",
+        "url": "https://claude.ai/blog/claude-code-2-0",
+        "title": "Claude Code 2.0: Enhanced AI Development Platform",
+        "summary": "Major update with VS Code extension and enhanced autonomy features"
+      }
+    ],
+    "community_feedback": [],
+    "last_checked": "2025-06-19"
+  },
+  {
+    "product": "Cursor",
+    "version": "1.4",
+    "release_date": "2025-12-01",
+    "features": [
+      "Improved Agent tools with better context selection",
+      "More Agent steerability with queued messaging",
+      "Separate models per Agent in different tabs",
+      "Usage and pricing visibility in chat",
+      "Compact chat mode for long sessions",
+      "GitHub support for Background Agents",
+      "Sidebar for all Agents management",
+      "Faster Background Agent startup (2x improvement)"
+    ],
+    "enterprise_features": [
+      "AI code tracking API for commit-level visibility",
+      "Admin API for blocklists",
+      "Member exports to CSV"
+    ],
+    "news_mentions": [],
+    "community_feedback": [],
+    "last_checked": "2025-06-19"
+  },
+  {
+    "product": "GitHub Copilot",
+    "version": "1.2",
+    "release_date": "2025-11-28",
+    "features": [
+      "Multi-model support with Claude Sonnet 4.5 and Claude Haiku 4.5",
+      "Project-aware Copilot with enhanced contextual understanding",
+      "New planning features in Copilot Chat",
+      "Copilot Code Review AI with full picture context",
+      "Seamless handoff to Copilot coding agent",
+      "Enhanced language models editor in VS Code",
+      "Improved enterprise metrics and analytics"
+    ],
+    "policy_changes": [
+      "Removal of $0 Copilot premium request budgets for enterprise/team accounts starting Dec 2, 2025"
+    ],
+    "news_mentions": [
+      {
+        "source": "GitHub Blog",
+        "url": "https://github.blog/changelog/2025-09-17-upcoming-removal-of-copilot-premium-request-0-budgets/",
+        "title": "Upcoming policy changes for Copilot premium",
+        "summary": "Enterprise budget changes announced for December 2025"
+      }
+    ],
+    "community_feedback": [],
+    "last_checked": "2025-06-19"
+  },
+  {
+    "product": "Windsurf",
+    "version": "1.2.5",
+    "release_date": "2025-11-15",
+    "features": [
+      "GPT-5.1 integration as default model",
+      "Priority Processing support for GPT-5.1 models",
+      "Automatic planning mode with no manual toggles",
+      "Enhanced Cascade Tool for file search and discovery",
+      "New Tab Autocomplete system with smarter suggestions",
+      "Improved code exploration with long context models",
+      "Revamped editing tools with enhanced accuracy",
+      "Clean UI and smarter team collaboration features"
+    ],
+    "improvements": [
+      "Over 100 bug fixes and reliability improvements",
+      "Guaranteed low-latency responses (~50 tokens/sec)",
+      "Enhanced stability and performance"
+    ],
+    "news_mentions": [],
+    "community_feedback": [],
+    "last_checked": "2025-06-19"
+  },
+  {
+    "product": "Devin",
+    "version": "2.1",
+    "release_date": "2025-11-30",
+    "features": [
+      "Unified Agent Selection system",
+      "Enhanced UI testing capabilities",
+      "Improved batch editing functionality",
+      "Better prompt feedback mechanisms",
+      "Agent-native IDE experience refinements"
+    ],
+    "quality_improvements": [
+      "Minor bug fixes and quality of life improvements",
+      "Enhanced stability and performance",
+      "Better error handling and recovery"
+    ],
+    "news_mentions": [
+      {
+        "source": "Cognition Labs Blog",
+        "url": "https://cognition.ai/blog/",
+        "title": "Devin Platform Updates",
+        "summary": "Latest improvements to AI software engineer platform"
+      }
+    ],
+    "community_feedback": [],
+    "last_checked": "2025-06-19"
+  },
+  {
+    "product": "Aider",
+    "version": "0.86.0",
+    "release_date": "2025-11-22",
+    "features": [
+      "Support for all GPT-5 models",
+      "Support for Grok-4 via xai/grok-4 and openrouter/x-ai/grok-4 model names",
+      "Enhanced voice interaction capabilities",
+      "Improved browser UI for code collaboration",
+      "Better integration with Git repositories"
+    ],
+    "improvements": [
+      "Self-code generation improvements (Aider writes 70-80% of its own code in each release)",
+      "Enhanced stability and performance",
+      "Better error handling and recovery mechanisms"
+    ],
+    "news_mentions": [],
+    "community_feedback": [],
+    "last_checked": "2025-06-19"
+  },
+  {
+    "product": "Continue",
+    "version": "1.3.21",
+    "release_date": "2025-11-21",
+    "features": [
+      "Continue Cloud Agents for AI-powered code review at scale",
+      "Task decomposition framework for better workflow management",
+      "Building reliable AI workflows with trust through repetition",
+      "Granite 4 models integration from IBM",
+      "Next Edit feature powered by Mercury Coder from Inception Labs",
+      "Enhanced CLI capabilities beyond the editor"
+    ],
+    "improvements": [
+      "New VS Code interface with reduced visual clutter",
+      "Enhanced file access beyond workspace boundaries",
+      "Improved agent error handling",
+      "CLI stability fixes and performance improvements"
+    ],
+    "news_mentions": [
+      {
+        "source": "Continue.dev Blog",
+        "url": "https://blog.continue.dev/",
+        "title": "Continue Platform Enhancements",
+        "summary": "Major updates to AI coding assistant with cloud agents and workflow improvements"
+      }
+    ],
+    "community_feedback": [],
+    "last_checked": "2025-06-19"
+  },
+  {
+    "product": "Codex CLI",
+    "version": "0.60.1",
+    "release_date": "2025-11-28",
+    "features": [
+      "GPT-5.1-Codex-Max integration for enhanced coding capabilities",
+      "Native compaction feature for code optimization",
+      "Enhanced shell execution with direct commands (!)",
+      "Improved TUI (Terminal User Interface) feedback",
+      "Better tool selection with reduced agent confusion",
+      "Enhanced file search capabilities"
+    ],
+    "model_improvements": [
+      "GPT-5-codex availability in Responses API",
+      "Special-purpose models optimized for CLI usage",
+      "Improved reasoning capabilities for coding tasks"
+    ],
+    "user_experience": [
+      "Better usage dashboards showing limits remaining",
+      "Enhanced reliability and performance",
+      "Improved tool selection and reduced confusion"
+    ],
+    "news_mentions": [
+      {
+        "source": "OpenAI Codex Changelog",
+        "url": "https://developers.openai.com/codex/changelog/",
+        "title": "Codex CLI v0.60.1 Release",
+        "summary": "Major update with GPT-5.1-Codex-Max integration and enhanced CLI features"
+      }
+    ],
+    "community_feedback": [],
+    "last_checked": "2025-06-19"
+  },
+  {
+    "product": "Gemini CLI",
+    "version": "0.18.2",
+    "release_date": "2025-11-25",
+    "features": [
+      "Extensions system for custom Gemini CLI experiences",
+      "Model selection with /model command",
+      "Seamless scrollable UI & mouse support",
+      "MCP (Model Context Protocol) support",
+      "VSCode integration capabilities",
+      "Google Cloud Run deployment support",
+      "Search integration with Google Search grounding",
+      "Shell command execution with configurable tool restrictions"
+    ],
+    "improvements": [
+      "Major UI facelift with reduced screen flicker on modern terminals",
+      "Enhanced terminal interaction with mouse support",
+      "Hook Tool Execution Integration",
+      "Ink version update to 6.4.6 for improved UI performance",
+      "Extensions management with /extensions update and /extensions explore commands"
+    ],
+    "installation": {
+      "update_command": "npm update -g @google/gemini-cli",
+      "latest_install": "npm install -g @google/gemini-cli@latest"
+    },
+    "news_mentions": [
+      {
+        "source": "Google Gemini CLI GitHub",
+        "url": "https://github.com/google-gemini/gemini-cli/releases",
+        "title": "Gemini CLI v0.18.2 Release",
+        "summary": "Enhanced extension system and UI improvements for terminal-based AI interaction"
+      }
+    ],
+    "community_feedback": [],
+    "last_checked": "2025-06-19"
+  }
+]

@@ -1,0 +1,29 @@
+[
+  {
+    "title": "AI has a deep understanding of how this code works",
+    "description": "Hacker News discussion about how everybody can generate code via LLMs and that writing code isn't what defines the dominant work of existing projects anymore. Focus shifted from code generation to code understanding and integration.",
+    "author": "Hacker News Community",
+    "source": "Hacker News",
+    "url": "https://news.ycombinator.com/item?id=46039274",
+    "topics": ["AI coding", "LLM code generation", "Software development"],
+    "type": "discussion"
+  },
+  {
+    "title": "I read AI coding negativity on Hacker News and Reddit",
+    "description": "Discussion about an LLM writing 80% of code now, with comparisons to 'a forgetful junior dev who writes very verbose code.' Explores the practical realities of AI-assisted coding workflows.",
+    "author": "Hacker News Community",
+    "source": "Hacker News",
+    "url": "https://news.ycombinator.com/item?id=44974183",
+    "topics": ["AI coding", "Code quality", "Development workflow"],
+    "type": "discussion"
+  },
+  {
+    "title": "Bluesky Thread Viewer JavaScript tool",
+    "description": "Simon Willison has been having fun hacking on a Bluesky Thread Viewer JavaScript tool with Claude Code recently, demonstrating practical AI-assisted development workflows.",
+    "author": "Simon Willison",
+    "source": "Blog",
+    "url": "https://simonwillison.net/2025/Nov/28/bluesky-thread-viewer/",
+    "topics": ["AI coding tools", "Claude Code", "JavaScript development"],
+    "type": "technical"
+  }
+]

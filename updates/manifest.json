@@ -78,7 +78,23 @@
         "report.md",
         "whitelist-updates.json"
       ]
+    },
+    {
+      "date": "2025-12-01",
+      "files": [
+        "2025-12-01-00-32-50-008-prompts-html-report-prompt-md.log",
+        "2025-12-01-00-32-50-008-prompts-insights-prompty.log",
+        "2025-12-01-00-32-50-008-prompts-task-new-product-prompty.log",
+        "2025-12-01-00-32-50-008-prompts-whitelist-updates-prompty.log",
+        "2025-12-01-00-32-50-008-run-logs.json",
+        "data.json",
+        "index.html",
+        "insights.json",
+        "new-product.json",
+        "report.md",
+        "whitelist-updates.json"
+      ]
     }
   ],
-  "lastUpdated": "2025-11-30T20:19:50.676Z"
+  "lastUpdated": "2025-12-01T00:46:21.476Z"
 }
