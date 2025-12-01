@@ -1,150 +1,66 @@
 [
   {
-    "productName": "Claude Code",
-    "title": "Version 1.0.31 Release",
-    "description": "Latest version of Claude Code with ongoing updates and improvements to the terminal-based AI coding assistant.",
-    "updateType": "release",
-    "url": "https://www.npmjs.com/package/@anthropic-ai/claude-code",
-    "date": "2025-06-18",
-    "community_feedback": []
+    "productName": "GitHub Copilot",
+    "title": "Claude Opus 4.5 Public Preview",
+    "description": "Anthropic's latest Claude Opus 4.5 model is now available in GitHub Copilot public preview, having surpassed internal coding benchmarks in early testing. Available to Copilot Pro, Pro+, Business, and Enterprise users with promotional 1x premium request multiplier through December 5, 2025.",
+    "updateType": "feature",
+    "url": "https://github.blog/changelog/2025-11-24-claude-opus-4-5-is-in-public-preview-for-github-copilot/",
+    "date": "2025-11-24",
+    "community_feedback": [
+      {
+        "quote": "Claude Opus 4.5 (Preview) available in Copilot",
+        "source": "Reddit r/GithubCopilot",
+        "sentiment": "positive"
+      },
+      {
+        "quote": "Opus 4.5 successfully fixed coding issues in one attempt",
+        "source": "Reddit r/GithubCopilot",
+        "sentiment": "positive"
+      },
+      {
+        "quote": "Claude Opus 4.5 Is The Best Model Available",
+        "source": "The Zvi Substack",
+        "sentiment": "positive"
+      },
+      {
+        "quote": "Anthropic's New Claude Opus 4.5 Reclaims the Coding Crown from Gemini 3",
+        "source": "The New Stack",
+        "sentiment": "positive"
+      }
+    ]
   },
   {
     "productName": "Cursor",
-    "title": "Cursor 1.0 Major Release",
-    "description": "Production-ready AI code editor featuring BugBot automated PR reviewer, Background Agent availability to all users, one-click MCP setup, Jupyter support, and memory features.",
+    "title": "Cursor 2.1 Major Update",
+    "description": "Released version 2.1 with improved Plan Mode that asks clarifying questions before creating plans, AI Code Review in Editor for real-time feedback, Instant Grep for faster code search, MCP Elicitation Support, Team Rules for global rule sharing, and enhanced analytics with hooks for agent loop control.",
     "updateType": "release",
-    "url": "https://cursor.com/changelog/1-0",
-    "date": "2025-06-04",
+    "url": "https://cursor.com/changelog/2-1",
+    "date": "2025-11-21",
     "community_feedback": [
       {
-        "quote": "Cursor 1.0 rocks!",
-        "source": "Reddit",
+        "quote": "Cursor 2.1 is now available!",
+        "source": "Reddit r/cursor (109 upvotes)",
         "sentiment": "positive"
       },
       {
-        "quote": "Some users expressed frustration with frequent updates disturbing their workflow and concerns about lack of easy rollback options",
-        "source": "Hacker News",
-        "sentiment": "negative"
-      }
-    ]
-  },
-  {
-    "productName": "GitHub Copilot",
-    "title": "VS Code v1.102 with Enhanced Copilot Integration",
-    "description": "GitHub Copilot Chat extension open sourced, Model Context Protocol (MCP) support became GA, enhanced GitHub Pull Requests integration, and improved extension management with Quick Pick interface.",
-    "updateType": "release",
-    "url": "https://github.blog/changelog/2025-07-15-github-copilot-in-vs-code-june-release-v1-102/",
-    "date": "2025-07-09",
-    "community_feedback": [
-      {
-        "quote": "So literally 9/10 of the key highlights are about AI. I love VSCode and use it everyday, but let's not pretend we can't see what is in the...",
-        "source": "Reddit r/vscode",
-        "sentiment": "neutral"
-      },
-      {
-        "quote": "VS Code pm here, so if there are questions let me know",
-        "source": "Reddit r/ChatGPTCoding",
+        "quote": "Cursor 2.1 brings better planning, fast code reviews inside the editor, and lets several AI agents work together on projects",
+        "source": "Reddit r/aicuriosity",
         "sentiment": "positive"
-      }
-    ]
-  },
-  {
-    "productName": "Windsurf",
-    "title": "Wave 10: Planning Mode and Platform Expansion",
-    "description": "Introduced Planning Mode for long-term project collaboration, Windsurf Browser integration, new Europe datacenter, and Windsurf University learning hub, expanding beyond just an AI code editor.",
-    "updateType": "feature",
-    "url": "https://windsurf.com/blog/changelist-jun25",
-    "date": "2025-07-01",
-    "community_feedback": [
-      {
-        "quote": "Users reported using multiple AI coding tools (Windsurf, Cursor, and others) in a 'tug of war' between competing platforms",
-        "source": "Reddit r/windsurf",
-        "sentiment": "neutral"
       },
       {
-        "quote": "Mixed reactions about Windsurf's value proposition, with some noting it's essentially a VS Code fork",
-        "source": "Hacker News",
-        "sentiment": "neutral"
-      }
-    ]
-  },
-  {
-    "productName": "Devin",
-    "title": "Slack Integration Enhancement",
-    "description": "Devin added Slack thread organization feature, allowing users to choose whether the AI should reply in threads to keep conversations organized when integrated with Slack workspaces.",
-    "updateType": "feature",
-    "url": "https://cognitionai.mintlify.app/release-notes/overview",
-    "date": "2025-06-26",
-    "community_feedback": [
+        "quote": "Cursor 2.1's Plan Mode stops and asks clarifying questions before writing a single line",
+        "source": "Reddit r/AISEOInsider",
+        "sentiment": "positive"
+      },
       {
-        "quote": "They took too long to launch imo, by the time it finally hit the market at large people already found it more convenient to code with normal Claude and Chatgpt.",
-        "source": "Reddit r/ycombinator",
+        "quote": "Agent mode quality is down bad - the past few months for the agent mode have been extremely deceiving",
+        "source": "Cursor Official Forum",
         "sentiment": "negative"
       },
       {
-        "quote": "I think one of the big problems with Devin (and AI agents in general) is that they're only ever as good as they are. Sometimes their intelligence feels limited.",
-        "source": "Hacker News",
-        "sentiment": "neutral"
-      }
-    ]
-  },
-  {
-    "productName": "Aider",
-    "title": "Version 0.85.0 Release with Enhanced Model Support",
-    "description": "Aider released version 0.85.0 with expanded AI model support and improvements to the terminal-based AI pair programming experience, maintaining its 70-80% self-development ratio.",
-    "updateType": "release",
-    "url": "https://aider.chat/HISTORY.html",
-    "date": "2025-06-27",
-    "community_feedback": [
-      {
-        "quote": "Aider is hands down the best for fixing bugs and adding features to large monorepo codebases, and it's free and open-source.",
-        "source": "Reddit r/ChatGPTCoding",
-        "sentiment": "positive"
-      },
-      {
-        "quote": "Developers using Aider's terminal-based assistant report quadrupling their coding productivity after extended use.",
-        "source": "Developer Community",
-        "sentiment": "positive"
-      }
-    ]
-  },
-  {
-    "productName": "Codex CLI",
-    "title": "Expanded ChatGPT Plus Availability and Voice Dictation",
-    "description": "Codex CLI became available to all ChatGPT Plus users with refreshed UI, new commands, voice dictation support for hands-free coding, and GitHub integration with automatic PR reviews.",
-    "updateType": "feature",
-    "url": "https://developers.openai.com/codex/changelog/",
-    "date": "2025-06-03",
-    "community_feedback": [
-      {
-        "quote": "The new voice dictation capability and GitHub integration make Codex CLI a comprehensive coding assistant.",
-        "source": "Developer Community",
-        "sentiment": "positive"
-      }
-    ]
-  },
-  {
-    "productName": "Gemini CLI",
-    "title": "Official Launch and Terminal Integration",
-    "description": "Google officially launched Gemini CLI as a free, open-source AI agent that brings Gemini directly to your terminal with MCP support, human-in-the-loop capabilities, and extensibility.",
-    "updateType": "release",
-    "url": "https://geminicli.com/docs/changelogs/",
-    "date": "2025-06-25",
-    "community_feedback": [
-      {
-        "quote": "Gemini CLI might change how I work. Here are four prompts that prove it.",
-        "source": "Developer Blog",
-        "sentiment": "positive"
-      },
-      {
-        "quote": "Users report 429 Too Many Requests errors and extreme latency, with some being automatically downgraded to less capable models.",
-        "source": "Reddit r/Bard",
+        "quote": "Users reporting performance issues when opening large JSON/log files and freezing after AI-edit tool calls",
+        "source": "Cursor Official Forum",
         "sentiment": "negative"
-      },
-      {
-        "quote": "Good for cost-conscious users and doesn't require changing existing workflows.",
-        "source": "Comparative Review",
-        "sentiment": "positive"
       }
     ]
   }

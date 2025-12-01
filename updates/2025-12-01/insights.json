@@ -1,12 +1,21 @@
 [
   {
-    "title": "Vibe Coding: Andrej Karpathy's New AI Programming Philosophy",
-    "description": "Andrej Karpathy introduced 'vibe coding' - a new approach where developers 'fully give in to the vibes, embrace exponentials' and work more intuitively with AI systems. Featured in his weekend 'LLM Council' hack project demonstrating multi-model AI systems as enterprise blueprints.",
-    "author": "Andrej Karpathy",
-    "source": "Twitter/X",
-    "url": "https://x.com/karpathy/status/1886192184808149383?lang=en",
-    "topics": ["AI coding", "Vibe coding", "LLM systems", "Software development philosophy"],
-    "type": "opinion"
+    "title": "Amjad Masad's $3 Billion Gamble: Replit's AI Coding Empire",
+    "description": "Comprehensive analysis of Replit's position in the AI coding tools landscape as of November 2025. The company has achieved $144M ARR with a $3B valuation, competing in the professional developer tools segment against Cursor ($500M ARR, $9.9B valuation). The AI coding market has stratified into distinct segments by late 2025.",
+    "author": "Digidai Analysis",
+    "source": "Analysis",
+    "url": "https://digidai.github.io/2025/11/21/amjad-masad-replit-billion-software-creators-deep-analysis/",
+    "topics": ["Replit", "AI coding tools", "Market analysis", "Startup valuation"],
+    "type": "analysis"
+  },
+  {
+    "title": "AI has a deep understanding of how this code works",
+    "description": "Hacker News discussion about AI's capabilities in understanding code functionality beyond just generation. The community generally likes AI coding tools but raises concerns about energy consumption and unforeseen problems with widespread adoption.",
+    "author": "Hacker News Community",
+    "source": "Hacker News",
+    "url": "https://news.ycombinator.com/item?id=46039274",
+    "topics": ["AI code understanding", "Code generation", "Developer sentiment"],
+    "type": "discussion"
   },
   {
     "title": "Bluesky Thread Viewer JavaScript tool",
@@ -15,6 +24,15 @@
     "source": "Blog",
     "url": "https://simonwillison.net/2025/Nov/28/bluesky-thread-viewer/",
     "topics": ["AI coding tools", "Claude Code", "JavaScript development"],
+    "type": "technical"
+  },
+  {
+    "title": "Replit Agent Powered by Claude 3.5 Sonnet",
+    "description": "Replit launched their AI Agent in September 2025, powered by Anthropic's Claude 3.5 Sonnet model. This represents a significant leap in AI-powered coding assistance and has contributed to the company's revenue growth from $2M to $144M ARR.",
+    "author": "Replit Team",
+    "source": "Company Announcement",
+    "url": "https://www.youtube.com/watch?v=7byTnQHV_N0",
+    "topics": ["Replit Agent", "Claude 3.5 Sonnet", "AI coding tools", "Product launches"],
     "type": "technical"
   },
   {
@@ -27,22 +45,13 @@
     "type": "tutorial"
   },
   {
-    "title": "AI has a deep understanding of how this code works",
-    "description": "Hacker News discussion about how everybody can generate code via LLMs and that writing code isn't what defines the dominant work of existing projects anymore. Focus shifted from code generation to code understanding and integration.",
-    "author": "Hacker News Community",
-    "source": "Hacker News",
-    "url": "https://news.ycombinator.com/item?id=46039274",
-    "topics": ["AI coding", "LLM code generation", "Software development"],
-    "type": "discussion"
-  },
-  {
-    "title": "I read AI coding negativity on Hacker News and Reddit",
-    "description": "Discussion about an LLM writing 80% of code now, with comparisons to 'a forgetful junior dev who writes very verbose code.' Explores the practical realities of AI-assisted coding workflows.",
-    "author": "Hacker News Community",
-    "source": "Hacker News",
-    "url": "https://news.ycombinator.com/item?id=44974183",
-    "topics": ["AI coding", "Code quality", "Development workflow"],
-    "type": "discussion"
+    "title": "Vibe Coding: Andrej Karpathy's New AI Programming Philosophy",
+    "description": "Andrej Karpathy introduced 'vibe coding' - a new approach where developers 'fully give in to the vibes, embrace exponentials' and work more intuitively with AI systems. Featured in his weekend 'LLM Council' hack project demonstrating multi-model AI systems as enterprise blueprints.",
+    "author": "Andrej Karpathy",
+    "source": "Twitter/X",
+    "url": "https://x.com/karpathy/status/1886192184808149383?lang=en",
+    "topics": ["AI coding", "Vibe coding", "LLM systems", "Software development philosophy"],
+    "type": "opinion"
   },
   {
     "title": "Show HN Growth Analysis: 2.2x Increase in AI-Powered Launches",
@@ -61,5 +70,14 @@
     "url": "https://medium.com/@addyosmani/vibe-coding-is-not-the-same-as-ai-assisted-engineering-3f81088d5b98",
     "topics": ["AI coding", "Code quality", "Best practices"],
     "type": "opinion"
+  },
+  {
+    "title": "I read AI coding negativity on Hacker News and Reddit",
+    "description": "Discussion about an LLM writing 80% of code now, with comparisons to 'a forgetful junior dev who writes very verbose code.' Explores the practical realities of AI-assisted coding workflows.",
+    "author": "Hacker News Community",
+    "source": "Hacker News",
+    "url": "https://news.ycombinator.com/item?id=44974183",
+    "topics": ["AI coding", "Code quality", "Development workflow"],
+    "type": "discussion"
   }
 ]
