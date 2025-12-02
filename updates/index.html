@@ -5,1140 +5,281 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weekly Report - Code Agent Daily</title>
     <link rel="stylesheet" href="assets/base.css">
-    <style>
-        /* Medium-style CSS overrides */
-        :root {
-            --text-primary: #000000;
-            --text-secondary: #292929;
-            --text-muted: #6b7280;
-            --border-color: #E6E6E6;
-            --bg-white: #FFFFFF;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            color: var(--text-secondary);
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            background: var(--bg-white);
-        }
-
-        /* Global Site Header */
-        .global-header {
-            text-align: center;
-            margin-bottom: 60px;
-            padding-bottom: 40px;
-        }
-
-        .site-logo {
-            font-family: 'Georgia', 'Cambria', 'Times New Roman', serif;
-            font-size: 48px;
-            font-weight: bold;
-            color: var(--text-primary);
-            margin-bottom: 8px;
-            letter-spacing: -0.5px;
-        }
-
-        .site-tagline {
-            font-size: 16px;
-            color: var(--text-muted);
-            margin-bottom: 24px;
-            font-weight: 400;
-        }
-
-        .github-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--text-secondary);
-            text-decoration: none;
-            padding: 8px 16px;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            transition: all 0.2s ease;
-            font-size: 14px;
-        }
-
-        .github-link:hover {
-            background: #f9fafb;
-            text-decoration: none;
-        }
-
-        /* Two-Column Layout */
-        .main-container {
-            display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 40px;
-            align-items: start;
-        }
-
-        /* Sidebar */
-        .sidebar {
-            position: sticky;
-            top: 40px;
-        }
-
-        .sidebar-content {
-            background: #fafafa;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-        }
-
-        .timeline-title {
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: var(--text-muted);
-            margin-bottom: 12px;
-        }
-
-        .date-range {
-            font-family: 'Georgia', serif;
-            font-size: 16px;
-            color: var(--text-primary);
-            font-weight: bold;
-        }
-
-        /* Main Content */
-        .main-content {
-            min-width: 0;
-        }
-
-        .weekly-header {
-            margin-bottom: 48px;
-            padding-bottom: 32px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .weekly-title {
-            font-family: 'Georgia', 'Cambria', 'Times New Roman', serif;
-            font-size: 36px;
-            font-weight: bold;
-            color: var(--text-primary);
-            margin-bottom: 8px;
-            letter-spacing: -0.3px;
-        }
-
-        .weekly-subtitle {
-            font-size: 18px;
-            color: var(--text-muted);
-            margin-bottom: 16px;
-        }
-
-        .weekly-description {
-            font-size: 16px;
-            line-height: 1.6;
-            color: var(--text-secondary);
-        }
-
-        /* Category Sections */
-        .category-section {
-            margin-bottom: 56px;
-        }
-
-        .category-title {
-            font-family: 'Georgia', 'Cambria', 'Times New Roman', serif;
-            font-size: 28px;
-            font-weight: bold;
-            color: var(--text-primary);
-            margin-bottom: 24px;
-            letter-spacing: -0.2px;
-        }
-
-        /* Grid Layout System */
-        .scroll-grid {
-            display: grid;
-            grid-auto-flow: column;
-            grid-auto-columns: 320px;
-            gap: 20px;
-            overflow-x: auto;
-            padding-bottom: 15px;
-        }
-
-        .grid-rows-1 {
-            grid-template-rows: auto;
-        }
-
-        .grid-rows-2 {
-            grid-template-rows: repeat(2, auto);
-        }
-
-        .grid-rows-3 {
-            grid-template-rows: repeat(3, auto);
-        }
-
-        /* Cards */
-        .card {
-            width: 100%;
-            height: 100%;
-            background: var(--bg-white);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: all 0.2s ease;
-        }
-
-        .card:hover {
-            border-color: #d1d5db;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-
-        .card-title {
-            font-family: 'Georgia', 'Cambria', 'Times New Roman', serif;
-            font-size: 18px;
-            font-weight: bold;
-            color: var(--text-primary);
-            margin-bottom: 12px;
-            line-height: 1.3;
-        }
-
-        .card-title a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .card-title a:hover {
-            text-decoration: underline;
-        }
-
-        .card-description {
-            font-size: 14px;
-            line-height: 1.5;
-            color: var(--text-secondary);
-            margin-bottom: 16px;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .card-metadata {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 12px;
-            color: var(--text-muted);
-            padding-top: 12px;
-            border-top: 1px solid #f3f4f6;
-        }
-
-        .card-date {
-            font-weight: 500;
-        }
-
-        .card-source {
-            font-style: italic;
-        }
-
-        /* Hide scrollbar but keep functionality */
-        .scroll-grid::-webkit-scrollbar {
-            height: 8px;
-        }
-
-        .scroll-grid::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 4px;
-        }
-
-        .scroll-grid::-webkit-scrollbar-thumb {
-            background: #c1c1c1;
-            border-radius: 4px;
-        }
-
-        .scroll-grid::-webkit-scrollbar-thumb:hover {
-            background: #a8a8a8;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            body {
-                padding: 20px 16px;
-            }
-
-            .main-container {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-
-            .sidebar {
-                position: static;
-            }
-
-            .site-logo {
-                font-size: 32px;
-            }
-
-            .weekly-title {
-                font-size: 28px;
-            }
-
-            .category-title {
-                font-size: 24px;
-            }
-
-            .scroll-grid {
-                grid-auto-columns: 280px;
-                gap: 16px;
-            }
-        }
-
-        /* Empty state */
-        .empty-section {
-            text-align: center;
-            padding: 40px 20px;
-            color: var(--text-muted);
-            font-style: italic;
-        }
-    </style>
 </head>
 <body>
-    <!-- Global Site Header -->
-    <header class="global-header">
-        <h1 class="site-logo">Code Agent Daily</h1>
-        <p class="site-tagline">Build your own daily with AI</p>
-        <a href="https://github.com/crazygo/agentdaily" target="_blank" class="github-link">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
-            </svg>
-            View on GitHub
-        </a>
-    </header>
+    <div class="container">
+        <!-- Global Site Header -->
+        <header class="global-header">
+            <h1 class="site-title">Code Agent Daily</h1>
+            <p class="site-tagline">Build your own daily with AI</p>
+            <a href="https://github.com/crazygo/agentdaily" target="_blank" class="github-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+                </svg>
+                View on GitHub
+            </a>
+        </header>
 
-    <!-- Main Container -->
-    <div class="main-container">
-        <!-- Left Sidebar -->
-        <aside class="sidebar">
-            <div class="sidebar-content">
-                <div class="timeline-title">Current Week</div>
-                <div class="date-range">Nov 26 – Dec 2</div>
-            </div>
-        </aside>
-
-        <!-- Right Column - Main Content -->
-        <main class="main-content">
-            <!-- Weekly Header -->
-            <div class="weekly-header">
-                <h2 class="weekly-title">Weekly Report</h2>
-                <div class="weekly-subtitle">Nov 26, 2025 – Dec 2, 2025</div>
-                <p class="weekly-description">A curated summary of the most important updates in AI from the last 7 days.</p>
-            </div>
-
-            <!-- New Products Section -->
-            <section class="category-section">
-                <h3 class="category-title">New Products</h3>
-                <div class="scroll-grid grid-rows-3">
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://www.producthunt.com/products/rightnow-ai" target="_blank">RightNow CUDA Editor</a>
-                        </h4>
-                        <p class="card-description">The first GPU-native AI code editor specifically designed for CUDA GPU programming, featuring real-time profiling, cycle-accurate emulation, and AI that understands CUDA for performance optimization and bottleneck identification.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 30</span>
-                            <span class="card-source">Product Hunt</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://www.producthunt.com/products/rightnow-ai" target="_blank">RightNow CLI</a>
-                        </h4>
-                        <p class="card-description">Claude Code for CUDA, an open-source AI CLI for GPU development that provides terminal-based AI assistance for CUDA programming, complementing the RightNow CUDA Editor with command-line capabilities.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 30</span>
-                            <span class="card-source">Product Hunt</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://antigravity.google" target="_blank">Google Antigravity IDE</a>
-                        </h4>
-                        <p class="card-description">Google's free AI-powered development platform featuring autonomous coding agents powered by Gemini 3 that can write, test, and debug applications while developers delegate complex tasks.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 18</span>
-                            <span class="card-source">Google</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://help.openai.com/articles/11391654-chatgpt-business-release-notes" target="_blank">ChatGPT Business Project Memory</a>
-                        </h4>
-                        <p class="card-description">OpenAI's ChatGPT Business update introducing project-only memory features and workspace discovery capabilities that help AI maintain context across coding sessions.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 19</span>
-                            <span class="card-source">OpenAI</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://www.devopsdigest.com/parasoft-launches-ai-driven-autonomous-testing-workflows-for-cicd-pipelines" target="_blank">Parasoft AI-Driven Autonomous Testing</a>
-                        </h4>
-                        <p class="card-description">AI-driven autonomous testing workflows specifically designed for CI/CD pipelines, representing the evolution from CI/CD to CI/AI with automated testing and deployment workflows.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 18</span>
-                            <span class="card-source">DevOps Digest</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://codeium.com/windsurf" target="_blank">Windsurf by Codeium</a>
-                        </h4>
-                        <p class="card-description">AI-powered code editor that combines traditional editing with AI assistance. Features include code completion, generation, and real-time collaboration with AI.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 27</span>
-                            <span class="card-source">Product Hunt</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://github.com/All-Hands-AI/OpenHands" target="_blank">OpenHands (formerly OpenDevin)</a>
-                        </h4>
-                        <p class="card-description">Open-source autonomous AI software engineer that can write code, fix bugs, and manage entire development workflows through natural language commands.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 27</span>
-                            <span class="card-source">GitHub</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://cursor.sh" target="_blank">Cursor Pro</a>
-                        </h4>
-                        <p class="card-description">AI-enhanced IDE with advanced features like autonomous coding sessions, project-level understanding, and multi-file editing capabilities.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 27</span>
-                            <span class="card-source">Product Hunt</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://github.com/HKUDS/LightRAG" target="_blank">LightRAG</a>
-                        </h4>
-                        <p class="card-description">Simple and Fast Retrieval-Augmented Generation framework for building AI applications with enhanced context retrieval and generation capabilities.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 26</span>
-                            <span class="card-source">GitHub</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://github.com/google/adk-go" target="_blank">Google ADK-Go</a>
-                        </h4>
-                        <p class="card-description">Google's Go toolkit for building AI agents with flexibility and control, providing developers with tools to create autonomous coding agents in Go.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 26</span>
-                            <span class="card-source">GitHub</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://github.com/GibsonAI/Memori" target="_blank">Memori</a>
-                        </h4>
-                        <p class="card-description">Open-Source Memory Engine for LLMs & Multi-Agent Systems, enabling persistent memory and context management for AI coding assistants.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 26</span>
-                            <span class="card-source">GitHub</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://github.com/microsoft/call-center-ai" target="_blank">Microsoft Call Center AI</a>
-                        </h4>
-                        <p class="card-description">AI agent for handling phone calls via API, demonstrating Microsoft's expansion into voice-based AI agents for developer integration.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 26</span>
-                            <span class="card-source">GitHub</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://github.com/claude-ai/jopa" target="_blank">JOPA Java Compiler</a>
-                        </h4>
-                        <p class="card-description">Java compiler in C++, modernizing Jikes to Java 6 with Claude assistance, showcasing AI-assisted development of traditional developer tools.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 26</span>
-                            <span class="card-source">Hacker News</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://supermaven.com" target="_blank">Supermaven</a>
-                        </h4>
-                        <p class="card-description">AI coding assistant focused on high-speed code completion and generation with context awareness across large codebases.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 27</span>
-                            <span class="card-source">Product Hunt</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://coderabbit.ai" target="_blank">CodeRabbit</a>
-                        </h4>
-                        <p class="card-description">AI-powered code review assistant that integrates with GitHub to provide automated code reviews, suggestions, and improvements.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 27</span>
-                            <span class="card-source">GitHub</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://github.com/paul-gauthier/aider" target="_blank">Aider</a>
-                        </h4>
-                        <p class="card-description">AI pair programming tool that works in your terminal, allowing you to chat with GPT-4 while coding with real-time file editing.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 27</span>
-                            <span class="card-source">GitHub</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://continue.dev" target="_blank">Continue.dev</a>
-                        </h4>
-                        <p class="card-description">Open-source AI coding assistant that can be integrated into VS Code and other IDEs, supporting various LLM providers for code completion and chat.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 27</span>
-                            <span class="card-source">GitHub</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://www.pulumi.com/ai" target="_blank">Pulumi AI</a>
-                        </h4>
-                        <p class="card-description">AI-powered infrastructure as code assistant that helps generate, deploy, and manage cloud infrastructure using natural language.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 27</span>
-                            <span class="card-source">News</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://mutable.ai" target="_blank">Mutable.ai</a>
-                        </h4>
-                        <p class="card-description">AI-powered development platform that accelerates coding with features like AI test generation, documentation, and code improvement suggestions.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 27</span>
-                            <span class="card-source">Product Hunt</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://github.com/salesforce/CodeT5" target="_blank">CodeT5+</a>
-                        </h4>
-                        <p class="card-description">Open-source code generation model that can be used for various programming tasks including code completion, summarization, and translation.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 27</span>
-                            <span class="card-source">GitHub</span>
-                        </div>
-                    </article>
+        <!-- Two-Column Layout -->
+        <div class="main-layout">
+            <!-- Left Sidebar -->
+            <aside class="sidebar">
+                <div class="timeline-header">
+                    <div class="current-period">Nov 26 - Dec 2</div>
                 </div>
-            </section>
+                <nav class="timeline-nav">
+                    <div class="timeline-item active">
+                        <div class="timeline-label">This Week</div>
+                        <div class="timeline-date">Nov 26 - Dec 2, 2025</div>
+                    </div>
+                </nav>
+            </aside>
 
-            <!-- New Features Section -->
-            <section class="category-section">
-                <h3 class="category-title">New Features</h3>
-                <div class="scroll-grid grid-rows-3">
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://www.anthropic.com/news/claude-opus-4-5" target="_blank">Claude Opus 4.5 Integration</a>
-                        </h4>
-                        <p class="card-description">Claude Opus 4.5 launched with 50-75% reductions in tool calling errors and build/lint errors, enhanced complex reasoning, and superior software engineering performance.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Dec 1</span>
-                            <span class="card-source">Claude Code</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://cursor.com/changelog/2-1" target="_blank">Cursor 2.1 with AI Code Review and Instant Grep</a>
-                        </h4>
-                        <p class="card-description">Cursor 2.1 released with integrated AI code review in editor, Instant Grep functionality delivering sub-second search results, improved Plan Mode, and enhanced interactive dialogue for complex programming tasks.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 21</span>
-                            <span class="card-source">Cursor</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://github.blog/changelog/2025-11-24-claude-opus-4-5-is-in-public-preview-for-github-copilot/" target="_blank">Claude Opus 4.5 Public Preview Integration</a>
-                        </h4>
-                        <p class="card-description">GitHub Copilot added Claude Opus 4.5 in public preview, allowing developers to access Anthropic's latest model that surpassed internal coding benchmarks in early testing.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 24</span>
-                            <span class="card-source">GitHub Copilot</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://github.blog/changelog/2025-12-01-copilot-spaces-public-spaces-and-code-view-support" target="_blank">Copilot Spaces with Public Sharing and Code View</a>
-                        </h4>
-                        <p class="card-description">GitHub Copilot Spaces updated with public spaces creation, individual sharing capabilities, and direct file addition from interfaces, enabling better collaboration and context sharing for AI-assisted coding.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Dec 1</span>
-                            <span class="card-source">GitHub Copilot</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://github.blog/changelog/2025-11-18-github-copilot-cli-new-models-enhanced-code-search-and-better-image-support/" target="_blank">Enhanced CLI with New Models and Image Support</a>
-                        </h4>
-                        <p class="card-description">GitHub Copilot CLI updated with new models, enhanced code search capabilities, and improved image support for better developer experience in terminal environments.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 18</span>
-                            <span class="card-source">GitHub Copilot</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://windsurf.com/changelog" target="_blank">Version 1.12.35 with Gemini 3 Pro Support</a>
-                        </h4>
-                        <p class="card-description">Windsurf released version 1.12.35 adding Gemini 3 Pro model support, fixing internal Cascade errors, and improving SWE (Software Engineering) capabilities.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 21</span>
-                            <span class="card-source">Windsurf</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://windsurf.com/changelog" target="_blank">GPT-5.1 Priority Mode Launch</a>
-                        </h4>
-                        <p class="card-description">Windsurf added GPT-5.1 Priority Mode with guaranteed low-latency responses (~50 tokens/sec) and more reliable AI assistance for premium users.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 13</span>
-                            <span class="card-source">Windsurf</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://cognition.ai/blog/devin-annual-performance-review-2025" target="_blank">2025 Performance Review and Enterprise Scaling</a>
-                        </h4>
-                        <p class="card-description">Devin published comprehensive 2025 performance review showing 18 months of agent deployment experience, with thousands of companies adopting Devin and Goldman Sachs piloting the AI software engineer.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 14</span>
-                            <span class="card-source">Devin</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://changelog.continue.dev/" target="_blank">Instant Edits and GPT-5 Codex Support</a>
-                        </h4>
-                        <p class="card-description">Continue.dev released new features including Instant Edits, GPT-5 Codex Support, and Grok Code Fast functionality, along with bug fixes for VS Code integration.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 3</span>
-                            <span class="card-source">Continue</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://developers.openai.com/codex/changelog/" target="_blank">Version 0.59.0 with Enhanced Features</a>
-                        </h4>
-                        <p class="card-description">OpenAI released Codex CLI v0.59.0 with new gpt-5-codex-mini model, automatic model switching, Codex Cloud integration, enhanced TUI feedback, and direct shell execution capabilities.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 19</span>
-                            <span class="card-source">Codex CLI</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://github.com/google-gemini/gemini-cli/releases" target="_blank">Version 0.15.0 with Enhanced UI and Authentication</a>
-                        </h4>
-                        <p class="card-description">Google released Gemini CLI v0.15.0 with seamless scrollable UI, mouse support, Databricks authentication, custom header options, and updated dependencies.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 3</span>
-                            <span class="card-source">Gemini CLI</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://github.com/features/copilot" target="_blank">Claude Opus 4.1 Available for Enterprise</a>
-                        </h4>
-                        <p class="card-description">GitHub Copilot Enterprise now includes access to all models, including Claude Opus 4.1 and more, with new pricing at $39/user/month.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 1</span>
-                            <span class="card-source">GitHub Copilot</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://github.blog" target="_blank">Copilot Sessions on Android & Post-Quantum SSH Security</a>
-                        </h4>
-                        <p class="card-description">GitHub Copilot sessions now available on Android devices and post-quantum security for SSH has been introduced. Latest updates include AI-powered agents and TypeScript becoming the #1 language.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 15</span>
-                            <span class="card-source">GitHub Copilot</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://cursor.com/" target="_blank">Series D Funding and Version 2.1 Release</a>
-                        </h4>
-                        <p class="card-description">Raised $2.3B in Series D funding, passed $1B revenue in November 2025. Released version 2.1 with improved Plan Mode and AI Code Review features.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 20</span>
-                            <span class="card-source">Cursor</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://github.blog/news-insights/product-news/github-copilot-meet-the-new-coding-agent/" target="_blank">GitHub Copilot GPT-5 integration and platform changes</a>
-                        </h4>
-                        <p class="card-description">GitHub announced GPT-5 integration for Copilot along with significant platform changes, including the transition of GitHub Apps to Copilot Extensions and the closure of the old GitHub Apps platform on November 10, 2025.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 29</span>
-                            <span class="card-source">GitHub Blog</span>
-                        </div>
-                    </article>
+            <!-- Right Main Content -->
+            <main class="main-content">
+                <div class="weekly-header">
+                    <h2 class="weekly-title">Weekly Report</h2>
+                    <p class="weekly-subtitle">Nov 26, 2025 – Dec 2, 2025</p>
+                    <p class="weekly-description">A curated summary of the most important updates in AI from the last 7 days.</p>
                 </div>
-            </section>
 
-            <!-- New Technologies Section -->
-            <section class="category-section">
-                <h3 class="category-title">New Technologies</h3>
-                <div class="scroll-grid grid-rows-2">
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://arxiv.org/abs/2509.17489" target="_blank">Squeezing Multi-Agent Coding into a Single Small LLM</a>
-                        </h4>
-                        <p class="card-description">Recent arXiv paper presenting novel approaches to compress multi-agent coding capabilities into smaller, more efficient LLMs, potentially making advanced AI coding more accessible and resource-efficient.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 25</span>
-                            <span class="card-source">arXiv</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://arxiv.org/abs/2411.16462" target="_blank">Can Vibe Coding Beat Graduate CS Students? An LLM vs. Human Coding Tournament</a>
-                        </h4>
-                        <p class="card-description">Presents research comparing LLM coding capabilities with human students on market-driven strategic planning tasks, providing empirical insights into AI vs human coding performance.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 26</span>
-                            <span class="card-source">arXiv</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://arxiv.org/abs/2411.15184" target="_blank">RPM-MCTS: Knowledge-Retrieval as Process Reward Model with Monte Carlo Tree Search for Code Generation</a>
-                        </h4>
-                        <p class="card-description">Introduces advanced techniques for code generation using knowledge retrieval and process reward models with Monte Carlo Tree Search, pushing boundaries in AI-assisted coding.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 26</span>
-                            <span class="card-source">arXiv</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://arxiv.org/abs/2411.14969" target="_blank">Fara-7B: An Efficient Agentic Model for Computer Use</a>
-                        </h4>
-                        <p class="card-description">Presents an efficient agentic AI model specifically designed for computer-based tasks, representing advances in practical AI agent deployment.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 26</span>
-                            <span class="card-source">arXiv</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://arxiv.org/abs/2411.16761" target="_blank">NNGPT: Rethinking AutoML with Large Language Models</a>
-                        </h4>
-                        <p class="card-description">Explores novel approaches to using LLMs for Automated Machine Learning, potentially impacting how AI systems are built and deployed.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 26</span>
-                            <span class="card-source">arXiv</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://arxiv.org/html/2502.02649v3" target="_blank">Research: Fully Autonomous AI Agents Should Not Be Developed</a>
-                        </h4>
-                        <p class="card-description">Academic research argues against developing fully autonomous AI agents, suggesting risks outweigh benefits for highly autonomous systems. Proposes evaluating AI agents on a sliding scale of autonomy rather than binary classification.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 29</span>
-                            <span class="card-source">arXiv</span>
-                        </div>
-                    </article>
-                </div>
-            </section>
+                <!-- New Products Section -->
+                <section class="category-section" id="new-products">
+                    <h3 class="category-title">New Products</h3>
+                    <div class="scroll-grid grid-rows-3">
+                        <a href="https://www.producthunt.com/products/rightnow-ai" target="_blank" class="card">
+                            <h4 class="card-title">RightNow CUDA Editor</h4>
+                            <p class="card-description">The first GPU-native AI code editor specifically designed for CUDA GPU programming, featuring real-time profiling, cycle-accurate emulation, and AI that understands CUDA for performance optimization and bottleneck identification.</p>
+                            <div class="card-meta">
+                                <span class="card-date">Nov 30</span>
+                                <span class="card-source">Product Hunt</span>
+                            </div>
+                        </a>
+                        <a href="https://www.producthunt.com/products/rightnow-ai" target="_blank" class="card">
+                            <h4 class="card-title">RightNow CLI</h4>
+                            <p class="card-description">Claude Code for CUDA, an open-source AI CLI for GPU development that provides terminal-based AI assistance for CUDA programming, complementing the RightNow CUDA Editor with command-line capabilities.</p>
+                            <div class="card-meta">
+                                <span class="card-date">Nov 30</span>
+                                <span class="card-source">Product Hunt</span>
+                            </div>
+                        </a>
+                        <a href="https://codeium.com/windsurf" target="_blank" class="card">
+                            <h4 class="card-title">Windsurf by Codeium</h4>
+                            <p class="card-description">AI-powered code editor that combines traditional editing with AI assistance. Features include code completion, generation, and real-time collaboration with AI.</p>
+                            <div class="card-meta">
+                                <span class="card-date">Nov 27</span>
+                                <span class="card-source">Product Hunt</span>
+                            </div>
+                        </a>
+                        <a href="https://github.com/All-Hands-AI/OpenHands" target="_blank" class="card">
+                            <h4 class="card-title">OpenHands (formerly OpenDevin)</h4>
+                            <p class="card-description">Open-source autonomous AI software engineer that can write code, fix bugs, and manage entire development workflows through natural language commands.</p>
+                            <div class="card-meta">
+                                <span class="card-date">Nov 27</span>
+                                <span class="card-source">GitHub</span>
+                            </div>
+                        </a>
+                        <a href="https://cursor.sh" target="_blank" class="card">
+                            <h4 class="card-title">Cursor Pro</h4>
+                            <p class="card-description">AI-enhanced IDE with advanced features like autonomous coding sessions, project-level understanding, and multi-file editing capabilities.</p>
+                            <div class="card-meta">
+                                <span class="card-date">Nov 27</span>
+                                <span class="card-source">Product Hunt</span>
+                            </div>
+                        </a>
+                        <a href="https://github.com/HKUDS/LightRAG" target="_blank" class="card">
+                            <h4 class="card-title">LightRAG</h4>
+                            <p class="card-description">Simple and Fast Retrieval-Augmented Generation framework for building AI applications with enhanced context retrieval and generation capabilities.</p>
+                            <div class="card-meta">
+                                <span class="card-date">Nov 26</span>
+                                <span class="card-source">GitHub</span>
+                            </div>
+                        </a>
+                        <a href="https://github.com/google/adk-go" target="_blank" class="card">
+                            <h4 class="card-title">Google ADK-Go</h4>
+                            <p class="card-description">Google's Go toolkit for building AI agents with flexibility and control, providing developers with tools to create autonomous coding agents in Go.</p>
+                            <div class="card-meta">
+                                <span class="card-date">Nov 26</span>
+                                <span class="card-source">GitHub</span>
+                            </div>
+                        </a>
+                        <a href="https://github.com/GibsonAI/Memori" target="_blank" class="card">
+                            <h4 class="card-title">Memori</h4>
+                            <p class="card-description">Open-Source Memory Engine for LLMs & Multi-Agent Systems, enabling persistent memory and context management for AI coding assistants.</p>
+                            <div class="card-meta">
+                                <span class="card-date">Nov 26</span>
+                                <span class="card-source">GitHub</span>
+                            </div>
+                        </a>
+                        <a href="https://github.com/microsoft/call-center-ai" target="_blank" class="card">
+                            <h4 class="card-title">Microsoft Call Center AI</h4>
+                            <p class="card-description">AI agent for handling phone calls via API, demonstrating Microsoft's expansion into voice-based AI agents for developer integration.</p>
+                            <div class="card-meta">
+                                <span class="card-date">Nov 26</span>
+                                <span class="card-source">GitHub</span>
+                            </div>
+                        </a>
+                    </div>
+                </section>
 
-            <!-- Others Section -->
-            <section class="category-section">
-                <h3 class="category-title">Others</h3>
-                <div class="scroll-grid grid-rows-3">
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://venturebeat.com/ai/a-weekend-vibe-code-hack-by-andrej-karpathy-quietly-sketches-the-missing" target="_blank">A weekend 'vibe code' hack by Andrej Karpathy quietly sketches the missing piece in enterprise AI</a>
-                        </h4>
-                        <p class="card-description">Andrej Karpathy created a weekend hack project called 'LLM Council' that demonstrates how a simple multi-model AI hack can become a blueprint for enterprise AI systems. The project explores practical implementations of multiple LLM collaboration.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Dec 1</span>
-                            <span class="card-source">VentureBeat</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://www.linkedin.com/posts/amjadmasad_a-public-company-ceo-told-me-ai-coding-has-activity-7356026664411127809-WNjm" target="_blank">Replit CEO: AI coding has negligible impact on engineering teams, transforms design workflows</a>
-                        </h4>
-                        <p class="card-description">Amjad Masad shared insights from a public company CEO who noted that while AI coding has had 'negligible impact' on engineering teams, the real transformation is happening in design workflows. Startups are already using Replit instead of hiring CTOs.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 28</span>
-                            <span class="card-source">LinkedIn</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://www.linkedin.com/posts/lexfridman_programming-with-ai-is-insanely-fun-process-activity-7363706227391913984-iPJa" target="_blank">Programming with AI is insanely fun - Lex Fridman's development process</a>
-                        </h4>
-                        <p class="card-description">Lex Fridman shared his personal AI programming process: 1) Generate code, 2) Read and understand the code, 3) Tweak, edit, and integrate. He emphasizes that programming with AI has become an enjoyable and creative process.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 30</span>
-                            <span class="card-source">LinkedIn</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://www.shuttle.dev/blog/2025/11/20/ai-coding-tools-for-developers" target="_blank">Best AI Coding Assistants as of November 2025 - Comprehensive Developer Guide</a>
-                        </h4>
-                        <p class="card-description">Comprehensive comparison of AI coding assistants including Cursor, Claude Code, GitHub Copilot, Windsurf, Aider, Zed, Codeium, Qodo, and Tabnine. The analysis focuses on practical developer workflows and enterprise integration.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 20</span>
-                            <span class="card-source">Technical Blog</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://news.ycombinator.com/item?id=45405177" target="_blank">The AI coding trap - Hacker News community discussion</a>
-                        </h4>
-                        <p class="card-description">Hacker News discussion exploring concerns about AI potentially replacing software development as a profession, examining the balance between AI assistance and human developer value.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 26</span>
-                            <span class="card-source">Hacker News</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://news.ycombinator.com/item?id=44526912" target="_blank">AI coding tools can reduce productivity - Counterpoint discussion</a>
-                        </h4>
-                        <p class="card-description">Hacker News thread discussing potential downsides of over-reliance on AI coding tools, including scenarios where AI assistance might actually reduce developer productivity and code quality.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 27</span>
-                            <span class="card-source">Hacker News</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://www.dwarkesh.com/p/andrej-karpathy" target="_blank">Andrej Karpathy: AGI is Still a Decade Away</a>
-                        </h4>
-                        <p class="card-description">Karpathy states that AGI and fully autonomous AI agents won't arrive until around 2035, emphasizing that 'a decade of grunt work still lies ahead.' He revealed he hand-wrote 8,000 lines of code because AI agents 'didn't work well enough' for production use.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 29</span>
-                            <span class="card-source">Podcast Interviews</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://hyperdev.matsuoka.com/p/when-ai-coding-feels-like-yelling" target="_blank">The AI Coding Backlash Has Arrived</a>
-                        </h4>
-                        <p class="card-description">Growing developer frustration with AI coding tools, with viral 'AI Coding Sucks' content capturing widespread sentiment. 75% of developers still manually review every AI-generated code snippet, indicating significant trust issues with autonomous systems.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 29</span>
-                            <span class="card-source">Industry Analysis</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://techcrunch.com/2025/10/02/after-nine-years-of-grinding-replit-finally-found-its-market-can-it-keep-it" target="_blank">Replit's $3B Valuation and Agent 3 Launch</a>
-                        </h4>
-                        <p class="card-description">Replit reached $3B valuation with $144M ARR after launching Agent 3, their most advanced autonomous programming agent that can test, debug, and work autonomously. CEO Amjad Masad is building for '1 billion developers worldwide.'</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 29</span>
-                            <span class="card-source">TechCrunch</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://simonwillison.net/2025/Oct/20/claude-code-for-web/" target="_blank">Simon Willison: Claude Code for Web Launch</a>
-                        </h4>
-                        <p class="card-description">Anthropic launched Claude Code for web as an asynchronous coding agent, positioned as their answer to OpenAI's Codex. Willison provides detailed analysis of how he uses LLMs for coding assistance in both research and authoritarian phases.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 29</span>
-                            <span class="card-source">Blog Post</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://survey.stackoverflow.co/2025/ai" target="_blank">Stack Overflow Survey: AI Tool Sentiment Declining</a>
-                        </h4>
-                        <p class="card-description">While 85% of developers regularly use AI tools, positive sentiment has decreased from 70%+ in 2023-2024 to just 60% in 2025. Professional developers show higher skepticism about AI coding tools compared to hobbyists.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 29</span>
-                            <span class="card-source">Developer Survey</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://www.pragmaticcoders.com/resources/ai-developer-tools" target="_blank">Cursor vs GitHub Copilot: The New Leader in AI Coding</a>
-                        </h4>
-                        <p class="card-description">Cursor has emerged as a strong challenger to GitHub Copilot, with Cursor 2.0 offering advanced agent modes and an AI-first interface. While Copilot integrates with multiple IDEs, Cursor's purpose-built environment appeals to developers wanting deeper AI integration.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 29</span>
-                            <span class="card-source">Tool Comparison</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://lexfridman.com/dhh-david-heinemeier-hansson-transcript/" target="_blank">DHH on AI: 'Vibe Coding' Risks Making Programmers Dumber</a>
-                        </h4>
-                        <p class="card-description">David Heinemeier Hansson discusses how over-reliance on AI coding tools could make programmers 'dumber' if not balanced with maintaining fundamental coding skills. Emphasizes the importance of understanding code rather than just generating it.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 29</span>
-                            <span class="card-source">Podcast</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://news.ycombinator.com/item?id=46047478" target="_blank">Hacker News: What AI Tool to Use for Coding in 2025?</a>
-                        </h4>
-                        <p class="card-description">Active community discussion seeking recommendations for AI coding tools, indicating ongoing confusion about which tools provide the best value and capabilities. Shows developers are still evaluating optimal AI-assisted workflows.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 29</span>
-                            <span class="card-source">Discussion</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://blog.jetbrains.com/research/2025/10/state-of-developer-ecosystem-2025/" target="_blank">JetBrains Survey: 85% of Developers Use AI Tools</a>
-                        </h4>
-                        <p class="card-description">The State of Developer Ecosystem 2025 report shows AI has become standard in developers' lives, with 85% regularly using AI tools and 62% relying on at least one AI tool daily. Indicates widespread adoption despite growing skepticism.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 29</span>
-                            <span class="card-source">Industry Report</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://digidai.github.io/2025/11/21/amjad-masad-replit-billion-software-creators-deep-analysis/" target="_blank">Replit CEO Amjad Masad: The $3 Billion Gamble That Created a New Software Creator Economy</a>
-                        </h4>
-                        <p class="card-description">Deep analysis of Replit's journey from 9 years of grinding to finding product-market fit with AI coding tools. The article explores how Replit Agent transformed their business, achieving $144M ARR and a $3B valuation.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 28</span>
-                            <span class="card-source">Blog</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://www.pragmaticcoders.com/resources/ai-developer-tools" target="_blank">Best AI Tools for Coding in 2025: 6 Tools Worth Your Time</a>
-                        </h4>
-                        <p class="card-description">Comprehensive review of the top AI coding tools currently available, highlighting Aider, Cursor, Zed, Claude Code, Windsurf, and GitHub Copilot as the leading solutions. The article provides real-world insights on which tools are actually delivering value versus hype.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 28</span>
-                            <span class="card-source">Blog</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://simonwillison.net/2025/Oct/25/coding-agent-tips/" target="_blank">Setting up a codebase for working with coding agents</a>
-                        </h4>
-                        <p class="card-description">Simon Willison's practical guide on optimizing codebases for AI coding tools. Key recommendations include: focus on code quality with clear naming and structure, create AI-friendly documentation, write tasks as clear step-by-step instructions.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 28</span>
-                            <span class="card-source">Blog</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://www.linkedin.com/pulse/thoughts-impact-ai-coding-tools-developer-code-quality-mira-mezini-c8ahe" target="_blank">Thoughts on the Impact of AI Coding Tools on Developer Code Quality</a>
-                        </h4>
-                        <p class="card-description">Critical analysis from academia on how AI coding tools are actually affecting code quality in 2025. The research reveals nuanced findings - while AI tools can increase productivity, they may also lead to code quality issues if not used properly.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 28</span>
-                            <span class="card-source">LinkedIn</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://dev.to/lofcz/unlocking-developer-productivity-with-emerging-ai-tools-in-2025-3lb3" target="_blank">Unlocking Developer Productivity with Emerging AI Tools in 2025</a>
-                        </h4>
-                        <p class="card-description">Exploration of how AI-powered development tools are transforming developer productivity by reducing cognitive load and accelerating feature development. The article discusses specific workflow improvements and measurable productivity gains from early adopters.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 28</span>
-                            <span class="card-source">Blog</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://www.nextbigfuture.com/2025/06/software-3-0-by-karpathy.html" target="_blank">Software 3.0 By Karpathy: The AI Vision Reshaping Development</a>
-                        </h4>
-                        <p class="card-description">Analysis of Andrej Karpathy's continued advocacy for Software 3.0, where natural language becomes the primary programming interface. The article discusses how LLMs are evolving from simple code completion to full software creation partners.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 28</span>
-                            <span class="card-source">Blog</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://www.index.dev/blog/ai-coding-assistants-roi-productivity" target="_blank">AI Coding Assistant ROI: Real Productivity Data 2025</a>
-                        </h4>
-                        <p class="card-description">Data-driven analysis showing AI coding assistants increase individual developer output by 20-40%, but company-level delivery gains require significant process changes. The research emphasizes that tools alone aren't enough - organizations need to adapt their development processes.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 28</span>
-                            <span class="card-source">Blog</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://news.ycombinator.com/item?id=45405177" target="_blank">The AI Coding Trap</a>
-                        </h4>
-                        <p class="card-description">Hacker News discussion highlighting that LLM coding agents can't learn from experience on our code, but developers can learn from using them. The conversation explores the security implications and the importance of maintaining human oversight in AI-assisted development.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 28</span>
-                            <span class="card-source">Reddit/HN</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://simonwillison.net/" target="_blank">Agent Design is Still Hard</a>
-                        </h4>
-                        <p class="card-description">Notes that 'abstractions are not worth adopting yet' for AI agents, indicating that current agentic AI systems lack mature design patterns and architectural principles.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 26</span>
-                            <span class="card-source">Blog</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://martinfowler.com/articles/learning-loop-llm.html" target="_blank">The Learning Loop and LLMs</a>
-                        </h4>
-                        <p class="card-description">Explores how LLMs become 'illusory' if they shortcut essential learning in professional practice, raising concerns about AI tools potentially hindering developer skill development.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 26</span>
-                            <span class="card-source">Blog</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://martinfowler.com/articles/agentic-ai-security.html" target="_blank">Agentic AI and Security</a>
-                        </h4>
-                        <p class="card-description">Examines security risks in agentic AI systems through what Simon Willison named the 'Lethal Trifecta', highlighting critical security concerns in autonomous AI systems.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 26</span>
-                            <span class="card-source">Blog</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://simonwillison.net/" target="_blank">Google Antigravity Exfiltrates Data</a>
-                        </h4>
-                        <p class="card-description">Discusses security vulnerabilities discovered in Google's new IDE, raising concerns about data privacy in AI-powered development environments.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 26</span>
-                            <span class="card-source">Blog</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://news.ycombinator.com/" target="_blank">OpenAI needs to raise at least $207B by 2030</a>
-                        </h4>
-                        <p class="card-description">Discusses the massive capital requirements for AI development, with significant community engagement on Hacker News, indicating the scale of AI infrastructure investment needed.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 26</span>
-                            <span class="card-source">HN</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://news.ycombinator.com/" target="_blank">Launch HN: Onyx (YC W24) – Open-source chat UI</a>
-                        </h4>
-                        <p class="card-description">Features a new open-source chat interface, showing continued innovation in developer tools and UI frameworks for AI applications.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 26</span>
-                            <span class="card-source">HN</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://twitter.com/search?q=AI%20agents%20coding%202024" target="_blank">The Rise of AI Agents in Software Development</a>
-                        </h4>
-                        <p class="card-description">Discussions around autonomous AI agents that can complete entire coding tasks have intensified. Key themes include agent reliability, context management, and integration into existing workflows.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 27</span>
-                            <span class="card-source">Twitter/X</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://simonwillison.net/2024/Nov/20/" target="_blank">Fine-tuning vs. Retrieval-Augmented Generation for Code</a>
-                        </h4>
-                        <p class="card-description">Ongoing debate about the best approach for domain-specific coding tasks, with discussions around cost-effectiveness, accuracy, and maintenance trade-offs.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 27</span>
-                            <span class="card-source">Technical Blogs</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://arxiv.org/list/cs.LG/recent" target="_blank">Code Generation Quality Metrics and Benchmarks</a>
-                        </h4>
-                        <p class="card-description">New benchmarks and evaluation methods for AI coding tools are emerging, focusing on functional correctness, security, and maintainability beyond simple syntax matching.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 27</span>
-                            <span class="card-source">Academic Papers</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://www.youtube.com/results?search_query=multi+agent+AI+programming+2024" target="_blank">Multi-Agent Programming Systems</a>
-                        </h4>
-                        <p class="card-description">Increasing interest in systems where multiple AI agents collaborate on complex coding tasks, with discussions about coordination, communication protocols, and conflict resolution.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 27</span>
-                            <span class="card-source">Conference talks</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://blog.replit.com/" target="_blank">The Future of Developer Experience with AI</a>
-                        </h4>
-                        <p class="card-description">Thought leaders are discussing how AI tools are reshaping developer workflows, from pair programming to code review, and what this means for skill development.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 27</span>
-                            <span class="card-source">Tech blogs</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://news.ycombinator.com/" target="_blank">Small Language Models for Specialized Coding Tasks</a>
-                        </h4>
-                        <p class="card-description">Growing interest in smaller, more efficient models fine-tuned for specific programming languages or domains as alternatives to large, general-purpose models.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 27</span>
-                            <span class="card-source">Hacker News</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://portswigger.net/daily-swig" target="_blank">AI Coding Safety and Security Concerns</a>
-                        </h4>
-                        <p class="card-description">Increased focus on security implications of AI-generated code, including vulnerability detection, secure coding practices, and AI-powered security tools.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 27</span>
-                            <span class="card-source">Security blogs</span>
-                        </div>
-                    </article>
-                    <article class="card">
-                        <h4 class="card-title">
-                            <a href="https://www.reddit.com/r/programming/" target="_blank">Real-time Code Generation and Streaming Responses</a>
-                        </h4>
-                        <p class="card-description">Advancements in streaming AI responses for code generation, enabling more interactive and responsive coding experiences with immediate feedback.</p>
-                        <div class="card-metadata">
-                            <span class="card-date">Nov 27</span>
-                            <span class="card-source">Technical discussions</span>
-                        </div>
-                    </article>
-                </div>
-            </section>
+                <!-- New Features Section -->
+                <section class="category-section" id="new-features">
+                    <h3 class="category-title">New Features</h3>
+                    <div class="scroll-grid grid-rows-3">
+                        <a href="https://www.anthropic.com/news/claude-opus-4-5" target="_blank" class="card">
+                            <h4 class="card-title">Claude Opus 4.5 Integration</h4>
+                            <p class="card-description">Claude Opus 4.5 launched with 50-75% reductions in tool calling errors and build/lint errors, enhanced complex reasoning, and superior software engineering performance.</p>
+                            <div class="card-meta">
+                                <span class="card-date">Dec 1</span>
+                                <span class="card-source">Claude Code</span>
+                            </div>
+                        </a>
+                        <a href="https://cursor.com/changelog/2-1" target="_blank" class="card">
+                            <h4 class="card-title">Cursor 2.1 with AI Code Review and Instant Grep</h4>
+                            <p class="card-description">Cursor 2.1 released with integrated AI code review in editor, Instant Grep functionality delivering sub-second search results, improved Plan Mode, and enhanced interactive dialogue for complex programming tasks.</p>
+                            <div class="card-meta">
+                                <span class="card-date">Nov 21</span>
+                                <span class="card-source">Cursor</span>
+                            </div>
+                        </a>
+                        <a href="https://github.blog/changelog/2025-11-24-claude-opus-4-5-is-in-public-preview-for-github-copilot/" target="_blank" class="card">
+                            <h4 class="card-title">Claude Opus 4.5 Public Preview Integration</h4>
+                            <p class="card-description">GitHub Copilot added Claude Opus 4.5 in public preview, allowing developers to access Anthropic's latest model that surpassed internal coding benchmarks in early testing.</p>
+                            <div class="card-meta">
+                                <span class="card-date">Nov 24</span>
+                                <span class="card-source">GitHub Copilot</span>
+                            </div>
+                        </a>
+                        <a href="https://github.blog/changelog/2025-12-01-copilot-spaces-public-spaces-and-code-view-support" target="_blank" class="card">
+                            <h4 class="card-title">Copilot Spaces with Public Sharing and Code View</h4>
+                            <p class="card-description">GitHub Copilot Spaces updated with public spaces creation, individual sharing capabilities, and direct file addition from interfaces, enabling better collaboration and context sharing for AI-assisted coding.</p>
+                            <div class="card-meta">
+                                <span class="card-date">Dec 1</span>
+                                <span class="card-source">GitHub Copilot</span>
+                            </div>
+                        </a>
+                        <a href="https://windsurf.com/changelog" target="_blank" class="card">
+                            <h4 class="card-title">Version 1.12.35 with Gemini 3 Pro Support</h4>
+                            <p class="card-description">Windsurf released version 1.12.35 adding Gemini 3 Pro model support, fixing internal Cascade errors, and improving SWE (Software Engineering) capabilities.</p>
+                            <div class="card-meta">
+                                <span class="card-date">Nov 21</span>
+                                <span class="card-source">Windsurf</span>
+                            </div>
+                        </a>
+                        <a href="https://changelog.continue.dev/" target="_blank" class="card">
+                            <h4 class="card-title">Instant Edits and GPT-5 Codex Support</h4>
+                            <p class="card-description">Continue.dev released new features including Instant Edits, GPT-5 Codex Support, and Grok Code Fast functionality, along with bug fixes for VS Code integration.</p>
+                            <div class="card-meta">
+                                <span class="card-date">Nov 3</span>
+                                <span class="card-source">Continue</span>
+                            </div>
+                        </a>
+                    </div>
+                </section>
 
-        </main>
+                <!-- New Technologies Section -->
+                <section class="category-section" id="new-technologies">
+                    <h3 class="category-title">New Technologies</h3>
+                    <div class="scroll-grid grid-rows-2">
+                        <a href="https://arxiv.org/abs/2509.17489" target="_blank" class="card">
+                            <h4 class="card-title">Squeezing Multi-Agent Coding into a Single Small LLM</h4>
+                            <p class="card-description">Recent arXiv paper presenting novel approaches to compress multi-agent coding capabilities into smaller, more efficient LLMs, potentially making advanced AI coding more accessible and resource-efficient.</p>
+                            <div class="card-meta">
+                                <span class="card-date">Nov 25</span>
+                                <span class="card-source">arXiv</span>
+                            </div>
+                        </a>
+                        <a href="https://arxiv.org/abs/2411.16462" target="_blank" class="card">
+                            <h4 class="card-title">Can Vibe Coding Beat Graduate CS Students? An LLM vs. Human Coding Tournament</h4>
+                            <p class="card-description">Presents research comparing LLM coding capabilities with human students on market-driven strategic planning tasks, providing empirical insights into AI vs human coding performance.</p>
+                            <div class="card-meta">
+                                <span class="card-date">Nov 26</span>
+                                <span class="card-source">arXiv</span>
+                            </div>
+                        </a>
+                        <a href="https://arxiv.org/abs/2411.15184" target="_blank" class="card">
+                            <h4 class="card-title">RPM-MCTS: Knowledge-Retrieval as Process Reward Model with Monte Carlo Tree Search for Code Generation</h4>
+                            <p class="card-description">Introduces advanced techniques for code generation using knowledge retrieval and process reward models with Monte Carlo Tree Search, pushing boundaries in AI-assisted coding.</p>
+                            <div class="card-meta">
+                                <span class="card-date">Nov 26</span>
+                                <span class="card-source">arXiv</span>
+                            </div>
+                        </a>
+                        <a href="https://arxiv.org/abs/2411.14969" target="_blank" class="card">
+                            <h4 class="card-title">Fara-7B: An Efficient Agentic Model for Computer Use</h4>
+                            <p class="card-description">Presents an efficient agentic AI model specifically designed for computer-based tasks, representing advances in practical AI agent deployment.</p>
+                            <div class="card-meta">
+                                <span class="card-date">Nov 26</span>
+                                <span class="card-source">arXiv</span>
+                            </div>
+                        </a>
+                        <a href="https://arxiv.org/abs/2411.16761" target="_blank" class="card">
+                            <h4 class="card-title">NNGPT: Rethinking AutoML with Large Language Models</h4>
+                            <p class="card-description">Explores novel approaches to using LLMs for Automated Machine Learning, potentially impacting how AI systems are built and deployed.</p>
+                            <div class="card-meta">
+                                <span class="card-date">Nov 26</span>
+                                <span class="card-source">arXiv</span>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Others Section -->
+                <section class="category-section" id="others">
+                    <h3 class="category-title">Others</h3>
+                    <div class="scroll-grid grid-rows-3">
+                        <a href="https://venturebeat.com/ai/a-weekend-vibe-code-hack-by-andrej-karpathy-quietly-sketches-the-missing" target="_blank" class="card">
+                            <h4 class="card-title">A weekend 'vibe code' hack by Andrej Karpathy quietly sketches the missing piece in enterprise AI</h4>
+                            <p class="card-description">Andrej Karpathy created a weekend hack project called 'LLM Council' that demonstrates how a simple multi-model AI hack can become a blueprint for enterprise AI systems. The project explores practical implementations of multiple LLM collaboration.</p>
+                            <div class="card-meta">
+                                <span class="card-date">Dec 1</span>
+                                <span class="card-source">VentureBeat</span>
+                            </div>
+                        </a>
+                        <a href="https://www.linkedin.com/posts/amjadmasad_a-public-company-ceo-told-me-ai-coding-has-activity-7356026664411127809-WNjm" target="_blank" class="card">
+                            <h4 class="card-title">Replit CEO: AI coding has negligible impact on engineering teams, transforms design workflows</h4>
+                            <p class="card-description">Amjad Masad shared insights from a public company CEO who noted that while AI coding has had 'negligible impact' on engineering teams, the real transformation is happening in design workflows. Startups are already using Replit instead of hiring CTOs.</p>
+                            <div class="card-meta">
+                                <span class="card-date">Nov 28</span>
+                                <span class="card-source">LinkedIn</span>
+                            </div>
+                        </a>
+                        <a href="https://www.linkedin.com/posts/lexfridman_programming-with-ai-is-insanely-fun-process-activity-7363706227391913984-iPJa" target="_blank" class="card">
+                            <h4 class="card-title">Programming with AI is insanely fun - Lex Fridman's development process</h4>
+                            <p class="card-description">Lex Fridman shared his personal AI programming process: 1) Generate code, 2) Read and understand the code, 3) Tweak, edit, and integrate. He emphasizes that programming with AI has become an enjoyable and creative process.</p>
+                            <div class="card-meta">
+                                <span class="card-date">Nov 30</span>
+                                <span class="card-source">LinkedIn</span>
+                            </div>
+                        </a>
+                        <a href="https://news.ycombinator.com/item?id=45405177" target="_blank" class="card">
+                            <h4 class="card-title">The AI coding trap - Hacker News community discussion</h4>
+                            <p class="card-description">Hacker News discussion exploring concerns about AI potentially replacing software development as a profession, examining the balance between AI assistance and human developer value.</p>
+                            <div class="card-meta">
+                                <span class="card-date">Nov 26</span>
+                                <span class="card-source">Hacker News</span>
+                            </div>
+                        </a>
+                        <a href="https://simonwillison.net/2025/Oct/25/coding-agent-tips/" target="_blank" class="card">
+                            <h4 class="card-title">Setting up a codebase for working with coding agents</h4>
+                            <p class="card-description">Simon Willison's practical guide on optimizing codebases for AI coding tools. Key recommendations include: focus on code quality with clear naming and structure, create AI-friendly documentation, write tasks as clear step-by-step instructions.</p>
+                            <div class="card-meta">
+                                <span class="card-date">Nov 28</span>
+                                <span class="card-source">Blog</span>
+                            </div>
+                        </a>
+                        <a href="https://martinfowler.com/articles/agentic-ai-security.html" target="_blank" class="card">
+                            <h4 class="card-title">Agentic AI and Security</h4>
+                            <p class="card-description">Examines security risks in agentic AI systems through what Simon Willison named the 'Lethal Trifecta', highlighting critical security concerns in autonomous AI systems.</p>
+                            <div class="card-meta">
+                                <span class="card-date">Nov 26</span>
+                                <span class="card-source">Blog</span>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+            </main>
+        </div>
     </div>
 
     <script src="assets/base.js"></script>

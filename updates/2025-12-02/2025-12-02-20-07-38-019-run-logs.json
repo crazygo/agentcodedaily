@@ -1,0 +1,22 @@
+[
+  {
+    "taskName": "task-new-product",
+    "logFilePath": "/home/runner/work/agentdaily/agentdaily/updates/2025-12-02/2025-12-02-20-07-38-019-prompts-task-new-product-prompty.log",
+    "lastAssistantMessageLength": 4075
+  },
+  {
+    "taskName": "whitelist-updates",
+    "logFilePath": "/home/runner/work/agentdaily/agentdaily/updates/2025-12-02/2025-12-02-20-07-38-019-prompts-whitelist-updates-prompty.log",
+    "lastAssistantMessageLength": 3141
+  },
+  {
+    "taskName": "insights",
+    "logFilePath": "/home/runner/work/agentdaily/agentdaily/updates/2025-12-02/2025-12-02-20-07-38-019-prompts-insights-prompty.log",
+    "lastAssistantMessageLength": 1928
+  },
+  {
+    "taskName": "html-report",
+    "logFilePath": "/home/runner/work/agentdaily/agentdaily/updates/2025-12-02/2025-12-02-20-07-38-019-prompts-html-report-prompt-md.log",
+    "lastAssistantMessageLength": 1544
+  }
+]

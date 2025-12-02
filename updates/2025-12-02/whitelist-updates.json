@@ -1,5 +1,25 @@
 [
   {
+    "productName": "GitHub Copilot",
+    "title": "Copilot Spaces with Public Sharing and Code View",
+    "description": "GitHub Copilot Spaces updated with public spaces creation, individual sharing capabilities, and direct file addition from interfaces, enabling better collaboration and context sharing for AI-assisted coding.",
+    "updateType": "feature",
+    "url": "https://github.blog/changelog/2025-12-01-copilot-spaces-public-spaces-and-code-view-support",
+    "date": "2025-12-01",
+    "community_feedback": [
+      {
+        "quote": "NEW GitHub Copilot Update Is INSANE!",
+        "source": "Reddit",
+        "sentiment": "positive"
+      },
+      {
+        "quote": "Active discussions comparing updated Copilot with competing tools like Cursor",
+        "source": "Hacker News",
+        "sentiment": "neutral"
+      }
+    ]
+  },
+  {
     "productName": "Claude Code",
     "title": "Claude Opus 4.5 Integration",
     "description": "Claude Opus 4.5 launched with 50-75% reductions in tool calling errors and build/lint errors, enhanced complex reasoning, and superior software engineering performance.",
@@ -15,26 +35,6 @@
       {
         "quote": "How Claude Opus 4.5 Outscored Humans at Software Engineering",
         "source": "Technology Magazine",
-        "sentiment": "positive"
-      }
-    ]
-  },
-  {
-    "productName": "Cursor",
-    "title": "Cursor 2.1 with AI Code Review and Instant Grep",
-    "description": "Cursor 2.1 released with integrated AI code review in editor, Instant Grep functionality delivering sub-second search results, improved Plan Mode, and enhanced interactive dialogue for complex programming tasks.",
-    "updateType": "feature",
-    "url": "https://cursor.com/changelog/2-1",
-    "date": "2025-11-21",
-    "community_feedback": [
-      {
-        "quote": "NEW Cursor 2.1 Update is INSANE!",
-        "source": "LinkedIn",
-        "sentiment": "positive"
-      },
-      {
-        "quote": "The update represents Cursor's evolution into an 'engineering-level collaborator'",
-        "source": "CSDN Blog",
         "sentiment": "positive"
       }
     ]
@@ -60,36 +60,21 @@
     ]
   },
   {
-    "productName": "GitHub Copilot",
-    "title": "Copilot Spaces with Public Sharing and Code View",
-    "description": "GitHub Copilot Spaces updated with public spaces creation, individual sharing capabilities, and direct file addition from interfaces, enabling better collaboration and context sharing for AI-assisted coding.",
+    "productName": "Cursor",
+    "title": "Cursor 2.1 with AI Code Review and Instant Grep",
+    "description": "Cursor 2.1 released with integrated AI code review in editor, Instant Grep functionality delivering sub-second search results, improved Plan Mode, and enhanced interactive dialogue for complex programming tasks.",
     "updateType": "feature",
-    "url": "https://github.blog/changelog/2025-12-01-copilot-spaces-public-spaces-and-code-view-support",
-    "date": "2025-12-01",
+    "url": "https://cursor.com/changelog/2-1",
+    "date": "2025-11-21",
     "community_feedback": [
       {
-        "quote": "NEW GitHub Copilot Update Is INSANE!",
-        "source": "Reddit",
+        "quote": "NEW Cursor 2.1 Update is INSANE!",
+        "source": "LinkedIn",
         "sentiment": "positive"
       },
       {
-        "quote": "Active discussions comparing updated Copilot with competing tools like Cursor",
-        "source": "Hacker News",
-        "sentiment": "neutral"
-      }
-    ]
-  },
-  {
-    "productName": "GitHub Copilot",
-    "title": "Enhanced CLI with New Models and Image Support",
-    "description": "GitHub Copilot CLI updated with new models, enhanced code search capabilities, and improved image support for better developer experience in terminal environments.",
-    "updateType": "feature",
-    "url": "https://github.blog/changelog/2025-11-18-github-copilot-cli-new-models-enhanced-code-search-and-better-image-support/",
-    "date": "2025-11-18",
-    "community_feedback": [
-      {
-        "quote": "The CLI improvements make Copilot much more useful for terminal-based workflows",
-        "source": "Developer Forum",
+        "quote": "The update represents Cursor's evolution into an 'engineering-level collaborator'",
+        "source": "CSDN Blog",
         "sentiment": "positive"
       }
     ]
@@ -105,6 +90,36 @@
       {
         "quote": "Gemini 3 Pro integration makes Windsurf more competitive with other AI IDEs",
         "source": "Tech Blog",
+        "sentiment": "positive"
+      }
+    ]
+  },
+  {
+    "productName": "Codex CLI",
+    "title": "Version 0.59.0 with Enhanced Features",
+    "description": "OpenAI released Codex CLI v0.59.0 with new gpt-5-codex-mini model, automatic model switching, Codex Cloud integration, enhanced TUI feedback, and direct shell execution capabilities.",
+    "updateType": "release",
+    "url": "https://developers.openai.com/codex/changelog/",
+    "date": "2025-11-19",
+    "community_feedback": [
+      {
+        "quote": "The automatic model switching feature is really smart - helps manage costs effectively",
+        "source": "OpenAI Developer Forum",
+        "sentiment": "positive"
+      }
+    ]
+  },
+  {
+    "productName": "GitHub Copilot",
+    "title": "Enhanced CLI with New Models and Image Support",
+    "description": "GitHub Copilot CLI updated with new models, enhanced code search capabilities, and improved image support for better developer experience in terminal environments.",
+    "updateType": "feature",
+    "url": "https://github.blog/changelog/2025-11-18-github-copilot-cli-new-models-enhanced-code-search-and-better-image-support/",
+    "date": "2025-11-18",
+    "community_feedback": [
+      {
+        "quote": "The CLI improvements make Copilot much more useful for terminal-based workflows",
+        "source": "Developer Forum",
         "sentiment": "positive"
       }
     ]
@@ -155,21 +170,6 @@
       {
         "quote": "Instant Edits is a game-changer for rapid prototyping with AI assistance",
         "source": "Developer Community",
-        "sentiment": "positive"
-      }
-    ]
-  },
-  {
-    "productName": "Codex CLI",
-    "title": "Version 0.59.0 with Enhanced Features",
-    "description": "OpenAI released Codex CLI v0.59.0 with new gpt-5-codex-mini model, automatic model switching, Codex Cloud integration, enhanced TUI feedback, and direct shell execution capabilities.",
-    "updateType": "release",
-    "url": "https://developers.openai.com/codex/changelog/",
-    "date": "2025-11-19",
-    "community_feedback": [
-      {
-        "quote": "The automatic model switching feature is really smart - helps manage costs effectively",
-        "source": "OpenAI Developer Forum",
         "sentiment": "positive"
       }
     ]

@@ -1,23 +1,53 @@
 [
   {
-    "title": "A weekend 'vibe code' hack by Andrej Karpathy quietly sketches the missing piece in enterprise AI",
-    "description": "Andrej Karpathy created a weekend hack project called 'LLM Council' that demonstrates how a simple multi-model AI hack can become a blueprint for enterprise AI systems. The project explores practical implementations of multiple LLM collaboration.",
-    "author": "Andrej Karpathy",
-    "source": "VentureBeat",
-    "url": "https://venturebeat.com/ai/a-weekend-vibe-code-hack-by-andrej-karpathy-quietly-sketches-the-missing",
-    "published_date": "2025-12-01",
-    "topics": ["LLM systems", "enterprise AI", "multi-model collaboration", "vibe coding"],
+    "title": "Replit reaches $3B valuation with AI coding tools revolution",
+    "description": "Amjad Masad led Replit to achieve $3B valuation after $250M Series C funding, with AI coding tools generating 5x revenue growth. The company launched agents that can build apps in 60 seconds from mobile devices, targeting both technical and non-technical users.",
+    "author": "Amjad Masad",
+    "source": "Tech News Coverage",
+    "url": "https://www.techmeme.com/251003/p2",
+    "published_date": "2024-12-01",
+    "topics": ["Replit", "AI valuation", "coding agents", "mobile development", "startup growth"],
+    "type": "opinion"
+  },
+  {
+    "title": "Is AI the end of software engineering or the next step in its evolution?",
+    "description": "The Verge explores the 'vibe coding' phenomenon and debates whether AI represents the death of software engineering or its natural evolution. The article examines how AI coding tools are changing development practices and what this means for the profession.",
+    "author": "The Verge Editorial Team",
+    "source": "The Verge",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/767973/vibe-coding-ai-future-end-evolution",
+    "published_date": "2024-11-30",
+    "topics": ["vibe coding", "AI evolution", "software engineering", "future of programming", "industry transformation"],
+    "type": "opinion"
+  },
+  {
+    "title": "The current state of LLM-driven development - Hacker News community insights",
+    "description": "Hacker News discussion exploring the current state of LLM-driven development, with consensus that LLMs are productivity tools rather than revolutions. Developers share insights about learning curves, workflow integration, and the importance of verification when using AI coding assistants.",
+    "author": "Hacker News Community",
+    "source": "Hacker News",
+    "url": "https://news.ycombinator.com/item?id=44847741",
+    "published_date": "2024-11-29",
+    "topics": ["LLM development", "workflow integration", "productivity tools", "code verification", "community perspective"],
+    "type": "discussion"
+  },
+  {
+    "title": "GitHub Copilot GPT-5 integration and platform changes",
+    "description": "GitHub announced GPT-5 integration for Copilot along with significant platform changes, including the transition of GitHub Apps to Copilot Extensions and the closure of the old GitHub Apps platform on November 10, 2025.",
+    "author": "GitHub Team",
+    "source": "GitHub Blog",
+    "url": "https://github.blog/news-insights/product-news/github-copilot-meet-the-new-coding-agent/",
+    "published_date": "2025-11-29",
+    "topics": ["GitHub Copilot", "GPT-5", "platform migration", "developer tools"],
     "type": "technical"
   },
   {
-    "title": "Replit CEO: AI coding has negligible impact on engineering teams, transforms design workflows",
-    "description": "Amjad Masad shared insights from a public company CEO who noted that while AI coding has had 'negligible impact' on engineering teams, the real transformation is happening in design workflows. Startups are already using Replit instead of hiring CTOs.",
-    "author": "Amjad Masad",
-    "source": "LinkedIn",
-    "url": "https://www.linkedin.com/posts/amjadmasad_a-public-company-ceo-told-me-ai-coding-has-activity-7356026664411127809-WNjm",
-    "published_date": "2025-11-28",
-    "topics": ["AI productivity", "design workflows", "startup development", "Replit"],
-    "type": "opinion"
+    "title": "WebRTC for AI agents: Simon Willison explores browser-to-browser connections",
+    "description": "Simon Willison wrote about WebRTC connections between AI agents running in different browsers, potentially enabling new forms of AI-to-AI communication and collaborative AI development workflows.",
+    "author": "Simon Willison",
+    "source": "Weblog",
+    "url": "https://simonwillison.net/2024/Nov/27/webrtc-for-llms/",
+    "published_date": "2024-11-27",
+    "topics": ["WebRTC", "AI agents", "browser-to-browser", "AI communication", "collaborative AI"],
+    "type": "technical"
   },
   {
     "title": "Programming with AI is insanely fun - Lex Fridman's development process",
@@ -30,6 +60,16 @@
     "type": "discussion"
   },
   {
+    "title": "A weekend 'vibe code' hack by Andrej Karpathy quietly sketches the missing piece in enterprise AI",
+    "description": "Andrej Karpathy created a weekend hack project called 'LLM Council' that demonstrates how a simple multi-model AI hack can become a blueprint for enterprise AI systems. The project explores practical implementations of multiple LLM collaboration.",
+    "author": "Andrej Karpathy",
+    "source": "VentureBeat",
+    "url": "https://venturebeat.com/ai/a-weekend-vibe-code-hack-by-andrej-karpathy-quietly-sketches-the-missing",
+    "published_date": "2025-12-01",
+    "topics": ["LLM systems", "enterprise AI", "multi-model collaboration", "vibe coding"],
+    "type": "technical"
+  },
+  {
     "title": "Best AI Coding Assistants as of November 2025 - Comprehensive Developer Guide",
     "description": "Comprehensive comparison of AI coding assistants including Cursor, Claude Code, GitHub Copilot, Windsurf, Aider, Zed, Codeium, Qodo, and Tabnine. The analysis focuses on practical developer workflows and enterprise integration.",
     "author": "Shuttle.dev",
@@ -38,6 +78,16 @@
     "published_date": "2025-11-20",
     "topics": ["AI tools comparison", "developer productivity", "enterprise integration", "coding assistants"],
     "type": "technical"
+  },
+  {
+    "title": "Replit CEO: AI coding has negligible impact on engineering teams, transforms design workflows",
+    "description": "Amjad Masad shared insights from a public company CEO who noted that while AI coding has had 'negligible impact' on engineering teams, the real transformation is happening in design workflows. Startups are already using Replit instead of hiring CTOs.",
+    "author": "Amjad Masad",
+    "source": "LinkedIn",
+    "url": "https://www.linkedin.com/posts/amjadmasad_a-public-company-ceo-told-me-ai-coding-has-activity-7356026664411127809-WNjm",
+    "published_date": "2025-11-28",
+    "topics": ["AI productivity", "design workflows", "startup development", "Replit"],
+    "type": "opinion"
   },
   {
     "title": "The AI coding trap - Hacker News community discussion",
@@ -67,16 +117,6 @@
     "url": "https://arxiv.org/abs/2509.17489",
     "published_date": "2025-11-25",
     "topics": ["multi-agent systems", "LLM efficiency", "code generation", "resource optimization"],
-    "type": "technical"
-  },
-  {
-    "title": "GitHub Copilot GPT-5 integration and platform changes",
-    "description": "GitHub announced GPT-5 integration for Copilot along with significant platform changes, including the transition of GitHub Apps to Copilot Extensions and the closure of the old GitHub Apps platform on November 10, 2025.",
-    "author": "GitHub Team",
-    "source": "GitHub Blog",
-    "url": "https://github.blog/news-insights/product-news/github-copilot-meet-the-new-coding-agent/",
-    "published_date": "2025-11-29",
-    "topics": ["GitHub Copilot", "GPT-5", "platform migration", "developer tools"],
     "type": "technical"
   }
 ]
