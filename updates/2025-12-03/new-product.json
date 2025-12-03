@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Google Antigravity IDE",
+    "url": "https://antigravity.google/",
+    "description": "Google's new AI-first IDE that integrates Gemini 3 Pro with advanced agentic coding capabilities, representing Google's entry into the competitive AI-powered development space.",
+    "release_date": "2025-11-18",
+    "category": "AI IDE",
+    "sources": ["Google Blog", "TechCrunch", "Ars Technica", "Reuters"],
+    "community_quotes": [
+      "Google just dropped their new IDE! The response has been massive across developer communities",
+      "Finally, Google has launched its own IDE: What developers need to know in 2025",
+      "Google Joins AI IDE Race to Compete with VS Code, apparently forking VS Code",
+      "The new agentic development platform integrates with Gemini 3 for enhanced coding capabilities"
+    ]
+  }
+]
