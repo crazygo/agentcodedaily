@@ -20,49 +20,6 @@
     ]
   },
   {
-    "productName": "GitHub Copilot",
-    "title": "Free Tier Launch with 2,000 Monthly Completions",
-    "description": "GitHub launched a free Copilot subscription tier available to users with personal GitHub accounts, offering 2,000 code completions and 50 chat messages per month with access to GPT-4o and Claude 3.5 Sonnet models.",
-    "updateType": "release",
-    "url": "https://github.blog/changelog/2024-12-18-announcing-github-copilot-free/",
-    "date": "2024-12-18",
-    "community_feedback": [
-      {
-        "quote": "Many users view it as a 'demo to get users hooked on Copilot' - good for trying out functionality but limited compared to alternatives.",
-        "source": "Reddit",
-        "sentiment": "neutral"
-      },
-      {
-        "quote": "Some feel the limitations are restrictive compared to alternatives like Codeium and Continue, but appreciate it's not just a time-limited trial.",
-        "source": "Reddit",
-        "sentiment": "neutral"
-      },
-      {
-        "quote": "Good for occasional users or light coding tasks, but many recommend exploring other free alternatives if you need more generous limits.",
-        "source": "Reddit",
-        "sentiment": "neutral"
-      }
-    ]
-  },
-  {
-    "productName": "GitHub Copilot",
-    "title": "Workspace Enhancements with Direct Image Preview and Large File Support",
-    "description": "GitHub Copilot Workspace received December 2024 updates including direct image preview support in the editor, 64k token window support for Copilot Chat, and improved handling of large files with direct links to view large files in the repo editor.",
-    "updateType": "feature",
-    "url": "https://github.blog/changelog/2024-12-20-copilot-workspace-changelog-december-20th-2024/",
-    "date": "2024-12-20",
-    "community_feedback": []
-  },
-  {
-    "productName": "GitHub Copilot",
-    "title": "January 2025 Workspace Updates with File Management and Performance Improvements",
-    "description": "GitHub released January 2025 Workspace updates featuring the ability to add new files directly to the file tree, performance improvements, UI enhancements, and reduced latency for certain operations.",
-    "updateType": "feature",
-    "url": "https://github.blog/changelog/2025-01-06-copilot-workspace-changelog-january-6-2025/",
-    "date": "2025-01-06",
-    "community_feedback": []
-  },
-  {
     "productName": "Claude Code",
     "title": "General Availability Launch and Model Deprecation Announcements",
     "description": "Claude Code reached General Availability status in January 2025, marking its transition from beta to full release. Anthropic also announced the deprecation of Claude 2, Claude 2.1, and Claude Sonnet 3 models as part of the transition to newer, more capable models.",
@@ -72,59 +29,12 @@
     "community_feedback": []
   },
   {
-    "productName": "Continue",
-    "title": "December 2024 Updates with Enhanced Git Integration and Code Definition Support",
-    "description": "Continue.dev released December 2024 newsletter updates featuring enhanced context awareness via Git integration, improved copy buffer functionality, and expanded code definition support across multiple languages with a larger range of relevant code definitions.",
-    "updateType": "feature",
-    "url": "https://blog.continue.dev/continue-newsletter-december-2024-updates/",
-    "date": "2024-12-06",
-    "community_feedback": [
-      {
-        "quote": "Users reported being 'pleasantly surprised by Continue.dev' with some noting it has 'taken some serious notes from Cursor' and considering canceling their Cursor subscriptions.",
-        "source": "Reddit",
-        "sentiment": "positive"
-      },
-      {
-        "quote": "Community members appreciated the multi-file editing feature allowing more deliberate and precise changes across repositories with better context awareness.",
-        "source": "Reddit",
-        "sentiment": "positive"
-      }
-    ]
-  },
-  {
-    "productName": "Continue",
-    "title": "January 2025 Updates Leading to 1.0 Launch",
-    "description": "Continue.dev announced January 2025 updates as part of their roadmap toward the major 1.0 launch in February 2025, featuring open-source IDE extensions and a new hub for building and sharing custom AI code assistants.",
-    "updateType": "feature",
-    "url": "https://blog.continue.dev/continue-newsletter-january-2025-updates/",
-    "date": "2025-01-07",
-    "community_feedback": []
-  },
-  {
     "productName": "Devin",
     "title": "January 2025 Product Update with Repository Management and Multi-File Editing",
     "description": "Cognition Labs released a January 2025 product update focusing on better repository management, deeper codebase understanding, and enhanced multi-file editing capabilities to improve Devin's ability to reason in context within repositories and find all relevant files that need editing.",
     "updateType": "feature",
     "url": "https://cognition.ai/blog/jan-25-product-update/",
     "date": "2025-01-16",
-    "community_feedback": []
-  },
-  {
-    "productName": "Windsurf",
-    "title": "December 2024 Changelist with Cascade Improvements",
-    "description": "Codeium/Windsurf released December 2024 updates focusing on improvements and refinements to both Windsurf and Codeium for Enterprise, with particular emphasis on enhancing Cascade on Windsurf and overall system improvements.",
-    "updateType": "feature",
-    "url": "https://windsurf.com/blog/changelist-dec24",
-    "date": "2024-12-20",
-    "community_feedback": []
-  },
-  {
-    "productName": "Windsurf",
-    "title": "January 2025 Changelist with Enhanced Autonomous Capabilities",
-    "description": "Codeium/Windsurf announced January 2025 updates featuring a host of new features, performance upgrades, and fixes to both Windsurf and Codeium for Enterprise, with emphasis on enhanced autonomous capabilities with new features in the IDE and improved AI-powered development tools.",
-    "updateType": "feature",
-    "url": "https://windsurf.com/blog/changelist-jan25",
-    "date": "2025-01-06",
     "community_feedback": []
   }
 ]

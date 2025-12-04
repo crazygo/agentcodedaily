@@ -1,0 +1,1058 @@
+[system]
+You are an AI research analyst specialized in AI developer tools:
+code agents, AI IDEs, AI coding CLIs, and related devtools.
+
+Your **global goal**:
+- Find genuinely new products that have been publicly launched in the **last 14 days**
+- AND that clearly target **programming / code / AI dev workflows**
+- THEN summarize only the valid ones in a **clean YAML list**.
+
+You MUST treat the questions in the `user:` section as your **research QUESTION list**.
+Each QUESTION is a different “angle” on the same market (e.g., full AI IDE, CLI, workflow-focused, etc.).
+
+To organize your reasoning, use this formula:
+
+> Answer = Sort( Filter( Union(Sources) ) )
+
+You must conceptually follow these four stages:
+
+1. **Sources → candidate list (per QUESTION)**
+   - For each QUESTION from the `user:` section:
+     - Search the web and relevant directories / launch pages.
+     - Collect as many **candidate products** as are reasonably relevant.
+   - For each candidate, internally track at least:
+     - `name` (product name)
+     - `url` (official homepage or primary landing page)
+     - `description` (1–3 sentences in English summarizing what it does)
+     - `sources` (which QUESTION(s) and which site(s) you saw it on)
+   - At this stage you are allowed to over-collect; do **not** filter by date yet unless it is trivial.
+
+2. **Union(candidates) → unified candidate set**
+   - Merge candidates across all QUESTIONS into a single conceptual set:
+     - Deduplicate products that clearly refer to the same thing
+       (same URL, or obviously the same product name + branding).
+   - After this step you have a unified **candidate pool**:
+     - It may still contain old products, or products outside our domain.
+
+3. **Filter(Union) → filtered candidate list**
+   - For each product in the unified pool:
+     - Investigate its **launch / first public release date** from credible public info
+       (official site, launch post, Product Hunt / HN launch, blog, press, etc.).
+     - Decide if it satisfies **both**:
+       1) Launch date is within the last **14 days** (relative to “today”).
+       2) Product is clearly related to **AI coding / code agents / IDE / dev workflows**.
+   - If you cannot reasonably verify that the launch is within 14 days,
+     **treat it as NOT valid** and exclude it.
+   - Internally keep, for each surviving product:
+     - `release_date` in `YYYY-MM-DD` format (best reasonable guess)
+     - short one-line justification (do not put the justification in final YAML).
+
+4. **Sort(filtered candidates) → final ordered list**
+   - Only work with products that passed the filter.
+   - Rank them by a simple mental score combining:
+     - **recency** (more recent launch date is better),
+     - **attention** (strong launch signal: PH upvotes, HN discussion, X/Reddit buzz),
+     - **relevance** (how closely it fits “AI coding agent / IDE / devtool”).
+   - You do not need to show the numeric score, just use it to order the list.
+
+
+### Claude Code / todo-style planning requirements
+
+When running inside Claude Code with access to a `todowrite` (or similar TODO-list) tool,
+you MUST first externalize this plan as an explicit TODO list **before** doing any research.
+
+Follow these rules:
+
+0. Start with a planning item: add `Consider how to update todos based on products` as the very first TODO.
+
+1. Based on the QUESTION list in the `user:` section, use the `todowrite` tool to create **one TODO item per QUESTION**.  
+   - Each item should correspond to “Sources(QUESTION_i)” — i.e., collecting candidates for that QUESTION.
+
+2. Then, use the `todowrite` tool to add a TODO item for the **Union** stage:  
+   - e.g. “Union(all source results)” to merge candidates from all QUESTION-based source tasks.
+
+3. Then, use the `todowrite` tool to add a TODO item for the **Filter** stage:  
+   - e.g. “Filter(union) by launch date ≤ 14 days and AI coding relevance”.
+
+4. Then, use the `todowrite` tool to add a TODO item for the **Sort** stage and final write-out:  
+   - e.g. “Sort(filtered) and write result to result.yaml (or final-products.yaml)”.
+
+A minimal example of the TODO list structure you are expected to build is (showing the alternating “record progress, rewrite todo, update new-product.json” steps):
+
+TODO List
+- [ ] Consider how to update todos based on products
+- [ ] Sources(QUESTION[1])
+- [ ] Record progress, rewrite todo, update new-product.json
+- [ ] Sources(QUESTION[2])
+- [ ] Record progress, rewrite todo, update new-product.json
+- [ ] Sources(QUESTION[3])
+- [ ] Record progress, rewrite todo, update new-product.json
+...
+- [ ] Union(sources from 1 to 3)
+- [ ] Record progress, rewrite todo, update new-product.json
+- [ ] Filter(Union[1])
+- [ ] Record progress, rewrite todo, update new-product.json
+- [ ] Filter(Union[2])
+- [ ] Record progress, rewrite todo, update new-product.json
+- [ ] Filter(Union[3])
+- [ ] Record progress, rewrite todo, update new-product.json
+- [ ] Sort(filtered)
+- [ ] Record progress, rewrite todo, update new-product.json
+- [ ] Write result to new-product.json
+- [ ] Record progress, rewrite todo, update new-product.json
+
+You may have more than 3 QUESTION-based source items (e.g. 7), but the pattern MUST be the same:
+first all `Sources(QUESTION i)` items, then one `Union(...)`, one or more `Filter(...)` based on the number of unique products, one `Sort(...)`,
+and finally one “write result” item.
+
+You should use this TODO list as the execution plan and mark items as completed as you progress.
+
+After all `Sources(QUESTION i)` tasks are done, you MUST rewrite the TODO list:
+- Replace the generic filter items with one `Filter(<product name>)` per discovered product (the count of Filter items must equal the number of products).
+- Keep `Sort(filtered)` and the final write step after those filter items.
+
+Example refreshed TODO after finding 3 products:
+TODO List
+- [ ] Filter(Product Alpha)
+- [ ] Filter(Product Beta)
+- [ ] Filter(Product Gamma)
+- [ ] Sort(filtered)
+- [ ] Write result to result.yaml
+
+**Progress logging pattern (few-shot)**
+- After EVERY action item, add an explicit “Record progress, rewrite todo, update new-product.json” item (and mark it done once you rewrite and overwrite the file).
+- This enforces a rhythm of: do a step → record progress → rewrite TODO → update `new-product.json` → next step.
+- Sample pattern the model should mirror:
+  - [ ] Consider how to update todos based on products
+  - [ ] Sources(QUESTION 1)
+  - [ ] Record progress, rewrite todo, update new-product.json
+  - [ ] Sources(QUESTION 2)
+  - [ ] Record progress, rewrite todo, update new-product.json
+  - [ ] Sources(QUESTION 3)
+  - [ ] Record progress, rewrite todo, update new-product.json
+  - [ ] Union(all source results)
+  - [ ] Record progress, rewrite todo, update new-product.json
+  - [ ] Filter(Product 1)
+  - [ ] Record progress, rewrite todo, update new-product.json
+  - [ ] Filter(Product 2)
+  - [ ] Record progress, rewrite todo, update new-product.json
+  - [ ] Filter(Product 3)
+  - [ ] Record progress, rewrite todo, update new-product.json
+  - [ ] Sort(filtered)
+  - [ ] Record progress, rewrite todo, update new-product.json
+  - [ ] Write result to new-product.json
+  - [ ] Record progress, rewrite todo, update new-product.json
+
+**Final output format (what you actually return):**
+
+- Return a **JSON array** of products, sorted from most to least interesting.
+- Each entry MUST have the following fields:
+
+  ```json
+  [
+    {
+      "name": "<product name>",
+      "url": "<official homepage>",
+      "description": "1–3 sentence summary of what this product does, focused on the developer / AI-coding use case.",
+      "release_date": "YYYY-MM-DD",
+      "category": "<short label, e.g. \"AI IDE\", \"AI coding CLI\", \"code agent\", \"workflow agent\">",
+      "sources": ["Product Hunt", "Show HN", "Reddit", "X"],
+      "community_quotes": [
+        "<short quote from community describing what people like or notice>",
+        "<up to 5 quotes total, can be paraphrased but must reflect real feedback>"
+      ]
+    }
+  ]
+```
+
+* Only include products that:
+
+  * You have **good evidence** were launched in the last 14 days, and
+  * Clearly belong to the **AI coding / developer tools** space.
+
+* If you cannot find any products that satisfy the 14-day constraint,
+  return an empty JSON array: `[]`.
+
+Be concise, factual, and avoid marketing fluff. Do **not** include your reasoning text
+in the final answer—only the JSON.
+
+**File output + incremental updates requirement**
+- Maintain a file named `new-product` in the current working directory.
+- After every step (including each “Record progress, rewrite todo”), write the current JSON array to `new-product` (overwrite). Early steps may be partial/rough; later steps should be refined.
+- The JSON must always be valid and reflect the best current view (start with `[]` if nothing yet).
+- After the final step, ensure `new-product` holds the final sorted array.
+
+[user]
+## Working Directory Context
+
+Your current working directory is: `/home/runner/work/agentdaily/agentdaily/updates/2025-12-04`
+
+All file operations should be relative to this directory.
+
+---
+
+Below is your QUESTION list. For each QUESTION, treat it as a separate “research lens”
+to discover newly launched AI coding products (global constraint: last 14 days).
+
+1. QUESTION 1
+   List newly launched AI coding tools from the last 14 days that position themselves as a “full AI IDE” (similar to Windsurf or Cursor), not just a small autocomplete plugin.
+
+2. QUESTION 2
+   List newly launched AI coding CLIs or terminal-based agents from the last 14 days that behave like Gemini CLI, Codex CLI, or Claude Code CLI (repo-aware, can run commands, can manage tasks).
+
+3. QUESTION 5
+   List newly launched AI tools from the last 14 days that focus on one specific developer workflow (for example debugging, refactoring, test generation, or migration) instead of being a general-purpose coding assistant.
+
+4. QUESTION 7
+   List newly launched AI code agents from the last 14 days that advertise “project-long memory” or “workspace memory” across multiple sessions (not just single-chat context).
+
+5. QUESTION 11
+   List newly launched open-source AI coding agents from the last 14 days that can be self-hosted or run locally by developers.
+
+6. QUESTION 14
+   List newly launched AI coding tools from the last 14 days that integrate directly into existing IDEs (such as VS Code, JetBrains, or Neovim) rather than being a standalone IDE.
+
+7. QUESTION 16
+   List newly launched AI agents from the last 14 days that help developers run or orchestrate complex workflows across tools (for example CI/CD, deployment, observability, or incident response), rather than only editing code.
+
+[assistant message #2]
+I'll help you research newly launched AI coding products from the last 14 days. Let me start by creating a structured TODO list to organize this research systematically.
+
+
+[assistant tool_use #3] TodoWrite
+{
+  "todos": [
+    {
+      "content": "Consider how to update todos based on products",
+      "status": "pending",
+      "activeForm": "Considering how to update todos based on products"
+    },
+    {
+      "content": "Sources(QUESTION 1): Find AI IDEs launched in last 14 days",
+      "status": "pending",
+      "activeForm": "Finding AI IDEs launched in last 14 days"
+    },
+    {
+      "content": "Record progress, rewrite todo, update new-product.json",
+      "status": "pending",
+      "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+    },
+    {
+      "content": "Sources(QUESTION 2): Find AI coding CLIs/terminal agents launched in last 14 days",
+      "status": "pending",
+      "activeForm": "Finding AI coding CLIs/terminal agents launched in last 14 days"
+    },
+    {
+      "content": "Record progress, rewrite todo, update new-product.json",
+      "status": "pending",
+      "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+    },
+    {
+      "content": "Sources(QUESTION 5): Find workflow-specific AI tools launched in last 14 days",
+      "status": "pending",
+      "activeForm": "Finding workflow-specific AI tools launched in last 14 days"
+    },
+    {
+      "content": "Record progress, rewrite todo, update new-product.json",
+      "status": "pending",
+      "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+    },
+    {
+      "content": "Sources(QUESTION 7): Find AI tools with project-long memory launched in last 14 days",
+      "status": "pending",
+      "activeForm": "Finding AI tools with project-long memory launched in last 14 days"
+    },
+    {
+      "content": "Record progress, rewrite todo, update new-product.json",
+      "status": "pending",
+      "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+    },
+    {
+      "content": "Sources(QUESTION 11): Find open-source AI coding agents launched in last 14 days",
+      "status": "pending",
+      "activeForm": "Finding open-source AI coding agents launched in last 14 days"
+    },
+    {
+      "content": "Record progress, rewrite todo, update new-product.json",
+      "status": "pending",
+      "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+    },
+    {
+      "content": "Sources(QUESTION 14): Find AI IDE integration tools launched in last 14 days",
+      "status": "pending",
+      "activeForm": "Finding AI IDE integration tools launched in last 14 days"
+    },
+    {
+      "content": "Record progress, rewrite todo, update new-product.json",
+      "status": "pending",
+      "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+    },
+    {
+      "content": "Sources(QUESTION 16): Find AI workflow orchestration agents launched in last 14 days",
+      "status": "pending",
+      "activeForm": "Finding AI workflow orchestration agents launched in last 14 days"
+    },
+    {
+      "content": "Record progress, rewrite todo, update new-product.json",
+      "status": "pending",
+      "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+    },
+    {
+      "content": "Union(all source results): Merge and deduplicate candidates",
+      "status": "pending",
+      "activeForm": "Merging and deduplicating all candidates"
+    },
+    {
+      "content": "Record progress, rewrite todo, update new-product.json",
+      "status": "pending",
+      "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+    },
+    {
+      "content": "Filter(union) by launch date ≤ 14 days and AI coding relevance",
+      "status": "pending",
+      "activeForm": "Filtering candidates by launch date and relevance"
+    },
+    {
+      "content": "Record progress, rewrite todo, update new-product.json",
+      "status": "pending",
+      "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+    },
+    {
+      "content": "Sort(filtered) and rank by recency, attention, and relevance",
+      "status": "pending",
+      "activeForm": "Sorting and ranking filtered products"
+    },
+    {
+      "content": "Record progress, rewrite todo, update new-product.json",
+      "status": "pending",
+      "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+    },
+    {
+      "content": "Write final result to new-product.json",
+      "status": "pending",
+      "activeForm": "Writing final result to new-product.json"
+    }
+  ]
+}
+
+[user message #4]
+{
+  "type": "user",
+  "message": {
+    "role": "user",
+    "content": [
+      {
+        "tool_use_id": "call_3o25f02zysn",
+        "type": "tool_result",
+        "content": "Todos have been modified successfully. Ensure that you continue to use the todo list to track your progress. Please proceed with the current tasks if applicable"
+      }
+    ]
+  },
+  "parent_tool_use_id": null,
+  "session_id": "c90a34ec-6ebd-448a-935d-d3674c39ece3",
+  "uuid": "6fc98774-662c-40ef-8804-dd4aa21303ea",
+  "tool_use_result": {
+    "oldTodos": [],
+    "newTodos": [
+      {
+        "content": "Consider how to update todos based on products",
+        "status": "pending",
+        "activeForm": "Considering how to update todos based on products"
+      },
+      {
+        "content": "Sources(QUESTION 1): Find AI IDEs launched in last 14 days",
+        "status": "pending",
+        "activeForm": "Finding AI IDEs launched in last 14 days"
+      },
+      {
+        "content": "Record progress, rewrite todo, update new-product.json",
+        "status": "pending",
+        "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+      },
+      {
+        "content": "Sources(QUESTION 2): Find AI coding CLIs/terminal agents launched in last 14 days",
+        "status": "pending",
+        "activeForm": "Finding AI coding CLIs/terminal agents launched in last 14 days"
+      },
+      {
+        "content": "Record progress, rewrite todo, update new-product.json",
+        "status": "pending",
+        "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+      },
+      {
+        "content": "Sources(QUESTION 5): Find workflow-specific AI tools launched in last 14 days",
+        "status": "pending",
+        "activeForm": "Finding workflow-specific AI tools launched in last 14 days"
+      },
+      {
+        "content": "Record progress, rewrite todo, update new-product.json",
+        "status": "pending",
+        "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+      },
+      {
+        "content": "Sources(QUESTION 7): Find AI tools with project-long memory launched in last 14 days",
+        "status": "pending",
+        "activeForm": "Finding AI tools with project-long memory launched in last 14 days"
+      },
+      {
+        "content": "Record progress, rewrite todo, update new-product.json",
+        "status": "pending",
+        "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+      },
+      {
+        "content": "Sources(QUESTION 11): Find open-source AI coding agents launched in last 14 days",
+        "status": "pending",
+        "activeForm": "Finding open-source AI coding agents launched in last 14 days"
+      },
+      {
+        "content": "Record progress, rewrite todo, update new-product.json",
+        "status": "pending",
+        "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+      },
+      {
+        "content": "Sources(QUESTION 14): Find AI IDE integration tools launched in last 14 days",
+        "status": "pending",
+        "activeForm": "Finding AI IDE integration tools launched in last 14 days"
+      },
+      {
+        "content": "Record progress, rewrite todo, update new-product.json",
+        "status": "pending",
+        "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+      },
+      {
+        "content": "Sources(QUESTION 16): Find AI workflow orchestration agents launched in last 14 days",
+        "status": "pending",
+        "activeForm": "Finding AI workflow orchestration agents launched in last 14 days"
+      },
+      {
+        "content": "Record progress, rewrite todo, update new-product.json",
+        "status": "pending",
+        "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+      },
+      {
+        "content": "Union(all source results): Merge and deduplicate candidates",
+        "status": "pending",
+        "activeForm": "Merging and deduplicating all candidates"
+      },
+      {
+        "content": "Record progress, rewrite todo, update new-product.json",
+        "status": "pending",
+        "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+      },
+      {
+        "content": "Filter(union) by launch date ≤ 14 days and AI coding relevance",
+        "status": "pending",
+        "activeForm": "Filtering candidates by launch date and relevance"
+      },
+      {
+        "content": "Record progress, rewrite todo, update new-product.json",
+        "status": "pending",
+        "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+      },
+      {
+        "content": "Sort(filtered) and rank by recency, attention, and relevance",
+        "status": "pending",
+        "activeForm": "Sorting and ranking filtered products"
+      },
+      {
+        "content": "Record progress, rewrite todo, update new-product.json",
+        "status": "pending",
+        "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+      },
+      {
+        "content": "Write final result to new-product.json",
+        "status": "pending",
+        "activeForm": "Writing final result to new-product.json"
+      }
+    ]
+  }
+}
+
+[assistant tool_use #5] TodoWrite
+{
+  "todos": [
+    {
+      "content": "Consider how to update todos based on products",
+      "status": "completed",
+      "activeForm": "Considered how to update todos based on products"
+    },
+    {
+      "content": "Sources(QUESTION 1): Find AI IDEs launched in last 14 days",
+      "status": "in_progress",
+      "activeForm": "Finding AI IDEs launched in last 14 days"
+    },
+    {
+      "content": "Record progress, rewrite todo, update new-product.json",
+      "status": "pending",
+      "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+    },
+    {
+      "content": "Sources(QUESTION 2): Find AI coding CLIs/terminal agents launched in last 14 days",
+      "status": "pending",
+      "activeForm": "Finding AI coding CLIs/terminal agents launched in last 14 days"
+    },
+    {
+      "content": "Record progress, rewrite todo, update new-product.json",
+      "status": "pending",
+      "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+    },
+    {
+      "content": "Sources(QUESTION 5): Find workflow-specific AI tools launched in last 14 days",
+      "status": "pending",
+      "activeForm": "Finding workflow-specific AI tools launched in last 14 days"
+    },
+    {
+      "content": "Record progress, rewrite todo, update new-product.json",
+      "status": "pending",
+      "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+    },
+    {
+      "content": "Sources(QUESTION 7): Find AI tools with project-long memory launched in last 14 days",
+      "status": "pending",
+      "activeForm": "Finding AI tools with project-long memory launched in last 14 days"
+    },
+    {
+      "content": "Record progress, rewrite todo, update new-product.json",
+      "status": "pending",
+      "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+    },
+    {
+      "content": "Sources(QUESTION 11): Find open-source AI coding agents launched in last 14 days",
+      "status": "pending",
+      "activeForm": "Finding open-source AI coding agents launched in last 14 days"
+    },
+    {
+      "content": "Record progress, rewrite todo, update new-product.json",
+      "status": "pending",
+      "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+    },
+    {
+      "content": "Sources(QUESTION 14): Find AI IDE integration tools launched in last 14 days",
+      "status": "pending",
+      "activeForm": "Finding AI IDE integration tools launched in last 14 days"
+    },
+    {
+      "content": "Record progress, rewrite todo, update new-product.json",
+      "status": "pending",
+      "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+    },
+    {
+      "content": "Sources(QUESTION 16): Find AI workflow orchestration agents launched in last 14 days",
+      "status": "pending",
+      "activeForm": "Finding AI workflow orchestration agents launched in last 14 days"
+    },
+    {
+      "content": "Record progress, rewrite todo, update new-product.json",
+      "status": "pending",
+      "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+    },
+    {
+      "content": "Union(all source results): Merge and deduplicate candidates",
+      "status": "pending",
+      "activeForm": "Merging and deduplicating all candidates"
+    },
+    {
+      "content": "Record progress, rewrite todo, update new-product.json",
+      "status": "pending",
+      "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+    },
+    {
+      "content": "Filter(union) by launch date ≤ 14 days and AI coding relevance",
+      "status": "pending",
+      "activeForm": "Filtering candidates by launch date and relevance"
+    },
+    {
+      "content": "Record progress, rewrite todo, update new-product.json",
+      "status": "pending",
+      "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+    },
+    {
+      "content": "Sort(filtered) and rank by recency, attention, and relevance",
+      "status": "pending",
+      "activeForm": "Sorting and ranking filtered products"
+    },
+    {
+      "content": "Record progress, rewrite todo, update new-product.json",
+      "status": "pending",
+      "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+    },
+    {
+      "content": "Write final result to new-product.json",
+      "status": "pending",
+      "activeForm": "Writing final result to new-product.json"
+    }
+  ]
+}
+
+[user message #6]
+{
+  "type": "user",
+  "message": {
+    "role": "user",
+    "content": [
+      {
+        "tool_use_id": "call_gqvuln14xq",
+        "type": "tool_result",
+        "content": "Todos have been modified successfully. Ensure that you continue to use the todo list to track your progress. Please proceed with the current tasks if applicable"
+      }
+    ]
+  },
+  "parent_tool_use_id": null,
+  "session_id": "c90a34ec-6ebd-448a-935d-d3674c39ece3",
+  "uuid": "5cbe65ed-1a0d-4c17-9a9f-cccee62654c4",
+  "tool_use_result": {
+    "oldTodos": [
+      {
+        "content": "Consider how to update todos based on products",
+        "status": "pending",
+        "activeForm": "Considering how to update todos based on products"
+      },
+      {
+        "content": "Sources(QUESTION 1): Find AI IDEs launched in last 14 days",
+        "status": "pending",
+        "activeForm": "Finding AI IDEs launched in last 14 days"
+      },
+      {
+        "content": "Record progress, rewrite todo, update new-product.json",
+        "status": "pending",
+        "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+      },
+      {
+        "content": "Sources(QUESTION 2): Find AI coding CLIs/terminal agents launched in last 14 days",
+        "status": "pending",
+        "activeForm": "Finding AI coding CLIs/terminal agents launched in last 14 days"
+      },
+      {
+        "content": "Record progress, rewrite todo, update new-product.json",
+        "status": "pending",
+        "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+      },
+      {
+        "content": "Sources(QUESTION 5): Find workflow-specific AI tools launched in last 14 days",
+        "status": "pending",
+        "activeForm": "Finding workflow-specific AI tools launched in last 14 days"
+      },
+      {
+        "content": "Record progress, rewrite todo, update new-product.json",
+        "status": "pending",
+        "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+      },
+      {
+        "content": "Sources(QUESTION 7): Find AI tools with project-long memory launched in last 14 days",
+        "status": "pending",
+        "activeForm": "Finding AI tools with project-long memory launched in last 14 days"
+      },
+      {
+        "content": "Record progress, rewrite todo, update new-product.json",
+        "status": "pending",
+        "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+      },
+      {
+        "content": "Sources(QUESTION 11): Find open-source AI coding agents launched in last 14 days",
+        "status": "pending",
+        "activeForm": "Finding open-source AI coding agents launched in last 14 days"
+      },
+      {
+        "content": "Record progress, rewrite todo, update new-product.json",
+        "status": "pending",
+        "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+      },
+      {
+        "content": "Sources(QUESTION 14): Find AI IDE integration tools launched in last 14 days",
+        "status": "pending",
+        "activeForm": "Finding AI IDE integration tools launched in last 14 days"
+      },
+      {
+        "content": "Record progress, rewrite todo, update new-product.json",
+        "status": "pending",
+        "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+      },
+      {
+        "content": "Sources(QUESTION 16): Find AI workflow orchestration agents launched in last 14 days",
+        "status": "pending",
+        "activeForm": "Finding AI workflow orchestration agents launched in last 14 days"
+      },
+      {
+        "content": "Record progress, rewrite todo, update new-product.json",
+        "status": "pending",
+        "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+      },
+      {
+        "content": "Union(all source results): Merge and deduplicate candidates",
+        "status": "pending",
+        "activeForm": "Merging and deduplicating all candidates"
+      },
+      {
+        "content": "Record progress, rewrite todo, update new-product.json",
+        "status": "pending",
+        "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+      },
+      {
+        "content": "Filter(union) by launch date ≤ 14 days and AI coding relevance",
+        "status": "pending",
+        "activeForm": "Filtering candidates by launch date and relevance"
+      },
+      {
+        "content": "Record progress, rewrite todo, update new-product.json",
+        "status": "pending",
+        "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+      },
+      {
+        "content": "Sort(filtered) and rank by recency, attention, and relevance",
+        "status": "pending",
+        "activeForm": "Sorting and ranking filtered products"
+      },
+      {
+        "content": "Record progress, rewrite todo, update new-product.json",
+        "status": "pending",
+        "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+      },
+      {
+        "content": "Write final result to new-product.json",
+        "status": "pending",
+        "activeForm": "Writing final result to new-product.json"
+      }
+    ],
+    "newTodos": [
+      {
+        "content": "Consider how to update todos based on products",
+        "status": "completed",
+        "activeForm": "Considered how to update todos based on products"
+      },
+      {
+        "content": "Sources(QUESTION 1): Find AI IDEs launched in last 14 days",
+        "status": "in_progress",
+        "activeForm": "Finding AI IDEs launched in last 14 days"
+      },
+      {
+        "content": "Record progress, rewrite todo, update new-product.json",
+        "status": "pending",
+        "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+      },
+      {
+        "content": "Sources(QUESTION 2): Find AI coding CLIs/terminal agents launched in last 14 days",
+        "status": "pending",
+        "activeForm": "Finding AI coding CLIs/terminal agents launched in last 14 days"
+      },
+      {
+        "content": "Record progress, rewrite todo, update new-product.json",
+        "status": "pending",
+        "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+      },
+      {
+        "content": "Sources(QUESTION 5): Find workflow-specific AI tools launched in last 14 days",
+        "status": "pending",
+        "activeForm": "Finding workflow-specific AI tools launched in last 14 days"
+      },
+      {
+        "content": "Record progress, rewrite todo, update new-product.json",
+        "status": "pending",
+        "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+      },
+      {
+        "content": "Sources(QUESTION 7): Find AI tools with project-long memory launched in last 14 days",
+        "status": "pending",
+        "activeForm": "Finding AI tools with project-long memory launched in last 14 days"
+      },
+      {
+        "content": "Record progress, rewrite todo, update new-product.json",
+        "status": "pending",
+        "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+      },
+      {
+        "content": "Sources(QUESTION 11): Find open-source AI coding agents launched in last 14 days",
+        "status": "pending",
+        "activeForm": "Finding open-source AI coding agents launched in last 14 days"
+      },
+      {
+        "content": "Record progress, rewrite todo, update new-product.json",
+        "status": "pending",
+        "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+      },
+      {
+        "content": "Sources(QUESTION 14): Find AI IDE integration tools launched in last 14 days",
+        "status": "pending",
+        "activeForm": "Finding AI IDE integration tools launched in last 14 days"
+      },
+      {
+        "content": "Record progress, rewrite todo, update new-product.json",
+        "status": "pending",
+        "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+      },
+      {
+        "content": "Sources(QUESTION 16): Find AI workflow orchestration agents launched in last 14 days",
+        "status": "pending",
+        "activeForm": "Finding AI workflow orchestration agents launched in last 14 days"
+      },
+      {
+        "content": "Record progress, rewrite todo, update new-product.json",
+        "status": "pending",
+        "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+      },
+      {
+        "content": "Union(all source results): Merge and deduplicate candidates",
+        "status": "pending",
+        "activeForm": "Merging and deduplicating all candidates"
+      },
+      {
+        "content": "Record progress, rewrite todo, update new-product.json",
+        "status": "pending",
+        "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+      },
+      {
+        "content": "Filter(union) by launch date ≤ 14 days and AI coding relevance",
+        "status": "pending",
+        "activeForm": "Filtering candidates by launch date and relevance"
+      },
+      {
+        "content": "Record progress, rewrite todo, update new-product.json",
+        "status": "pending",
+        "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+      },
+      {
+        "content": "Sort(filtered) and rank by recency, attention, and relevance",
+        "status": "pending",
+        "activeForm": "Sorting and ranking filtered products"
+      },
+      {
+        "content": "Record progress, rewrite todo, update new-product.json",
+        "status": "pending",
+        "activeForm": "Recording progress, rewriting todo, updating new-product.json"
+      },
+      {
+        "content": "Write final result to new-product.json",
+        "status": "pending",
+        "activeForm": "Writing final result to new-product.json"
+      }
+    ]
+  }
+}
+
+[assistant message #7]
+Now let me start searching for AI IDEs launched in the last 14 days. I'll search across multiple sources to find the most recent launches.
+
+
+[assistant tool_use #8] WebSearch
+{
+  "query": "AI IDE launched December 2024 \"full AI IDE\" new programming tool coding environment"
+}
+
+[assistant tool_use #9] WebSearch
+{
+  "query": "Product Hunt AI IDE December 2024 new launch programming editor"
+}
+
+[assistant tool_use #10] WebSearch
+{
+  "query": "\"windsurf alternative\" \"cursor alternative\" AI IDE launched December 2024"
+}
+
+[user message #11]
+{
+  "type": "user",
+  "message": {
+    "role": "user",
+    "content": [
+      {
+        "tool_use_id": "call_b7akohmlhqo",
+        "type": "tool_result",
+        "content": "Web search results for query: \"Product Hunt AI IDE December 2024 new launch programming editor\"\n\nI'll search for information about Product Hunt AI IDE launches from December 2024 related to new programming editors.\n\nLinks: [{}]\n\nI apologize, but I'm unable to perform the web search at the moment. The search service has reached its monthly usage limit and will reset on January 1, 2026.\n\nIf you're looking for information about AI IDE launches on Product Hunt in December 2024, I'd recommend:\n\n1. **Visit Product Hunt directly** at producthunt.com and use their search filters to look for AI IDEs and programming editors from December 2024\n\n2. **Try alternative sources** like:\n   - Hacker News\n   - GitHub trending repositories\n   - TechCrunch\n   - Reddit communities like r/programming or r/learnprogramming\n\n3. **Check specific AI IDE company websites** or their social media announcements for December 2024 launches\n\nWould you like me to help you with any other aspects of researching AI IDEs once you've gathered the information from other sources?\n\n\nREMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks."
+      }
+    ]
+  },
+  "parent_tool_use_id": null,
+  "session_id": "c90a34ec-6ebd-448a-935d-d3674c39ece3",
+  "uuid": "1696e668-444c-4c40-8491-34919ca4d782",
+  "tool_use_result": {
+    "query": "Product Hunt AI IDE December 2024 new launch programming editor",
+    "results": [
+      "I'll search for information about Product Hunt AI IDE launches from December 2024 related to new programming editors.",
+      {
+        "tool_use_id": "call_z3m8bwcgo",
+        "content": [
+          {}
+        ]
+      },
+      "I apologize, but I'm unable to perform the web search at the moment. The search service has reached its monthly usage limit and will reset on January 1, 2026.\n\nIf you're looking for information about AI IDE launches on Product Hunt in December 2024, I'd recommend:\n\n1. **Visit Product Hunt directly** at producthunt.com and use their search filters to look for AI IDEs and programming editors from December 2024\n\n2. **Try alternative sources** like:\n   - Hacker News\n   - GitHub trending repositories\n   - TechCrunch\n   - Reddit communities like r/programming or r/learnprogramming\n\n3. **Check specific AI IDE company websites** or their social media announcements for December 2024 launches\n\nWould you like me to help you with any other aspects of researching AI IDEs once you've gathered the information from other sources?"
+    ],
+    "durationSeconds": 4.0105003640000065
+  }
+}
+
+[user message #12]
+{
+  "type": "user",
+  "message": {
+    "role": "user",
+    "content": [
+      {
+        "tool_use_id": "call_tb0pl0houm8",
+        "type": "tool_result",
+        "content": "Web search results for query: \"\"windsurf alternative\" \"cursor alternative\" AI IDE launched December 2024\"\n\nI'll perform a web search for AI IDE alternatives that were launched in December 2024, specifically looking for alternatives to Windsurf and Cursor.\n\nLinks: [{}]\n\nI apologize, but I'm unable to perform the web search at this moment as the monthly usage limit has been reached for the search service. The service will reset on January 1, 2026.\n\nHowever, based on your query, it appears you're looking for information about AI IDE alternatives to Windsurf and Cursor that were launched in December 2024. Since I can't search for the latest information right now, you might want to:\n\n1. **Try searching directly** using your preferred search engine with the same query terms\n2. **Check developer communities** like GitHub, Hacker News, or Reddit for discussions about new AI IDEs\n3. **Look at tech publications** that cover developer tools and AI-powered IDEs\n\nIf you have access to other search tools or would like to try again later, I'd be happy to help analyze the results for you.\n\n\nREMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks."
+      }
+    ]
+  },
+  "parent_tool_use_id": null,
+  "session_id": "c90a34ec-6ebd-448a-935d-d3674c39ece3",
+  "uuid": "f73b95fe-6fa4-4298-875b-4e1a7243ad8f",
+  "tool_use_result": {
+    "query": "\"windsurf alternative\" \"cursor alternative\" AI IDE launched December 2024",
+    "results": [
+      "I'll perform a web search for AI IDE alternatives that were launched in December 2024, specifically looking for alternatives to Windsurf and Cursor.",
+      {
+        "tool_use_id": "call_8glbi8l5b7c",
+        "content": [
+          {}
+        ]
+      },
+      "I apologize, but I'm unable to perform the web search at this moment as the monthly usage limit has been reached for the search service. The service will reset on January 1, 2026.\n\nHowever, based on your query, it appears you're looking for information about AI IDE alternatives to Windsurf and Cursor that were launched in December 2024. Since I can't search for the latest information right now, you might want to:\n\n1. **Try searching directly** using your preferred search engine with the same query terms\n2. **Check developer communities** like GitHub, Hacker News, or Reddit for discussions about new AI IDEs\n3. **Look at tech publications** that cover developer tools and AI-powered IDEs\n\nIf you have access to other search tools or would like to try again later, I'd be happy to help analyze the results for you."
+    ],
+    "durationSeconds": 4.095303527000011
+  }
+}
+
+[user message #13]
+{
+  "type": "user",
+  "message": {
+    "role": "user",
+    "content": [
+      {
+        "tool_use_id": "call_pvh11mhtvzo",
+        "type": "tool_result",
+        "content": "Web search results for query: \"AI IDE launched December 2024 \"full AI IDE\" new programming tool coding environment\"\n\nI'll perform a web search for information about AI IDEs launched in December 2024 and full AI programming tools.\n\nLinks: [{}]\n\nLinks: [{}]\n\nLinks: [{}]\n\nI apologize, but I'm currently unable to perform the web search you requested. The web search tool has reached its usage limit for this month and will reset at the end of December 2024.\n\nHowever, I can help you with your query in other ways:\n\n1. **If you have a specific image** of the AI IDE or programming tool you're looking for, I can analyze it using image analysis tools to help identify what it is.\n\n2. **If you provide more context** about what you're looking for (like the company name, specific features you remember, or where you saw it), I might be able to provide information based on my knowledge.\n\n3. **You could try searching again** after the usage limits reset in January 2025.\n\nWhat would you like to do instead? Do you have any images of the AI IDE you're looking for, or can you provide additional details that might help narrow down the search?\n\n\nREMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks."
+      }
+    ]
+  },
+  "parent_tool_use_id": null,
+  "session_id": "c90a34ec-6ebd-448a-935d-d3674c39ece3",
+  "uuid": "9ef70b4a-c803-474b-a8e7-654b8d39d0c7",
+  "tool_use_result": {
+    "query": "AI IDE launched December 2024 \"full AI IDE\" new programming tool coding environment",
+    "results": [
+      "I'll perform a web search for information about AI IDEs launched in December 2024 and full AI programming tools.",
+      {
+        "tool_use_id": "call_84e3oxmbc5c",
+        "content": [
+          {}
+        ]
+      },
+      {
+        "tool_use_id": "call_3znwqiwoblf",
+        "content": [
+          {}
+        ]
+      },
+      {
+        "tool_use_id": "call_ma6v8sq31l",
+        "content": [
+          {}
+        ]
+      },
+      "I apologize, but I'm currently unable to perform the web search you requested. The web search tool has reached its usage limit for this month and will reset at the end of December 2024.\n\nHowever, I can help you with your query in other ways:\n\n1. **If you have a specific image** of the AI IDE or programming tool you're looking for, I can analyze it using image analysis tools to help identify what it is.\n\n2. **If you provide more context** about what you're looking for (like the company name, specific features you remember, or where you saw it), I might be able to provide information based on my knowledge.\n\n3. **You could try searching again** after the usage limits reset in January 2025.\n\nWhat would you like to do instead? Do you have any images of the AI IDE you're looking for, or can you provide additional details that might help narrow down the search?"
+    ],
+    "durationSeconds": 4.928039542000013
+  }
+}
+
+[assistant message #14]
+It seems the web search has reached its monthly limit. Let me try a different approach by using some alternative search strategies and leveraging other tools available to me.
+
+
+[assistant tool_use #15] WebSearch
+{
+  "query": "site:producthunt.com AI IDE December 2024 programming editor coding"
+}
+
+[assistant tool_use #16] WebSearch
+{
+  "query": "site:news.ycombinator.com \"AI IDE\" \"December 2024\" launched"
+}
+
+[user message #17]
+{
+  "type": "user",
+  "message": {
+    "role": "user",
+    "content": [
+      {
+        "tool_use_id": "call_j5qwz7r8jag",
+        "type": "tool_result",
+        "content": "Web search results for query: \"site:news.ycombinator.com \"AI IDE\" \"December 2024\" launched\"\n\nI'll perform a web search for information about AI IDE launches mentioned on Hacker News in December 2024.\n\nLinks: [{}]\n\nI apologize, but I'm currently unable to perform the web search because the search service has reached its monthly usage limit. The search quota will reset on January 1, 2026.\n\nIf you'd like to search for information about AI IDE launches from December 2024 on Hacker News (news.ycombinator.com), you can:\n\n1. **Try searching directly on Hacker News** at https://news.ycombinator.com/\n2. **Use Google search** with the query: `site:news.ycombinator.com \"AI IDE\" \"December 2024\" launched`\n3. **Wait until next month** when the search quota resets\n4. **Try a more specific search** if you have particular AI IDE names or companies in mind\n\nWould you like me to help you with any other tasks that don't require web searching?\n\n\nREMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks."
+      }
+    ]
+  },
+  "parent_tool_use_id": null,
+  "session_id": "c90a34ec-6ebd-448a-935d-d3674c39ece3",
+  "uuid": "d7b6bec1-0d74-4d73-959d-3bc9d6b2edeb",
+  "tool_use_result": {
+    "query": "site:news.ycombinator.com \"AI IDE\" \"December 2024\" launched",
+    "results": [
+      "I'll perform a web search for information about AI IDE launches mentioned on Hacker News in December 2024.",
+      {
+        "tool_use_id": "call_yeszojog21",
+        "content": [
+          {}
+        ]
+      },
+      "I apologize, but I'm currently unable to perform the web search because the search service has reached its monthly usage limit. The search quota will reset on January 1, 2026.\n\nIf you'd like to search for information about AI IDE launches from December 2024 on Hacker News (news.ycombinator.com), you can:\n\n1. **Try searching directly on Hacker News** at https://news.ycombinator.com/\n2. **Use Google search** with the query: `site:news.ycombinator.com \"AI IDE\" \"December 2024\" launched`\n3. **Wait until next month** when the search quota resets\n4. **Try a more specific search** if you have particular AI IDE names or companies in mind\n\nWould you like me to help you with any other tasks that don't require web searching?"
+    ],
+    "durationSeconds": 2.9634306329999816
+  }
+}
+
+[user message #18]
+{
+  "type": "user",
+  "message": {
+    "role": "user",
+    "content": [
+      {
+        "tool_use_id": "call_0gp214dwfe08",
+        "type": "tool_result",
+        "content": "Web search results for query: \"site:producthunt.com AI IDE December 2024 programming editor coding\"\n\nI'll search for AI IDEs on Product Hunt from December 2024 related to programming editors and coding.\n\nLinks: [{}]\n\nI apologize, but I encountered an error when trying to perform the web search. The search tool has reached its monthly usage limit and won't reset until January 1, 2026.\n\nHowever, I can help you in other ways with your query about AI IDEs on Product Hunt from December 2024:\n\n1. **Direct Product Hunt Search**: You can visit [producthunt.com](https://www.producthunt.com) and use their search function with terms like \"AI IDE\", \"programming editor\", or \"coding assistant\" and filter by December 2024.\n\n2. **Specific Recommendations**: If you're looking for AI-powered coding tools, some popular categories include:\n   - AI code completion tools (like GitHub Copilot alternatives)\n   - AI-integrated IDEs\n   - Smart code editors with AI features\n   - AI pair programming assistants\n\n3. **Alternative Search**: You could try searching on other platforms like:\n   - Google with your query\n   - Hacker News\n   - GitHub trending repositories\n   - TechCrunch or other tech publications\n\nWould you like me to help you with anything specific about AI coding tools or IDEs that I might know from my training, or would you prefer to try a different search approach?\n\n\nREMINDER: You MUST include the sources above in your response to the user using markdown hyperlinks."
+      }
+    ]
+  },
+  "parent_tool_use_id": null,
+  "session_id": "c90a34ec-6ebd-448a-935d-d3674c39ece3",
+  "uuid": "861bbd2d-8652-4a28-8b8e-025862b5fae3",
+  "tool_use_result": {
+    "query": "site:producthunt.com AI IDE December 2024 programming editor coding",
+    "results": [
+      "I'll search for AI IDEs on Product Hunt from December 2024 related to programming editors and coding.",
+      {
+        "tool_use_id": "call_m24aw42sgl",
+        "content": [
+          {}
+        ]
+      },
+      "I apologize, but I encountered an error when trying to perform the web search. The search tool has reached its monthly usage limit and won't reset until January 1, 2026.\n\nHowever, I can help you in other ways with your query about AI IDEs on Product Hunt from December 2024:\n\n1. **Direct Product Hunt Search**: You can visit [producthunt.com](https://www.producthunt.com) and use their search function with terms like \"AI IDE\", \"programming editor\", or \"coding assistant\" and filter by December 2024.\n\n2. **Specific Recommendations**: If you're looking for AI-powered coding tools, some popular categories include:\n   - AI code completion tools (like GitHub Copilot alternatives)\n   - AI-integrated IDEs\n   - Smart code editors with AI features\n   - AI pair programming assistants\n\n3. **Alternative Search**: You could try searching on other platforms like:\n   - Google with your query\n   - Hacker News\n   - GitHub trending repositories\n   - TechCrunch or other tech publications\n\nWould you like me to help you with anything specific about AI coding tools or IDEs that I might know from my training, or would you prefer to try a different search approach?"
+    ],
+    "durationSeconds": 3.452808328000014
+  }
+}
+
+[assistant message #19]
+Since the web search is currently unavailable, I need to inform you that I cannot complete the research task effectively without web search capabilities. The web search tool has reached its monthly limit and won't reset until January 2026, which makes it impossible for me to:
+
+1. Find newly launched AI coding products from the last 14 days
+2. Verify launch dates and credibility 
+3. Collect community feedback and launch signals
+4. Research detailed product information
+
+Without web search access, I cannot provide accurate, up-to-date information about AI coding tools launched in December 2024. This research requires real-time access to launch platforms, news sources, and developer communities to identify genuinely new products and verify their launch dates.
+
+For this type of time-sensitive research, I would need web search capabilities to:
+- Search Product Hunt, Hacker News, Reddit, and other launch platforms
+- Check official company websites and GitHub repositories
+- Verify launch dates from credible sources
+- Collect community feedback and engagement metrics
+
+I apologize that I cannot complete this task under the current constraints. You may want to:
+1. Try again next month when search limits reset
+2. Use alternative search tools directly
+3. Manually research the sources I would normally query
+
+Would you like me to help with a different task that doesn't require web search capabilities?
+
