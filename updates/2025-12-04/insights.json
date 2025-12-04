@@ -1,0 +1,22 @@
+[
+  {
+    "title": "AI-assisted coding for teams that can't get away with vibes",
+    "description": "Simon Willison highlighted Atharva Raykar's analysis of AI-assisted development, emphasizing that AI is a multiplier - the more software engineering expertise you have, the better results you can get from LLMs. Key insights include the importance of good test coverage, linting, CI/CD, and clear documentation for effective AI collaboration. Also noted changes in development practices: less emphasis on premature abstraction since LLMs make repetition palatable, and the critical importance of testing since AI can generate tests rapidly.",
+    "author": "Simon Willison",
+    "source": "Blog",
+    "url": "https://simonwillison.net/2025/jun/10/ai-assisted-coding/",
+    "published_date": "2025-06-10",
+    "topics": ["AI Coding", "Development Practices", "Testing", "LLM Multiplier"],
+    "type": "technical"
+  },
+  {
+    "title": "Agentic Coding Recommendations",
+    "description": "Willison shared Armin Ronacher's actionable advice for using Claude Code effectively, highlighting excellent results from Go development. Key tip: making tools (linters, tests, logs, dev servers) accessible through documented Makefiles. Critical insight about logging: in debug mode, emails are logged to stdout, allowing agents to complete full sign-in flows with remote browsers by consulting logs for necessary links.",
+    "author": "Simon Willison",
+    "source": "Blog",
+    "url": "https://simonwillison.net/2025/Jun/12/agentic-coding-recommendations/",
+    "published_date": "2025-06-12",
+    "topics": ["Claude Code", "Agentic Coding", "Go Development", "Logging"],
+    "type": "technical"
+  }
+]

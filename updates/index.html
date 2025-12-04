@@ -63,84 +63,64 @@
         <p class="text-lg text-[#6B6B6B] leading-relaxed max-w-[800px]">A curated summary of the most important updates in AI from the last 7 days.</p>
     </div>
 
-    <!-- New Products Section -->
+    <!-- New Products Section (8 items = grid-rows-2) -->
     <section class="mb-16">
         <h2 class="font-serif text-3xl font-bold text-black mb-8 tracking-tight">New Products</h2>
-        <div class="grid grid-flow-col auto-cols-[320px] grid-rows-1 gap-5 overflow-x-auto pb-4 hide-scrollbar">
+        <div class="grid grid-flow-col auto-cols-[320px] grid-rows-2 gap-5 overflow-x-auto pb-4 hide-scrollbar">
+            <a href="https://www.producthunt.com/products/rightnow-ai" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
+                <div>
+                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">RightNow CUDA Editor</h3>
+                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">The first GPU-native AI code editor specifically designed for CUDA GPU programming, featuring real-time profiling, cycle-accurate emulation, and AI that understands CUDA for performance optimization and bottleneck identification.</p>
+                </div>
+                <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
+                    <span class="font-medium">Nov 30</span>
+                    <span>Product Hunt</span>
+                </div>
+            </a>
+            <a href="https://www.producthunt.com/products/rightnow-ai" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
+                <div>
+                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">RightNow CLI</h3>
+                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Claude Code for CUDA, an open-source AI CLI for GPU development that provides terminal-based AI assistance for CUDA programming, complementing the RightNow CUDA Editor with command-line capabilities.</p>
+                </div>
+                <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
+                    <span class="font-medium">Nov 30</span>
+                    <span>Product Hunt</span>
+                </div>
+            </a>
+            <a href="https://antigravity.google" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
+                <div>
+                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">Google Antigravity IDE</h3>
+                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Google's free AI-powered development platform featuring autonomous coding agents powered by Gemini 3 that can write, test, and debug applications while developers delegate complex tasks.</p>
+                </div>
+                <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
+                    <span class="font-medium">Nov 18</span>
+                    <span>Google Developer Blog</span>
+                </div>
+            </a>
             <a href="https://github.com/coleam00/Archon" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
                 <div>
                     <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">Archon</h3>
-                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Beta release of Archon OS - the knowledge and task management backbone for AI coding assistants. Provides infrastructure for AI agents to manage code projects, tasks, and development workflows.</p>
+                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Beta release of Archon OS - the knowledge and task management backbone for AI coding assistants. Provides infrastructure for AI agents to manage code projects and development workflows.</p>
                 </div>
                 <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
                     <span class="font-medium">Nov 27</span>
                     <span>GitHub</span>
-                </div>
-            </a>
-            <a href="https://github.com/VenomNite/claude-code-toolkit" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
-                <div>
-                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">Claude Code Toolkit</h3>
-                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Automate development workflows with the Claude Code Toolkit, featuring 16 commands and 10 AI agents for seamless project management and quality assurance.</p>
-                </div>
-                <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
-                    <span class="font-medium">Nov 27</span>
-                    <span>GitHub</span>
-                </div>
-            </a>
-            <a href="https://blog.kagi.com/orion" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
-                <div>
-                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">Orion 1.0</h3>
-                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Kagi's new search and discovery tool that helps developers find relevant code, documentation, and resources. Features AI-powered search with context awareness for better development workflow integration.</p>
-                </div>
-                <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
-                    <span class="font-medium">Nov 27</span>
-                    <span>Hacker News</span>
-                </div>
-            </a>
-            <a href="https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
-                <div>
-                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">System Prompts and Models of AI Tools</h3>
-                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Comprehensive collection of system prompts, internal tools & AI models from major AI coding platforms including Claude Code, Cursor, Devin AI, Replit, Windsurf, VSCode Agent, and more.</p>
-                </div>
-                <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
-                    <span class="font-medium">Nov 27</span>
-                    <span>GitHub</span>
-                </div>
-            </a>
-            <a href="https://bfl.ai/blog/flux-2" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
-                <div>
-                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">FLUX.2</h3>
-                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Frontier Visual Intelligence - new AI model for visual code understanding and generation. Can analyze screenshots, diagrams, and visual design assets to generate corresponding code.</p>
-                </div>
-                <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
-                    <span class="font-medium">Nov 27</span>
-                    <span>Hacker News</span>
                 </div>
             </a>
             <a href="https://www.unison-lang.org/unison-1-0/" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
                 <div>
                     <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">Unison 1.0</h3>
-                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">New functional programming language designed for distributed systems and modern development. Features unique code organization, hot reloading, and built-in testing capabilities optimized for AI-assisted development.</p>
+                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">New functional programming language designed for distributed systems and modern development, optimized for AI-assisted development with hot reloading and built-in testing.</p>
                 </div>
                 <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
                     <span class="font-medium">Nov 27</span>
                     <span>Hacker News</span>
                 </div>
             </a>
-            <a href="https://sbox.game/news/update-25-11-26" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
+            <a href="https://github.com/VenomNite/claude-code-toolkit" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
                 <div>
-                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">S&box</h3>
-                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Open source game engine that went open source. Features modern C++ architecture, visual scripting, and AI-powered content generation tools for game development.</p>
-                </div>
-                <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
-                    <span class="font-medium">Nov 27</span>
-                    <span>Hacker News</span>
-                </div>
-            </a>
-            <a href="https://github.com/addyosmani/gemini-cli-tips" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
-                <div>
-                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">Gemini CLI Tips and Tricks for Agents</h3>
-                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Collection of advanced techniques for using Google's Gemini in CLI-based coding agents. Includes prompt engineering, workflow automation, and integration strategies for development environments.</p>
+                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">Claude Code Toolkit</h3>
+                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Automate development workflows with 16 commands and 10 AI agents for project management and quality assurance. Comprehensive toolkit for enhanced Claude Code workflows.</p>
                 </div>
                 <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
                     <span class="font-medium">Nov 27</span>
@@ -150,262 +130,272 @@
             <a href="https://github.com/flowglad/flowglad" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
                 <div>
                     <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">Flowglad</h3>
-                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Open source, zero webhook payment processor specifically designed for developer tools and SaaS applications. Simplifies integration of payment processing into coding tools and platforms.</p>
+                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Open source, zero webhook payment processor specifically designed for developer tools and SaaS applications. Streamlined payment solution for modern development needs.</p>
                 </div>
                 <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
                     <span class="font-medium">Nov 27</span>
                     <span>Hacker News</span>
+                </div>
+            </a>
+            <a href="https://sbox.game/news/update-25-11-26" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
+                <div>
+                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">S&box</h3>
+                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Open source game engine with modern C++ architecture, visual scripting, and AI-powered content generation tools. Next-generation development environment for game creators.</p>
+                </div>
+                <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
+                    <span class="font-medium">Nov 27</span>
+                    <span>Hacker News</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- New Features Section (8 items = grid-rows-2) -->
+    <section class="mb-16">
+        <h2 class="font-serif text-3xl font-bold text-black mb-8 tracking-tight">New Features</h2>
+        <div class="grid grid-flow-col auto-cols-[320px] grid-rows-2 gap-5 overflow-x-auto pb-4 hide-scrollbar">
+            <a href="https://www.anthropic.com/news/claude-opus-4-5" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
+                <div>
+                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">Claude Opus 4.5 Release</h3>
+                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Anthropic announced Claude Opus 4.5 with significant improvements to coding performance, scoring 80% on SWE-Bench Verified benchmark and reduced tool calling errors.</p>
+                </div>
+                <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
+                    <span class="font-medium">Nov 24</span>
+                    <span>Anthropic</span>
+                </div>
+            </a>
+            <a href="https://cursor.com/changelog/2-1" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
+                <div>
+                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">Cursor 2.1 Major Update</h3>
+                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Released with improved Plan Mode, AI Code Review in Editor, Instant Grep for faster code search, MCP Elicitation Support, and Team Rules for enhanced collaboration.</p>
+                </div>
+                <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
+                    <span class="font-medium">Nov 21</span>
+                    <span>Cursor</span>
+                </div>
+            </a>
+            <a href="https://github.blog/changelog/2025-11-24-claude-opus-4-5-is-in-public-preview-for-github-copilot/" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
+                <div>
+                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">GitHub Copilot: Claude Opus 4.5 Integration</h3>
+                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">GitHub Copilot added Claude Opus 4.5 in public preview, allowing developers to access Anthropic's latest model for high-quality code generation and agentic workflows.</p>
+                </div>
+                <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
+                    <span class="font-medium">Nov 24</span>
+                    <span>GitHub</span>
+                </div>
+            </a>
+            <a href="https://github.blog/changelog/2025-12-01-copilot-spaces-public-spaces-and-code-view-support" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
+                <div>
+                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">GitHub Copilot Spaces Update</h3>
+                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Added public spaces creation, individual sharing capabilities, and direct file addition from interfaces for better collaboration and context sharing.</p>
+                </div>
+                <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
+                    <span class="font-medium">Dec 1</span>
+                    <span>GitHub</span>
+                </div>
+            </a>
+            <a href="https://github.com/google-gemini/gemini-cli/releases" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
+                <div>
+                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">Gemini CLI v0.15.0</h3>
+                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Major facelift with seamless scrollable UI, mouse support, Databricks authentication, and improved user experience for better terminal navigation and interaction.</p>
+                </div>
+                <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
+                    <span class="font-medium">Nov 3</span>
+                    <span>Google</span>
+                </div>
+            </a>
+            <a href="https://github.blog/changelog/2025-11-18-github-copilot-cli-new-models-enhanced-code-search-and-better-image-support/" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
+                <div>
+                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">GitHub Copilot CLI Enhanced Features</h3>
+                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">New models, enhanced code search capabilities, and improved image support for terminal environments, providing better developer experience in command-line workflows.</p>
+                </div>
+                <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
+                    <span class="font-medium">Nov 18</span>
+                    <span>GitHub</span>
+                </div>
+            </a>
+            <a href="https://windsurf.com/blog/windsurf-wave-2" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
+                <div>
+                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">Windsurf Wave 2 - Agentic IDE Launch</h3>
+                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Enhanced with web search integration, automated memories system, improved Cascade assistant, and enterprise-ready features for professional AI-assisted development.</p>
+                </div>
+                <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
+                    <span class="font-medium">Dec 15</span>
+                    <span>Codeium</span>
+                </div>
+            </a>
+            <a href="https://blog.continue.dev/continue-newsletter-december-2024-updates/" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
+                <div>
+                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">Continue Multi-File Editing</h3>
+                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Automatic multi-file editing capabilities, improved chat functionality, and enhanced tool use integration with Anthropic models for seamless development workflows.</p>
+                </div>
+                <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
+                    <span class="font-medium">Dec 6</span>
+                    <span>Continue.dev</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- New Technologies Section (7 items = grid-rows-2) -->
+    <section class="mb-16">
+        <h2 class="font-serif text-3xl font-bold text-black mb-8 tracking-tight">New Technologies</h2>
+        <div class="grid grid-flow-col auto-cols-[320px] grid-rows-2 gap-5 overflow-x-auto pb-4 hide-scrollbar">
+            <a href="https://www.anthropic.com/news/claude-opus-4-5" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
+                <div>
+                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">Claude Opus 4.5 Technical Improvements</h3>
+                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">State-of-the-art performance on software engineering benchmarks with 65% fewer token usage, better efficiency, enhanced safety, and new effort control parameters.</p>
+                </div>
+                <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
+                    <span class="font-medium">Nov 24</span>
+                    <span>Anthropic</span>
+                </div>
+            </a>
+            <a href="https://bfl.ai/blog/flux-2" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
+                <div>
+                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">FLUX.2</h3>
+                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Frontier Visual Intelligence - new AI model for visual code understanding and generation. Can analyze screenshots, diagrams, and visual design assets for enhanced development.</p>
+                </div>
+                <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
+                    <span class="font-medium">Nov 27</span>
+                    <span>Black Forest Labs</span>
+                </div>
+            </a>
+            <a href="https://arxiv.org/html/2509.06216v2" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
+                <div>
+                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">State of Agentic Software Engineering (SE 3.0)</h3>
+                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Academic research introducing Agentic Software Engineering as a new era where intelligent agents handle complex multi-step tasks in software development.</p>
+                </div>
+                <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
+                    <span class="font-medium">Nov 28</span>
+                    <span>Academic Paper</span>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=LCEmiRjPEtQ" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
+                <div>
+                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">Software 3.0 Paradigm</h3>
+                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Andrej Karpathy's vision for evolution from Software 1.0 (hand-written) to Software 2.0 (neural networks) to Software 3.0 (natural language interfaces).</p>
+                </div>
+                <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
+                    <span class="font-medium">Nov 28</span>
+                    <span>YC AI Startup School</span>
+                </div>
+            </a>
+            <a href="https://x.com/karpathy/status/1886192184808149383" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
+                <div>
+                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">Vibe Coding Methodology</h3>
+                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">New approach where developers "fully give in to the vibes, embrace exponentials" and work more intuitively with AI systems for enhanced productivity.</p>
+                </div>
+                <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
+                    <span class="font-medium">Nov 28</span>
+                    <span>Andrej Karpathy</span>
                 </div>
             </a>
             <a href="https://www.promptarmor.com/resources/google-antigravity-exfiltrates-data" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
                 <div>
                     <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">PromptArmor Research</h3>
-                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Security research tool that discovered indirect prompt injection vulnerabilities in Google's systems. Highlights emerging security concerns in AI-powered coding assistants and the need for safer prompt handling.</p>
+                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Security research discovering indirect prompt injection vulnerabilities in Google's systems, highlighting security concerns in AI-powered coding assistants.</p>
                 </div>
                 <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
                     <span class="font-medium">Nov 27</span>
-                    <span>Hacker News</span>
+                    <span>Security Research</span>
                 </div>
             </a>
-        </div>
-    </section>
-
-    <!-- New Features Section -->
-    <section class="mb-16">
-        <h2 class="font-serif text-3xl font-bold text-black mb-8 tracking-tight">New Features</h2>
-        <div class="grid grid-flow-col auto-cols-[320px] grid-rows-2 gap-5 overflow-x-auto pb-4 hide-scrollbar">
-            <a href="https://www.anthropic.com" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
+            <a href="https://www.arxiv.org/abs/2511.12823" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
                 <div>
-                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">Claude Opus 4.5 Release</h3>
-                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Anthropic announced Claude Opus 4.5 with significant improvements to coding performance, scoring 80% on SWE-Bench Verified benchmark and introducing new Claude Code desktop application</p>
-                </div>
-                <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
-                    <span class="font-medium">Nov 24</span>
-                    <span>Claude Code</span>
-                </div>
-            </a>
-            <a href="https://business-standard.com" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
-                <div>
-                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">New Desktop Application</h3>
-                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Anthropic rolls out Claude Code desktop app as part of the Opus 4.5 launch, expanding access beyond web interfaces</p>
-                </div>
-                <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
-                    <span class="font-medium">Nov 25</span>
-                    <span>Claude Code</span>
-                </div>
-            </a>
-            <a href="https://github.blog" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
-                <div>
-                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">Auto Model Selection Public Preview</h3>
-                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">GitHub introduces auto model selection for Copilot in Visual Studio, automatically choosing the best AI model for coding tasks</p>
-                </div>
-                <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
-                    <span class="font-medium">Nov 11</span>
-                    <span>GitHub Copilot</span>
-                </div>
-            </a>
-            <a href="https://github.blog" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
-                <div>
-                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">Copilot CLI Enhanced Features</h3>
-                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">GitHub Copilot CLI receives new models, enhanced code search capabilities, and improved image support for developers</p>
-                </div>
-                <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
-                    <span class="font-medium">Nov 18</span>
-                    <span>GitHub Copilot</span>
-                </div>
-            </a>
-            <a href="https://github.blog" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
-                <div>
-                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">Plan Mode in Public Preview</h3>
-                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">GitHub Copilot's plan mode now available in public preview for JetBrains, Eclipse, and Xcode, enabling better development planning</p>
-                </div>
-                <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
-                    <span class="font-medium">Nov 18</span>
-                    <span>GitHub Copilot</span>
-                </div>
-            </a>
-            <a href="https://cybernews.com" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
-                <div>
-                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">Visual Studio 2026 Integration</h3>
-                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Microsoft releases Visual Studio 2026 with major AI-native improvements and enhanced GitHub Copilot integration</p>
-                </div>
-                <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
-                    <span class="font-medium">Nov 12</span>
-                    <span>GitHub Copilot</span>
-                </div>
-            </a>
-            <a href="https://venturebeat.com" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
-                <div>
-                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">Devin 2.0 Massive Price Reduction</h3>
-                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Cognition slashes Devin AI software engineer pricing from $500 to $20 per month, making autonomous AI coding more accessible</p>
-                </div>
-                <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
-                    <span class="font-medium">Nov 3</span>
-                    <span>Devin</span>
-                </div>
-            </a>
-            <a href="https://thenewstack.io" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
-                <div>
-                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">Developer Walkthrough Published</h3>
-                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">The New Stack publishes comprehensive developer walkthrough of Aider, highlighting its open-source agentic CLI capabilities for AI-assisted coding</p>
-                </div>
-                <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
-                    <span class="font-medium">Nov 5</span>
-                    <span>Aider</span>
-                </div>
-            </a>
-            <a href="https://techcrunch.com" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
-                <div>
-                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">Custom AI Coding Assistants Platform</h3>
-                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Continue launches platform to help developers create and share custom AI coding assistants, expanding customization options for teams</p>
-                </div>
-                <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
-                    <span class="font-medium">Nov 26</span>
-                    <span>Continue</span>
-                </div>
-            </a>
-            <a href="https://time.com/collections/best-inventions-2025/7318249/warp-agentic-development-environment/" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
-                <div>
-                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">Agentic Development Environment</h3>
-                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">TIME magazine recognizes Warp's Agentic Development Environment as one of 2025's best inventions. The platform exemplifies 'vibe coding' where tech novices use AI to build applications.</p>
+                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">Enhancing LLM Code Generation Through TDD</h3>
+                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Research paper introducing methodologies for improving LLM code generation through Test-Driven Development approaches and code interpreter integration.</p>
                 </div>
                 <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
                     <span class="font-medium">Nov 28</span>
-                    <span>Warp</span>
+                    <span>Academic Research</span>
                 </div>
             </a>
         </div>
     </section>
 
-    <!-- New Technologies Section -->
+    <!-- Others Section (8 items = grid-rows-2) -->
     <section class="mb-16">
-        <h2 class="font-serif text-3xl font-bold text-black mb-8 tracking-tight">New Technologies</h2>
-        <div class="grid grid-flow-col auto-cols-[320px] grid-rows-1 gap-5 overflow-x-auto pb-4 hide-scrollbar">
-            <a href="https://www.anthropic.com/news/claude-opus-4-5" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
+        <h2 class="font-serif text-3xl font-bold text-black mb-8 tracking-tight">Others</h2>
+        <div class="grid grid-flow-col auto-cols-[320px] grid-rows-2 gap-5 overflow-x-auto pb-4 hide-scrollbar">
+            <a href="https://digidai.github.io/2025/11/21/amjad-masad-replit-billion-software-creators-deep-analysis/" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
                 <div>
-                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">Claude Opus 4.5: New State-of-the-Art Model for Coding and Agents</h3>
-                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Anthropic released Claude Opus 4.5, delivering state-of-the-art performance on software engineering benchmarks. The model achieves SOTA results on SWE-bench Verified and excels at agentic workflows.</p>
+                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">Replit's $3B Valuation Analysis</h3>
+                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Comprehensive analysis of Replit's position achieving $144M ARR with $3B valuation, competing in professional developer tools segment and AI-powered development.</p>
                 </div>
                 <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
-                    <span class="font-medium">Nov 27</span>
-                    <span>Anthropic</span>
+                    <span class="font-medium">Nov 28</span>
+                    <span>Digidai Analysis</span>
                 </div>
             </a>
-            <a href="https://www.youtube.com/watch?v=LCEmiRjPEtQ" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
+            <a href="https://hyperdev.matsuoka.com/p/when-ai-coding-feels-like-yelling" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
                 <div>
-                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">Software 3.0: Andrej Karpathy's Vision for AI-Driven Development</h3>
-                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Andrej Karpathy's keynote at YC AI Startup School outlines the evolution from Software 1.0 (hand-written code) to Software 2.0 (neural networks) to Software 3.0 (natural language interfaces with LLMs).</p>
+                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">The AI Coding Backlash Discussion</h3>
+                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Growing developer frustration with AI coding tools, with 75% of developers still manually reviewing every AI-generated code snippet for quality and accuracy.</p>
                 </div>
                 <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
-                    <span class="font-medium">Nov 27</span>
-                    <span>YouTube/Talk</span>
+                    <span class="font-medium">Nov 29</span>
+                    <span>Industry Analysis</span>
                 </div>
             </a>
-            <a href="https://arxiv.org/html/2509.06216v2" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
+            <a href="https://survey.stackoverflow.co/2025/ai" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
                 <div>
-                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">State of Agentic Software Engineering: SE 3.0 Research Paper</h3>
-                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Academic paper introducing Agentic Software Engineering (SE 3.0) as a new era where intelligent agents handle complex multi-step tasks rather than simple code generation.</p>
+                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">AI Coding Sentiment Decline</h3>
+                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Stack Overflow survey showing positive sentiment decreased from 70%+ in 2023-2024 to just 60% in 2025 despite widespread adoption of AI coding tools.</p>
                 </div>
                 <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
-                    <span class="font-medium">Nov 27</span>
-                    <span>Paper</span>
+                    <span class="font-medium">Nov 29</span>
+                    <span>Developer Survey</span>
                 </div>
             </a>
-            <a href="https://example.com/multi-modal-dev" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
+            <a href="https://news.ycombinator.com/item?id=46047478" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
                 <div>
-                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">Multi-Modal AI in Development Workflows</h3>
-                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">The integration of text, code, and visual AI models is creating new development possibilities. Developers can now use images, diagrams, and natural language to generate and modify code.</p>
+                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">Hacker News: AI Tool Recommendations 2025</h3>
+                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Active community discussion seeking recommendations for AI coding tools, indicating ongoing evaluation of optimal AI-assisted workflows among developers.</p>
                 </div>
                 <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
-                    <span class="font-medium">Nov 27</span>
-                    <span>Technical</span>
+                    <span class="font-medium">Nov 29</span>
+                    <span>Hacker News</span>
                 </div>
             </a>
-            <a href="https://example.com/agentic-ai-systems" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
+            <a href="https://news.ycombinator.com/item?id=45405177" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
                 <div>
-                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">Agentic AI Systems: Beyond Code Completion</h3>
-                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">The industry is moving toward agentic AI systems that can understand context, make decisions, and complete multi-step programming tasks independently.</p>
+                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">The AI Coding Trap</h3>
+                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Discussion about LLM coding agents' limitations and the importance of maintaining human oversight in AI-assisted development to avoid common pitfalls.</p>
                 </div>
                 <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
-                    <span class="font-medium">Nov 27</span>
-                    <span>Paper</span>
+                    <span class="font-medium">Nov 26</span>
+                    <span>Hacker News</span>
                 </div>
             </a>
-            <a href="https://example.com/ai-systems-architecture" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
+            <a href="https://www.shuttle.dev/blog/2025/11/20/ai-coding-tools-for-developers" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
                 <div>
-                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">The Next Frontier: AI Systems Architecture</h3>
-                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Discussions are emerging about AI's role in systems architecture and design, moving from code generation to high-level architectural decision-making.</p>
+                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">Best AI Coding Tools Comparison November 2025</h3>
+                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Comprehensive comparison of leading AI coding assistants including Claude Code, GitHub Copilot, Cursor, and analysis of IDE support and workflows.</p>
                 </div>
                 <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
-                    <span class="font-medium">Nov 27</span>
-                    <span>Technical</span>
+                    <span class="font-medium">Nov 28</span>
+                    <span>Shuttle.dev</span>
                 </div>
             </a>
             <a href="https://simonwillison.net/2025/Nov/2/how-i-use-every-claude-code-feature/" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
                 <div>
                     <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">How I Use Every Claude Code Feature</h3>
-                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Simon Willison shares insights on Claude Code usage patterns and MCP (Model Context Protocol) evolution. He discusses how MCP should serve as a simple, secure gateway providing high-level tools.</p>
+                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Simon Willison's comprehensive guide on Claude Code usage patterns and MCP evolution for both individual and team projects with practical examples.</p>
                 </div>
                 <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
-                    <span class="font-medium">Nov 27</span>
-                    <span>Blog</span>
+                    <span class="font-medium">Nov 28</span>
+                    <span>Technical Tutorial</span>
                 </div>
             </a>
-        </div>
-    </section>
-
-    <!-- Others Section -->
-    <section class="mb-16">
-        <h2 class="font-serif text-3xl font-bold text-black mb-8 tracking-tight">Others</h2>
-        <div class="grid grid-flow-col auto-cols-[320px] grid-rows-1 gap-5 overflow-x-auto pb-4 hide-scrollbar">
-            <a href="https://www.cnbc.com" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
+            <a href="https://www.index.dev/blog/ai-coding-assistants-roi-productivity" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
                 <div>
-                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">Cursor</h3>
-                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">$2.3B Series D Funding Round - Cursor AI secures $2.3 billion Series D funding at $29.3 billion valuation, with major backing from Nvidia and Google</p>
+                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">AI Coding Assistant ROI Analysis</h3>
+                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Data-driven analysis showing AI coding assistants increase individual developer output by 20-40%, but company-level gains require process changes.</p>
                 </div>
                 <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
-                    <span class="font-medium">Nov 27</span>
-                    <span>Hacker News</span>
-                </div>
-            </a>
-            <a href="https://www.bloomberg.com" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
-                <div>
-                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">Windsurf</h3>
-                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">OpenAI Acquisition Finalized - OpenAI completes $3 billion acquisition of Windsurf, marking the company's largest acquisition to date</p>
-                </div>
-                <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
-                    <span class="font-medium">Nov 27</span>
-                    <span>Hacker News</span>
-                </div>
-            </a>
-            <a href="https://example.com/ai-coding-future" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
-                <div>
-                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">The Future of AI-Augmented Development Tools</h3>
-                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Thought leaders are increasingly discussing how AI coding tools are evolving from simple autocomplete to full development companions.</p>
-                </div>
-                <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
-                    <span class="font-medium">Nov 27</span>
-                    <span>Blog</span>
-                </div>
-            </a>
-            <a href="https://example.com/dev-education-ai" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
-                <div>
-                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">Rethinking Developer Education in the AI Era</h3>
-                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Recent discussions focus on how traditional programming education needs to adapt to AI tools. Emphasis is shifting from memorization to problem-solving.</p>
-                </div>
-                <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
-                    <span class="font-medium">Nov 27</span>
-                    <span>Discussion</span>
-                </div>
-            </a>
-            <a href="https://example.com/ai-code-security" class="w-full h-full bg-white border border-[#E6E6E6] p-6 flex flex-col justify-between transition-all no-underline hover:border-[#D1D1D1] hover:shadow-md">
-                <div>
-                    <h3 class="font-serif text-xl font-bold text-black mb-3 leading-tight tracking-tight">Security and Ethics in AI-Powered Development</h3>
-                    <p class="text-sm text-[#292929] leading-relaxed mb-5 line-clamp-3">Growing concerns about code security, intellectual property, and bias in AI-generated code are driving discussions about responsible AI development tool practices.</p>
-                </div>
-                <div class="flex justify-between items-center text-xs text-[#6B6B6B] pt-4 border-t border-[#E6E6E6]">
-                    <span class="font-medium">Nov 27</span>
-                    <span>Discussion</span>
+                    <span class="font-medium">Nov 28</span>
+                    <span>Index.dev</span>
                 </div>
             </a>
         </div>
