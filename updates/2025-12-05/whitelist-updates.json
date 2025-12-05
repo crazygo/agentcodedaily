@@ -1,0 +1,47 @@
+[
+  {
+    "productName": "Continue",
+    "title": "@continuedev/fetch@1.7.0",
+    "description": "Major release with auto-approval for parallel read-only tools, Gemini thought signature support, improved CLI headless mode, and extensive bug fixes",
+    "updateType": "release",
+    "url": "https://github.com/continuedev/continue/releases/tag/%40continuedev/fetch%401.7.0",
+    "date": "2025-12-04",
+    "community_feedback": [
+      {
+        "quote": "Active development with significant improvements",
+        "source": "GitHub",
+        "sentiment": "positive"
+      }
+    ]
+  },
+  {
+    "productName": "Continue",
+    "title": "@continuedev/openai-adapters@1.35.0",
+    "description": "Update with JSON content handling for file creation, auto-approval for parallel tools, and AWS SDK upgrades",
+    "updateType": "release",
+    "url": "https://github.com/continuedev/continue/releases/tag/%40continuedev/openai-adapters%401.35.0",
+    "date": "2025-12-04",
+    "community_feedback": [
+      {
+        "quote": "Recent maintenance release with key fixes",
+        "source": "GitHub",
+        "sentiment": "neutral"
+      }
+    ]
+  },
+  {
+    "productName": "Continue",
+    "title": "Continue v1.5.21",
+    "description": "Latest version with continued improvements to the AI coding assistant platform",
+    "updateType": "release",
+    "url": "https://github.com/continuedev/continue/releases/tag/v1.5.21",
+    "date": "2025-12-02",
+    "community_feedback": [
+      {
+        "quote": "Steady development cadence with regular updates",
+        "source": "GitHub",
+        "sentiment": "positive"
+      }
+    ]
+  }
+]
