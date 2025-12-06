@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Research Limitation: API Usage Caps Reached",
+    "description": "Unable to collect AI coding insights from thought leaders and sources due to web search and web reader API reaching monthly usage limits. Both tools return error code 1308 indicating usage cap will reset on January 1, 2026. This highlights a limitation in automated research workflows that depend on third-party API services with usage quotas.",
+    "author": "System Analysis",
+    "source": "System",
+    "url": "",
+    "published_date": "2025-12-06",
+    "topics": ["research", "api-limits", "automation", "data-collection"],
+    "type": "technical"
+  }
+]

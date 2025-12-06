@@ -213,7 +213,23 @@
         "report.md",
         "whitelist-updates.json"
       ]
+    },
+    {
+      "date": "2025-12-06",
+      "files": [
+        "2025-12-06-00-26-00-677-prompts-html-report-prompt-md.log",
+        "2025-12-06-00-26-00-677-prompts-insights-prompty.log",
+        "2025-12-06-00-26-00-677-prompts-task-new-product-prompty.log",
+        "2025-12-06-00-26-00-677-prompts-whitelist-updates-prompty.log",
+        "2025-12-06-00-26-00-677-run-logs.json",
+        "data.json",
+        "index.html",
+        "insights.json",
+        "new-product.json",
+        "report.md",
+        "whitelist-updates.json"
+      ]
     }
   ],
-  "lastUpdated": "2025-12-05T20:11:12.607Z"
+  "lastUpdated": "2025-12-06T00:29:13.372Z"
 }
